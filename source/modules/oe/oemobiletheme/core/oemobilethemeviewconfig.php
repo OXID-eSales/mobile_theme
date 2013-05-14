@@ -30,6 +30,13 @@ class oemobilethemeviewconfig extends oemobilethemeviewconfig_parent
     protected $_sActiveTheme = null;
 
     /**
+     * Active device name
+     *
+     * @var null
+     */
+    protected $_sActiveDeviceType = null;
+
+    /**
      * Returns active theme name
      *
      * @return string
@@ -55,6 +62,19 @@ class oemobilethemeviewconfig extends oemobilethemeviewconfig_parent
             $this->_sActiveThemeType = $oTheme->getActiveThemeType();
         }
         return $this->_sActiveThemeType;
+    }
+
+    /**
+     * Returns active device type (mobile|desktop)
+     *
+     * @return string
+     */
+    public function getActiveDeviceType()
+    {
+        if ( $this->_sActiveDeviceType === null ) {
+            $this->_sActiveDeviceType = oxRegistry::get("oxUtilsServer")->getDeviceType();
+        }
+        return $this->_sActiveDeviceType;
     }
 
 }

@@ -48,7 +48,6 @@ class oemobilethemeutilsserver extends oemobilethemeutilsserver_parent
         if ( $this->_sDeviceType === null ) {
             $this->setDeviceType();
         }
-        return true;
         return $this->_sDeviceType;
     }
 }
