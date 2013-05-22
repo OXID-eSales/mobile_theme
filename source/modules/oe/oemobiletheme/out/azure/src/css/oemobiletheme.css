@@ -1,0 +1,11 @@
+#incBackLink{
+    position:fixed;
+    bottom:-3px;
+    right:149px;
+    font-size:11px;
+    padding:4px 20px 6px 17px;
+    background:url(../../img/vatmsg-bg.png) no-repeat 0 0;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+    z-index:9999;
+}
