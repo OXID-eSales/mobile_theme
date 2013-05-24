@@ -1,0 +1,127 @@
+[{capture append="oxidBlock_content"}]
+[{assign var="template_title" value="ORDER_HISTORY"|oxmultilangassign}]
+
+[{include file="widget/backbutton.tpl" link=$oViewConf->getSelfLink()|cat:"cl=account" text="BACK" seo=1}]
+
+<h1>[{ oxmultilang ident="ORDER_HISTORY" }]</h1>
+
+[{assign var=oOrders value=$oView->getOrderList()}]
+
+[{block name="account_order_history"}]
+[{if count($oOrders) > 0}]
+    [{assign var=oArticleList value=$oView->getOrderArticleList()}]
+    <ul id="orderList">
+        [{foreach from=$oOrders item=order}]
+            <li>
+                <ul class="orderDetails">
+                    <li>
+                        <span id="accOrderDate_[{$order->oxorder__oxordernr->value}]" class="orderDate" title="[{ oxmultilang ident="ORDER_DATE" suffix="COLON" }]" >[{ $order->oxorder__oxorderdate->value|date_format:"%d.%m.%Y" }]</span>
+                        <strong>[{ oxmultilang ident="ORDER_NUMBER" suffix="COLON" }]</strong>
+                        <span id="accOrderNo_[{$order->oxorder__oxordernr->value}]">[{ $order->oxorder__oxordernr->value }]</span>
+                    </li>
+                    <li>
+                        <strong>[{ oxmultilang ident="STATUS" suffix="COLON" }]</strong>
+                        <span id="accOrderStatus_[{$order->oxorder__oxordernr->value}]">
+                            [{if $order->oxorder__oxstorno->value}]
+                                <span class="note">[{ oxmultilang ident="ORDER_IS_CANCELED" }]</span>
+                            [{elseif $order->oxorder__oxsenddate->value !="-" }]
+                                <span>[{ oxmultilang ident="SHIPPED" }]</span>
+                            [{else}]
+                                <span class="note">[{ oxmultilang ident="NOT_SHIPPED_YET" }]</span>
+                            [{/if}]
+                        </span>
+                    </li>
+                    [{if $order->getShipmentTrackingUrl()}]
+                        <li>
+                            <strong>[{ oxmultilang ident="TRACKING_ID" suffix="COLON" }]</strong>
+                            <span id="accOrderTrack_[{$order->oxorder__oxordernr->value}]">
+                                <a href="[{$order->getShipmentTrackingUrl()}]">[{ oxmultilang ident="TRACK_SHIPMENT" }]</a>
+                            </span>
+                        </li>
+                    [{/if}]
+                    <li>
+                        <strong>[{ oxmultilang ident="SHIPMENT_TO" suffix="COLON" }]</strong>
+                        <span id="accOrderName_[{$order->oxorder__oxordernr->value}]">
+                        [{if $order->oxorder__oxdellname->value }]
+                            [{ $order->oxorder__oxdelfname->value }]
+                            [{ $order->oxorder__oxdellname->value }]
+                        [{else }]
+                            [{ $order->oxorder__oxbillfname->value }]
+                            [{ $order->oxorder__oxbilllname->value }]
+                        [{/if}]
+                        </span>
+                    </li>
+                </ul>
+                <ul class="orderArticles">
+                    [{foreach from=$order->getOrderArticles(true) item=orderitem name=testOrderItem}]
+                        <li>
+                            [{assign var=sArticleId value=$orderitem->oxorderarticles__oxartid->value }]
+                            [{assign var=oArticle value=$oArticleList[$sArticleId] }]
+                                [{if $oArticle->oxarticles__oxid->value && $oArticle->isVisible() }]
+                                    <a  id="accOrderLink_[{$order->oxorder__oxordernr->value}]_[{$smarty.foreach.testOrderItem.iteration}]" href="[{ $oArticle->getLink() }]">
+                                [{/if}]
+                                    <span class="amount" title="[{oxmultilang ident="QNT"}]">[{ $orderitem->oxorderarticles__oxamount->value }]</span> [{ $orderitem->oxorderarticles__oxtitle->value }]
+                                    [{if $orderitem->oxorderarticles__oxselvariant->value}]
+                                        <br /><span class="variants">[{ $orderitem->oxorderarticles__oxselvariant->value }]</span>
+                                    [{/if}]
+                                [{if $oArticle->oxarticles__oxid->value && $oArticle->isVisible() }]</a>[{/if}]
+                                [{* Commented due to Trusted Shops precertification. Enable if needed *}]
+                                [{*
+                                [{oxhasrights ident="TOBASKET"}]
+                                [{if $oArticle->oxarticles__oxid->value && $oArticle->isBuyable() }]
+                                    <a id="accOrderToBasket_[{$order->oxorder__oxordernr->value}]_[{$smarty.foreach.testOrderItem.iteration}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_order" params="fnc=tobasket&amp;aid=`$oArticle->oxarticles__oxid->value`&amp;am=1" }]" rel="nofollow">[{ oxmultilang ident="ADD_TO_CART" }]</a>
+                                [{/if}]
+                                [{/oxhasrights}]
+                                *}]
+                            [{if $smarty.const.OXID_VERSION_EE}]
+                                [{if $orderitem->getStatus()}]
+                                    <div class="articleDetails">
+                                        <strong>[{ oxmultilang ident="DELIVERY_STATUS" suffix="COLON" }]</strong>
+                                        <ul>
+                                            [{foreach from=$orderitem->getStatus() item=aStatus }]
+                                                <li>
+                                                    <strong>[{if $aStatus->STATUS == "ANG"}]
+                                                      [{ oxmultilang ident="DELIVERY_STATUS_ANG" }]
+                                                    [{ elseif $aStatus->STATUS == "HAL"}]
+                                                      [{ oxmultilang ident="DELIVERY_STATUS_HAL" }]
+                                                    [{ elseif $aStatus->STATUS == "BES"}]
+                                                      [{ oxmultilang ident="DELIVERY_STATUS_BES" }]
+                                                    [{ elseif $aStatus->STATUS == "EIN"}]
+                                                      [{ oxmultilang ident="DELIVERY_STATUS_EIN" }]
+                                                    [{ elseif $aStatus->STATUS == "AUS"}]
+                                                      [{ oxmultilang ident="DELIVERY_STATUS_AUS" }]
+                                                    [{ elseif $aStatus->STATUS == "STO"}]
+                                                      [{ oxmultilang ident="DELIVERY_STATUS_STO" }]
+                                                    [{ elseif $aStatus->STATUS == "NLB"}]
+                                                      [{ oxmultilang ident="DELIVERY_STATUS_NLB" }]
+                                                    [{else}]
+                                                      [{ $aStatus->STATUS }]
+                                                    [{/if}]</strong>
+                                                    <span>([{ $aStatus->date|date_format:"%d.%m.%Y %H:%M" }]) </span>
+                                                </li>
+                                            [{/foreach}]
+                                        </ul>
+                                        [{if $aStatus->trackingid }]
+                                            <strong>[{ oxmultilang ident="TRACKING_ID" suffix="COLON" }]</strong>
+                                            <span>[{ $aStatus->trackingid }]</span>
+                                        [{/if}]
+                                    </div>
+                                [{/if}]
+                            [{/if}][{* OXID_VERSION_EE *}]
+                        </li>
+                    [{/foreach}]
+                </ul>
+            </li>
+        [{/foreach}]
+    </ul>
+    [{include file="widget/locator/listlocator.tpl" locator=$oView->getPageNavigation() place="bottom"}]
+[{else}]
+    <div class="content">
+        [{ oxmultilang ident="ORDER_EMPTY_HISTORY" }]
+    </div>
+[{/if}]
+[{/block}]
+[{insert name="oxid_tracker" title=$template_title }]
+[{/capture}]
+
+[{include file="layout/page.tpl" sidebar="Left"}]
