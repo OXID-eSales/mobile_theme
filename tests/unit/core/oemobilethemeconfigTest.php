@@ -24,7 +24,7 @@ class Unit_Core_oemobilethemeconfigTest extends OxidTestCase
     {
         oxTestModules::addFunction("oxTheme", "getActiveThemeType", "{return 'mobile';}");
 
-        $oConfig = new oxConfig();
+        $oConfig = new oemobilethemeconfig();
         $oConfig->setConfigParam("sMobileTheme", "mobileTheme");
         $oConfig->init();
         $this->assertEquals( 'mobileTheme', $oConfig->getConfigParam( 'sCustomTheme' ));
@@ -37,7 +37,7 @@ class Unit_Core_oemobilethemeconfigTest extends OxidTestCase
     {
         oxTestModules::addFunction("oxTheme", "setActiveThemeType", "{return 'mobile';}");
 
-        $oConfig = new oxConfig();
+        $oConfig = new oemobilethemeconfig();
         $this->setRequestParam('themeType', 'desktop');
         $oConfig->setConfigParam("sMobileTheme", "mobileTheme");
         $oConfig->setConfigParam("sCustomTheme", "custTheme");

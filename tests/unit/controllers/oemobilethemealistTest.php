@@ -24,7 +24,7 @@ class Unit_Controllers_oemobilethemealistTest extends OxidTestCase
     public function testGetShowFilter()
     {
         modConfig::setParameter( "showFilter", true );
-        $oAlis = $this->getProxyClass( "aList" );
+        $oAlis = $this->getProxyClass( "oemobilethemealist" );
         $this->assertTrue( $oAlis->getShowFilter() );
         modConfig::setParameter( "showFilter", false );
         $this->assertEquals( false, $oAlis->getShowFilter() );

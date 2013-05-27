@@ -27,7 +27,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         )
             ->will($this->returnValue(null));
 
-        $oTheme = $this->getMock('oxTheme', array('checkForActivationErrors', 'getConfig' ));
+        $oTheme = $this->getMock('oemobilethemetheme', array('checkForActivationErrors', 'getConfig' ));
         $oTheme->expects($this->once())->method('checkForActivationErrors')->will($this->returnValue(false));
         $oTheme->expects($this->any())->method('getConfig')->will($this->returnValue($oConfig));
         $oTheme->setInfo('parentTheme', '');
@@ -64,7 +64,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         )
             ->will($this->returnValue(null));
 
-        $oTheme = $this->getMock('oxTheme', array('checkForActivationErrors', 'getConfig' ));
+        $oTheme = $this->getMock('oemobilethemetheme', array('checkForActivationErrors', 'getConfig' ));
         $oTheme->expects($this->once())->method('checkForActivationErrors')->will($this->returnValue(false));
         $oTheme->expects($this->any())->method('getConfig')->will($this->returnValue($oConfig));
         $oTheme->setInfo('parentTheme', '');
@@ -102,7 +102,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         )
             ->will($this->returnValue(null));
 
-        $oTheme = $this->getMock('oxTheme', array('checkForActivationErrors', 'getConfig' ));
+        $oTheme = $this->getMock('oemobilethemetheme', array('checkForActivationErrors', 'getConfig' ));
         $oTheme->expects($this->once())->method('checkForActivationErrors')->will($this->returnValue(false));
         $oTheme->expects($this->any())->method('getConfig')->will($this->returnValue($oConfig));
         $oTheme->setInfo('parentTheme', 'mainT');
@@ -121,7 +121,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         $this->setConfigParam('sCustomTheme', 'custom');
         $this->setConfigParam('sTheme', 'maint');
 
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $oTheme->setActiveThemeType('mobile');
         $this->assertEquals('mobile', $oTheme->getActiveThemeId());
     }
@@ -135,7 +135,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         $this->setConfigParam('sCustomTheme', '');
         $this->setConfigParam('sTheme', 'maint');
 
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $this->assertEquals('maint', $oTheme->getActiveThemeId());
     }
 
@@ -149,7 +149,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
 
         oxRegistry::set("oxUtilsServer", $oUtils);
 
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $this->assertEquals('desktop', $oTheme->getActiveThemeType());
     }
 
@@ -164,7 +164,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         $this->setConfigParam("sMobileTheme", '');
         oxRegistry::set("oxUtilsServer", $oUtils);
 
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $this->assertEquals('desktop', $oTheme->getActiveThemeType());
     }
 
@@ -179,7 +179,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         $this->setConfigParam("sMobileTheme", "mobileTheme");
         oxRegistry::set("oxUtilsServer", $oUtils);
 
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $this->assertEquals('mobile', $oTheme->getActiveThemeType());
     }
 
@@ -188,7 +188,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
      */
     public function testGetSetActiveThemeType()
     {
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $this->assertEquals('desktop', $oTheme->getActiveThemeType());
         $oTheme->setActiveThemeType('mobile');
         $this->assertEquals('mobile', $oTheme->getActiveThemeType());
@@ -206,7 +206,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         $this->setConfigParam("sMobileTheme", "mobileTheme");
         oxRegistry::set("oxUtilsServer", $oUtils);
 
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $this->assertEquals('desktop', $oTheme->getActiveThemeType());
     }
 
@@ -215,7 +215,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
      */
     public function testGetSetInfo()
     {
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $oTheme->setInfo('oxid', 'testModuleId');
         $this->assertEquals('testModuleId', $oTheme->getInfo('oxid'));
     }
@@ -226,7 +226,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
     public function testDeactivateErrorIfNotMobileTheme()
     {
         $this->setExpectedException('oxException', 'EXCEPTION_THEME_NOT_MOBILE');
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $oTheme->setInfo('mobile', false);
         $oTheme->deactivate();
     }
@@ -240,7 +240,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         $this->setConfigParam("sMobileTheme", 'mobileT');
         $this->setConfigParam("sCustomTheme", '');
         $this->setExpectedException('oxException', 'EXCEPTION_THEME_LAST_ACTIVE');
-        $oTheme = new oxTheme();
+        $oTheme = new oemobilethemetheme();
         $oTheme->setInfo('mobile', true);
         $oTheme->setInfo('desktop', true);
         $oTheme->deactivate();
@@ -270,7 +270,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         )
             ->will($this->returnValue(null));
 
-        $oTheme = $this->getMock('oxTheme', array('getConfig' ));
+        $oTheme = $this->getMock('oemobilethemetheme', array('getConfig' ));
         $oTheme->expects($this->any())->method('getConfig')->will($this->returnValue($oConfig));
         $oTheme->setInfo('id', 'mobileT');
         $oTheme->setInfo('mobile', true);
@@ -292,7 +292,7 @@ class Unit_Core_oemobilethemethemeTest extends OxidTestCase
         )
             ->will($this->returnValue(null));
 
-        $oTheme = $this->getMock('oxTheme', array('_checkForDeactivationErrors', 'getConfig' ));
+        $oTheme = $this->getMock('oemobilethemetheme', array('_checkForDeactivationErrors', 'getConfig' ));
         $oTheme->expects($this->once())->method('_checkForDeactivationErrors')->will($this->returnValue(false));
         $oTheme->expects($this->any())->method('getConfig')->will($this->returnValue($oConfig));
         $oTheme->setInfo('id', 'mobileT');

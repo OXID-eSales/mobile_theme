@@ -18,7 +18,7 @@ class Unit_Views_oemobilethemeviewConfigTest extends OxidTestCase
      */
     public function testGetActiveTheme_mainTheme()
     {
-        $oViewConf = new oxViewConfig();
+        $oViewConf = new oemobilethemeviewConfig();
         $oViewConf->getConfig()->setConfigParam( "sTheme", "testTheme" );
         $this->assertEquals( 'testTheme', $oViewConf->getActiveTheme() );
     }
@@ -28,7 +28,7 @@ class Unit_Views_oemobilethemeviewConfigTest extends OxidTestCase
      */
     public function testGetActiveTheme_customTheme()
     {
-        $oViewConf = new oxViewConfig();
+        $oViewConf = new oemobilethemeviewConfig();
         $oViewConf->getConfig()->setConfigParam( "sCustomTheme", "testCustomTheme" );
         $oViewConf->getConfig()->setConfigParam( "sTheme", "testTheme" );
         $this->assertEquals( 'testCustomTheme', $oViewConf->getActiveTheme() );
@@ -39,7 +39,7 @@ class Unit_Views_oemobilethemeviewConfigTest extends OxidTestCase
      */
     public function testGetActiveThemeTypeDefault()
     {
-        $oViewConf = new oxViewConfig();
+        $oViewConf = new oemobilethemeviewConfig();
         $this->assertEquals( 'desktop', $oViewConf->getActiveThemeType() );
     }
 
