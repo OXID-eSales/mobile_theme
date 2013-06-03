@@ -7,9 +7,7 @@
             <img src="[{$oViewConf->getImageUrl('x.png')}]" alt="" class="closePop">
             <div class="wrappingIntro clear">
                 <h3>[{oxmultilang ident="FACEBOOK_ENABLE_INFOTEXTHEADER"}]</h3>
-                [{oxifcontent ident="oxfacebookenableinfotext" object="oCont"}]
-                    [{$oCont->oxcontents__oxcontent->value}]
-                [{/oxifcontent}]
+                [{oxmultilang ident="FACEBOOK_ENABLE_INFOTEXT"}]
             </div>
         </div>
         [{capture name="facebookInit"}]

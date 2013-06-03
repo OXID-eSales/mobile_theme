@@ -114,7 +114,7 @@
                     [{oxhasrights ident="TOBASKET"}]
                         <div class="addToBasket">
                             <input class="quantity" id="amountToBasket_[{$testid}]" type="textbox" name="am" value="1" size="2" autocomplete="off" />
-                            <button id="toBasket_[{$testid}]" type="submit">[{oxmultilang ident="ADD_TO_CART"}]</button>
+                            <button id="toBasket_[{$testid}]" type="submit">[{oxmultilang ident="DETAILS_ADDTOCART"}]</button>
                         </div>
                     [{/oxhasrights}]
                 [{/block}]

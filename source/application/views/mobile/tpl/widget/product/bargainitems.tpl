@@ -16,7 +16,7 @@
                 [{oxhasrights ident="SHOWARTICLEPRICE"}]
                     [{if $_product->getTPrice()}]
                         <span class="priceOld">
-                            [{ oxmultilang ident="REDUCED_FROM_2" }] <del>[{ $_product->getFTPrice()}] [{ $currency->sign}]</del>
+                            [{ oxmultilang ident="WIDGET_PRODUCT_PRODUCT_REDUCEDFROM" }] <del>[{ $_product->getFTPrice()}] [{ $currency->sign}]</del>
                         </span>
                     [{/if}]
                     [{if $_product->getFPrice()}]
@@ -44,7 +44,7 @@
                         [{ if !( $_product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $_product->getSelections(1)) || $_product->getVariants() )}]
                             <a href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=start" params="fnc=tobasket&amp;aid=`$_product->oxarticles__oxid->value`&amp;am=1"}]" class="toCart button" title="[{oxmultilang ident="ADD_TO_CART" }]">[{oxmultilang ident="ADD_TO_CART" }]</a>
                         [{else}]
-                            <a href="[{$_product->getMainLink()}]" class="toCart button">[{ oxmultilang ident="MORE_INFO" }]</a>
+                            <a href="[{$_product->getMainLink()}]" class="toCart button">[{ oxmultilang ident="WIDGET_PRODUCT_PRODUCT_MOREINFO" }]</a>
                         [{/if}]
                     [{/block}]
                 [{/oxhasrights}]
@@ -57,7 +57,7 @@
 <div class="specBoxTitles rightShadow">
     <h3>
 
-        <strong>[{ oxmultilang ident="WEEK_SPECIAL" }]</strong>
+        <strong>[{ oxmultilang ident="PAGE_SHOP_START_WEEKSPECIAL" }]</strong>
 
         [{assign var='rsslinks' value=$oView->getRssLinks() }]
         [{if $rsslinks.bargainArticles}]

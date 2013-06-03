@@ -9,7 +9,7 @@
             <input type="hidden" name="cl" value="search" >
             <button class="btn"><i class="glyphicon-search"></i></button>
             [{block name="header_search_field"}]
-                <input  placeholder="[{oxmultilang ident="SEARCH" }]" type="text" id="searchParam" name="searchparam" value="[{$oView->getSearchParamForHtml()}]">
+                <input  placeholder="[{oxmultilang ident="SEARCH_TITLE" }]" type="text" id="searchParam" name="searchparam" value="[{$oView->getSearchParamForHtml()}]">
             [{/block}]
         </form>
     </div>

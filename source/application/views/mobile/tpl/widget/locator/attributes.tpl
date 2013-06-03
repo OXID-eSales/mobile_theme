@@ -30,14 +30,14 @@
                                         [{$oFilterAttr->getActiveValue()}]
                                         [{assign var="blFilterOpen" value=true}]
                                     [{else}]
-                                        [{oxmultilang ident="PLEASE_CHOOSE"}]
+                                        [{oxmultilang ident="WIDGET_PRODUCT_ATTRIBUTES_PLEASECHOOSE"}]
                                     [{/if}]
                                 </span>
                                 <i class="glyphicon-chevron-down"></i>
                             </div>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                                 [{if $oFilterAttr->getActiveValue() }]
-                                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="">[{oxmultilang ident="PLEASE_CHOOSE" }]</a></li>
+                                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="">[{oxmultilang ident="WIDGET_PRODUCT_ATTRIBUTES_PLEASECHOOSE" }]</a></li>
                                 [{/if}]
                                 [{foreach from=$oFilterAttr->getValues() item=sValue}]
                                     <li class="dropDownOption"><a tabindex="-1" data-selection-id="[{$sValue}]" [{if $oFilterAttr->getActiveValue() == $sValue }]class="selected"[{/if}] >[{$sValue}]</a></li>
