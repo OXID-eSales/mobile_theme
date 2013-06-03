@@ -3,8 +3,8 @@
 [{capture append="oxidBlock_pageBody"}]
 
 <div class="alertPage alertPageError">
-      <h4 class="alertPageHeader">[{ oxmultilang ident="ERROR_MESSAGE_OXID_SHOP_ERROR" }]</h4>
-      <div class="alertPageBody">[{ oxmultilang ident="ERROR_MESSAGE_MANDATES_EXCEEDED1" }] <a href="[{ oxmultilang ident="OXID_ESALES_URL" }]" title="[{ oxmultilang ident="OXID_ESALES_URL_TITLE" }]">[{ oxmultilang ident="ERROR_MESSAGE_OXID_ESALES" }]</a> [{ oxmultilang ident="FOR_MORE_INFORMATION" }]</div>
+      <h4 class="alertPageHeader">[{ oxmultilang ident="MESSAGE_ERR_MANDATES_EXCEEDED_OXIDESHOPERROR" }]</h4>
+      <div class="alertPageBody">[{ oxmultilang ident="MESSAGE_ERR_MANDATES_EXCEEDED_VERSIONEXPIRED1" }] <a href="[{ oxmultilang ident="OXID_ESALES_URL" }]" title="[{ oxmultilang ident="OXID_ESALES_URL_TITLE" }]">[{ oxmultilang ident="MESSAGE_ERR_MANDATES_EXCEEDED_VERSIONEXPIRED2" }]</a> [{ oxmultilang ident="MESSAGE_ERR_MANDATES_EXCEEDED_VERSIONEXPIRED3" }]</div>
 </div>
 [{/capture}]
 [{include file="layout/base.tpl"}]
