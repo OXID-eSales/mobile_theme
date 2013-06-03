@@ -214,7 +214,7 @@
                                 [{/if}]
                             </div>
                             <ul class="form">
-                                <li><button type="submit" class="btn">[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_BACKSTEP" }]</button></li>
+                                <li><button type="submit" class="btn">[{ oxmultilang ident="SUBMIT_ORDER" }]</button></li>
                                 <li><input type="button" class="btn previous" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getPaymentLink() }]', '_self');" /></li>
                             </ul>
                         </form>
