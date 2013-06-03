@@ -1,5 +1,5 @@
 [{capture append="oxidBlock_content"}]
-[{assign var="template_title" value="PRODUCT_COMPARISON"|oxmultilangassign}]
+[{assign var="template_title" value="PAGE_PRODUCT_COMPARE_TITLE"|oxmultilangassign}]
 
 [{ $oView->setNoPaging() }]
 
@@ -27,7 +27,7 @@
                             <td class="js-firstCol">&nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="js-firstCol">[{ oxmultilang ident="PRODUCT_ATTRIBUTES" }]</td>
+                            <td class="js-firstCol">[{ oxmultilang ident="PAGE_PRODUCT_COMPARE_PRODUCTATTRIBUTES" }]</td>
                         </tr>
                         [{foreach key=sAttrID from=$atributeList item=oAttrib name=CmpAttr}]
                         <tr>
@@ -48,7 +48,7 @@
                                     [{if !$product->hidePrev}]
                                         <a id="compareLeft_[{ $product->oxarticles__oxid->value }]" rel="nofollow" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl="|cat:$oViewConf->getActiveClassName() params="fnc=moveleft&amp;aid=`$product->oxarticles__oxnid->value`&amp;pgNr="|cat:$oView->getActPage() }]" class="navigation movePrev">&laquo;</a>
                                     [{/if}]
-                                    [{ oxmultilang ident="MOVE" }]
+                                    [{ oxmultilang ident="PAGE_PRODUCT_COMPARE_MOVE" }]
                                     [{if !$product->hideNext}]
                                         <a id="compareRight_[{ $product->oxarticles__oxid->value }]" rel="nofollow" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl="|cat:$oViewConf->getActiveClassName() params="fnc=moveright&amp;aid=`$product->oxarticles__oxnid->value`&amp;pgNr="|cat:$oView->getActPage() }]" class="navigation moveNext">&raquo;</a>
                                     [{/if}]
@@ -79,7 +79,7 @@
                                       <input type="hidden" name="am" value="1">
                                       <input type="hidden" name="removecompare" value="1">
                                       [{oxhasrights ident="TOBASKET"}]
-                                          <button class="submitButton" id="remove_cmp_[{ $product->oxarticles__oxid->value }]" type="submit" title="[{ oxmultilang ident="REMOVE" }]" name="send">[{ oxmultilang ident="REMOVE" }]</button>
+                                          <button class="submitButton" id="remove_cmp_[{ $product->oxarticles__oxid->value }]" type="submit" title="[{ oxmultilang ident="PAGE_PRODUCT_COMPARE_REMOVE" }]" name="send">[{ oxmultilang ident="PAGE_PRODUCT_COMPARE_REMOVE" }]</button>
                                       [{/oxhasrights}]
                                   </div>
                                 </form>
@@ -108,7 +108,7 @@
     </table>
 
 [{else}]
-  [{ oxmultilang ident="MESSAGE_SELECT_AT_LEAST_ONE_PRODUCT" }]
+  [{ oxmultilang ident="PAGE_PRODUCT_COMPARE_SELECTATLEASTTWOART" }]
 [{/if}]
 </div>
 [{ insert name="oxid_tracker" title=$template_title }]

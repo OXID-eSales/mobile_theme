@@ -117,7 +117,7 @@
                         [{/foreach}]
                     </div>
                     [{if !$blCanBuy }]
-                        <p class="variantMessage">[{oxmultilang ident="CHOOSE_VARIANT"}]</p>
+                        <p class="variantMessage">[{oxmultilang ident="DETAILS_CHOOSEVARIANT"}]</div>
                     [{/if}]
                 [{/if}]
             [{/block}]
@@ -143,7 +143,7 @@
             [{block name="details_productmain_persparams"}]
             [{if $oView->isPersParam()}]
                 <div class="persparamBox clear spacedBottom">
-                    <label for="persistentParam">[{ oxmultilang ident="LABEL" suffix="COLON" }]</label><input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35">
+                    <label for="persistentParam">[{ oxmultilang ident="LABEL"  }]</label><input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35">
                 </div>
             [{/if}]
             [{/block}]
@@ -152,7 +152,7 @@
                     [{oxhasrights ident="TOBASKET"}]
                     [{if !$oDetailsProduct->isNotBuyable()}]
                         <input class="hidden" id="amountToBasket" type="text" name="am" value="1" size="3" autocomplete="off" class="textbox">
-                        <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="submitButton largeButton btn[{if !$blCanBuy}] disabled[{/if}]">[{oxmultilang ident="ADD_TO_CART"}]</button>
+                        <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="submitButton largeButton btn[{if !$blCanBuy}] disabled[{/if}]">[{oxmultilang ident="DETAILS_ADDTOCART"}]</button>
                     [{/if}]
                     [{/oxhasrights}]
                 [{/block}]

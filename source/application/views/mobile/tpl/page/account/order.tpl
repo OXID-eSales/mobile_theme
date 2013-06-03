@@ -15,32 +15,32 @@
             <li>
                 <ul class="orderDetails">
                     <li>
-                        <span id="accOrderDate_[{$order->oxorder__oxordernr->value}]" class="orderDate" title="[{ oxmultilang ident="ORDER_DATE" suffix="COLON" }]" >[{ $order->oxorder__oxorderdate->value|date_format:"%d.%m.%Y" }]</span>
-                        <strong>[{ oxmultilang ident="ORDER_NUMBER" suffix="COLON" }]</strong>
+                        <span id="accOrderDate_[{$order->oxorder__oxordernr->value}]" class="orderDate" title="[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_DATE" }]" >[{ $order->oxorder__oxorderdate->value|date_format:"%d.%m.%Y" }]</span>
+                        <strong>[{ oxmultilang ident="ORDER_NUMBER" }]:</strong>
                         <span id="accOrderNo_[{$order->oxorder__oxordernr->value}]">[{ $order->oxorder__oxordernr->value }]</span>
                     </li>
                     <li>
-                        <strong>[{ oxmultilang ident="STATUS" suffix="COLON" }]</strong>
+                        <strong>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_STATUS" }]</strong>
                         <span id="accOrderStatus_[{$order->oxorder__oxordernr->value}]">
                             [{if $order->oxorder__oxstorno->value}]
-                                <span class="note">[{ oxmultilang ident="ORDER_IS_CANCELED" }]</span>
+                                <span class="note">[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_STORNO" }]</span>
                             [{elseif $order->oxorder__oxsenddate->value !="-" }]
-                                <span>[{ oxmultilang ident="SHIPPED" }]</span>
+                                <span>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_SHIPPED" }]</span>
                             [{else}]
-                                <span class="note">[{ oxmultilang ident="NOT_SHIPPED_YET" }]</span>
+                                <span class="note">[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_NOTSHIPPED" }]</span>
                             [{/if}]
                         </span>
                     </li>
                     [{if $order->getShipmentTrackingUrl()}]
                         <li>
-                            <strong>[{ oxmultilang ident="TRACKING_ID" suffix="COLON" }]</strong>
+                            <strong>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_TRACKINGID" }]</strong>
                             <span id="accOrderTrack_[{$order->oxorder__oxordernr->value}]">
-                                <a href="[{$order->getShipmentTrackingUrl()}]">[{ oxmultilang ident="TRACK_SHIPMENT" }]</a>
+                                <a href="[{$order->getShipmentTrackingUrl()}]">[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_TRACKSHIPMENT" }]</a>
                             </span>
                         </li>
                     [{/if}]
                     <li>
-                        <strong>[{ oxmultilang ident="SHIPMENT_TO" suffix="COLON" }]</strong>
+                        <strong>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_SHIPMENTTO" }]</strong>
                         <span id="accOrderName_[{$order->oxorder__oxordernr->value}]">
                         [{if $order->oxorder__oxdellname->value }]
                             [{ $order->oxorder__oxdelfname->value }]
@@ -76,7 +76,7 @@
                             [{if $smarty.const.OXID_VERSION_EE}]
                                 [{if $orderitem->getStatus()}]
                                     <div class="articleDetails">
-                                        <strong>[{ oxmultilang ident="DELIVERY_STATUS" suffix="COLON" }]</strong>
+                                        <strong>[{ oxmultilang ident="DELIVERY_STATUS" }]</strong>
                                         <ul>
                                             [{foreach from=$orderitem->getStatus() item=aStatus }]
                                                 <li>
@@ -102,7 +102,7 @@
                                             [{/foreach}]
                                         </ul>
                                         [{if $aStatus->trackingid }]
-                                            <strong>[{ oxmultilang ident="TRACKING_ID" suffix="COLON" }]</strong>
+                                            <strong>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_TRACKINGID" }]</strong>
                                             <span>[{ $aStatus->trackingid }]</span>
                                         [{/if}]
                                     </div>
@@ -117,7 +117,7 @@
     [{include file="widget/locator/listlocator.tpl" locator=$oView->getPageNavigation() place="bottom"}]
 [{else}]
     <div class="content">
-        [{ oxmultilang ident="ORDER_EMPTY_HISTORY" }]
+        [{ oxmultilang ident="PAGE_ACCOUNT_ORDER_EMPTYHISTORY" }]
     </div>
 [{/if}]
 [{/block}]

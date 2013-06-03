@@ -1,4 +1,4 @@
-[{assign var="template_title" value="MY_ACCOUNT"|oxmultilangassign }]
+[{assign var="template_title" value="PAGE_ACCOUNT_DASHBOARD_MYACCOUNT"|oxmultilangassign }]
 [{capture append="oxidBlock_content"}]
 <div id="cat_list">
     <ul class="mainNavList nav nav-list">

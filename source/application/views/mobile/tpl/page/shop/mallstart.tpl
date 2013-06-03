@@ -10,7 +10,7 @@
             [{$oCont->oxcontents__oxcontent->value}]
         [{/oxifcontent}]
         <div>
-            [{ oxmultilang ident="PLEASE_CHOOSE" suffix="COLON" }]
+            [{ oxmultilang ident="PAGE_SHOP_MALLSTART_PLEASECHOOSE" }]
             <br>
             <br>
             [{assign var="shoplinks" value=$oView->getShopLinks()}]

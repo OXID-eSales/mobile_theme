@@ -3,9 +3,9 @@
     <h1 id="openAccHeader" class="pageHead">[{ oxmultilang ident="MESSAGE_WELCOME_REGISTERED_USER" }]</h1>
     <div class="box info content">
         [{if $oView->getRegistrationStatus() == 1}]
-            [{ oxmultilang ident="MESSAGE_CONFIRMING_REGISTRATION" }]<br><br>[{ oxmultilang ident="THANK_YOU" SUFFIC="." }]
+        [{ oxmultilang ident="PAGE_ACCOUNT_REGISTER_SUCCESS_EMAILCONFIRMATION" }]
         [{elseif $oView->getRegistrationStatus() == 2}]
-            [{ oxmultilang ident="MESSAGE_SENT_CONFIRMATION_EMAIL" }]<br><br>[{ oxmultilang ident="THANK_YOU" SUFFIC="." }]
+        [{ oxmultilang ident="PAGE_ACCOUNT_REGISTER_SUCCESS_ACTIVATIONEMAIL" }]
         [{/if}]
 
         [{if $oView->getRegistrationError() == 4}]

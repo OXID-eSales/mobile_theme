@@ -5,11 +5,11 @@
             <li>
                 <div class="paymentCharge">
                     [{if $oxcmp_basket->getPayCostNet()}]
-                        [{$paymentmethod->getFNettoPrice()}] [{$currency->sign}] [{oxmultilang ident="PLUS_VAT"}] [{$paymentmethod->getFPriceVat()}]
+                        [{$paymentmethod->getFNettoPrice()}] [{$currency->sign}] [{oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX1"}] [{$paymentmethod->getFPriceVat()}]
                     [{else}]
                         [{$paymentmethod->getFBruttoPrice()}] [{$currency->sign}]
                     [{/if}]
-                    [{oxmultilang ident="COD_CHARGE"}]
+                    [{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_PLUSCODCHARGE2"}]
                 </div>
             </li>
         [{/if}]

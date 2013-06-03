@@ -4,9 +4,9 @@
 <div class="content">
     [{if $oView->getSubscriptionStatus() != 0 }]
         [{if $oView->getSubscriptionStatus() == 1 }]
-          <div class="alert alert-success">[{ oxmultilang ident="MESSAGE_NEWSLETTER_SUBSCRIPTION_SUCCESS" }]</div>
+          <div class="alert alert-success">[{ oxmultilang ident="PAGE_ACCOUNT_NEWSLETTER_SUBSCRIPTIONSUCCESS" }]</div>
         [{else }]
-          <div class="alert alert-success">[{ oxmultilang ident="MESSAGE_NEWSLETTER_SUBSCRIPTION_CANCELED" }]</div>
+          <div class="alert alert-success">[{ oxmultilang ident="PAGE_ACCOUNT_NEWSLETTER_SUBSCRIPTIONREJECT" }]</div>
         [{/if }]
     [{/if }]
     [{include file="form/account_newsletter.tpl"}]

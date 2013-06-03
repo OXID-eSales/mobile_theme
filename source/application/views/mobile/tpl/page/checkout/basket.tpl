@@ -39,7 +39,7 @@
                                 [{ $oViewConf->getHiddenSid() }]
                                 <input type="hidden" name="cl" value="basket">
                                 <input type="hidden" name="fnc" value="backtoshop">
-                                <button type="submit" class="submitButton largeButton">[{ oxmultilang ident="CONTINUE_SHOPPING" }]</button>
+                                <button type="submit" class="submitButton largeButton">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CONTINUESHOPPING" }]</button>
                             </div>
                         </form>
                     [{/block}]
@@ -48,7 +48,7 @@
                 [{* basket btn next *}]
                 [{if $oView->isLowOrderPrice() }]
                     [{block name="checkout_basket_loworderprice_bottom"}]
-                        <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
+                        <div>[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_MINORDERPRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
                         module-dir            [{/block}]
                 [{else}]
                     <div id="btnNextStepBottom">
