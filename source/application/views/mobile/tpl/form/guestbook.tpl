@@ -14,8 +14,8 @@
                 <button id="reviewSave" type="submit" class="submitButton">[{oxmultilang ident="SUBMIT"}]</button>
             </div>
         </form>
-        <a id="writeNewReview" rel="nofollow"><b>[{oxmultilang ident="CLICK_HERE_TO_WRITE_ENTRY"}]</b></a>
+        <a id="writeNewReview" rel="nofollow"><b>[{oxmultilang ident="FORM_GUESTBOOK_CLICKHERETOWRITEENTRY"}]</b></a>
     [{/if}]
 [{else}]
-    <a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" params="sourcecl="|cat:$oViewConf->getActiveClassName()|cat:$oViewConf->getNavUrlParams() }]" rel="nofollow"><b>[{ oxmultilang ident="MESSAGE_TO_BE_LOGGED_WRITE_GUESTBOOK" }]</b></a>
+    <a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" params="sourcecl="|cat:$oViewConf->getActiveClassName()|cat:$oViewConf->getNavUrlParams() }]" rel="nofollow"><b>[{ oxmultilang ident="FORM_GUESTBOOK_YOUHAVETOBELOGGED" }]</b></a>
 [{/if}]

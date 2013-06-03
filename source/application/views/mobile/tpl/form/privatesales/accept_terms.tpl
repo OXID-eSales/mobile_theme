@@ -26,7 +26,7 @@
                     [{/oxifcontent}]</label>
             </li>
             <li class="formSubmit">
-                <button id="confirmButton" type="submit" class="submitButton largeButton">[{ oxmultilang ident="LOGIN" }]</button>
+                <button id="confirmButton" type="submit" class="submitButton largeButton">[{ oxmultilang ident="FORM_LOGIN_ACCOUNT_LOGIN" }]</button>
             </li>
         </ul>
     </form>

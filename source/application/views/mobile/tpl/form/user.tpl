@@ -14,8 +14,8 @@
                 <input type="hidden" name="blshowshipaddress" value="1">
             </div>
             <h3 class="blockHead">
-                [{ oxmultilang ident="BILLING_ADDRESS" }]
-                <input id="userChangeAddress" class="btn submitButton largeButton" [{if !empty($aErrors)}]style="display: none;"[{/if}] name="changeBillAddress" type="submit" value="[{ oxmultilang ident="CHANGE" }]"/>
+            [{ oxmultilang ident="FORM_USER_BILLINGADDRESS" }]
+                <input id="userChangeAddress" class="btn submitButton largeButton" [{if !empty($aErrors)}]style="display: none;"[{/if}] name="changeBillAddress" type="submit" value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]"/>
             </h3>
             <ul class="form clear" [{if empty($aErrors)}]style="display: none;"[{/if}] id="addressForm">
                 [{ include file="form/fieldset/user_email.tpl" }]
@@ -30,14 +30,14 @@
         </div>
         <div class="collumn">
             <h3 id="addShippingAddress" class="blockHead">
-                [{ oxmultilang ident="SHIPPING_ADDRESSES" }]
-                <input id="userChangeShippingAddress" class="btn submitButton largeButton" name="changeShippingAddress" type="submit" [{if !$oView->showShipAddress() or !$oxcmp_user->getSelectedAddress()}] style="display: none;"[{/if}] value="[{ oxmultilang ident="CHANGE" }]"/>
+            [{ oxmultilang ident="FORM_USER_SHIPPINGADDRESSES" }]
+                <input id="userChangeShippingAddress" class="btn submitButton largeButton" name="changeShippingAddress" type="submit" [{if !$oView->showShipAddress() or !$oxcmp_user->getSelectedAddress()}] style="display: none;"[{/if}] value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]"/>
             </h3>
             <div class="checkbox">
                 <input id="showShipAddress" type="checkbox" name="blshowshipaddress" [{if !$oView->showShipAddress()}]checked[{/if}] value="0">
                 <label for="showShipAddress" class="glyphicon-ok"></label>
             </div>
-            <label for="showShipAddress">[{ oxmultilang ident="USE_BILLINGADDRESS_FOR_SHIPPINGADDRESS" }]</label>
+            <label for="showShipAddress">[{ oxmultilang ident="FORM_REGISTER_USE_BILLINGADDRESS_FOR_SHIPPINGADDRESS" }]</label>
             <div class="clearfix"></div>
             <ul id="shippingAddress" class="form clear" [{if !$oView->showShipAddress()}] style="display: none;" [{/if}]>
             [{ include file="form/fieldset/user_shipping.tpl" noFormSubmit=true}]

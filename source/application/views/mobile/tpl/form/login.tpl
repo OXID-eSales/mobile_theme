@@ -12,13 +12,13 @@
         <li [{if $aErrors}]class="oxInValid"[{/if}]>
             <input type="text" name="lgn_usr" class="js-oxValidate js-oxValidate_notEmpty" placeholder="[{ oxmultilang ident="EMAIL_ADDRESS"}]" />
             <p class="oxValidateError">
-                <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
+                <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
             </p>
         </li>
         <li [{if $aErrors}]class="oxInValid"[{/if}]>
             <input type="password" name="lgn_pwd" class="js-oxValidate js-oxValidate_notEmpty" placeholder="[{ oxmultilang ident="PASSWORD" }]" />
             <p class="oxValidateError">
-                <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
+                <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
             </p>
         </li>
         <li><input type="submit" class="btn" value="[{ oxmultilang ident="LOGIN" }]" /></li>
