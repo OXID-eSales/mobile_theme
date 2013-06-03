@@ -35,7 +35,7 @@
                 <input type="checkbox" name="blshowshipaddress" id="showShipAddress" [{if !$oView->showShipAddress()}]checked[{/if}] value="0">
                 <label for="showShipAddress" class="glyphicon-ok"></label>
             </div>
-            <label for="showShipAddress">[{ oxmultilang ident="FORM_REGISTER_USE_BILLINGADDRESS_FOR_SHIPPINGADDRESS" }]</label>
+            <label for="showShipAddress">[{ oxmultilang ident="USE_BILLINGADDRESS_FOR_SHIPPINGADDRESS" }]</label>
             <div class="clearfix"></div>
             <ul id="shippingAddress" class="form" [{if !$oView->showShipAddress()}]style="display: none;"[{/if}]>
             [{ include file="form/fieldset/user_shipping.tpl" noFormSubmit=true}]
