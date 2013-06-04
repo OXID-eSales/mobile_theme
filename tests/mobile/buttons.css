@@ -1,0 +1,20 @@
+.fancy {
+    background: -moz-linear-gradient(top, green, #76c9dd);
+    border: 1px solid gray;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 4px;
+}
+
+.darker {
+    background: darkgreen;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 4px;
+}
+
+.coolBtn {
+
+}
