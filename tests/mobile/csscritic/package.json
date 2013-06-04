@@ -1,0 +1,26 @@
+{
+  "name": "csscritic",
+  "title": "CSS critic",
+  "version": "0.1.0",
+  "description": "A lightweight framework for regression testing of Cascading Style Sheets.",
+  "keywords": ["CSS", "regression", "test"],
+  "homepage": "http://www.github.com/cburgmer/csscritic",
+  "licenses": [{"type": "MIT"}],
+  "author": {
+    "name": "Christoph Burgmer",
+    "email": "christoph.burgmer@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cburgmer/csscritic.git"
+  },
+  "dependencies": {
+    "grunt": "~0.3.9",
+    "grunt-jasmine-runner": "~0.5.2",
+    "grunt-css": "~0.2.1",
+    "bower": "~0.1.0"
+  },
+  "scripts": {
+    "test": "bash go --verbose"
+  }
+}
