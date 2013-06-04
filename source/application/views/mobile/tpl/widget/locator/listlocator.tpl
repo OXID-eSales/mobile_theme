@@ -6,7 +6,4 @@
     [{if $sort }]
         [{include file="widget/locator/sort.tpl"}]
     [{/if}]
-    [{if $listDisplayType }]
-        [{include file="widget/locator/listdisplaytype.tpl"}]
-    [{/if}]
 </div>
