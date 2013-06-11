@@ -24,8 +24,7 @@ class oemobilethemestart extends oemobilethemestart_parent
     {
         $oUBase = oxNew( 'oxUBase' );
         $sViewId = $oUBase->getViewId();
-        $oTheme = oxNew( 'oxTheme' );
-        $sViewId .= $oTheme->getActiveThemeId();
+        $sViewId .= $this->getConfig()->getActiveThemeId();
 
         return $sViewId;
     }

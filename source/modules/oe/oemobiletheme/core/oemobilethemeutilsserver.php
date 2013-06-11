@@ -21,6 +21,13 @@ class oemobilethemeutilsserver extends oemobilethemeutilsserver_parent
     protected $_sDeviceType = null;
 
     /**
+     * Mobile devices types
+     *
+     * @var string
+     */
+    protected $_sMobileDevicesTypes = 'iphone|ipod|android|webos|ipad';
+
+    /**
      * Detect if device is mobile or desktop
      *
      * @return string mobile|desktop
@@ -50,4 +57,15 @@ class oemobilethemeutilsserver extends oemobilethemeutilsserver_parent
         }
         return $this->_sDeviceType;
     }
+
+    /**
+     * Function returns all supported devices types for mobile theme
+     *
+     * @return string
+     */
+    public function getMobileDevicesTypes()
+    {
+        return $this->_sMobileDevicesTypes;
+    }
+
 }

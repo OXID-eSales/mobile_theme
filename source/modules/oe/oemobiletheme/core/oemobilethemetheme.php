@@ -108,24 +108,6 @@ class oemobilethemetheme extends oemobilethemetheme_parent
     }
 
     /**
-     * return current active theme, or custom theme if specified
-     *
-     * @return string
-     */
-    public function getActiveThemeId()
-    {
-        $sType = $this->getActiveThemeType();
-        if ( $sType == 'mobile' ) {
-            return $this->getConfig()->getConfigParam('sMobileTheme');
-        }
-        $sCustTheme = $this->getConfig()->getConfigParam('sCustomTheme');
-        if ($sCustTheme) {
-            return $sCustTheme;
-        }
-        return $this->getConfig()->getConfigParam('sTheme');
-    }
-
-    /**
      * Return EXCEPTION_* translation string if error
      * found or false on success
      *
@@ -148,43 +130,5 @@ class oemobilethemetheme extends oemobilethemetheme_parent
         return false;
     }
 
-    /**
-     * Checks if current device uses mobile or desktop type theme
-     *
-     * @return string theme type (mobile or desktop)
-     */
-    public function getActiveThemeType()
-    {
-        if ( $this->_sActiveType === null ) {
-            $this->setActiveThemeType();
-        }
-        return $this->_sActiveType;
-    }
-
-    /**
-     * Active theme setter
-     *
-     * @param string $sType theme type (mobile or desktop)
-     */
-    public function setActiveThemeType( $sType = '' )
-    {
-        if ( $sType ) {
-            $this->_sActiveType = $sType;
-            oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sType);
-        } else {
-            $sCookieType = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
-            if ( $sCookieType ) {
-                $this->_sActiveType = $sCookieType;
-            } else {
-                $this->_sActiveType = 'desktop';
-                $sDeviceType = oxRegistry::get("oxUtilsServer")->getDeviceType();
-                // if mobile device is detected and mobile theme is set
-                if ( ($sDeviceType == 'mobile') && $this->getConfig()->getConfigParam('sMobileTheme') ) {
-                    $this->_sActiveType = 'mobile';
-                }
-            }
-
-        }
-    }
 }
 

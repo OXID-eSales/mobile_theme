@@ -37,7 +37,7 @@ class oemobilethemeconfig extends oemobilethemeconfig_parent
 
         if ( $sName == "sCustomTheme" ) {
             // check for mobile devices
-            $sThemeType = $this->getThemeType();
+            $sThemeType = $this->getActiveThemeType();
             if ( $sThemeType == 'mobile' && !$this->isAdmin() ) {
                 return $this->_aConfigParams['sMobileTheme'];
             }
@@ -48,37 +48,56 @@ class oemobilethemeconfig extends oemobilethemeconfig_parent
     }
 
     /**
-     * Returns active template theme type
+     * Checks if current device uses mobile or desktop type theme
      *
-     * @return null;
+     * @return string theme type (mobile or desktop)
      */
-    public function setThemeType()
+    public function getActiveThemeType()
     {
-        // user set theme type
-        $sRequestTheme = $this->getRequestParameter('themeType');
-        if ( $sRequestTheme ) {
-            $sThemeType = $sRequestTheme;
-            $oTheme = oxNew('oxTheme');
-            $oTheme->setActiveThemeType( $sThemeType );
-        } else {
-            // check for mobile devices
-            $oTheme = oxNew('oxTheme');
-            $sThemeType = $oTheme->getActiveThemeType();
+        if ( $this->_sActiveType === null ) {
+            $this->setActiveThemeType();
         }
-        $this->_sThemeType = $sThemeType;
+        return $this->_sActiveType;
     }
 
     /**
-     * Returns active template theme type
+     * Active theme setter
      *
-     * @return string;
+     * @param string $sType theme type (mobile or desktop)
      */
-    public function getThemeType()
+    public function setActiveThemeType( $sType = '' )
     {
-        if ( $this->_sThemeType == null ) {
-            $this->setThemeType();
+        if ( $sType ) {
+            $this->_sActiveType = $sType;
+            oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sType);
+        } else {
+            $sCookieType = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
+            if ( $sCookieType ) {
+                $this->_sActiveType = $sCookieType;
+            } else {
+                $this->_sActiveType = 'desktop';
+                $sDeviceType = oxRegistry::get("oxUtilsServer")->getDeviceType();
+                // if mobile device is detected and mobile theme is set
+                if ( ($sDeviceType == 'mobile') && $this->getConfig()->getConfigParam('sMobileTheme') ) {
+                    $this->_sActiveType = 'mobile';
+                }
+            }
+
         }
-        return $this->_sThemeType;
+    }
+
+    /**
+     * return current active theme, or custom theme if specified
+     *
+     * @return string
+     */
+    public function getActiveThemeId()
+    {
+        $sCustTheme = $this->getConfig()->getConfigParam('sCustomTheme');
+        if ($sCustTheme) {
+            return $sCustTheme;
+        }
+        return $this->getConfig()->getConfigParam('sTheme');
     }
 
 }

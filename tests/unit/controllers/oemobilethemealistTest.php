@@ -24,9 +24,20 @@ class Unit_Controllers_oemobilethemealistTest extends OxidTestCase
     public function testGetShowFilter()
     {
         modConfig::setParameter( "showFilter", true );
-        $oAlis = $this->getProxyClass( "oemobilethemealist" );
-        $this->assertTrue( $oAlis->getShowFilter() );
+        $oAlist = $this->getProxyClass( "oemobilethemealist" );
+        $this->assertTrue( $oAlist->getShowFilter() );
         modConfig::setParameter( "showFilter", false );
-        $this->assertEquals( false, $oAlis->getShowFilter() );
+        $this->assertEquals( false, $oAlist->getShowFilter() );
+    }
+
+    /**
+     * Check if viewId contains theme id
+     */
+    public function testGetViewId()
+    {
+        $oAlist = $this->getProxyClass( "oemobilethemealist" );
+        $sViewId = $oAlist->getViewId();
+
+        $this->assertContains( "azure", $sViewId );
     }
 }

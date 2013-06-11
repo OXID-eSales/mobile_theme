@@ -44,8 +44,7 @@ class oemobilethemeviewconfig extends oemobilethemeviewconfig_parent
     public function getActiveTheme()
     {
         if ( $this->_sActiveTheme === null ) {
-            $oTheme = oxNew( 'oxTheme' );
-            $this->_sActiveTheme = $oTheme->getActiveThemeId();
+            $this->_sActiveTheme = $this->getConfig()->getActiveThemeId();
         }
         return $this->_sActiveTheme;
     }
@@ -58,8 +57,7 @@ class oemobilethemeviewconfig extends oemobilethemeviewconfig_parent
     public function getActiveThemeType()
     {
         if ( $this->_sActiveThemeType === null ) {
-            $oTheme = oxNew('oxTheme');
-            $this->_sActiveThemeType = $oTheme->getActiveThemeType();
+            $this->_sActiveThemeType = $this->getConfig()->getActiveThemeType();
         }
         return $this->_sActiveThemeType;
     }
