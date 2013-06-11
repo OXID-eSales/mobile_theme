@@ -39,4 +39,18 @@ class oemobilethemealist extends oemobilethemealist_parent
         return $this->_blShowFilter;
     }
 
+    /**
+     * Returns view ID (for template engine caching).
+     *
+     * @return string   $this->_sViewId view id
+     */
+    public function getViewId()
+    {
+        $sViewId = parent::getViewId();
+        $oTheme = oxNew( 'oemobilethemetheme' );
+        $sViewId .= $oTheme->getActiveThemeId();
+
+        return $sViewId;
+    }
+
 }
