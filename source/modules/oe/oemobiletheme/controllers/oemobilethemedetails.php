@@ -26,7 +26,7 @@ class oemobilethemedetails extends oemobilethemedetails_parent
     public function getViewId()
     {
         $sViewId = parent::getViewId();
-        $oTheme = oxNew( 'oemobilethemetheme' );
+        $oTheme = oxNew( 'oxTheme' );
         $sViewId .= $oTheme->getActiveThemeId();
 
         return $sViewId;
