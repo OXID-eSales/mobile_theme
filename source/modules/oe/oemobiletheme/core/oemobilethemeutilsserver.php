@@ -39,7 +39,8 @@ class oemobilethemeutilsserver extends oemobilethemeutilsserver_parent
         } else {
             $this->_sDeviceType = 'desktop';
             $sUserAgent = $this->getServerVar( 'HTTP_USER_AGENT' );
-            if (preg_match('/(iphone|ipod|android|webos|ipad|mobi)/is', $sUserAgent)){
+            $sMobileDevicesTypes = $this->getMobileDevicesTypes();
+            if (preg_match('/('. $sMobileDevicesTypes .')/is', $sUserAgent)){
                 $this->_sDeviceType = 'mobile';
             }
         }
