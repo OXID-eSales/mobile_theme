@@ -13,7 +13,6 @@
  */
 $aTheme = array(
     'id'           => 'mobile',
-    'mobile'       => true,
     'title'        => 'Azure Mobile',
     'description'  => 'Azure theme by OXID eSales AG',
     'thumbnail'    => 'theme.jpg',

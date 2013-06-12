@@ -40,13 +40,21 @@ $aModule = array(
         'tag'              => 'oe/oemobiletheme/controllers/oemobilethemetag',
         'vendorlist'       => 'oe/oemobiletheme/controllers/oemobilethemevendorlist',
         'theme_main'       => 'oe/oemobiletheme/controllers/admin/oemobilethemethememain',
+        'oxlang'           => 'oe/oemobiletheme/core/oemobilethemelang',
     ),
     'files' => array(
         'oemobilethemeuseragent' => 'oe/oemobiletheme/core/oemobilethemeuseragent.php'
     ),
+
     'blocks' => array(
-        array('template' => 'theme_main.tpl',  'block'=>'admin_theme_main_form',  'file'=>'views/admin/blocks/theme_main_form.tpl'),
-        array('template' => 'theme_list.tpl',  'block'=>'admin_theme_list_item',  'file'=>'views/admin/blocks/theme_list_item.tpl'),
         array('template' => 'layout/page.tpl', 'block'=>'layout_page_vatinclude', 'file'=>'views/azure/blocks/theme_switch_link.tpl')
     ),
+
+    'settings' => array(
+        array('group' => 'main', 'name' => 'sMobileTheme', 'type' => 'str',  'value' => 'mobile'),
+    )
+
+
+
+
 );

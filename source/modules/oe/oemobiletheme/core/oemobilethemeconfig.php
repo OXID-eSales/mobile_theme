@@ -15,13 +15,12 @@
  */
 class oemobilethemeconfig extends oemobilethemeconfig_parent
 {
-
     /**
      * Active template theme type
      *
      * @var string
      */
-    protected $_sThemeType = null;
+    protected $_blIsUserAgentMobile = null;
 
     /**
      * Returns config parameter value if such parameter exists
@@ -32,13 +31,11 @@ class oemobilethemeconfig extends oemobilethemeconfig_parent
      */
     public function getConfigParam( $sName )
     {
-
         $sReturn = parent::getConfigParam( $sName );
 
-        if ( $sName == 'sCustomTheme' ) {
+        if ( $sName == "sCustomTheme" ) {
             // check for mobile devices
-            $sThemeType = $this->getActiveThemeType();
-            if ( $sThemeType == 'mobile' && !$this->isAdmin() ) {
+            if ( $this->isUserAgentMobile() &&  !$this->isAdmin() ) {
                 return $this->_aConfigParams['sMobileTheme'];
             }
         }
@@ -48,56 +45,43 @@ class oemobilethemeconfig extends oemobilethemeconfig_parent
     }
 
     /**
-     * Checks if current device uses mobile or desktop type theme
-     *
-     * @return string theme type (mobile or desktop)
-     */
-    public function getActiveThemeType()
-    {
-        if ( $this->_sActiveType === null ) {
-            $this->setActiveThemeType();
-        }
-        return $this->_sActiveType;
-    }
-
-    /**
-     * Active theme setter
-     *
-     * @param string $sType theme type (mobile or desktop)
-     */
-    public function setActiveThemeType( $sType = '' )
-    {
-        if ( $sType ) {
-            $this->_sActiveType = $sType;
-            oxRegistry::get( 'oxUtilsServer' )->setOxCookie( 'sThemeType', $sType );
-        } else {
-            $sCookieType = oxRegistry::get( 'oxUtilsServer' )->getOxCookie( 'sThemeType' );
-            if ( $sCookieType ) {
-                $this->_sActiveType = $sCookieType;
-            } else {
-                $this->_sActiveType = 'desktop';
-                $sDeviceType = oxRegistry::get( 'oxUtilsServer' )->getDeviceType();
-                // if mobile device is detected and mobile theme is set
-                if ( ( $sDeviceType == 'mobile' ) && $this->getConfig()->getConfigParam( 'sMobileTheme' ) ) {
-                    $this->_sActiveType = 'mobile';
-                }
-            }
-
-        }
-    }
-
-    /**
      * return current active theme, or custom theme if specified
      *
      * @return string
      */
     public function getActiveThemeId()
     {
-        $sCustTheme = $this->getConfig()->getConfigParam( 'sCustomTheme' );
-        if ( $sCustTheme ) {
-            return $sCustTheme;
+        $sCustomTheme = $this->getConfigParam('sCustomTheme');
+        if ($sCustomTheme) {
+            return $sCustomTheme;
         }
-        return $this->getConfig()->getConfigParam( 'sTheme' );
+        return $this->getConfigParam('sTheme');
     }
 
+
+    /**
+     * Check is User Agent mobile
+     *
+     * @return bool
+     */
+    public function isUserAgentMobile()
+    {
+        if( $this->_blIsUserAgentMobile === null ) {
+
+            $sUserAgent = $this->getRequestParameter('themeType');
+            if( !empty($sUserAgent) ){
+                oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sUserAgent);
+            } else {
+                $sUserAgent = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
+                if ( empty($sUserAgent) ) {
+                    $sUserAgent = oxRegistry::get("oxUtilsServer")->getDeviceType();
+                }
+            }
+
+
+            $this->_blIsUserAgentMobile = ($sUserAgent == 'mobile');
+        }
+
+        return $this->_blIsUserAgentMobile;
+    }
 }

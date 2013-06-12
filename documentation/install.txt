@@ -4,9 +4,4 @@
 3. activate mobile theme
 
 
-NOTE: IF template application/views/admin/tpl/theme_main.tpl of your shop version (added in v4.7.6/5.0.6) have no block "admin_theme_main_form"
-please add it as in: https://github.com/OXID-eSales/oxideshop_ce/blob/b-5.0-ce/source/application/views/admin/tpl/theme_main.tpl
-
-
-
 

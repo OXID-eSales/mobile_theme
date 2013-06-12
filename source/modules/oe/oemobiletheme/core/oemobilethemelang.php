@@ -53,9 +53,8 @@ class oeMobileThemeLang extends oeMobileThemeLang_parent
             $aLangFiles = $this->_appendLangFile( $aLangFiles, $sCustPath );
         }
 
-
         // custom theme shop languages
-        if ( OXID_VERSION_EE ) :
+        if ( $this->getConfig()->getEdition() == 'EE' ) {
             if ( $sCustomTheme ) {
                 $sShopPath = $sAppDir . 'views/'. $sCustomTheme .'/' . $sShopId . '/' . $sLang;
                 $aLangFiles[] = $sShopPath . "/lang.php";
@@ -66,7 +65,7 @@ class oeMobileThemeLang extends oeMobileThemeLang_parent
                 $aLangFiles[] = $sShopPath . "/lang.php";
                 $aLangFiles = $this->_appendLangFile( $aLangFiles, $sShopPath );
             }
-        endif;
+        }
 
         // modules language files
         $aLangFiles = $this->_appendModuleLangFiles( $aLangFiles, $aModulePaths, $sLang );
