@@ -32,7 +32,7 @@ class oemobilethemealist extends oemobilethemealist_parent
     {
         if ( $this->_blShowFilter == null ) {
             $this->_blShowFilter = false;
-            if ($this->getConfig()->getRequestParameter('showFilter') == 'true') {
+            if ( $this->getConfig()->getRequestParameter( 'showFilter' ) == 'true' ) {
                 $this->_blShowFilter = true;
             }
         }

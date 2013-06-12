@@ -35,7 +35,7 @@ class oemobilethemeconfig extends oemobilethemeconfig_parent
 
         $sReturn = parent::getConfigParam( $sName );
 
-        if ( $sName == "sCustomTheme" ) {
+        if ( $sName == 'sCustomTheme' ) {
             // check for mobile devices
             $sThemeType = $this->getActiveThemeType();
             if ( $sThemeType == 'mobile' && !$this->isAdmin() ) {
@@ -69,16 +69,16 @@ class oemobilethemeconfig extends oemobilethemeconfig_parent
     {
         if ( $sType ) {
             $this->_sActiveType = $sType;
-            oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sType);
+            oxRegistry::get( 'oxUtilsServer' )->setOxCookie( 'sThemeType', $sType );
         } else {
-            $sCookieType = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
+            $sCookieType = oxRegistry::get( 'oxUtilsServer' )->getOxCookie( 'sThemeType' );
             if ( $sCookieType ) {
                 $this->_sActiveType = $sCookieType;
             } else {
                 $this->_sActiveType = 'desktop';
-                $sDeviceType = oxRegistry::get("oxUtilsServer")->getDeviceType();
+                $sDeviceType = oxRegistry::get( 'oxUtilsServer' )->getDeviceType();
                 // if mobile device is detected and mobile theme is set
-                if ( ($sDeviceType == 'mobile') && $this->getConfig()->getConfigParam('sMobileTheme') ) {
+                if ( ( $sDeviceType == 'mobile' ) && $this->getConfig()->getConfigParam( 'sMobileTheme' ) ) {
                     $this->_sActiveType = 'mobile';
                 }
             }
@@ -93,11 +93,11 @@ class oemobilethemeconfig extends oemobilethemeconfig_parent
      */
     public function getActiveThemeId()
     {
-        $sCustTheme = $this->getConfig()->getConfigParam('sCustomTheme');
-        if ($sCustTheme) {
+        $sCustTheme = $this->getConfig()->getConfigParam( 'sCustomTheme' );
+        if ( $sCustTheme ) {
             return $sCustTheme;
         }
-        return $this->getConfig()->getConfigParam('sTheme');
+        return $this->getConfig()->getConfigParam( 'sTheme' );
     }
 
 }

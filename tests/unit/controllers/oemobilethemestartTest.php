@@ -18,10 +18,22 @@ class Unit_Controllers_oemobilethemestartTest extends OxidTestCase
 {
 
     /**
+     * Overloads oxConfig
+     */
+    public function setUp()
+    {
+        oxRegistry::set("oxConfig", new oemobilethemeconfig() );
+    }
+
+    /**
      * Check if viewId contains theme id
      */
     public function testGetViewId()
     {
+        $oMlist = new oemobilethememanufacturerlist();
+        $sViewId = $oMlist->getViewId();
+
+        $this->assertContains( 'azure', $sViewId );
     }
 
 }

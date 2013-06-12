@@ -16,18 +16,35 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
  */
 class Unit_Controllers_oemobilethemealistTest extends OxidTestCase
 {
+
+    /**
+     * Overloads oxConfig
+     */
+    public function setUp()
+    {
+        oxRegistry::set("oxConfig", new oemobilethemeconfig() );
+        modConfig::setParameter( "showFilter", null );
+    }
+
+    public function providerGetShowFilter()
+    {
+        return array(
+            array( true ),
+            array( false )
+        );
+    }
+
     /**
      * Test get showFilter parameter
      *
-     * @return null
+     * @dataProvider providerGetShowFilter
      */
-    public function testGetShowFilter()
+    public function testGetShowFilter( $blFilterValue )
     {
-        modConfig::setParameter( "showFilter", true );
-        $oAlist = $this->getProxyClass( "oemobilethemealist" );
-        $this->assertTrue( $oAlist->getShowFilter() );
-        modConfig::setParameter( "showFilter", false );
-        $this->assertEquals( false, $oAlist->getShowFilter() );
+        modConfig::setParameter( "showFilter", $blFilterValue );
+        $oAlist = new oemobilethemealist();
+
+        $this->assertEquals( $blFilterValue, $oAlist->getShowFilter() );
     }
 
     /**

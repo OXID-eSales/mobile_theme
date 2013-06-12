@@ -11,21 +11,20 @@
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
-if ( !class_exists( 'oemobilethememanufacturerlist_parent' ) ) {
-    class oemobilethememanufacturerlist_parent extends ManufacturerList
-    {
-    }
-}
-
-if ( !class_exists( 'oemobilethememanufacturerlist' ) ) {
-    require_once realpath( "../" )."/source/modules/oe/oemobiletheme/controllers/oemobilethememanufacturerlist.php";
-}
 
 /**
  * Tests for  class
  */
 class Unit_Controllers_oemobilethememanufacturerlistTest extends OxidTestCase
 {
+
+    /**
+     * Overloads oxConfig
+     */
+    public function setUp()
+    {
+        oxRegistry::set("oxConfig", new oemobilethemeconfig() );
+    }
 
     /**
      * Check if viewId contains theme id
@@ -37,4 +36,5 @@ class Unit_Controllers_oemobilethememanufacturerlistTest extends OxidTestCase
 
         $this->assertContains( 'azure', $sViewId );
     }
+
 }
