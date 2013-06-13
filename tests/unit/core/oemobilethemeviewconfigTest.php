@@ -11,36 +11,15 @@
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
-class Unit_Views_oemobilethemeviewConfigTest extends OxidTestCase
+class Unit_Views_oeMobileThemeViewConfigTest extends OxidTestCase
 {
     /**
-     * oxViewconfig::getActiveTheme() test case for main theme
+     * oxViewConfig::getEdition()
      */
-    public function testGetActiveTheme_mainTheme()
+    public function testGetEdition()
     {
-        $oViewConf = new oemobilethemeviewConfig();
-        $oViewConf->getConfig()->setConfigParam( "sTheme", "testTheme" );
-        $this->assertEquals( 'testTheme', $oViewConf->getActiveTheme() );
-    }
-
-    /**
-     * oxViewconfig::getActiveTheme() test case for custom theme
-     */
-    public function testGetActiveTheme_customTheme()
-    {
-        $oViewConf = new oemobilethemeviewConfig();
-        $oViewConf->getConfig()->setConfigParam( "sCustomTheme", "testCustomTheme" );
-        $oViewConf->getConfig()->setConfigParam( "sTheme", "testTheme" );
-        $this->assertEquals( 'testCustomTheme', $oViewConf->getActiveTheme() );
-    }
-
-    /**
-     * oxViewconfig::getActiveThemeType() returns active theme type (deafult - desktop)
-     */
-    public function testGetActiveThemeTypeDefault()
-    {
-        $oViewConf = new oemobilethemeviewConfig();
-        $this->assertEquals( 'desktop', $oViewConf->getActiveThemeType() );
+        $oViewConf = new oeMobileThemeViewConfig();
+        $this->assertEquals( $this->getConfig()->getEdition(), $oViewConf->getEdition() );
     }
 
 }

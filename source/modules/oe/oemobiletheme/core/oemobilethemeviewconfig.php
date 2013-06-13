@@ -57,7 +57,7 @@ class oeMobileThemeViewConfig extends oeMobileThemeViewConfig_parent
     }
 
     /**
-     * Return shop edition: EE | CE | PE
+     * Return shop edition (EE|CE|PE)
      *
      * @return string
      */
