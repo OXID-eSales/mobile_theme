@@ -1,5 +1,5 @@
 [{block name="footer_information"}]
-    <ul id="footerInformation" class="nav nav-list">
+    <ul id="footerInformation" class="footer-nav nav nav-list">
         [{oxifcontent ident="oximpressum" object="_cont"}]
             <li><a href="[{ $_cont->getLink() }]">[{ $_cont->oxcontents__oxtitle->value }]</a></li>
         [{/oxifcontent}]
