@@ -10,7 +10,7 @@
         [{include file="message/notice.tpl" statusMessage=$_statusMessage}]
     [{/if }]
     <h1 class="pageHead">[{ oxmultilang ident="MY_GIFT_REGISTRY" }]</h1>
-    <div class="wishlistView clear">
+    <div class="wishlist-view clear">
         [{include file="form/wishlist_search.tpl" searchClass="account_wishlist"}]
         [{if $oView->getWishList() }]
             [{include file="form/wishlist_publish.tpl"}]

@@ -1,8 +1,14 @@
 [{capture append="oxidBlock_content"}]
 [{assign var="template_title" value="ORDER_HISTORY"|oxmultilangassign}]
 
-[{include file="widget/backbutton.tpl" link=$oViewConf->getSelfLink()|cat:"cl=account" text="BACK" seo=1}]
-
+<ul class="nav nav-list main-nav-list">
+    <li>
+        <a class="back" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account"}]">
+            <span>[{oxmultilang ident="BACK"}]</span>
+            <i class="glyphicon-chevron-left"></i>
+        </a>
+    </li>
+</ul>
 <h1>[{ oxmultilang ident="ORDER_HISTORY" }]</h1>
 
 [{assign var=oOrders value=$oView->getOrderList()}]
@@ -10,12 +16,12 @@
 [{block name="account_order_history"}]
 [{if count($oOrders) > 0}]
     [{assign var=oArticleList value=$oView->getOrderArticleList()}]
-    <ul id="orderList">
+    <ul id="orderList" class="order-history-list">
         [{foreach from=$oOrders item=order}]
             <li>
-                <ul class="orderDetails">
+                <ul class="order-history-details">
                     <li>
-                        <span id="accOrderDate_[{$order->oxorder__oxordernr->value}]" class="orderDate" title="[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_DATE" }]" >[{ $order->oxorder__oxorderdate->value|date_format:"%d.%m.%Y" }]</span>
+                        <span id="accOrderDate_[{$order->oxorder__oxordernr->value}]" title="[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_DATE" }]" >[{ $order->oxorder__oxorderdate->value|date_format:"%d.%m.%Y" }]</span>
                         <strong>[{ oxmultilang ident="ORDER_NUMBER" }]:</strong>
                         <span id="accOrderNo_[{$order->oxorder__oxordernr->value}]">[{ $order->oxorder__oxordernr->value }]</span>
                     </li>
@@ -52,15 +58,16 @@
                         </span>
                     </li>
                 </ul>
-                <ul class="orderArticles">
+                <ul class="order-history-articles">
                     [{foreach from=$order->getOrderArticles(true) item=orderitem name=testOrderItem}]
                         <li>
                             [{assign var=sArticleId value=$orderitem->oxorderarticles__oxartid->value }]
                             [{assign var=oArticle value=$oArticleList[$sArticleId] }]
+                                <span class="order-history-article-quantity" title="[{oxmultilang ident="QNT"}]">[{ $orderitem->oxorderarticles__oxamount->value }]</span>
                                 [{if $oArticle->oxarticles__oxid->value && $oArticle->isVisible() }]
                                     <a  id="accOrderLink_[{$order->oxorder__oxordernr->value}]_[{$smarty.foreach.testOrderItem.iteration}]" href="[{ $oArticle->getLink() }]">
                                 [{/if}]
-                                    <span class="amount" title="[{oxmultilang ident="QNT"}]">[{ $orderitem->oxorderarticles__oxamount->value }]</span> [{ $orderitem->oxorderarticles__oxtitle->value }]
+                                    [{ $orderitem->oxorderarticles__oxtitle->value }]
                                     [{if $orderitem->oxorderarticles__oxselvariant->value}]
                                         <br /><span class="variants">[{ $orderitem->oxorderarticles__oxselvariant->value }]</span>
                                     [{/if}]
@@ -75,7 +82,7 @@
                                 *}]
                             [{if $smarty.const.OXID_VERSION_EE}]
                                 [{if $orderitem->getStatus()}]
-                                    <div class="articleDetails">
+                                    <div class="article-details">
                                         <strong>[{ oxmultilang ident="DELIVERY_STATUS" }]</strong>
                                         <ul>
                                             [{foreach from=$orderitem->getStatus() item=aStatus }]
