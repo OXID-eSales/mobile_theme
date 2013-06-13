@@ -36,8 +36,7 @@
 
     [{block name="base_style"}]
         [{oxstyle include="http://fonts.googleapis.com/css?family=Montserrat:400,700"}]
-        [{oxstyle include="css/libs/bootstrap.css"}]
-        [{oxstyle include="css/oxid.css"}]
+        [{oxstyle include="less/oxid.less"}]
     [{/block}]
 
     [{assign var='rsslinks' value=$oView->getRssLinks() }]

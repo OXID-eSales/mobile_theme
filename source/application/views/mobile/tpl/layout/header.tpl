@@ -18,7 +18,7 @@
 
 <div id="header" class="navbar navbar-inverse">
     <div class="container">
-        <a id="logo" href="[{$oViewConf->getHomeLink()}]" title="[{$oxcmp_shop->oxshops__oxtitleprefix->value}]">
+        <a class="header-logo" href="[{$oViewConf->getHomeLink()}]" title="[{$oxcmp_shop->oxshops__oxtitleprefix->value}]">
             <img src="[{$oViewConf->getImageUrl('logo_small2.png')}]" alt="[{oxmultilang ident="OXID_ESALES_URL_TITLE"}]">
         </a>
 
