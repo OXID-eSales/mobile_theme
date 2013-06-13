@@ -30,7 +30,7 @@
             [{/if}]
               <br>
               <br>
-                <div class="cmsContent">
+                <div class="cms-content">
                     [{oxifcontent ident="oxtsprotectiontext" object="oCont"}]
                         [{$oCont->oxcontents__oxcontent->value}]
                     [{/oxifcontent}]

@@ -1,5 +1,5 @@
 [{assign var="dynvalue" value=$oView->getDynValue()}]
-<div id="paymentOption_[{$sPaymentID}]" class="paymentOption [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]activePayment[{/if}]">
+<div id="paymentOption_[{$sPaymentID}]" class="payment-option [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]active-payment[{/if}]">
     <input id="payment_[{$sPaymentID}]" type="radio" name="paymentid" value="[{$sPaymentID}]" [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]checked="checked"[{/if}] />
     <ul class="form">
         <li>
@@ -14,16 +14,16 @@
                     </a>
                 </div>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="mcd">[{oxmultilang ident="CARD_MASTERCARD"}]</a></li>
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="vis">[{oxmultilang ident="CARD_VISA"}]</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="mcd">[{oxmultilang ident="CARD_MASTERCARD"}]</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="vis">[{oxmultilang ident="CARD_VISA"}]</a></li>
                     <!--
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="amx">American Express</a></li>
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="dsc">Discover</a></li>
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="dnc">Diners Club</a></li>
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="jcb">JCB</a></li>
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="swi">Switch</a></li>
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="dlt">Delta</a></li>
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="enr">EnRoute</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="amx">American Express</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="dsc">Discover</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="dnc">Diners Club</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="jcb">JCB</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="swi">Switch</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="dlt">Delta</a></li>
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="enr">EnRoute</a></li>
                     -->
                 </ul>
                 [{if !empty($dynvalue.kktype)}]
@@ -49,7 +49,7 @@
         <li>
             <label>[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_VALIDUNTIL"}]</label>
             <div class="cardValidDateWrapper">
-                <div class="cardValidDateField cardValidDateMonth">
+                <div class="card-valid-date-field card-valid-date-month">
                     <div class="dropdown">
                         <input type="hidden" id="sCardValidDateMonthSelected" name="dynvalue[kkmonth]" value="01" />
                         <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
@@ -61,7 +61,7 @@
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             [{section name="iMonth" start=1 loop=13}]
                                 [{assign var=sMonth value=$smarty.section.iMonth.index|string_format:"%02d"}]
-                                <li class="dropDownOption">
+                                <li class="dropdown-option">
                                     <a tabindex="-1" data-selection-id="[{$sMonth}]">[{$sMonth}]</a>
                                 </li>
                                 [{if $dynvalue.kkmonth == $sMonth}]
@@ -71,8 +71,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="cardValidDateField cardValidDateDivider">/</div>
-                <div class="cardValidDateField cardValidDateYear">
+                <div class="card-valid-date-field card-valid-date-divider">/</div>
+                <div class="card-valid-date-field card-valid-date-year">
                     <div class="dropdown">
                         [{assign var=aYear value=$oView->getCreditYears()}]
                         <input type="hidden" id="sCardValidDateYearSelected" name="dynvalue[kkyear]" value="[{$aYear[0]}]" />
@@ -84,7 +84,7 @@
                         </div>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             [{foreach from=$aYear item=iYear}]
-                                <li class="dropDownOption">
+                                <li class="dropdown-option">
                                     <a tabindex="-1" data-selection-id="[{$iYear}]">[{$iYear}]</a>
                                 </li>
                                 [{if $dynvalue.kkyear == $iYear}]
@@ -108,7 +108,7 @@
         [{block name="checkout_payment_longdesc"}]
             [{if $paymentmethod->oxpayments__oxlongdesc->value}]
                 <li>
-                    <div class="paymentDesc">
+                    <div class="payment-desc">
                         [{$paymentmethod->oxpayments__oxlongdesc->getRawValue()}]
                     </div>
                 </li>

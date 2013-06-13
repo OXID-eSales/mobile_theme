@@ -1,6 +1,6 @@
 [{* basket contents *}]
 [{oxscript include="js/widgets/oxarticlelist.js" priority=10}]
-[{oxscript add="$('ul.lineView').oxArticleList();"}]
+[{oxscript add="$('.media-list.article-list').oxArticleList();"}]
 
 [{assign var="currency" value=$oView->getActCurrency()}]
 <form name="basket[{ $basketindex}]" action="[{ $oViewConf->getSelfActionLink()}]" method="post">
@@ -8,7 +8,7 @@
     <input type="hidden" name="cl" value="basket">
     <input type="hidden" name="fnc" value="changebasket">
     <input type="hidden" name="CustomError" value='basket'>
-    <ul id="basket" class="lineView basketitems[{if $oViewConf->getActiveClassName() == 'order'}] orderBasketItems[{/if}]">
+    <ul id="basket" class="media-list article-list [{if $oViewConf->getActiveClassName() != 'order'}] basket-articles[{/if}]">
         [{* basket items *}]
         [{assign var="basketitemlist" value=$oView->getBasketArticles()}]
         [{foreach key=basketindex from=$oxcmp_basket->getContents() item=basketitem name=basketContents}]
@@ -17,32 +17,35 @@
                 [{assign var="oArticle" value=$basketitem->getArticle()}]
                 [{assign var="oAttributes" value=$oArticle->getAttributesDisplayableInBasket()}]
 
-                <li id="cartItem_[{$smarty.foreach.basketContents.iteration}]" class="productData clearfix">
+                <li id="cartItem_[{$smarty.foreach.basketContents.iteration}]" class="media">
 
                     [{block name="checkout_basketcontents_basketitem_image"}]
                         [{* product image *}]
-                        <div class="pictureBox">
-                            <a href="[{$basketitem->getLink()}]" rel="nofollow">
-                                <img src="[{$basketitem->getIconUrl()}]" alt="[{$basketitem->getTitle()|strip_tags}]">
-                            </a>
-                        </div>
+                        <a href="[{$basketitem->getLink()}]" rel="nofollow" class="pull-left">
+                            <img src="[{$basketitem->getIconUrl()}]" alt="[{$basketitem->getTitle()|strip_tags}]">
+                        </a>
                     [{/block}]
 
-                    <div class="productListContainer">
-                        [{block name="checkout_basketcontents_basketitem_removecheckbox"}]
-                            [{if $editable }]
-                            <div class="basketRemove">
-                                <input type="hidden" name="aproducts[[{ $basketindex }]][remove]" value="0">
-                                <button type="button" name="removeBtn" class="btn small remove"><i class="glyphicon-remove"></i></button>
-                            </div>
-                            [{/if}]
-                        [{/block}]
+                    <div class="media-body">
 
                         [{block name="checkout_basketcontents_basketitem_titlenumber"}]
                             [{* product title & number *}]
-                            <p class="poductListTitle">
-                                <a class="poductListTitleLink" rel="nofollow" href="[{$basketitem->getLink()}]"><b>[{$basketitem->getTitle()}]</b></a>[{if $basketitem->isSkipDiscount()}] <sup><a rel="nofollow" href="#SkipDiscounts_link" >**</a></sup>[{/if}]
-                            </p>
+                            <h4 class="media-heading">
+                                [{block name="checkout_basketcontents_basketitem_removecheckbox"}]
+                                    [{if $editable }]
+                                        <span class="article-list-remove">
+                                            <input type="hidden" name="aproducts[[{ $basketindex }]][remove]" value="0">
+                                            <button type="button" name="removeBtn" class="btn small remove"><i class="glyphicon-remove"></i></button>
+                                        </span>
+                                    [{/if}]
+                                [{/block}]
+                                <a class="media-heading-link" rel="nofollow" href="[{$basketitem->getLink()}]">
+                                    [{$basketitem->getTitle()}]
+                                </a>
+                                [{if $basketitem->isSkipDiscount()}]
+                                    <sup><a rel="nofollow" href="#SkipDiscounts_link" >**</a></sup>
+                                [{/if}]
+                            </h4>
                             <p class="attributes">
                                 [{assign var=sep value=", "}]
                                 [{assign var=result value=""}]
@@ -116,9 +119,28 @@
                         [{block name="checkout_basketcontents_basketitem_wrapping"}]
                         [{/block}]
 
-                        [{block name="checkout_basketcontents_basketitem_quantity"}]
-                            [{* product quantity manager *}]
-                            <p>
+                        <div>
+                            <span class="article-list-price pull-right">
+                                [{block name="checkout_basketcontents_basketitem_unitprice"}]
+                                [{/block}]
+
+                                [{block name="checkout_basketcontents_basketitem_vat"}]
+                                [{* product VAT percent *}]
+                                    <span class="vat-percent">
+                                        ([{ $basketitem->getVatPercent()}]%)
+                                    </span>
+                                [{/block}]
+
+                                [{block name="checkout_basketcontents_basketitem_totalprice"}]
+                                [{* product quantity * price *}]
+                                    <span class="main-price">
+                                        [{ $basketitem->getFTotalPrice()}]&nbsp;[{ $currency->sign}]
+                                    </span>
+                                [{/block}]
+                            </span>
+
+                            [{block name="checkout_basketcontents_basketitem_quantity"}]
+                                [{* product quantity manager *}]
                                 [{if $editable}]
                                     <input type="hidden" name="aproducts[[{ $basketindex}]][aid]" value="[{ $basketitem->getProductId()}]">
                                     <input type="hidden" name="aproducts[[{ $basketindex}]][basketitemid]" value="[{ $basketindex}]">
@@ -131,30 +153,11 @@
                                         <input class="quantity" id="am_[{$smarty.foreach.basketContents.iteration}]" type="textbox" name="aproducts[[{ $basketindex}]][am]" value="[{ $basketitem->getAmount()}]" size="2">
                                     [{/if}]
                                 [{else}]
-                                    [{ $basketitem->getAmount()}]
+                                    <span>[{ $basketitem->getAmount()}]</span>
                                 [{/if}]
                                 [{if $basketitem->getdBundledAmount() > 0 && ($basketitem->isBundle() || $basketitem->isDiscountArticle())}]
-                                    +[{ $basketitem->getdBundledAmount()}]
+                                    <span>+[{ $basketitem->getdBundledAmount()}]</span>
                                 [{/if}]
-                            </p>
-                        [{/block}]
-
-                        <div class="productListPrice">
-                            [{block name="checkout_basketcontents_basketitem_unitprice"}]
-                            [{/block}]
-
-                            [{block name="checkout_basketcontents_basketitem_vat"}]
-                                [{* product VAT percent *}]
-                                <span class="vatPercent">
-                                    ([{ $basketitem->getVatPercent()}]%)
-                                </span>
-                            [{/block}]
-
-                            [{block name="checkout_basketcontents_basketitem_totalprice"}]
-                                [{* product quantity * price *}]
-                                <span class="price">
-                                    [{ $basketitem->getFTotalPrice()}]&nbsp;[{ $currency->sign}]
-                                </span>
                             [{/block}]
                         </div>
                     </div>
@@ -195,170 +198,167 @@
 
     [{block name="checkout_basketcontents_basketfunctions"}]
         [{if $editable}]
-            <div id="basketFn" class="basketFunctions">
+            <div id="basketFn" class="basket-functions">
                 [{*  basket update/delete buttons  *}]
-                <button id="basketUpdate" class="btn small" type="submit" name="updateBtn"><i class="glyphicon-refresh"></i></button> <label for="basketUpdate">[{ oxmultilang ident="UPDATE"}]</label>
+                <button id="basketUpdate" class="btn small update update-basket-btn" type="submit" name="updateBtn"><i class="glyphicon-refresh"></i></button> <label for="basketUpdate">[{ oxmultilang ident="UPDATE"}]</label>
             </div>
         [{/if}]
     [{/block}]
 
     [{block name="checkout_basketcontents_summary"}]
-        <div id="basketSummary" class="summary[{if $oViewConf->getActiveClassName() == 'order'}] orderSummary[{/if}]">
-            [{*  basket summary  *}]
-            <table>
-                [{if !$oxcmp_basket->getDiscounts()}]
-                    [{block name="checkout_basketcontents_nodiscounttotalnet"}]
-                        <tr>
+        [{*  basket summary  *}]
+        <table id="basketSummary" class="basket-summary[{if $oViewConf->getActiveClassName() == 'order'}] orderSummary[{/if}]">
+            [{if !$oxcmp_basket->getDiscounts()}]
+                [{block name="checkout_basketcontents_nodiscounttotalnet"}]
+                    <tr>
                             <th>[{ oxmultilang ident="TOTAL_NET" }]</th>
+                        <td id="basketTotalProductsNetto">[{ $oxcmp_basket->getProductsNetPrice()}]&nbsp;[{ $currency->sign}]</td>
+                    </tr>
+                [{/block}]
+
+                [{block name="checkout_basketcontents_nodiscountproductvats"}]
+                    [{foreach from=$oxcmp_basket->getProductVats() item=VATitem key=key}]
+                        <tr>
+                                    <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX1" }]&nbsp;[{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]</th>
+                            <td>[{ $VATitem}]&nbsp;[{ $currency->sign}]</td>
+                        </tr>
+                    [{/foreach}]
+                [{/block}]
+
+                [{block name="checkout_basketcontents_nodiscounttotalgross"}]
+                    <tr>
+                            <th>[{ oxmultilang ident="TOTAL_GROSS"}]</th>
+                        <td id="basketTotalProductsGross">[{ $oxcmp_basket->getFProductsPrice()}]&nbsp;[{ $currency->sign}]</td>
+                    </tr>
+                [{/block}]
+            [{else}]
+                [{if $oxcmp_basket->isPriceViewModeNetto()}]
+                    [{block name="checkout_basketcontents_discounttotalnet"}]
+                        <tr>
+                                <th>[{ oxmultilang ident="TOTAL_NET"}]</th>
                             <td id="basketTotalProductsNetto">[{ $oxcmp_basket->getProductsNetPrice()}]&nbsp;[{ $currency->sign}]</td>
                         </tr>
                     [{/block}]
-
-                    [{block name="checkout_basketcontents_nodiscountproductvats"}]
-                        [{foreach from=$oxcmp_basket->getProductVats() item=VATitem key=key}]
-                            <tr>
-                                    <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX1" }]&nbsp;[{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]</th>
-                                <td>[{ $VATitem}]&nbsp;[{ $currency->sign}]</td>
-                            </tr>
-                        [{/foreach}]
-                    [{/block}]
-
-                    [{block name="checkout_basketcontents_nodiscounttotalgross"}]
+                [{else}]
+                     [{block name="checkout_basketcontents_discounttotalgross"}]
                         <tr>
-                            <th>[{ oxmultilang ident="TOTAL_GROSS"}]</th>
+                                <th>[{ oxmultilang ident="TOTAL_GROSS"}]</th>
                             <td id="basketTotalProductsGross">[{ $oxcmp_basket->getFProductsPrice()}]&nbsp;[{ $currency->sign}]</td>
                         </tr>
                     [{/block}]
-                [{else}]
-                    [{if $oxcmp_basket->isPriceViewModeNetto()}]
-                        [{block name="checkout_basketcontents_discounttotalnet"}]
-                            <tr>
-                                <th>[{ oxmultilang ident="TOTAL_NET"}]</th>
-                                <td id="basketTotalProductsNetto">[{ $oxcmp_basket->getProductsNetPrice()}]&nbsp;[{ $currency->sign}]</td>
-                            </tr>
-                        [{/block}]
-                    [{else}]
-                         [{block name="checkout_basketcontents_discounttotalgross"}]
-                            <tr>
-                                <th>[{ oxmultilang ident="TOTAL_GROSS"}]</th>
-                                <td id="basketTotalProductsGross">[{ $oxcmp_basket->getFProductsPrice()}]&nbsp;[{ $currency->sign}]</td>
-                            </tr>
-                        [{/block}]
-                    [{/if}]
+                [{/if}]
 
-                    [{block name="checkout_basketcontents_discounts"}]
-                        [{foreach from=$oxcmp_basket->getDiscounts() item=oDiscount name=test_Discounts}]
-                            <tr>
-                                <th>
+                [{block name="checkout_basketcontents_discounts"}]
+                    [{foreach from=$oxcmp_basket->getDiscounts() item=oDiscount name=test_Discounts}]
+                        <tr>
+                            <th>
                                     <b>[{if $oDiscount->dDiscount < 0}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_CHARGE"}][{else}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNT2"}][{/if}]&nbsp;</b>
-                                    [{ $oDiscount->sDiscount}]
-                                </th>
-                                <td>
-                                    [{if $oDiscount->dDiscount < 0}][{ $oDiscount->fDiscount|replace:"-":""}][{else}]-[{ $oDiscount->fDiscount}][{/if}]&nbsp;[{ $currency->sign}]
-                                </td>
-                            </tr>
-                        [{/foreach}]
-                    [{/block}]
+                                [{ $oDiscount->sDiscount}]
+                            </th>
+                            <td>
+                                [{if $oDiscount->dDiscount < 0}][{ $oDiscount->fDiscount|replace:"-":""}][{else}]-[{ $oDiscount->fDiscount}][{/if}]&nbsp;[{ $currency->sign}]
+                            </td>
+                        </tr>
+                    [{/foreach}]
+                [{/block}]
 
-                    [{if !$oxcmp_basket->isPriceViewModeNetto()}]
-                        [{block name="checkout_basketcontents_totalnet"}]
-                            <tr>
+                [{if !$oxcmp_basket->isPriceViewModeNetto()}]
+                    [{block name="checkout_basketcontents_totalnet"}]
+                        <tr>
                                 <th>[{ oxmultilang ident="TOTAL_NET"}]</th>
-                                <td id="basketTotalNetto">[{ $oxcmp_basket->getProductsNetPrice()}]&nbsp;[{ $currency->sign}]</td>
-                            </tr>
-                        [{/block}]
-                    [{/if}]
-
-                    [{block name="checkout_basketcontents_productvats"}]
-                        [{foreach from=$oxcmp_basket->getProductVats() item=VATitem key=key}]
-                            <tr>
-                                    <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX1" }] [{ $key }][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX2" }]</th>
-                                <td>[{ $VATitem}]&nbsp;[{ $currency->sign}]</td>
-                            </tr>
-                        [{/foreach}]
+                            <td id="basketTotalNetto">[{ $oxcmp_basket->getProductsNetPrice()}]&nbsp;[{ $currency->sign}]</td>
+                        </tr>
                     [{/block}]
+                [{/if}]
 
-                    [{if $oxcmp_basket->isPriceViewModeNetto()}]
-                        [{block name="checkout_basketcontents_totalgross"}]
-                            <tr>
+                [{block name="checkout_basketcontents_productvats"}]
+                    [{foreach from=$oxcmp_basket->getProductVats() item=VATitem key=key}]
+                        <tr>
+                                    <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX1" }] [{ $key }][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX2" }]</th>
+                            <td>[{ $VATitem}]&nbsp;[{ $currency->sign}]</td>
+                        </tr>
+                    [{/foreach}]
+                [{/block}]
+
+                [{if $oxcmp_basket->isPriceViewModeNetto()}]
+                    [{block name="checkout_basketcontents_totalgross"}]
+                        <tr>
                                 <th>[{ oxmultilang ident="TOTAL_GROSS"}]</th>
-                                <td id="basketTotalGross">[{ $oxcmp_basket->getFProductsPrice()}]&nbsp;[{ $currency->sign}]</td>
-                            </tr>
-                        [{/block}]
-                    [{/if}]
+                            <td id="basketTotalGross">[{ $oxcmp_basket->getFProductsPrice()}]&nbsp;[{ $currency->sign}]</td>
+                        </tr>
+                    [{/block}]
                 [{/if}]
+            [{/if}]
 
-                [{block name="checkout_basketcontents_voucherdiscount"}]
-                [{/block}]
+            [{block name="checkout_basketcontents_voucherdiscount"}]
+            [{/block}]
 
-                [{block name="checkout_basketcontents_delcosts"}]
-                    [{if $oxcmp_basket->getDelCostNet() }]
-                        <tr>
-                            <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_SHIPPINGNET" }]:</th>
-                            <td id="basketDeliveryNetto">[{ $oxcmp_basket->getDelCostNet() }]&nbsp;[{ $currency->sign }]</td>
-                        </tr>
-                        [{if $oxcmp_basket->getDelCostVat() }]
-                            <tr>
-                                [{if $oxcmp_basket->isProportionalCalculationOn() }]
-                                <th>[{ oxmultilang ident="BASKET_TOTAL_PLUS_PROPORTIONAL_VAT" }]:</th>
-                                [{else}]
-                                        <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX1" }] [{ $oxcmp_basket->getDelCostVatPercent() }][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX2" }]</th>
-                                    [{/if}]
-                                    <td id="basketDeliveryVat">[{ $oxcmp_basket->getDelCostVat() }]&nbsp;[{ $currency->sign }]</td>
-                            </tr>
-                        [{/if }]
-                    [{elseif $oxcmp_basket->getFDeliveryCosts() }]
-                        <tr>
-                            <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_SHIPPING" }]:</th>
-                            <td id="basketDeliveryGross">[{ $oxcmp_basket->getFDeliveryCosts() }]&nbsp;[{ $currency->sign }]</td>
-                        </tr>
-                    [{/if }]
-                [{/block}]
-
-                [{block name="checkout_basketcontents_paymentcosts"}]
-                    [{if $oxcmp_basket->getPayCostNet() }]
-                        <tr>
-                            <th>[{if $oxcmp_basket->getPaymentCosts() >= 0}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PAYMENT" }][{else}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_CHARGE2" }][{/if}] [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNT3" }]</th>
-                            <td id="basketPaymentNetto">[{ $oxcmp_basket->getPayCostNet() }]&nbsp;[{ $currency->sign }]</td>
-                        </tr>
-                        [{if $oxcmp_basket->getPayCostVat() }]
-                            <tr>
-                                [{if $oxcmp_basket->isProportionalCalculationOn() }]
-                                        <th>[{ oxmultilang ident="BASKET_TOTAL_PLUS_PROPORTIONAL_VAT" }]:</th>
-                                [{else}]
-                                        <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PAYMENTTAX1" }] [{ $oxcmp_basket->getPayCostVatPercent() }] [{ oxmultilang ident="SHIPPING_VAT2" }]</th>
-                                [{/if}]
-                                <td id="basketPaymentVat">[{ $oxcmp_basket->getPayCostVat() }]&nbsp;[{ $currency->sign }]</td>
-                            </tr>
-                        [{/if }]
-                    [{elseif $oxcmp_basket->getFPaymentCosts() }]
-                        <tr>
-                            <th>[{if $oxcmp_basket->getPaymentCosts() >= 0}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PAYMENT" }][{else}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_CHARGE2" }][{/if}] [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNT3" }]</th>
-                            <td id="basketPaymentGross">[{ $oxcmp_basket->getFPaymentCosts() }]&nbsp;[{ $currency->sign }]</td>
-                        </tr>
-                    [{/if }]
-                [{/block}]
-
-                [{block name="checkout_basketcontents_ts"}]
-                [{/block}]
-
-                [{block name="checkout_basketcontents_wrappingcosts"}]
-                [{/block}]
-
-                [{block name="checkout_basketcontents_grandtotal"}]
-                    <tr id="basketGrandTotal">
-                        <th><strong>[{ oxmultilang ident="GRAND_TOTAL" }]</strong></th>
-                        <td><strong>[{ $oxcmp_basket->getFPrice() }]&nbsp;[{ $currency->sign }]</strong></td>
-                    </tr>
-                [{/block}]
-
-                [{if $oxcmp_basket->hasSkipedDiscount()}]
+            [{block name="checkout_basketcontents_delcosts"}]
+                [{if $oxcmp_basket->getDelCostNet() }]
                     <tr>
-                        <td class="note">**</span> [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNTS_NOT_APPLIED_FOR_ARTICLES" }]</span></th>
-                            <td></td>
+                            <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_SHIPPINGNET" }]:</th>
+                        <td id="basketDeliveryNetto">[{ $oxcmp_basket->getDelCostNet() }]&nbsp;[{ $currency->sign }]</td>
                     </tr>
-                [{/if}]
-            </table>
-        </div>
+                    [{if $oxcmp_basket->getDelCostVat() }]
+                        <tr>
+                            [{if $oxcmp_basket->isProportionalCalculationOn() }]
+                                <th>[{ oxmultilang ident="BASKET_TOTAL_PLUS_PROPORTIONAL_VAT" }]:</th>
+                            [{else}]
+                                        <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX1" }] [{ $oxcmp_basket->getDelCostVatPercent() }][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX2" }]</th>
+                                [{/if}]
+                                <td id="basketDeliveryVat">[{ $oxcmp_basket->getDelCostVat() }]&nbsp;[{ $currency->sign }]</td>
+                        </tr>
+                    [{/if }]
+                [{elseif $oxcmp_basket->getFDeliveryCosts() }]
+                    <tr>
+                            <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_SHIPPING" }]:</th>
+                        <td id="basketDeliveryGross">[{ $oxcmp_basket->getFDeliveryCosts() }]&nbsp;[{ $currency->sign }]</td>
+                    </tr>
+                [{/if }]
+            [{/block}]
+
+            [{block name="checkout_basketcontents_paymentcosts"}]
+                [{if $oxcmp_basket->getPayCostNet() }]
+                    <tr>
+                            <th>[{if $oxcmp_basket->getPaymentCosts() >= 0}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PAYMENT" }][{else}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_CHARGE2" }][{/if}] [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNT3" }]</th>
+                        <td id="basketPaymentNetto">[{ $oxcmp_basket->getPayCostNet() }]&nbsp;[{ $currency->sign }]</td>
+                    </tr>
+                    [{if $oxcmp_basket->getPayCostVat() }]
+                        <tr>
+                            [{if $oxcmp_basket->isProportionalCalculationOn() }]
+                                        <th>[{ oxmultilang ident="BASKET_TOTAL_PLUS_PROPORTIONAL_VAT" }]:</th>
+                            [{else}]
+                                        <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PAYMENTTAX1" }] [{ $oxcmp_basket->getPayCostVatPercent() }] [{ oxmultilang ident="SHIPPING_VAT2" }]</th>
+                            [{/if}]
+                            <td id="basketPaymentVat">[{ $oxcmp_basket->getPayCostVat() }]&nbsp;[{ $currency->sign }]</td>
+                        </tr>
+                    [{/if }]
+                [{elseif $oxcmp_basket->getFPaymentCosts() }]
+                    <tr>
+                            <th>[{if $oxcmp_basket->getPaymentCosts() >= 0}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PAYMENT" }][{else}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_CHARGE2" }][{/if}] [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNT3" }]</th>
+                        <td id="basketPaymentGross">[{ $oxcmp_basket->getFPaymentCosts() }]&nbsp;[{ $currency->sign }]</td>
+                    </tr>
+                [{/if }]
+            [{/block}]
+
+            [{block name="checkout_basketcontents_ts"}]
+            [{/block}]
+
+            [{block name="checkout_basketcontents_wrappingcosts"}]
+            [{/block}]
+
+            [{block name="checkout_basketcontents_grandtotal"}]
+                <tr id="basketGrandTotal" class="total-price">
+                        <th><strong>[{ oxmultilang ident="GRAND_TOTAL" }]</strong></th>
+                    <td><strong>[{ $oxcmp_basket->getFPrice() }]&nbsp;[{ $currency->sign }]</strong></td>
+                </tr>
+            [{/block}]
+
+            [{if $oxcmp_basket->hasSkipedDiscount()}]
+                <tr>
+                    <td class="note">**</span> [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNTS_NOT_APPLIED_FOR_ARTICLES" }]</td>
+                </tr>
+            [{/if}]
+        </table>
     [{/block}]
  </form>
