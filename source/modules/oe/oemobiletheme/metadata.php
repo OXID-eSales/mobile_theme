@@ -38,7 +38,6 @@ $aModule = array(
         'start'            => 'oe/oemobiletheme/controllers/oemobilethemestart',
         'tag'              => 'oe/oemobiletheme/controllers/oemobilethemetag',
         'vendorlist'       => 'oe/oemobiletheme/controllers/oemobilethemevendorlist',
-        'theme_main'       => 'oe/oemobiletheme/controllers/admin/oemobilethemethememain',
         'oxlang'           => 'oe/oemobiletheme/core/oemobilethemelang',
     ),
     'files' => array(
