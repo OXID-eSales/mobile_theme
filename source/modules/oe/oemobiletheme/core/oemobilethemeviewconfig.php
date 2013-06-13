@@ -13,15 +13,8 @@
  * of getters needed for formatting various urls,
  * config parameters, session information etc.
  */
-class oemobilethemeviewconfig extends oemobilethemeviewconfig_parent
+class oeMobileThemeViewConfig extends oeMobileThemeViewConfig_parent
 {
-    /**
-     * Active theme type
-     *
-     * @var string
-     */
-    protected $_sActiveThemeType = null;
-
     /**
      * Active theme name
      *
@@ -50,21 +43,21 @@ class oemobilethemeviewconfig extends oemobilethemeviewconfig_parent
     }
 
     /**
-     * Returns active device type (mobile|desktop)
+     * Return active device type (mobile|desktop)
      *
      * @return string
      */
     public function getActiveDeviceType()
     {
         if ( $this->_sActiveDeviceType === null ) {
-
-            $this->_sActiveDeviceType = oxRegistry::get("oxUtilsServer")->getDeviceType();
+            $oUserAgent = oxNew( 'oeMobileThemeUserAgent' );
+            $this->_sActiveDeviceType = $oUserAgent->getDeviceType();
         }
         return $this->_sActiveDeviceType;
     }
 
     /**
-     * Returns shop edition: EE | CE | PE
+     * Return shop edition: EE | CE | PE
      *
      * @return string
      */

@@ -13,7 +13,7 @@
  *
  * @package core
  */
-class oemobilethemeconfig extends oemobilethemeconfig_parent
+class oeMobileThemeConfig extends oeMobileThemeConfig_parent
 {
     /**
      * Active template theme type
@@ -74,11 +74,10 @@ class oemobilethemeconfig extends oemobilethemeconfig_parent
             } else {
                 $sUserAgent = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
                 if ( empty($sUserAgent) ) {
-                    $sUserAgent = oxRegistry::get("oxUtilsServer")->getDeviceType();
+                    $oUserAgent = oxNew( 'oeMobileThemeUserAgent' );
+                    $sUserAgent = $oUserAgent->getDeviceType();
                 }
             }
-
-
             $this->_blIsUserAgentMobile = ($sUserAgent == 'mobile');
         }
 

@@ -12,7 +12,7 @@
  * Class handling shop themes
  *
  */
-class oemobilethemetheme extends oemobilethemetheme_parent
+class oeMobileThemeTheme extends oeMobileThemeTheme_parent
 {
     /**
      * Load theme info list

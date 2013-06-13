@@ -27,7 +27,6 @@ $aModule = array(
     'email'        => 'info@oxid-esales.com',
     'extend'       => array(
         'oxconfig'         => 'oe/oemobiletheme/core/oemobilethemeconfig',
-        'oxutilsserver'    => 'oe/oemobiletheme/core/oemobilethemeutilsserver',
         'oxtheme'          => 'oe/oemobiletheme/core/oemobilethemetheme',
         'oxviewconfig'     => 'oe/oemobiletheme/core/oemobilethemeviewconfig',
         'manufacturerlist' => 'oe/oemobiletheme/controllers/oemobilethememanufacturerlist',
@@ -53,8 +52,4 @@ $aModule = array(
     'settings' => array(
         array('group' => 'main', 'name' => 'sMobileTheme', 'type' => 'str',  'value' => 'mobile'),
     )
-
-
-
-
 );

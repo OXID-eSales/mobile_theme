@@ -13,7 +13,7 @@
  *
  * @package core
  */
-class oemobilethemeuseragent
+class oeMobileThemeUserAgent
 {
     /**
      * Detected device type
@@ -23,7 +23,7 @@ class oemobilethemeuseragent
     protected $_sDeviceType = null;
 
     /**
-     * Mobile devices types
+     * Mobile device types
      *
      * @var string
      */
@@ -36,22 +36,11 @@ class oemobilethemeuseragent
      */
     public function isMobile()
     {
-        if ( $this->_sDeviceType ) {
-            return $this->_sDeviceType == 'mobile' ? true : false;
-        } else {
-            $sUserAgent = $_SERVER['HTTP_USER_AGENT'];
-            $sMobileDevicesTypes = $this->getMobileDevicesTypes();
-            if ( preg_match( '/('. $sMobileDevicesTypes .')/is', $sUserAgent ) ){
-                $this->_sDeviceType = 'mobile';
-                return true;
-            }
-            $this->_sDeviceType = 'desktop';
-            return false;
-        }
+        return $this->getDeviceType() == 'mobile';
     }
 
     /**
-     * Function returns all supported devices types for mobile theme
+     * Function returns all supported mobile devices types
      *
      * @return string
      */
@@ -59,4 +48,33 @@ class oemobilethemeuseragent
     {
         return $this->_sMobileDevicesTypes;
     }
+
+    /**
+     * Returns device type: mobile | desktop
+     *
+     * @return string
+     */
+    public function getDeviceType()
+    {
+        if ( $this->_sDeviceType === null ) {
+            $sUserAgent = $_SERVER['HTTP_USER_AGENT'];
+            $sMobileDevicesTypes = $this->getMobileDevicesTypes();
+            if ( preg_match( '/('. $sMobileDevicesTypes .')/is', $sUserAgent ) ){
+                $this->setDeviceType( 'mobile' );
+            } else {
+                $this->setDeviceType( 'desktop' );
+            }
+        }
+
+        return $this->_sDeviceType;
+    }
+
+    /**
+     * Set device type
+     */
+    public function setDeviceType( $sDeviceType )
+    {
+        $this->_sDeviceType = $sDeviceType;
+    }
+
 }
