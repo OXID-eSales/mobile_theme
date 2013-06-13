@@ -13,7 +13,7 @@
  *
  * @package core
  */
-class oemobilethemeuseragent extends oxUtilsServer
+class oemobilethemeuseragent
 {
     /**
      * Detected device type
@@ -39,7 +39,7 @@ class oemobilethemeuseragent extends oxUtilsServer
         if ( $this->_sDeviceType ) {
             return $this->_sDeviceType == 'mobile' ? true : false;
         } else {
-            $sUserAgent = $this->getServerVar( 'HTTP_USER_AGENT' );
+            $sUserAgent = $_SERVER['HTTP_USER_AGENT'];
             $sMobileDevicesTypes = $this->getMobileDevicesTypes();
             if ( preg_match( '/('. $sMobileDevicesTypes .')/is', $sUserAgent ) ){
                 $this->_sDeviceType = 'mobile';
