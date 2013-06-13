@@ -10,8 +10,6 @@
     [{oxscript add="$( '#morePicsContainer' ).oxMorePictures();"}]
 [{/if*}]
 
-[{*oxscript add="$( '#productTitle' ).oxArticleActionLinksSelect();"*}]
-
 [{*if $oDetailsProduct->loadAmountPriceInfo()}]
     [{oxscript add="$( '#amountPrice' ).oxAmountPriceSelect();"}]
 [{/if*}]
