@@ -1,3 +1,4 @@
+[{oxscript include="js/widgets/oxdropdown.js" priority=10 }]
 [{assign var="invadr" value=$oView->getInvoiceAddress()}]
 [{assign var="blBirthdayRequired" value=$oView->isFieldRequired(oxuser__oxbirthdate)}]
 [{if isset( $invadr.oxuser__oxbirthdate.month ) }]
@@ -92,7 +93,7 @@
     </li>
     [{block name="form_user_billing_country"}]
         <li [{if $aErrors.oxuser__oxcountryid}]class="oxInValid"[{/if}]>
-            <div id="invCountry" class="dropdown dropdownWidget">
+            <div id="invCountry" class="dropdown">
                 <input type="hidden" id="invCountrySelected" name="invadr[oxuser__oxcountryid]" value="" [{if $oView->isFieldRequired(oxuser__oxcountryid) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] />
                 <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
                     <a id="invCountryLabel" role="button" href="#">
@@ -104,7 +105,7 @@
                     [{foreach from=$oViewConf->getCountryList() item=country key=country_id }]
                         [{assign var=sCountryName value=$country->oxcountry__oxtitle->value}]
                         [{assign var=sCountryID value=$country->oxcountry__oxid->value}]
-                        <li class="dropDownOption">
+                        <li class="dropdown-option">
                             <a tabindex="-1" data-selection-id="[{$sCountryID}]">[{$sCountryName}]</a>
                         </li>
                         [{if (isset($invadr.oxuser__oxcountryid) && $invadr.oxuser__oxcountryid == $sCountryID) ||
@@ -130,6 +131,7 @@
             selectedStateId=$oxcmp_user->oxuser__oxstateid->value
             }]
         </li>
+        [{oxscript add="$('#invCountry.dropdown').oxDropDown();"}]
     [{/block}]
 
 
@@ -176,7 +178,7 @@
         <li class="oxDate[{if $aErrors.oxuser__oxbirthdate}] oxInValid[{/if}]">
         <label [{if $oView->isFieldRequired(oxuser__oxbirthdate) }]class="req"[{/if}]>[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_BIRTHDATE" }]</label>
             <div id="datePicker">
-                <ul class="nav nav-pills nav-justified datepickerContainer">
+                <ul class="nav nav-pills nav-justified datepicker-container">
                     <li id="month">
                         <button class="btn" type="button">+</button>
                         <input name="invadr[oxuser__oxbirthdate][month]" type="hidden" value="[{if $iBirthdayMonth > 0 }][{$iBirthdayMonth }][{/if}]"/>

@@ -1,3 +1,4 @@
+[{oxscript include="js/widgets/oxdropdown.js" priority=10 }]
 [{if $oxcmp_user}]
     [{assign var="delivadr" value=$oxcmp_user->getSelectedAddress()}]
 [{/if}]
@@ -6,7 +7,7 @@
     <input type="hidden" name="changeClass" value="[{$onChangeClass|default:'account_user'}]">
     [{oxscript include="js/widgets/oxusershipingaddressselect.js" priority=10 }]
     [{oxscript add="$( '#addressId' ).oxUserShipingAddressSelect();"}]
-    <div class="dropdown dropdownWidget">
+    <div id="addressSelect" class="dropdown">
         <input id="addressId" type="hidden" name="oxaddressid" value="-1" />
         <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
             <a role="button" href="#">
@@ -15,7 +16,7 @@
             </a>
         </div>
         <ul class="dropdown-menu">
-            <li class="dropDownOption">
+            <li class="dropdown-option">
                 <a tabindex="-1" data-selection-id="-1">[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_NEWADDRESS" }]</a>
             </li>
             [{if $oxcmp_user }]
@@ -23,7 +24,7 @@
                     [{if $address->isSelected()}]
                         [{oxscript add="$('#addressId').val('`$address->oxaddress__oxid->value`');"}]
                     [{/if}]
-                    <li class="dropDownOption">
+                    <li class="dropdown-option">
                         <a tabindex="-1" data-selection-id="[{$address->oxaddress__oxid->value}]">[{$address}]</a>
                     </li>
                 [{/foreach}]
@@ -102,7 +103,7 @@
         </li>
         [{block name="form_user_shipping_country"}]
         <li [{if $aErrors.oxaddress__oxcountryid}]class="oxInValid"[{/if}]>
-                <div id="delCountry" class="dropdown dropdownWidget">
+                <div id="delCountry" class="dropdown">
                     <input type="hidden" id="delCountrySelected" name="deladr[oxaddress__oxcountryid]" value="" [{if $oView->isFieldRequired(oxaddress__oxcountryid)}] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] />
                     <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
                         <a id="delCountryLabel" role="button" href="#">
@@ -114,7 +115,7 @@
                         [{foreach from=$oViewConf->getCountryList() item=country key=country_id}]
                             [{assign var=sCountryName value=$country->oxcountry__oxtitle->value}]
                             [{assign var=sCountryID value=$country->oxcountry__oxid->value}]
-                            <li class="dropDownOption">
+                            <li class="dropdown-option">
                                 <a tabindex="-1" data-selection-id="[{$sCountryID}]">[{$sCountryName}]</a>
                             </li>
                             [{if (isset($deladr.oxaddress__oxcountryid) && $deladr.oxaddress__oxcountryid == $sCountryID) ||
@@ -142,6 +143,7 @@
                     selectedStateId=$delivadr->oxaddress__oxstateid->value
             }]
         </li>
+        [{oxscript add="$('#delCountry.dropdown').oxDropDown();"}]
         [{/block}]
         <li [{if $aErrors.oxaddress__oxfon}]class="oxInValid"[{/if}]>
             <input [{if $oView->isFieldRequired(oxaddress__oxfon) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_PHONE2" }]" type="text" size="37" maxlength="128" name="deladr[oxaddress__oxfon]" value="[{if isset( $deladr.oxaddress__oxfon ) }][{ $deladr.oxaddress__oxfon }][{else}][{ $delivadr->oxaddress__oxfon->value }][{/if }]">
@@ -169,3 +171,4 @@
         <button id="accUserSaveBottom" type="submit" class="submitButton" name="save">[{ oxmultilang ident="SAVE" }]</button>
     </li>
 [{/if}]
+[{oxscript add="$('#addressSelect.dropdown').oxDropDown();"}]

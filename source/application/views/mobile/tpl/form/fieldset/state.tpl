@@ -36,7 +36,7 @@
     [{/foreach}]
 
 --></script>
-<div id="[{$stateDropDown}]" class="dropdown dropdownWidget">
+<div id="[{$stateDropDown}]" class="dropdown">
     <input type="hidden" id="[{$stateSelected}]" name="[{$stateSelectName}]" value="" />
     <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
         <a id="dLabel_[{$stateDropDown}]" role="button" href="#">
@@ -47,3 +47,4 @@
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel_[{$stateDropDown}]">
     </ul>
 </div>
+[{oxscript add="$('#'+'$stateDropDown'+'.dropdown').oxDropDown();"}]

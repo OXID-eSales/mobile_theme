@@ -1,4 +1,3 @@
-[{oxscript include="js/widgets/oxdropdown.js" priority=10}]
 <li [{if $aErrors.oxuser__oxusername}]class="oxInValid"[{/if}]>
     [{block name="user_account_username"}]
         <label class="req">[{ oxmultilang ident="FORM_FIELDSET_USER_ACCOUNT_EMAIL" }]</label>
@@ -39,4 +38,3 @@
     [{block name="user_account_newsletter"}]
     [{/block}]
 </li>
-[{oxscript add="$('.dropdown.dropdownWidget').oxDropDown({blSubmit:false});"}]
