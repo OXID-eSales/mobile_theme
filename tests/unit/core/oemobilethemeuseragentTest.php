@@ -11,10 +11,6 @@
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
-//$sModuleDir = realpath( "../" ) . '/source/modules/oe/oemobiletheme/';
-
-//require_once $sModuleDir . 'core/oemobilethemeuseragent.php';
-
 /**
  * Tests for oeMobileThemeUserAgent class
  */
