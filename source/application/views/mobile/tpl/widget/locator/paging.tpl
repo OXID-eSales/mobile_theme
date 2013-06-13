@@ -1,5 +1,5 @@
 [{if $pages->changePage}]
-    <div class="paginationContainer">
+    <div class="pagination-container">
         <ul class="pagination [{if $place eq "bottom"}] lineBox[{/if}]" id="itemsPager[{$place}]">
             [{if $pages->previousPage }]
                 <li>
@@ -9,22 +9,22 @@
             [{assign var="i" value=1}]
             [{foreach key=iPage from=$pages->changePage item=page}]
                 [{if $iPage == $i}]
-                   <li><a href="[{$page->url}]" class="page[{if $iPage == $pages->actPage }] active[{/if}]">[{$iPage}]</a></li>
+                   <li><a href="[{$page->url}]" class="pagination-page[{if $iPage == $pages->actPage }] active[{/if}]">[{$iPage}]</a></li>
                    [{assign var="i" value=$i+1}]
                 [{elseif $iPage > $i}]
                    <li>
-                       <a class="numbersSeparator">...</a>
+                       <a class="pagination-separator">...</a>
                    </li>
                    <li>
-                        <a href="[{$page->url}]" class="page[{if $iPage == $pages->actPage }] active[{/if}]">[{$iPage}]</a>
+                        <a href="[{$page->url}]" class="pagination-page[{if $iPage == $pages->actPage }] active[{/if}]">[{$iPage}]</a>
                    </li>
                    [{assign var="i" value=$iPage+1}]
                 [{elseif $iPage < $i}]
                     <li>
-                        <a href="[{$page->url}]" class="page[{if $iPage == $pages->actPage }] active[{/if}]">[{$iPage}]</a>
+                        <a href="[{$page->url}]" class="pagination-page[{if $iPage == $pages->actPage }] active[{/if}]">[{$iPage}]</a>
                     </li>
                     <li>
-                        <a class="numbersSeparator">...</a>
+                        <a class="pagination-separator">...</a>
                         [{assign var="i" value=$iPage+1}]
                     </li>
                 [{/if}]
