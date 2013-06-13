@@ -63,4 +63,14 @@ class oemobilethemeviewconfig extends oemobilethemeviewconfig_parent
         return $this->_sActiveDeviceType;
     }
 
+    /**
+     * Returns shop edition: EE | CE | PE
+     *
+     * @return string
+     */
+    public function getEdition()
+    {
+        return $this->getConfig()->getEdition();
+    }
+
 }
