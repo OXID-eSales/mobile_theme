@@ -8,23 +8,30 @@
 [{capture append="oxidBlock_content"}]
 
     <div id="subcat_list">
-        [{if $parentCategory}][{assign var="backLink" value=$parentCategory->getLink()}][{else}][{assign var="backLink" value=$oViewConf->getHomeLink()}][{/if}]
-        [{include file="widget/backbutton.tpl" link=$backLink text="BACK"}]
 
-        [{if $oView->hasVisibleSubCats()}]
-            <ul class="mainNavList nav nav-list">
+        <ul class="nav nav-list main-nav-list">
+            <li>
+                <a class="back" href="[{if $parentCategory}][{$parentCategory->getLink()}][{else}][{$oViewConf->getHomeLink()}][{/if}]">
+                    <span>[{oxmultilang ident="BACK"}]</span>
+                    <i class="glyphicon-chevron-left"></i>
+                </a>
+            </li>
+            [{if $oView->hasVisibleSubCats()}]
                 [{foreach from=$oView->getSubCatList() item=category name=MoreSubCat}]
                     <li>
                         [{if $category->getIsVisible()}]
                             <a id="moreSubCat_[{$smarty.foreach.MoreSubCat.iteration}]" href="[{$category->getLink()}]">
-                                [{$category->oxcategories__oxtitle->value}][{if $oView->showCategoryArticlesCount() && ($category->getNrOfArticles() > 0)}] ([{$category->getNrOfArticles()}])[{/if}]
+                                <span>
+                                    [{$category->oxcategories__oxtitle->value}]
+                                    [{if $oView->showCategoryArticlesCount() && ($category->getNrOfArticles() > 0)}] ([{$category->getNrOfArticles()}])[{/if}]
+                                </span>
                                 <i class="glyphicon-chevron-right"></i>
                             </a>
                         [{/if}]
                     </li>
                 [{/foreach}]
-            </ul>
-        [{/if}]
+            [{/if}]
+        </ul>
     </div>
 
     [{if $actCategory}]
