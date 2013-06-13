@@ -26,8 +26,9 @@ class oeMobileThemeTheme extends oeMobileThemeTheme_parent
         foreach ( glob( $sOutDir."*", GLOB_ONLYDIR ) as $sDir ) {
             $oTheme = oxNew('oxTheme');
             if ($oTheme->load(basename($sDir))) {
-                if( $oTheme->getId() != $this->getConfig()->getConfigParam('sMobileTheme') )
-                $this->_aThemeList[$sDir] = $oTheme;
+                if( $oTheme->getId() != $this->getConfig()->getConfigParam('sMobileTheme') ) {
+                    $this->_aThemeList[$sDir] = $oTheme;
+                }
             }
         }
         return $this->_aThemeList;
