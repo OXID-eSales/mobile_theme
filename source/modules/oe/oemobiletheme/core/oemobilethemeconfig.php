@@ -20,7 +20,7 @@ class oeMobileThemeConfig extends oeMobileThemeConfig_parent
      *
      * @var string
      */
-    protected $_blIsUserAgentMobile = null;
+    protected $_blIsMobileThemeRequested = null;
 
     /**
      * Returns config parameter value if such parameter exists
@@ -35,7 +35,7 @@ class oeMobileThemeConfig extends oeMobileThemeConfig_parent
 
         if ( $sName == "sCustomTheme" ) {
             // check for mobile devices
-            if ( $this->isUserAgentMobile() &&  !$this->isAdmin() ) {
+            if ( $this->isMobileThemeRequested() &&  !$this->isAdmin() ) {
                 return $this->_aConfigParams['sMobileTheme'];
             }
         }
@@ -45,7 +45,7 @@ class oeMobileThemeConfig extends oeMobileThemeConfig_parent
     }
 
     /**
-     * return current active theme, or custom theme if specified
+     * Return current active theme
      *
      * @return string
      */
@@ -60,27 +60,27 @@ class oeMobileThemeConfig extends oeMobileThemeConfig_parent
 
 
     /**
-     * Check is User Agent mobile
+     * Check if requested mobile theme
      *
      * @return bool
      */
-    public function isUserAgentMobile()
+    public function isMobileThemeRequested()
     {
-        if( $this->_blIsUserAgentMobile === null ) {
+        if( $this->_blIsMobileThemeRequested === null ) {
 
-            $sUserAgent = $this->getRequestParameter('themeType');
-            if( !empty($sUserAgent) ){
-                oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sUserAgent);
+            $sRequestedThemeType = $this->getRequestParameter('themeType');
+            if( !empty( $sRequestedThemeType ) ) {
+                oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sRequestedThemeType);
             } else {
-                $sUserAgent = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
-                if ( empty($sUserAgent) ) {
+                $sRequestedThemeType = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
+                if ( empty( $sRequestedThemeType ) ) {
                     $oUserAgent = oxNew( 'oeMobileThemeUserAgent' );
-                    $sUserAgent = $oUserAgent->getDeviceType();
+                    $sRequestedThemeType = $oUserAgent->getDeviceType();
                 }
             }
-            $this->_blIsUserAgentMobile = ($sUserAgent == 'mobile');
+            $this->_blIsMobileThemeRequested = ( $sRequestedThemeType == 'mobile' );
         }
 
-        return $this->_blIsUserAgentMobile;
+        return $this->_blIsMobileThemeRequested;
     }
 }
