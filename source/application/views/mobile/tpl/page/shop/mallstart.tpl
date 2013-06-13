@@ -3,7 +3,7 @@
 <div id="page">
     <div id="header" class="clear">
        [{include file="widget/header/languages.tpl"}]
-       <div><a id="logo" href="[{$oViewConf->getHomeLink()}]" title="[{$oxcmp_shop->oxshops__oxtitleprefix->value}]"><img src="[{$oViewConf->getImageUrl('logo.png')}]" alt="[{$oxcmp_shop->oxshops__oxtitleprefix->value}]"></a></div>
+       <div><a class="header-logo" href="[{$oViewConf->getHomeLink()}]" title="[{$oxcmp_shop->oxshops__oxtitleprefix->value}]"><img src="[{$oViewConf->getImageUrl('logo.png')}]" alt="[{$oxcmp_shop->oxshops__oxtitleprefix->value}]"></a></div>
     </div>
     <div>
         [{oxifcontent ident="oxstartwelcome" object="oCont"}]
