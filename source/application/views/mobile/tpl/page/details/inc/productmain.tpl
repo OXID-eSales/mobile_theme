@@ -33,56 +33,58 @@
     </div>
     [{/oxhasrights}]
 
-<div id="detailsMain" class="container">
+<div id="detailsMain" class="product-details container">
     [{* Header *}]
     [{include file="page/details/inc/header.tpl"}]
     [{* Pictures *}]
-    <div id="detailsPictures" class="row">
+    <div id="product-pictures" class="row">
         [{include file="page/details/inc/pics.tpl"}]
     </div>
-    <div id="detailsRatingsNPrice">
+    <div class="product-footer">
         [{* Ratings *}]
         [{if $oView->ratingIsActive()}]
             [{block name="details_productmain_ratings"}]
-                <div class="detailsRatings pull-left">
-                    [{*<div class="ratingPlaceholder"></div>
-                    include file="widget/reviews/rating.tpl" itemid="anid=`$oDetailsProduct->oxarticles__oxnid->value`" sRateUrl=$oDetailsProduct->getLink()*}]
+                <div class="product-ratings pull-left">
+                    [{*<div class="product-ratings-placeholder"></div>*}]
+                    [{*include file="widget/reviews/rating.tpl" itemid="anid=`$oDetailsProduct->oxarticles__oxnid->value`" sRateUrl=$oDetailsProduct->getLink()*}]
                 </div>
             [{/block}]
         [{/if}]
         [{*Price Info*}]
         [{oxhasrights ident="SHOWARTICLEPRICE"}]
-        <div class="detailsPriceBox pull-right">
-            [{block name="details_productmain_tprice"}]
-                [{if $oDetailsProduct->getTPrice()}]
-                    <label class="detailsOldPrice">
-                        <strong><del>[{$oDetailsProduct->getFTPrice()}] [{$currency->sign}]</del></strong>
-                    </label>
-                [{/if}]
-            [{/block}]
-            [{block name="details_productmain_price"}]
-                [{if $oDetailsProduct->getFPrice()}]
-                    <label class="detailsPrice price">
-                        [{assign var="sFrom" value=""}]
-                        [{assign var="fPrice" value=$oDetailsProduct->getFPrice()}]
-                        [{if $oDetailsProduct->isParentNotBuyable() }]
-                            [{assign var="fPrice" value=$oDetailsProduct->getFVarMinPrice()}]
-                            [{if $oDetailsProduct->isRangePrice() }]
-                                [{assign var="sFrom" value="PRICE_FROM"|oxmultilangassign}]
+        <div class="product-price-container pull-right">
+            <div class="pull-right">
+                [{block name="details_productmain_tprice"}]
+                    [{if $oDetailsProduct->getTPrice()}]
+                        <div class="product-price-old pull-left">
+                            <strong><del>[{$oDetailsProduct->getFTPrice()}] [{$currency->sign}]</del></strong>
+                        </div>
+                    [{/if}]
+                [{/block}]
+                [{block name="details_productmain_price"}]
+                    [{if $oDetailsProduct->getFPrice()}]
+                        <div class="product-price price pull-right">
+                            [{assign var="sFrom" value=""}]
+                            [{assign var="fPrice" value=$oDetailsProduct->getFPrice()}]
+                            [{if $oDetailsProduct->isParentNotBuyable() }]
+                                [{assign var="fPrice" value=$oDetailsProduct->getFVarMinPrice()}]
+                                [{if $oDetailsProduct->isRangePrice() }]
+                                    [{assign var="sFrom" value="PRICE_FROM"|oxmultilangassign}]
+                                [{/if}]
                             [{/if}]
-                        [{/if}]
-                        <strong >
-                            <span>[{$sFrom}] [{$fPrice}]</span>
-                            <span>[{ $currency->sign}]</span>
-                            [{if $oView->isVatIncluded() }]
-                                <span>*</span>
-                            [{/if}]
-                        </strong>
-                    </label>
-                [{/if}]
-            [{/block}]
+                            <strong>
+                                <span>[{$sFrom}] [{$fPrice}]</span>
+                                <span>[{ $currency->sign}]</span>
+                                [{if $oView->isVatIncluded() }]
+                                    <span>*</span>
+                                [{/if}]
+                            </strong>
+                        </div>
+                    [{/if}]
+                [{/block}]
+            </div>
             [{* Delivery info *}]
-            <div class="detailsDeliveryinfo">
+            <div class="product-delivery-info">
                 [{block name="details_productmain_deliveryinfo"}]
                     [{oxifcontent ident="oxdeliveryinfo" object="oCont"}]
                     [{if $oView->isVatIncluded()}]
@@ -96,7 +98,7 @@
         </div>
         [{/oxhasrights}]
     </div>
-    <div id="detailsVariants" class="row">
+    <div id="product-variants-container" class="row">
         <div class="span12">
             [{* Variant Selector *}]
             [{assign var="blCanBuy" value=true}]
@@ -107,7 +109,7 @@
                     [{oxscript include="js/widgets/oxarticlevariant.js" priority=10 }]
                     [{oxscript add="$( '#variants' ).oxArticleVariant();"}]
                     [{assign var="blCanBuy" value=$aVariantSelections.blPerfectFit}]
-                    <div id="variants" class="selectorsBox js-fnSubmit clear spacedBottom">
+                    <div id="variants" class="js-fnSubmit clear">
                         [{assign var="blHasActiveSelections" value=false}]
                         [{foreach from=$aVariantSelections.selections item=oList key=iKey}]
                             [{if $oList->getActiveSelection()}]
@@ -117,7 +119,7 @@
                         [{/foreach}]
                     </div>
                     [{if !$blCanBuy }]
-                        <p class="variantMessage">[{oxmultilang ident="DETAILS_CHOOSEVARIANT"}]</div>
+                        <p class="product-variants-message">[{oxmultilang ident="CHOOSE_VARIANT"}]</p>
                     [{/if}]
                 [{/if}]
             [{/block}]
@@ -126,7 +128,7 @@
                 [{if $oViewConf->showSelectLists()}]
                     [{assign var="oSelections" value=$oDetailsProduct->getSelections()}]
                     [{if $oSelections}]
-                        <div class="selectorsBox js-fnSubmit clear" id="productSelections">
+                        <div class="js-fnSubmit clear" id="productSelections">
                             [{foreach from=$oSelections item=oList name=selections}]
                                 [{include file="widget/product/selectbox.tpl" oSelectionList=$oList sFieldName="sel" iKey=$smarty.foreach.selections.index blHideDefault=true sSelType="seldrop"}]
                             [{/foreach}]
@@ -137,12 +139,12 @@
         </div>
     </div>
     [{* Add to basket *}]
-    <div id="detailsAddToBasket" class="row">
+    <div id="product-add-to-basket" class="row">
         <div class="span12">
             [{* Persistent parameters *}]
             [{block name="details_productmain_persparams"}]
             [{if $oView->isPersParam()}]
-                <div class="persparamBox clear spacedBottom">
+                <div class="persparamBox clear">
                     <label for="persistentParam">[{ oxmultilang ident="LABEL"  }]</label><input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35">
                 </div>
             [{/if}]

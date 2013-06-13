@@ -18,7 +18,14 @@
 
         [{* details locator  *}]
         [{assign var="actCategory" value=$oView->getActiveCategory()}]
-        [{include file="widget/backbutton.tpl" link=$actCategory->toListLink text="BACK"}]
+        <ul class="nav nav-list main-nav-list">
+            <li>
+                <a class="back" href="[{$actCategory->toListLink}]">
+                    <span>[{oxmultilang ident="BACK"}]</span>
+                    <i class="glyphicon-chevron-left"></i>
+                </a>
+            </li>
+        </ul>
 
         [{* RDFa offering*}]
         <div id="productinfo" class="content">

@@ -1,10 +1,10 @@
 [{oxscript include="js/widgets/oxshowhide.js"}]
-[{oxscript add="$('#detailsFullDescription').oxShowHide();"}]
+[{oxscript add="$('.product-description-container').oxShowHide();"}]
 
-<div id="detailsMain">
+<div class="product-details">
     [{include file="page/details/inc/productmain.tpl"}]
 </div>
-<div id="detailsFullDescription" class="row spacedUpper">
+<div class="product-description-container" class="row">
     <div class="span12">
         [{* Full description *}]
         [{block name="details_longdescription"}]
@@ -14,11 +14,11 @@
             [{assign var="oChevronDown" value="<i class=\"glyphicon-chevron-down\"></i>"}]
             [{assign var="oChevronUp" value="<i class=\"glyphicon-chevron-up\"></i>"}]
             [{if $oLongdesc->value}]
-                <div class="descriptionTrunc pointer">
+                <div class="product-description-truncated">
                     [{oxeval var=$oLongDescTrunc|html_substr:100}]
                     [{$oChevronDown}]
                 </div>
-                <div class="descriptionFull pointer hidden">
+                <div class="product-description-full hidden">
                     [{oxeval var=$oLongDescTrunc}]
                     [{$oChevronUp}]
                 </div>
@@ -27,12 +27,12 @@
         [{/block}]
     </div>
 </div>
-<div id="detailsAttributes" class="row spacedUpper">
+<div class="product-attributes row">
     <div class="span12">
         [{* Attributes *}]
         [{block name="details_attributes"}]
             [{if $oView->getAttributes()}]
-                <a class="attributeSwitcher" data-toggle="collapse" data-parent="#details_attributes" href="#attributes">
+                <a class="product-attributes-switch" data-toggle="collapse" data-parent="#details_attributes" href="#attributes">
                     [{oxmultilang ident="SPECIFICATION"}]
                     [{$oChevronDown}]
                 </a>
@@ -43,7 +43,7 @@
         [{/block}]
     </div>
 </div>
-<div id="detailsRelatedProducts" class="row">
+<div id="product-related-products" class="row">
     <div class="span12 well hidden">
         <span>Related products</span>
         [{include file="page/details/inc/related_products.tpl"}]
