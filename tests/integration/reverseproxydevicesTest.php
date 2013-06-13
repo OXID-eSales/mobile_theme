@@ -9,7 +9,10 @@ if ( OXID_VERSION_EE ) :
      * @version   SVN: $Id$
      */
 
-    require_once realpath(dirname(__FILE__).'/../../') . '/tests/unit/OxidTestCase.php';
+    $sModuleDir = realpath( "." ) . '/../source/modules/oe/oemobiletheme/';
+
+    require_once $sModuleDir . 'core/oemobilethemeuseragent.php';
+    require_once realpath( "." ).'/unit/OxidTestCase.php';
 
     /**
      * Tests if reverse proxy is working correctly with mobile and desktop themes
@@ -25,8 +28,8 @@ if ( OXID_VERSION_EE ) :
          */
         protected function _getDevicesTypesFromShopSide()
         {
-            $oUtilsServer = new oemobilethemeutilsserver();
-            $sMobileDevicesTypes = $oUtilsServer->getMobileDevicesTypes();
+            $oUserAgent = new oemobilethemeuseragent();
+            $sMobileDevicesTypes = $oUserAgent->getMobileDevicesTypes();
             $aMobileDevicesTypes = explode( '|', $sMobileDevicesTypes );
 
             return $aMobileDevicesTypes;
