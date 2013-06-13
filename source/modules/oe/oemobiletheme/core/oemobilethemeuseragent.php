@@ -27,7 +27,7 @@ class oeMobileThemeUserAgent
      *
      * @var string
      */
-    protected $_sMobileDevicesTypes = 'iphone|ipod|android|webos|ipad';
+    protected $_sMobileDevicesTypes = 'iphone|ipod|android|webos|htc|fennec|iemobile|blackberry|symbianos|opera mobi';
 
     /**
      * Returns if device is mobile
