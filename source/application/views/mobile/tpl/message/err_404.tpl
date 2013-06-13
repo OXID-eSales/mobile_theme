@@ -1,5 +1,5 @@
 [{capture append="oxidBlock_content"}]
-    <div class="alertPage alertPageError404">
+    <div class="alert-page alert-page-error404">
         <h4 class="alertPageHeader">[{ oxmultilang ident="MESSAGE_ERR_404TITLE" }]</h4>
         <div class="alertPageBody">
             [{if $sUrl}]

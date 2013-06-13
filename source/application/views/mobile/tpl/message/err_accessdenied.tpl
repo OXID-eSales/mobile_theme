@@ -1,6 +1,6 @@
 [{if $smarty.const.OXID_VERSION_EE}]
 [{capture append="oxidBlock_content"}]
-    <div class="alertPage alertPageError">
+    <div class="alert-page alert-page-error">
         <h4 class="alertPageHeader">[{ oxmultilang ident="MESSAGE_ERR_ACCESSDENIEDTITLE" }]</h4>
         <div class="alertPageBody">[{ oxmultilang ident="MESSAGE_ERR_ACCESSDENIED" }] </div>
     </div>
