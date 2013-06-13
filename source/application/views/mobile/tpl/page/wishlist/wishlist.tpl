@@ -5,11 +5,11 @@
         [{include file="message/error.tpl" statusMessage=$_statusMessage}]
     [{/if }]
     <h1 class="pageHead">[{if $wishuser}][{ oxmultilang ident="PAGE_WISHLIST_PRODUCTS_WELCOME" }] [{$wishuser->oxuser__oxfname->value}] [{$wishuser->oxuser__oxlname->value}][{else}][{ oxmultilang ident="PAGE_WISHLIST_PRODUCTS_TITLE" }][{/if}]</h1>
-    <div class="wishlistView clear bottomRound">
+    <div class="wishlist-view clear bottomRound">
         [{include file="form/wishlist_search.tpl" searchClass="wishlist"}]
         [{if $oView->getWishList()}]
             [{assign var="wishuser" value=$oView->getWishUser()}]
-            <p class="wishlistUser">
+            <p class="wishlist-user">
             [{ oxmultilang ident="PAGE_WISHLIST_PRODUCTS_PRODUCTS1" }] [{$wishuser->oxuser__oxfname->value}] [{$wishuser->oxuser__oxlname->value}][{ oxmultilang ident="PAGE_WISHLIST_PRODUCTS_PRODUCTS2" }]
             </p>
         [{/if}]
