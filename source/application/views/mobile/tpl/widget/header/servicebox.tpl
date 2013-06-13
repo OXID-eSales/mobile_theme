@@ -10,7 +10,8 @@
 [{math equation="a+b+c+d" a=$oView->getCompareItemsCnt() b=$noticeListCount c=$wishListCount d=$recommListCount assign=notificationsCounter}]
 [{block name="widget_header_servicebox_flyoutbox"}]
     <a data-target="#services" data-toggle="collapse" class="hidden-phone" href="#">
-        [{oxmultilang ident="WIDGET_SERVICES_ACCOUNT"}]</span></a>[{if $notificationsCounter > 0}]<span class="counter FXgradOrange">[{$notificationsCounter}]</span>[{/if}]
+        [{oxmultilang ident="WIDGET_SERVICES_ACCOUNT"}]
+        [{if $notificationsCounter > 0}]<span class="counter FXgradOrange">[{$notificationsCounter}]</span>[{/if}]
     </a>
     <ul id="services" class="nav visible-phone" >
         [{block name="widget_header_servicebox_items"}]

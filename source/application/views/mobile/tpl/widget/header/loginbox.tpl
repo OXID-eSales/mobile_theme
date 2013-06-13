@@ -46,7 +46,7 @@
                 [{$smarty.capture.loginErrors}]
                 [{if $oViewConf->isFunctionalityEnabled( "blShowRememberMe" )}]
                 <p class="checkFields clear">
-                    <input type="checkbox" class="checkbox" value="1" name="lgn_cook" id="remember"><label for="remember">[{ oxmultilang ident="WIDGET_LOGINBOX_REMEMBER_ME" }]</label>
+                    <input type="checkbox" value="1" name="lgn_cook" id="remember"><label for="remember">[{ oxmultilang ident="WIDGET_LOGINBOX_REMEMBER_ME" }]</label>
                 </p>
                 [{/if}]
                 <p>
