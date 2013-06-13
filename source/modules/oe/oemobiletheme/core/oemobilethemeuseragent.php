@@ -30,21 +30,11 @@ class oeMobileThemeUserAgent
     protected $_sMobileDevicesTypes = 'iphone|ipod|android|webos|htc|fennec|iemobile|blackberry|symbianos|opera mobi';
 
     /**
-     * Returns if device is mobile
-     *
-     * @return bool
-     */
-    public function isMobile()
-    {
-        return $this->getDeviceType() == 'mobile';
-    }
-
-    /**
      * Function returns all supported mobile devices types
      *
      * @return string
      */
-    public function getMobileDevicesTypes()
+    public function getMobileDeviceTypes()
     {
         return $this->_sMobileDevicesTypes;
     }
@@ -74,11 +64,10 @@ class oeMobileThemeUserAgent
     /**
      * Set mobile device types
      */
-    public function setMobileDevicesTypes( $sMobileDeviceTypes )
+    public function setMobileDeviceTypes( $sMobileDeviceTypes )
     {
         $this->_sMobileDevicesTypes = $sMobileDeviceTypes;
     }
-
 
     /**
      * Detects device type from global variable. Device types: mobile, desktop
@@ -88,7 +77,7 @@ class oeMobileThemeUserAgent
     protected function _detectDeviceType()
     {
         $sDeviceType = 'desktop';
-        if ( preg_match( '/('. $this->getMobileDevicesTypes() .')/is', $_SERVER['HTTP_USER_AGENT'] ) ){
+        if ( preg_match( '/('. $this->getMobileDeviceTypes() .')/is', $_SERVER['HTTP_USER_AGENT'] ) ){
             $sDeviceType = 'mobile';
         }
         return $sDeviceType;

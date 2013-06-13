@@ -1,7 +1,5 @@
-
 1. copy files to shop directory
 2. activate module
-3. activate mobile theme
 
 
 
