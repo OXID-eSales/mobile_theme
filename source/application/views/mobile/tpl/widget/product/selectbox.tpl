@@ -2,7 +2,7 @@
 [{assign var="oSelections" value=$oSelectionList->getSelections()}]
 [{assign var="oActiveSelection" value=$oSelectionList->getActiveSelection()}]
 [{if $oSelections}]
-    <div class="dropdown spacedBottom">
+    <div class="dropdown">
         <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
             <a id="dLabel" role="button" href="#">
                 [{if $oActiveSelection}]
@@ -23,12 +23,12 @@
             <input type="hidden" name="[{$sFieldName|default:"varselid"}][[{$iKey}]]" value="[{if $oActiveSelection }][{$oActiveSelection->getValue()}][{/if}]">
             <ul class="dropdown-menu [{$sSelType|default:"vardrop"}]" role="menu" aria-labelledby="dLabel">
                 [{if $oActiveSelection && !$blHideDefault}]
-                    <li class="dropDownOption"><a tabindex="-1" data-selection-id="" href="#">
+                    <li class="dropdown-option"><a tabindex="-1" data-selection-id="" href="#">
                             [{$oSelectionList->getLabel()}] [{if $sFieldName == "sel"}][{oxmultilang ident="PLEASE_CHOOSE"}][{else}][{oxmultilang ident="CHOOSE_VARIANT"}][{/if}]
                     </a></li>
                 [{/if}]
                 [{foreach from=$oSelections item=oSelection}]
-                    <li class="dropDownOption [{if $oSelection->isDisabled()}]js-disabled disabled[{/if}]">
+                    <li class="dropdown-option [{if $oSelection->isDisabled()}]js-disabled disabled[{/if}]">
                         <a tabindex="-1" data-selection-id="[{$oSelection->getValue()}]" href="#">[{$oSelection->getName()}]</a>
                     </li>
                 [{/foreach}]
@@ -37,7 +37,7 @@
     </div>
     [{oxscript add="$('div.dropdown').oxDropDown();" }]
 [{else}]
-    <a href="[{$_productLink}]" class="variantMessage">
+    <a href="[{$_productLink}]" class="product-variants-message">
         [{if $sFieldName == "sel" }]
             [{oxmultilang ident="WIDGET_PRODUCT_ATTRIBUTES_PLEASECHOOSE"}]
         [{else}]
