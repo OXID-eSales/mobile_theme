@@ -18,7 +18,7 @@ if ( OXID_VERSION_EE ) :
      * Tests if reverse proxy is working correctly with mobile and desktop themes
      *
      */
-    class Integration_Cache_reverseProxyDevicesTest extends OxidTestCase
+    class Integration_reverseProxyDevicesTest extends OxidTestCase
     {
 
         /**
