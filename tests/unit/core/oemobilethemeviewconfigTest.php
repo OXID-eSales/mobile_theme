@@ -11,7 +11,7 @@
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
-class Unit_Views_oeMobileThemeViewConfigTest extends OxidTestCase
+class Unit_Core_oeMobileThemeViewConfigTest extends OxidTestCase
 {
     /**
      * oxViewConfig::getEdition()
