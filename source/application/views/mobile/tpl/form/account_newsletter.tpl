@@ -9,7 +9,7 @@
         <div class="alert">[{ oxmultilang ident="MESSAGE_SENT_CONFIRMATION_EMAIL" }]</div>
     [{/if}]
     <label for="status">[{ oxmultilang ident="FORM_USER_NEWSLETTER_SUBSCRIPTION" }]</label>
-    <div id="status" class="dropdown dropdownWidget">
+    <div id="status" class="dropdown">
         <input type="hidden" name="status" value="" />
         <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
             <a role="button" href="#">
@@ -18,14 +18,15 @@
             </a>
         </div>
         <ul class='dropdown-menu'>
-            <li class="dropDownOption">
+            <li class="dropdown-option">
                 <a data-selection-id="1">[{ oxmultilang ident="FORM_USER_NEWSLETTER_YES" }]</a>
             </li>
-            <li class="dropDownOption" >
+            <li class="dropdown-option" >
                 <a data-selection-id="0" >[{ oxmultilang ident="FORM_USER_NEWSLETTER_NO" }]</a>
             </li>
         </ul>
     </div>
     <button id="newsletterSettingsSave" type="submit" class="btn">[{ oxmultilang ident="SAVE" }]</button>
-    <span class="notice">[{ oxmultilang ident="FORM_USER_NEWSLETTER_MESSAGE" }]</span>
 </form>
+<p>[{ oxmultilang ident="FORM_USER_NEWSLETTER_MESSAGE" }]</p>
+[{oxscript add="$('#status.dropdown').oxDropDown();"}]

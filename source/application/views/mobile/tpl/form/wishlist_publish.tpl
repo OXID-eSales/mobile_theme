@@ -1,6 +1,6 @@
 [{if $oView->getWishList() }]
     <form name="wishlist_wishlist_status" action="[{ $oViewConf->getSelfActionLink() }]" method="post">
-        <div class="wishlistPublish clear">
+        <div class="wishlist-publish clear">
             [{ $oViewConf->getHiddenSid() }]
             <input type="hidden" name="fnc" value="togglepublic">
             <input type="hidden" name="cl" value="account_wishlist">

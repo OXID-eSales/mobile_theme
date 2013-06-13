@@ -1,4 +1,4 @@
-<div class="wishlistSearch clear">
+<div class="wishlist-search clear">
     <form name="wishlist_searchbox" action="[{ $oViewConf->getSelfActionLink() }]" method="post">
         [{ $oViewConf->getHiddenSid() }]
         <input type="hidden" name="cl" value="[{$searchClass}]">
@@ -14,7 +14,7 @@
     </form>
     <div>
     [{if $oView->getWishListUsers() }]
-    <dl class="wishlistResults">
+    <dl class="wishlist-results">
         <dt>[{ oxmultilang ident="FORM_WISHLIST_SEARCH_RESULTS" }]</dt>
         [{foreach from=$oView->getWishListUsers() item=wishres }]
             <dd>

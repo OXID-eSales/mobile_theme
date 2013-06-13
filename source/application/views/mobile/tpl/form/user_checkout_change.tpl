@@ -1,6 +1,5 @@
 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10 }]
 [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
-[{oxscript include="js/widgets/oxdropdown.js" priority=10}]
 [{block name="user_checkout_change"}]
     <form class="js-oxValidate" action="[{ $oViewConf->getSslSelfLink() }]" name="order" method="post">
         [{block name="user_checkout_change_form"}]
@@ -82,4 +81,3 @@
         [{/block}]
     </form>
 [{/block}]
-[{oxscript add="$('.dropdown.dropdownWidget').oxDropDown();"}]

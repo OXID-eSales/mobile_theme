@@ -1,7 +1,7 @@
 [{assign var="editval" value=$oView->getUserData() }]
 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10 }]
 [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
-<form class="js-oxValidate" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+<form class="contact-form js-oxValidate" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
     <div>
         [{ $oViewConf->getHiddenSid() }]
         <input type="hidden" name="fnc" value="send"/>
@@ -45,7 +45,7 @@
         </li>
         <li>
             <label>[{ oxmultilang ident="FORM_CONTACT_MESSAGE" }]</label>
-            <textarea rows="15" cols="70" name="c_message" class="areabox">[{$oView->getContactMessage()}]</textarea>
+            <textarea rows="15" cols="70" name="c_message" class="contact-form-message areabox">[{$oView->getContactMessage()}]</textarea>
         </li>
         <li class="verify">
             <label class="req">[{ oxmultilang ident="FORM_CONTACT_VERIFICATIONCODE" }]</label>

@@ -34,7 +34,7 @@
             [{if $oView->showRememberMe()}]
             <li>
                 <div class="checkbox">
-                    <input id="loginCookie" type="checkbox" class="checkbox" name="lgn_cook" value="1">
+                    <input id="loginCookie" type="checkbox" name="lgn_cook" value="1">
                     <label for="loginCookie" class="glyphicon-ok"></label>
                 </div>
                 <label for="loginCookie">[{ oxmultilang ident="KEEP_LOGGED_IN" }]</label>

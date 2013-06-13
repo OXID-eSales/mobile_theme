@@ -22,5 +22,5 @@
     </li>
   </ul>
 </form>
-[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_AFTERCLICK" }]<br><br>
+  <p>[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_AFTERCLICK" }]</p>
 </div>

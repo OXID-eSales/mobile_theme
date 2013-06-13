@@ -1,6 +1,5 @@
 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10 }]
 [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
-[{oxscript include="js/widgets/oxdropdown.js" priority=10}]
 <form class="js-oxValidate form" action="[{ $oViewConf->getSelfActionLink() }]" name="order" method="post">
     [{assign var="aErrors" value=$oView->getFieldValidationErrors()}]
     <div class="addressCollumns clear">
@@ -47,7 +46,6 @@
         </div>
     </div>
     <div class="lineBox clear">
-        <input id="accUserSaveTop" class="btn submitButton largeButton nextStep" name="userform" type="submit" value="[{ oxmultilang ident="SAVE" }]"/>
+        <input id="accUserSaveTop" class="btn submitButton largeButton next-step" name="userform" type="submit" value="[{ oxmultilang ident="SAVE" }]"/>
     </div>
 </form>
-[{oxscript add="$('.dropdown.dropdownWidget').oxDropDown({blSubmit:false});"}]

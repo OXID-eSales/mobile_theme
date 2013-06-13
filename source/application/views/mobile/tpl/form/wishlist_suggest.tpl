@@ -1,4 +1,4 @@
-<div class="wishlistSuggest clear">
+<div class="wishlist-suggest clear">
     [{if $oView->getWishList() && $oView->showSuggest() }]
         [{if count($Errors.account_whishlist)>0 }]
             <div class="inlineError">
