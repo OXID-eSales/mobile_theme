@@ -29,7 +29,7 @@ if ( OXID_VERSION_EE ) :
         protected function _getDevicesTypesFromShopSide()
         {
             $oUserAgent = new oemobilethemeuseragent();
-            $sMobileDevicesTypes = $oUserAgent->getMobileDevicesTypes();
+            $sMobileDevicesTypes = $oUserAgent->getMobileDeviceTypes();
             $aMobileDevicesTypes = explode( '|', $sMobileDevicesTypes );
 
             return $aMobileDevicesTypes;
