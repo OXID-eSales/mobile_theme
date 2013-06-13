@@ -4,7 +4,7 @@
         [{assign var="order" value=$oView->getOrder()}]
         [{assign var="basket" value=$oView->getBasket()}]
 
-        <div class="content" id="thankyouPage">
+        <div class="checkout-thank-you content" id="thankyouPage">
             [{* ordering steps *}]
             [{include file="page/checkout/inc/steps.tpl" active=5 }]
             <h3 class="blockHead">[{ oxmultilang ident="THANK_YOU" }]</h3>

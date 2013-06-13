@@ -1,6 +1,6 @@
 [{capture append="oxidBlock_content"}]
 [{oxscript include="js/widgets/oxdropdown.js" priority=10}]
-<div id="paymentSelect" class="content">
+<div id="paymentSelect" class="content payment-select">
 
     [{* ordering steps *}]
     [{include file="page/checkout/inc/steps.tpl" active=3}]
@@ -9,7 +9,7 @@
         [{assign var="currency" value=$oView->getActCurrency()}]
 
         [{block name="change_shipping"}]
-            <div class="paymentRow">
+            <div class="payment-row">
                 [{if $oView->getAllSets()}]
                     [{assign var="aErrors" value=$oView->getFieldValidationErrors()}]
                     <form action="[{$oViewConf->getSslSelfLink()}]" name="shipping" id="shipping" method="post">
@@ -32,7 +32,7 @@
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                                     [{foreach key=sShipID from=$oView->getAllSets() item=oShippingSet name=ShipSetSelect}]
                                         [{assign var=sShippingName value=$oShippingSet->oxdeliveryset__oxtitle->value}]
-                                        <li class="dropDownOption">
+                                        <li class="dropdown-option">
                                             <a tabindex="-1" data-selection-id="[{$sShipID}]">[{$sShippingName}]</a>
                                         </li>
                                         [{if $oShippingSet->blSelected}]
@@ -67,8 +67,8 @@
         [{block name="checkout_payment_errors"}]
             [{assign var="iPayError" value=$oView->getPaymentError()}]
             [{if !empty($iPayError)}]
-                <div class="paymentRow">
-                    [{assign var="sPayErrorClass" value='alert alert-error errContainer'}]
+                <div class="payment-row">
+                    [{assign var="sPayErrorClass" value='alert alert-error'}]
                     [{if $iPayError == 1}]
                         <div class="[{$sPayErrorClass}]">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_COMLETEALLFIELDS"}]</div>
                     [{elseif $iPayError == 2}]
@@ -94,7 +94,7 @@
         [{/block}]
 
         [{block name="change_payment"}]
-            <div class="paymentRow">
+            <div class="payment-row">
                 [{oxscript include="js/widgets/oxpayment.js" priority=10}]
                 [{oxscript add="$( '#payment' ).oxPayment();"}]
                 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10}]
@@ -122,7 +122,7 @@
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                                     [{foreach key=sPaymentID from=$oView->getPaymentList() item=paymentmethod name=PaymentSelect}]
                                         [{assign var=sPaymentName value=$paymentmethod->oxpayments__oxdesc->value}]
-                                        <li class="dropDownOption">
+                                        <li class="dropdown-option">
                                             <a tabindex="-1" data-selection-id="[{$sPaymentID}]">[{$sPaymentName}]</a>
                                         </li>
                                         [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]
@@ -186,10 +186,10 @@
 [{oxscript add="$('#shippingMethods').oxDropDown({form:'#shipping'});"}]
 [{oxscript add="$('#paymentMethods').oxDropDown();"}]
 [{oxscript add="
-    $('#paymentMethods').on('click', '.dropDownOption > a', function() {
+    $('#paymentMethods').on('click', '.dropdown-option > a', function() {
         var payment = $('#payment');
-        $('div.paymentOption.activePayment', payment).removeClass('activePayment');
-        $('#paymentOption_'+$(this).data('selection-id'), payment).addClass('activePayment');
+        $('div.payment-option.active-payment', payment).removeClass('active-payment');
+        $('#paymentOption_'+$(this).data('selection-id'), payment).addClass('active-payment');
         $('#payment_'+$(this).data('selection-id'), payment).prop('checked', true);
     });
 "}]
