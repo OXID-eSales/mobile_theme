@@ -1,0 +1,42 @@
+// Document   : checkout_payment.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Checkout process, payment page style definitions
+
+.payment-select {
+  .payment-option {
+    display: none;
+    &.active-payment {
+      display: block;
+    }
+  }
+  .payment-row {
+    &:first-of-type {
+      margin-top: @payment-select-payment-row-first-of-type-margin-top;
+    }
+    margin-top: @payment-select-payment-row-margin-top;
+  }
+  .payment-charge, .payment-desc {
+    padding: @payment-select-payment-padding;
+    color: @payment-select-payment-color;
+    font-size: @payment-select-payment-font-size;
+  }
+  .note {
+    color: @payment-select-note-color;
+  }
+  .card-valid-date-field {
+    display: table-cell;
+  }
+  .card-valid-date-month {
+    width: @payment-select-card-valid-date-month-width;
+  }
+  .card-valid-date-year {
+    width: @payment-select-card-valid-date-year-width;
+  }
+  .card-valid-date-divider {
+    padding: @payment-select-card-valid-date-divider-padding;
+  }
+  input[name="paymentid"] {
+    display: none;
+  }
+}

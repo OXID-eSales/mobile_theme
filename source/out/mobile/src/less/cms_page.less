@@ -1,0 +1,32 @@
+// Document   : cms_page.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: CMS page definition
+
+/* ---- CMS PAGE ------------------------------------ */
+.cms-content {
+  color: @base-color;
+  font-size: @cms-content-font-size;
+  background: @base-inverted-color;
+  padding: @cms-content-padding;
+  h1, p {
+    margin: @cms-content-hp-margin;
+    margin-bottom: @cms-content-hp-margin-bottom;
+    padding: @cms-content-hp-padding;
+    background: @base-inverted-color;
+    color: @base-color;
+  }
+  h1 {
+    font-size: @cms-content-h-font-size;
+    font-weight: @cms-content-h-font-weight;
+    text-transform: @cms-content-h-text-transform;
+    margin-top: @cms-content-h-margin-top;
+  }
+  p {
+    font-size: @cms-content-p-font-size;
+    margin-top: @cms-content-p-margin-top;
+  }
+  :last-child {
+    margin-bottom: @cms-content-margin-bottom;
+  }
+}

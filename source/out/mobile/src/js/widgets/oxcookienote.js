@@ -13,7 +13,7 @@
      */
     oxCookieNote = {
         options: {
-            closeButton : ".dismiss"
+            closeButton : ".cookie-note-dismiss"
         },
         /**
          * Enable cookie note dismiss

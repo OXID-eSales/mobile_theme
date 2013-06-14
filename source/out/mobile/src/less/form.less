@@ -1,0 +1,117 @@
+// Document   : form.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Form element style definition
+
+/* ---- Form elements styles --------------------------- */
+
+
+.form {
+  list-style: @form-list-style;
+  padding: @form-padding;
+  margin: @form-margin;
+  li {
+    margin: @form-li-margin;
+    .clearfix();
+  }
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+textarea {
+  border-width: @input-border-width;
+}
+
+/* Calendar fix for chrome */
+input[type=date] {
+  display: -webkit-inline-flex;
+}
+input[type=date]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: @form-webkit-inner-spin-button-margin;
+}
+
+
+.inlineElements {
+  position: relative;
+  .smallField {
+    width: @inline-elements-small-field-width;
+    position: absolute;
+    top: @inline-elements-small-field-top;
+  }
+  &.firstSmall {
+    padding: @inline-elements-first-small-padding;
+    padding-left: @inline-elements-small-field-width + @inline-elements-small-field-margin;
+    .smallField {
+      left: @inline-elements-small-field-left;
+    }
+    > .oxValidateError {
+      margin-left: -(@inline-elements-small-field-width + @inline-elements-small-field-margin);
+    }
+  }
+  &.firstBig {
+    padding: @inline-elements-first-big-padding;
+    padding-right: @inline-elements-small-field-width + @inline-elements-small-field-margin;
+    .smallField {
+      right: @inline-elements-small-field-right;
+    }
+  }
+}
+
+.areabox {
+  height: @areabox-height;
+}
+
+.checkbox,
+.radio {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  margin: @radiocheckbox-margin;
+  cursor: @radiocheckbox-cursor;
+  &:first-child {
+    margin: @radiocheckbox-first-child-margin;
+  }
+  input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    margin: @radiocheckbox-input-margin;
+    cursor: @radiocheckbox-cursor;
+  }
+  label {
+    display: block;
+    border: @radiocheckbox-border;
+    color: @radiocheckbox-color;
+    font-size: @radiocheckbox-font-size;
+    overflow: hidden;
+    text-align: @radiocheckbox-text-align;
+    padding: @radiocheckbox-padding;
+    height: @radiocheckbox-height;
+    width: @radiocheckbox-width;
+  }
+  + label {
+    margin-left: @radiocheckbox-label-margin-left;
+    cursor: @radiocheckbox-cursor;
+  }
+}
+
+.radio {
+  label {
+    border-radius: @radio-border-radius;
+    color: @radio-color;
+  }
+  input:checked + label {
+    background: @radio-checked-background;
+    color: @radio-checked-color;
+  }
+}
+
+.checkbox {
+  input:checked + label {
+    color: @checkbox-checked-color;
+  }
+}

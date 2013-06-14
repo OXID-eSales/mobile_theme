@@ -1,0 +1,60 @@
+// Document   : dropdown.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Dropdown style definition
+
+/*--------------------------dropdown-----------------------------*/
+.dropdown {
+  background: @dropdown-background-color;
+  position: relative;
+  z-index: @dropdown-z-index;
+  &.open {
+    z-index: @dropdown-open-z-index;
+  }
+}
+
+.dropdown-toggle {
+  border: @dropdown-toggle-border;
+  cursor: @dropdown-toggle-cursor;
+  padding: @dropdown-toggle-padding;
+  color: @dropdown-toggle-color;
+  .glyphicon-chevron-down {
+    float: @dropdown-toggle-glyphicon-float;
+  }
+}
+
+.dropdown-menu {
+  min-width: @dropdown-menu-min-width;
+  border: @dropdown-menu-border;
+  border-radius: @dropdown-menu-border-radius;
+  padding: @dropdown-menu-padding;
+  margin: @dropdown-menu-margin;
+  width: @dropdown-menu-width;
+  overflow: auto;
+  z-index: @dropdown-menu-z-index;
+  .dropdown-option {
+    padding: @dropdown-option-padding;
+    margin: @dropdown-option-margin;
+    a, span {
+      background: @dropdown-option-aspan-background;
+      padding: @dropdown-option-aspan-padding;
+      display: @dropdown-option-a-display;
+      white-space: @dropdown-option-aspan-white-space;
+    }
+    a {
+      color: @dropdown-option-a-color;
+      cursor: @dropdown-option-a-cursor;
+      &.selected {
+        background: @dropdown-option-a-selected-background;
+        color: @dropdown-option-a-selected-color;
+      }
+      &:hover, &:focus {
+        background: @dropdown-option-a-on-background;
+        color: @dropdown-option-a-on-color;
+      }
+    }
+    span {
+      color: @dropdown-option-span-color;
+    }
+  }
+}

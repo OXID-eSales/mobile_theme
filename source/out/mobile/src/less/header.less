@@ -1,0 +1,73 @@
+// Document   : header.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Header style definitions
+
+#header {
+  padding: @header-padding;
+  background: @header-background;
+  border-radius: @header-border-radius;
+  margin-bottom: @header-margin-bottom;
+}
+
+.header-btn {
+  padding: @header-btn-padding;
+  float: @header-btn-float;
+  background: @header-btn-background;
+  line-height: @header-btn-line-height;
+  border-left: @header-btn-border-left;
+  font-size: @header-btn-font-size;
+  width: @header-btn-width;
+  &.header-btn-disabled {
+    cursor: @header-btn-disabled-cursor;
+  }
+
+  @media screen and (min-width: 721px) {
+    & {
+      line-height: 70px;
+      padding: 0 20px;
+    }
+  }
+  &:last-child {
+    border-right: @header-btn-last-child-border-right;
+  }
+}
+
+.header-logo {
+  float: @header-logo-float;
+  max-width: @header-logo-max-width;
+  line-height: @header-logo-line-height;
+  margin-left: @header-logo-margin-left;
+  @media screen and (min-width: 721px) {
+    & {
+      line-height: 70px;
+    }
+  }
+}
+
+.mini-basket {
+  position: relative;
+  padding: @mini-basket-padding;
+  cursor: @mini-basket-cursor;
+  .mini-basket-count {
+    position: absolute;
+    top: @mini-basket-count-top;
+    right: @mini-basket-count-right;
+    background: @mini-basket-count-background;
+    color: @mini-basket-count-color;
+    z-index: @mini-basket-count-z-index;
+
+
+    @media screen and (min-width: 721px) {
+      & {
+        right: 37px;
+      }
+    }
+  }
+
+  .mini-basket-new-item {
+    max-width: @mini-basket-new-item-max-width;
+    display: block;
+    white-space: @mini-basket-new-item-white-space;
+  }
+}

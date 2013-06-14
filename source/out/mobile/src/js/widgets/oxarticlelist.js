@@ -13,9 +13,10 @@
      */
     oxArticleList = {
         options: {
-            listItem : "li.productData",
-            excludeList : ".quantity, .dropdown, .persParam, .basketRemove",
-            removeButton : ".basketRemove"
+            listItem : ".media",
+            linkItem : ".media-heading-link",
+            excludeList : ".quantity, .dropdown, .persParam, .article-list-remove, .add-to-basket",
+            removeButton : ".article-list-remove"
         },
 
         /**
@@ -37,7 +38,7 @@
                 if($(e.target).closest(self.options.excludeList).length != 0) {
                     return;
                 }
-                var link = $(this).find('a.poductListTitleLink').attr('href');
+                var link = $(this).find(self.options.linkItem).attr('href');
                 window.location.href = link;
             });
         }

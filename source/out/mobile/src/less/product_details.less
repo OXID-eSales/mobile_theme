@@ -1,0 +1,97 @@
+// Document   : product_details.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Product details style definition
+
+
+.product-details {
+  margin-top: @product-details-margin-top;
+}
+
+.product-title {
+  font-size: @product-title-font-size;
+}
+
+.product-description-container {
+  margin-top: @product-description-container-margin-top;
+}
+
+.product-description-full,
+.product-description-truncated {
+  cursor: @product-description-cursor;
+  .glyphicon-chevron-down {
+    color: @product-description-glyphicon-chevron-down-color;
+    font-size: @product-description-glyphicon-chevron-down-font-size;
+    font-weight: @product-description-glyphicon-chevron-down-font-weight;
+  }
+}
+
+.product-description-truncated {
+  div {
+    display: inline;
+  }
+}
+
+.product-header {
+  position: relative;
+}
+
+.product-header-info {
+  width: @product-header-info-width;
+  word-wrap: @product-header-info-word-wrap;
+}
+
+.product-footer {
+  position: relative;
+  overflow: hidden;
+  margin: @product-footer-margin;
+}
+
+.product-attributes {
+  margin-top: @product-attribute-margin-top;
+}
+
+.product-attributes-switch {
+  color: @product-attributes-switch-color;
+  font-size: @product-attributes-switch-font-size;
+  text-transform: @product-attributes-switch-text-transform;
+  font-weight: @product-attributes-switch-font-weight;
+}
+
+.product-price-container {
+  position: relative;
+  overflow: hidden;
+  min-width: @product-price-container-min-width;
+  min-height: @product-price-container-min-height;
+  text-align: @product-price-container-text-align;
+}
+
+.product-price {
+  color: @product-price-color;
+  font-size: @product-price-font-size;
+}
+
+.product-price-old + .product-price {
+  margin-left: @product-price-old-product-price-margin-left;
+}
+
+.product-delivery-info {
+  clear: both;
+}
+
+.product-ratings {
+  position: absolute;
+  bottom: @product-ratings-bottom;
+  left: @product-ratings-left;
+}
+
+/* temporary */
+.product-ratings-placeholder {
+  background: @product-ratings-placeholder-background;
+  width: @product-ratings-placeholder-width;
+  height: @product-ratings-placeholder-height;
+}
+
+.product-variants-message {
+  color: @product-variants-message-color;
+}

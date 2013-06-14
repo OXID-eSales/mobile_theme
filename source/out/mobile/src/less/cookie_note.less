@@ -1,0 +1,45 @@
+// Document   : cookie_note.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Searchbox style definition
+
+/* --- Cookie note -----------------------------*/
+.cookie-note {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: @cookie-note-width;
+  z-index: @cookie-note-z-index;
+  font-weight: @cookie-note-font-weight;
+  font-size: @cookie-note-font-size;
+  color: @cookie-note-color;
+  background-color: @cookie-note-background-color;
+  opacity: @cookie-note-opacity;
+  filter: @cookie-note-filter;
+  padding: @cookie-note-padding;
+  text-align: @cookie-note-text-align;
+  border-bottom: @cookie-note-border-bottom;
+  display: none;
+  .notify {
+    padding: @cookie-note-notify-padding;
+    .cookie-note-dismiss {
+      cursor: @cookie-note-dismiss-cursor;
+      position: absolute;
+      right: @cookie-note-dismiss-right;
+      top: @cookie-note-dismiss-top;
+      width: @cookie-note-dismiss-width;
+      height: @cookie-note-dismiss-height;
+      display: @cookie-note-dismiss-display;
+      text-indent: @cookie-note-dismiss-text-indent;
+      background: @cookie-note-dismiss-background;
+    }
+  }
+  a {
+    color: @cookie-note-a-color;
+    text-decoration: @cookie-note-a-text-decoration;
+    font-weight: @cookie-note-a-font-weight;
+  }
+  + #page {
+    padding-top: @cookie-note-page-padding-top;
+  }
+}

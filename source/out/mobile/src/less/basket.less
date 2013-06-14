@@ -1,0 +1,43 @@
+// Document   : basket.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Basket Checkout Basket step style definition
+
+/* ----- Basket Checkout (basket) ----------------------- */
+
+.basket-articles {
+  border-top: @basketitems-border-top;
+  margin-bottom: @basketitems-margin-bottom;
+}
+
+.basket-functions {
+  margin-bottom: @basket-functions-margin-bottom;
+  label {
+    color: @basket-functions-color;
+    cursor: @basket-functions-cursor;
+  }
+  .update-basket-btn {
+    display: @basket-functions-btn-small-display;
+  }
+}
+
+.basket-summary {
+  margin-bottom: @basket-summary-margin-bottom;
+  width: @basket-summary-width;
+  td, th {
+    padding: @basket-summary-padding;
+  }
+  th {
+    text-align: @basket-summary-th-text-align;
+    font-weight: @basket-summary-th-font-weight;
+  }
+  td {
+    text-align: @basket-summary-td-text-align;
+    color: @basket-summary-td-color;
+  }
+}
+
+.total-price {
+  border-top: @basket-total-price-border-top;
+  font-weight: @basket-total-price-font-weight;
+}

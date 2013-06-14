@@ -1,0 +1,22 @@
+// Document   : date_picker.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Date Picker style definition
+
+.datepicker-container {
+  max-height: @datepicker-container-max-height;
+  .months {
+    display: none;
+  }
+  input {
+    background-color: @datepicker-container-input-background-color;
+    text-align: @datepicker-container-input-text-align;
+  }
+  li {
+    border-left: @datepicker-container-li-border-left;
+    &:first-child {
+      border: @datepicker-container-li-first-child-border;
+    }
+  }
+}
+

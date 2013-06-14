@@ -113,7 +113,7 @@
          * @return object
          */
         getStateSelections: function () {
-            var oStateSelections = this.getStateDropDown().find('.dropDownOption');
+            var oStateSelections = this.getStateDropDown().find('.dropdown-option');
             return oStateSelections;
         },
 
@@ -146,7 +146,7 @@
          */
         createSelectionOption: function (sName, sValue) {
             var oSelectionOption = document.createElement('li');
-            $(oSelectionOption).addClass('dropDownOption');
+            $(oSelectionOption).addClass('dropdown-option');
 
             var oSelectionOptionData = document.createElement('a');
             $(oSelectionOptionData).attr({

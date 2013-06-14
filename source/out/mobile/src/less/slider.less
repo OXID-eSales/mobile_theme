@@ -1,0 +1,41 @@
+// Document   : slider.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Slider style definition
+
+.oxSlider {
+  margin-bottom: @oxslider-margin-bottom;
+  .carousel-control {
+    background: @oxslider-carousel-control-background;
+    z-index: @oxslider-carousel-control-z-index;
+    opacity: @oxslider-carousel-control-opacity;
+    &:focus {
+      outline: @oxslider-focus-outline;
+    }
+    i {
+      display: @oxslider-i-display;
+      position: absolute;
+      top: @oxslider-i-top;
+      margin-top: @oxslider-i-margin-top;
+      font-size: @oxslider-i-font-size;
+      color: @oxslider-i-color;
+      text-shadow: @oxslider-i-text-shadow;
+    }
+    &.left i {
+      left: @oxslider-i-left;
+    }
+    &.right i {
+      right: @oxslider-i-right;
+    }
+  }
+  .carousel-inner img {
+    margin: @oxslider-carousel-inner-img-margin;
+  }
+  .carousel-caption {
+    height: @oxslider-carousel-caption-height;
+    margin-left: @oxslider-carousel-caption-margin-left;
+    padding: @oxslider-carousel-caption-padding;
+    bottom: @oxslider-carousel-caption-bottom;
+    left: @oxslider-carousel-caption-left;
+  }
+}

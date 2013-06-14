@@ -1,0 +1,51 @@
+// Document   : button.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Button style definition
+
+.btn {
+  display: @btn-display;
+  position: @btn-position;
+  border: @btn-border;
+  background: @btn-background;
+  color: @base-inverted-color;
+  text-transform: @btn-text-transform;
+  cursor: @btn-cursor;
+  width: @btn-width;
+  line-height: @btn-line-height;
+  &:hover, &:focus {
+    outline: @btn-on-outline;
+  }
+  [class^="glyphicon-"] {
+    vertical-align: @btn-glyphicon-vertical-align;
+  }
+  &.disabled {
+    background: @btn-disabled-background;
+    cursor: @btn-disabled-cursor;
+    &:hover {
+      background: @btn-disabled-on-background;
+    }
+  }
+  &.previous {
+    background: @btn-previous-background;
+    color: @btn-previous-color;
+  }
+  &.small {
+    width: @btn-small-width;
+    padding: @padding-small-vertical @padding-small-horizontal;
+  }
+  &.remove {
+    background: @btn-remove-background;
+    border: @btn-remove-border;
+    color: @btn-remove-color;
+  }
+  &.update {
+    background: @btn-update-background;
+    border: @btn-update-border;
+    color: @btn-update-color;
+  }
+}
+
+input.btn {
+  width: @btn-input-width;
+}

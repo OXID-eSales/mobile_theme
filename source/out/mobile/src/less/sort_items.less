@@ -1,0 +1,51 @@
+// Document   : skin.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: This file defines the main variables used for OXID eShop Mobile Theme.
+
+/*------------------------------sort------------------------------*/
+.sort-items {
+  padding: @sort-items-padding;
+  text-transform: @sort-items-text-transform;
+  .sort-title {
+    color: @sort-items-sort-title-color;
+    font-size: @sort-items-sort-title-font-size;
+    font-weight: @sort-items-sort-title-font-weight;
+    padding-left: @sort-items-sort-title-padding-left;
+    padding-bottom: @sort-items-sort-title-padding-bottom;
+  }
+  label {
+    margin: @sort-items-label-margin;
+  }
+  i {
+    padding-left: @sort-items-i-padding-left;
+  }
+}
+
+.dropdown-menu.sort-menu {
+  padding: @dropdown-menu-sort-menu-padding;
+  .dropdown-option {
+    border-bottom: @dropdown-menu-sort-menu-li-border-bottom;
+    text-align: @dropdown-menu-sort-menu-li-text-align;
+    padding: @dropdown-menu-sort-menu-li-padding;
+    .sort-name {
+      border-bottom: @dropdown-menu-sort-menu-sort-name-border-bottom;
+      display: block;
+    }
+    .sort-order {
+      display: table;
+      width: @dropdown-menu-sort-menu-sort-order-width;
+      padding: @dropdown-menu-sort-menu-sort-order-padding;
+      a {
+        display: table-cell;
+        border-right: @dropdown-menu-sort-menu-sort-order-a-border-right;
+        &:last-child {
+          border-right: @dropdown-menu-sort-menu-sort-order-a-last-child-border-right;
+        }
+      }
+    }
+    &:last-child {
+      border-bottom: @dropdown-menu-sort-menu-li-last-child-border-bottom;
+    }
+  }
+}

@@ -60,7 +60,7 @@
                     }, 50);
                 });
 
-                el.bind( "submit", function() {
+                el.on( "submit", function() {
                     return self.submitValidation(this);
                 });
             },
@@ -197,8 +197,8 @@
                 var blIsValid = true;
                 var self = this;
                 var oOptions = this.options;
-                $("." + oOptions.metodValidate + ":not(:focus)", oFieldSet).each( function(index) {
-
+                // skips inputs which has focus and has no errors
+                $("." + oOptions.metodValidate + ":not(:focus:not(."+this.options.classInValid+" ."+oOptions.metodValidate+"))", oFieldSet).each( function(index) {
                     if ( $( this ).is(oOptions.visible) ) {
                         var tmpblIsValid = self.inputValidation( this, blCanSetDefaultState );
 

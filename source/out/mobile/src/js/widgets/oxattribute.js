@@ -10,7 +10,8 @@
 ( function( $ ) {
     oxAttribute = {
         options : {
-            blShowFilter : true
+            blShowFilter : true,
+            dropdownItems    : '.dropdown-option'
         },
 
         _create: function(){
@@ -26,13 +27,15 @@
                 self.showFilter();
             });
 
-            $(".filterClose").on( "click", function() {
+            $(".filter-close").on( "click", function() {
                 self.closeFilter();
             });
 
-            $(".dropdown").on( "click", ".dropDownOption", function() {
-                $("#filterList input[name^='showFilter']").val("true");
-                $("#filterList").submit();
+            $(".dropdown").on( "click", self.options.dropdownItems, function() {
+                if ( !$(this).hasClass( 'no-submit' ) ) {
+                    $("#filterList input[name^='showFilter']").val("true");
+                    $("#filterList").submit();
+                }
             });
         },
 

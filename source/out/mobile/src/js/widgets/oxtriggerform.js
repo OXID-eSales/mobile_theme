@@ -17,13 +17,28 @@
             var el   = self.element;
 
             el.click(function() {
-                var targetForm = $(this).data("form");
-                $("#"+targetForm).submit();
+                var oTargetForm = self.getForm( self );
+                oTargetForm.submit();
                 return false;
             });
+        },
+
+        getTargetForm: function( ) {
+            var oForm = this.element.closest( 'form' );
+            return oForm;
+        },
+
+        getReferenceForm: function( ) {
+            var sForm = this.element.attr( 'data-form' );
+            return ( sForm ? $( 'form#' + sForm ) : undefined );
+        },
+
+        getForm: function( oObj ) {
+            var oForm = oObj.getReferenceForm();
+            return ( oForm ? oForm : oObj.getTargetForm() );
         }
     }
 
-    $.widget( "ui.oxFormTrigger", oxFormTrigger );
+    $.widget( 'ui.oxFormTrigger', oxFormTrigger );
 
 } )( jQuery );

@@ -9,8 +9,8 @@
 
     oxShowHide = {
         options: {
-            blockTruncated : ".descriptionTrunc",
-            blockFull : ".descriptionFull"
+            blockTruncated : ".product-description-truncated",
+            blockFull : ".product-description-full"
         },
 
         _create: function() {

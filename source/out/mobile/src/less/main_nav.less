@@ -1,0 +1,44 @@
+// Document   : main_nav.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Main navigation list style definition
+
+// ---- main nav list -----------------------------------
+.main-nav-list {
+  li {
+    border-top: @main-nav-list-li-border-top;
+    a {
+      background-color: @navbar-bg;
+      color: @navbar-color;
+      font-size: @font-size-large;
+      padding: @main-nav-list-li-a-padding;
+      text-transform: @main-nav-list-li-a-text-transform;
+      span {
+        display: @main-nav-list-li-a-span;
+        padding: @padding-large-vertical @padding-large-horizontal;
+      }
+      [class^="glyphicon-"] {
+        margin-top: -(@font-size-large/2);
+        position: @main-nav-list-li-a-glyphicon-position;
+        right: @main-nav-list-li-a-glyphicon-right;
+        top: @main-nav-list-li-a-glyphicon-top;
+      }
+      &:hover, &:focus {
+        background-color: @navbar-bg;
+      }
+      &.back {
+        padding: @main-nav-list-back-padding;
+        span {
+          border-left: @main-nav-list-back-span-border-left;
+        }
+        [class^="glyphicon-"] {
+          left: @main-nav-list-back-glyphicon-left;
+          right: @main-nav-list-back-glyphicon-right;
+        }
+      }
+    }
+    &:first-child {
+      border-top: @main-nav-list-first-child-border-top;
+    }
+  }
+}

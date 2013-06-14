@@ -1,0 +1,127 @@
+// Document   : checkout_steps.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Checkout step style definition
+
+/* ----- Basket Checkout Steps -------------------------- */
+.checkout-steps {
+  background: @checkout-steps-background;
+  list-style: @checkout-steps-list-style;
+  overflow: @checkout-steps-overflow;
+  padding: @checkout-steps-padding;
+  margin: @checkout-steps-margin;
+  height: @checkout-steps-height;
+
+  @media screen and (min-width: 721px) {
+    padding: 0 0 0 29px;
+    margin: 0 0 29px 0;
+    height: 61px;
+  }
+  li {
+    float: @checkout-steps-li-float;
+    color: @checkout-steps-li-color;
+    position: @checkout-steps-li-position;
+    padding: @checkout-steps-li-padding;
+    @media screen and (min-width: 721px) {
+      padding: 0 29px 0 57px;
+    }
+    &:before {
+      display: @checkout-steps-li-before-display;
+      content: @checkout-steps-li-before-content;
+      float: @checkout-steps-li-before-float;
+      background: @checkout-steps-li-before-background;
+      margin-left: @checkout-steps-li-before-margin-left;
+      .size(15px, 32px);
+      @media screen and (min-width: 721px) {
+        background: url("../../img/steps.png") -29px 0 no-repeat transparent;
+        margin-left: -86px;
+        .size(29px, 61px);
+      }
+    }
+    &:first-child {
+      margin-left: @checkout-steps-li-first-child-margin-left;
+      &:before {
+        background-color: @checkout-steps-li-first-child-before-background-color;
+      }
+    }
+    &:last-child {
+      padding-right: @checkout-steps-li-last-child-padding-right;
+    }
+    .last {
+      font-size: @checkout-steps-li-last-font-size;
+      font-weight: @checkout-steps-li-last-font-weight;
+      color: @checkout-steps-li-last-color;
+    }
+    &.active, &.passed {
+      color: @checkout-steps-li-active-color;
+      background: @checkout-steps-li-active-background;
+      &:before {
+        background-position: @checkout-steps-li-active-before-background-position;
+      }
+      a {
+        color: @checkout-steps-li-active-a-color;
+      }
+    }
+    &.active {
+      .step-id {
+        border-right: @checkout-steps-step-id-border-right;
+        @media screen and (min-width: 721px) {
+          border-right: 2px solid #84c2d1;
+        }
+      }
+      .step-name {
+        display: table-cell;
+      }
+    }
+    a {
+      color: @checkout-steps-li-a-color;
+      display: block;
+    }
+  }
+  &:after {
+    .clearfix();
+    content: @checkout-steps-li-after-content;
+    display: table;
+  }
+  &.last-step {
+    background: @checkout-steps-li-last-step-background;
+  }
+  .step-id {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    line-height: @checkout-steps-step-id-line-height;
+    font-size: @checkout-steps-step-id-font-size;
+    padding: @checkout-steps-step-id-padding;
+
+    @media screen and (min-width: 721px) {
+      line-height: 61px;
+      font-size: 32px;
+      padding: 0 5px;
+    }
+  }
+  .step-name {
+    display: none;
+    font-size: @checkout-steps-step-name-font-size;
+    white-space: @checkout-steps-step-name-white-space;
+    vertical-align: @checkout-steps-step-name-vertical-align;
+    padding: @checkout-steps-step-name-padding;
+    line-height: @checkout-steps-step-name-line-height;
+    height: @checkout-steps-step-name-height;
+    max-width: @checkout-steps-step-name-max-width;
+
+    @media screen and (min-width: 721px) {
+      padding: 0 5px;
+      line-height: 32px;
+      height: 61px;
+      font-size: 22px;
+      max-width: none;
+    }
+  }
+}
+
+.next-step {
+  margin-bottom: @checkout-steps-next-step-margin-bottom;
+}

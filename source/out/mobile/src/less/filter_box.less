@@ -1,0 +1,52 @@
+// Document   : filter_box.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Filter box style definition
+
+.filter-box {
+  padding: 15px;
+}
+
+.filter-box-closed {
+  cursor: @filter-box-closed-cursor;
+  .btn {
+    text-align: @filter-box-closed-btn-text-align;
+  }
+}
+
+.filter-box-opened {
+  text-transform: @filter-box-opened-text-transform;
+  .filter-header {
+    padding-right: @filter-box-opened-filter-header-padding-right;
+    position: relative;
+  }
+  .filter-open-title {
+    color: @filter-open-title-color;
+    font-size: @filter-open-title-font-size;
+    background-color: @filter-open-title-background-color;
+    padding: @filter-open-title-padding;
+    width: @filter-open-title-width;
+    display: inline-block;
+  }
+  .filter-close {
+    color: @filter-close-color;
+    font-size: @filter-close-font-size;
+    background-color: @filter-close-background-color;
+    padding: @filter-close-padding;
+    margin-left: @filter-close-margin-left;
+    right: @filter-close-right;
+    position: absolute;
+    display: inline-block;
+    cursor: @filter-close-cursor;
+  }
+  .dropdown {
+    margin: @filter-box-opened-dropdown-margin;
+  }
+  .filter-title {
+    color: @filter-box-opened-filter-title-color;
+    font-size: @filter-box-opened-filter-title-font-size;
+    font-weight: @filter-box-opened-filter-title-font-weight;
+    padding-top: @filter-box-opened-filter-title-padding-top;
+    padding-left: @filter-box-opened-filter-title-padding-left;
+  }
+}

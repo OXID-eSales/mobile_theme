@@ -1,0 +1,87 @@
+// Document   : line_view.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Search list style definition
+
+/* --------------------Product, search lists (line)---------------------*/
+.media-list.article-list {
+  background-color: @article-list-background-color;
+  padding: @article-list-padding;
+  .media {
+    border-bottom: @article-list-media-border-bottom;
+    color: @article-list-media-color;
+    margin: @article-list-media-margin;
+    .pull-left {
+      width: @article-list-pull-left-width;
+      text-align: @article-list-pull-left-text-align;
+      img {
+        max-width: @article-list-img-max-width;
+      }
+    }
+    .media-body {
+      position: relative;
+      padding: @article-list-media-body-padding;
+    }
+    .media-heading-link {
+      color: @article-list-media-heading-link-color;
+    }
+    &:hover {
+      background-color: @article-list-on-background-color;
+      color: @article-list-on-color;
+      cursor: @article-list-on-cursor;
+      .media-heading-link {
+        color: @article-list-on-media-heading-link-color;
+      }
+    }
+  }
+}
+
+.article-list-remove {
+  float: @article-list-remove-float;
+}
+
+.article-list-price {
+  margin-bottom: @article-list-price-margin-bottom;
+  .old-price {
+    font-size: @article-list-price-old-price-font-size;
+    color: @article-list-price-old-price-color;
+  }
+  .main-price {
+    font-size: @article-list-price-main-price-font-size;
+  }
+}
+.media:hover .article-list-price .old-price {
+  color: @article-list-price-old-price-on-color;
+}
+
+.vat-percent {
+  color: @basketitems-vat-percent-color;
+  margin: @basketitems-vat-percent-margin;
+  display: @basketitems-vat-percent-display;
+  @media (min-width: @screen-tiny) {
+    display: @basketitems-vat-percent-display-tiny;
+  }
+}
+.media:hover .vat-percent {
+  color: @basketitems-vat-percent-on-color;
+}
+
+.add-to-basket {
+  padding-left: @add-to-basket-padding-left;
+  position: @add-to-basket-position;
+  .quantity {
+    position: absolute;
+    left: @add-to-basket-quantity-left;
+    top: @add-to-basket-quantity-top;
+  }
+}
+.media:hover .add-to-basket .btn {
+  outline: @add-to-basket-btn-on-outline;
+}
+
+.article-list-variants {
+  color: @article-list-variants-color;
+  font-size: @article-list-variants-font-size;
+  padding: @article-list-variants-padding;
+  font-weight: @article-list-variants-font-weight;
+}

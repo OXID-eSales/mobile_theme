@@ -1,0 +1,64 @@
+// Document   : footer.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Footer style definition
+
+/* ---- FOOTER ------------------------------------------ */
+#footer {
+  background-color: @footer-background-color;
+  margin-top: @footer-margin-top;
+  margin-bottom: @footer-margin-bottom;
+  .nav-pills {
+    max-height: @footer-nav-pills-max-height;
+    &.nav-justified > li {
+      vertical-align: @footer-nav-justified-vertical-align;
+    }
+    > li {
+      border-color: @footer-nav-pills-li-border-color;
+      border-style: @footer-nav-pills-li-border-style;
+      border-width: @footer-nav-pills-li-border-width;
+      &:last-child {
+        border-right: @footer-nav-pills-li-last-child-border-right;
+      }
+      &.active, &.active a {
+        background-color: @footer-nav-pills-active-background-color;
+        color: @footer-nav-pills-active-color;
+      }
+      a {
+        background: @footer-nav-pills-a-background;
+      }
+    }
+  }
+  .nav-list {
+    padding-top: @footer-nav-list-padding-top;
+    &:last-child {
+      padding-bottom: @footer-nav-list-last-child-padding-bottom;
+    }
+    + .nav-list {
+      padding-top: @footer-nav-list-nav-list-padding-top;
+    }
+  }
+  .footer-nav {
+    border-radius: @footer-nav-border-radius;
+    > li {
+      background-color: @footer-nav-li-background-color;
+      &:focus, &:hover {
+        background-color: @footer-nav-li-on-background-color;
+        color: @footer-nav-li-on-color;
+      }
+      > a {
+        border-radius: @footer-nav-a-border-radius;
+        border: @footer-nav-a-border;
+        color: @footer-nav-a-color;
+        font-size: @footer-nav-a-font-size;
+        padding: @footer-nav-a-padding;
+        text-align: @footer-nav-a-text-align;
+        text-transform: @footer-nav-a-text-transform;
+        &:focus, &:hover {
+          background-color: @footer-nav-a-on-background-color;
+          color: @footer-nav-a-on-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+// Document   : validation.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Validation style description
+
+.oxInValid {
+  color: @oxinvalid-color;
+  input {
+    color: inherit;
+    border-color: @oxinvalid-border-color;
+    background: @oxinvalid-input-background;
+  }
+  select {
+    color: inherit;
+    border: @oxinvalid-select-border;
+    background: @oxinvalid-select-background;
+  }
+}
+
+.oxValidateError {
+  display: none;
+  clear: both;
+  font-size: @oxvalidate-error-font-size;
+  line-height: @oxvalidate-error-line-height;
+  color: @oxvalidate-error-color;
+  margin: @oxvalidate-error-margin;
+  padding: @oxvalidate-error-padding;
+  span {
+    display: none;
+    &.req {
+      float: none;
+      display: inline;
+    }
+  }
+}
+
+.oxInValid .oxValidateError {
+  display: block;
+}

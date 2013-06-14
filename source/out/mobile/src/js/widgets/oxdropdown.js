@@ -13,7 +13,7 @@
         options: {
             label            : '.dropdown-toggle span',
             input            : 'input',
-            dropdownItems    : '.dropDownOption',
+            dropdownItems    : '.dropdown-option',
             form             : false
         },
 
@@ -35,8 +35,10 @@
                 selectedOption.parent().addClass('selected');
             }
 
-            $(this.head).on("click", ".dropDownOption", function() {
-                self.select($(this));
+            $(this.head).on("click", self.options.dropdownItems, function() {
+                if ( !$(this).hasClass( 'no-submit' ) ) {
+                    self.select($(this));
+                }
             });
         },
 

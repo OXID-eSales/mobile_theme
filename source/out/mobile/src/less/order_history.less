@@ -1,0 +1,69 @@
+// Document   : order_history.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Account information style definition
+
+/* ---- Account [Orders] --------------------------------- */
+
+.order-history-list {
+  list-style: @order-list-style;
+  margin: @order-list-margin;
+  > li {
+    margin: @order-list-margin-li;
+  }
+}
+
+.order-history-articles,
+.order-history-details {
+  padding: @order-padding;
+  margin: @order-margin;
+  list-style: @order-list-style;
+  background: @order-background;
+  li {
+    border-bottom: @order-li-border;
+    padding: @order-li-padding;
+    &:last-child {
+      border-bottom: @order-li-last-child-border-bottom;
+    }
+  }
+}
+
+.order-history-details {
+  li {
+    strong {
+      color: @order-details-li-color;
+      text-transform: @order-details-li-text-transform;
+    }
+    span {
+      color: @base-inverted-color;
+      &:first-child {
+        margin-right: @order-details-orderDate-margin-right;
+      }
+    }
+    a {
+      color: @base-inverted-color;
+    }
+  }
+}
+
+.order-history-articles {
+  background: @gray-lighter-2;
+  li {
+    border-color: @order-article-border;
+    a {
+      color: @base-color;
+      display: @order-articles-display;
+      padding-left: @order-articles-padding-left;
+      position: @order-articles-position;
+      .variants {
+        font-size: @font-size-mini;
+      }
+    }
+  }
+}
+
+.order-history-article-quantity {
+  float: @order-history-article-quantity-float;
+  margin-right: @order-history-article-quantity-margin-right;
+  color: @order-history-article-quantity-color;
+}

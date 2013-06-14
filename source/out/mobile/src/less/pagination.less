@@ -1,0 +1,69 @@
+// Document   : pagination.less
+// Copyright  : (c) 2013 OXID eSales AG
+// Created on : 2013-06-05
+// Description: Pagination style definition
+
+.pagination-container {
+  margin: @pagination-container-margin;
+  text-align: @pagination-container-text-align;
+  background-color: @pagination-container-background-color;
+  line-height: @pagination-container-line-height;
+}
+
+.pagination {
+  margin: @pagination-margin;
+  padding: @pagination-padding;
+  > li {
+    a {
+      background-color: @pagination-a-background-color;
+      color: @pagination-a-color;
+      font-size: @pagination-a-font-size;
+      border: @pagination-a-border;
+      border-left: @pagination-a-border-left;
+      margin: @pagination-a-margin;
+      display: block;
+      &:hover {
+        background-color: @pagination-a-hover-background-color;
+
+        color: @pagination-a-hover-color;
+      }
+    }
+    &:first-child > a {
+      border: @pagination-a-first-child-border;
+    }
+    &:first-child > a,
+    &:last-child  > a {
+      border-radius: @pagination-a-first-last-child-border-radius;
+    }
+    > .pagination-separator {
+      padding: @pagination-separator-padding;
+    }
+  }
+  .prev,
+  .next {
+    padding: @pagination-prev-next-padding;
+  }
+  .glyphicon-chevron-left:before,
+  .glyphicon-chevron-right:before {
+    font-size: @pagination-glyphicon-font-size;
+
+  }
+}
+
+.pagination-page.active,
+.pagination-page.active:hover {
+  background-color: @pagination-page-background-color;
+}
+
+@media screen and (min-width: 721px) {
+  .pagination {
+    > li > a,
+    > li > .pagination-separator,
+    .prev,
+    .next {
+      font-size: 25px;
+      line-height: 30px;
+      padding: 18px 24px 18px 24px;
+    }
+  }
+}
