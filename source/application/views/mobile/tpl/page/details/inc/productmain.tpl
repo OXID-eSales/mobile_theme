@@ -55,12 +55,17 @@
         <div class="product-price-container pull-right">
             <div class="pull-right">
                 [{block name="details_productmain_tprice"}]
-                    [{if $oDetailsProduct->getTPrice()}]
-                        <div class="product-price-old pull-left">
-                            <strong><del>[{$oDetailsProduct->getFTPrice()}] [{$currency->sign}]</del></strong>
-                        </div>
-                    [{/if}]
+                    [{oxhasrights ident="SHOWARTICLEPRICE"}]
+                        [{assign var=tprice value=$oDetailsProduct->getTPrice()}]
+                        [{assign var=price  value=$oDetailsProduct->getPrice()}]
+                        [{if $tprice && $tprice->getBruttoPrice() > $price->getBruttoPrice()}]
+                            <div class="product-price-old pull-left">
+                                <strong><del>[{$oDetailsProduct->getFTPrice()}] [{$currency->sign}]</del></strong>
+                            </div>
+                        [{/if}]
+                    [{/oxhasrights}]
                 [{/block}]
+
                 [{block name="details_productmain_price"}]
                     [{if $oDetailsProduct->getFPrice()}]
                         <div class="product-price price pull-right">
