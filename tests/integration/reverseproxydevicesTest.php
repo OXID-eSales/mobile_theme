@@ -8,10 +8,6 @@ if ( OXID_VERSION_EE ) :
      * @copyright (c) OXID eSales AG 2003-#OXID_VERSION_YEAR#
      * @version   SVN: $Id$
      */
-
-    $sModuleDir = realpath( "." ) . '/../source/modules/oe/oemobiletheme/';
-
-    require_once $sModuleDir . 'core/oemobilethemeuseragent.php';
     require_once realpath( "." ).'/unit/OxidTestCase.php';
 
     /**
