@@ -165,7 +165,7 @@
             [{/block}]
 
             [{* packing unit *}]
-            [{if $smarty.const.OXID_VERSION_EE}]
+            [{if 'EE' == $oViewConf->getEdition()}]
                 [{block name="checkout_basketcontents_itemvpe"}]
                 [{/block}]
             [{/if}][{* OXID_VERSION_EE *}]

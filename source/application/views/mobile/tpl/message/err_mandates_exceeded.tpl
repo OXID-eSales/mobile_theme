@@ -1,4 +1,4 @@
-[{if $smarty.const.OXID_VERSION_EE}]
+[{if 'EE' == $oViewConf->getEdition()}]
 
 [{capture append="oxidBlock_pageBody"}]
 

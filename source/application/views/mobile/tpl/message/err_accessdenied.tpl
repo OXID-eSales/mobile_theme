@@ -1,4 +1,4 @@
-[{if $smarty.const.OXID_VERSION_EE}]
+[{if 'EE' == $oViewConf->getEdition()}]
 [{capture append="oxidBlock_content"}]
     <div class="alert-page alert-page-error">
         <h4 class="alertPageHeader">[{ oxmultilang ident="MESSAGE_ERR_ACCESSDENIEDTITLE" }]</h4>

@@ -65,7 +65,7 @@
             [{/if}]
             </div>
         </div>
-        [{if $smarty.const.OXID_VERSION_PE}]
+        [{if 'PE' == $oViewConf->getEdition() || 'CE' == $oViewConf->getEdition()}]
         [{if $oView->getBundleArticle()}]
             [{assign var="oBundleProduct" value=$oView->getBundleArticle()}]
             <div rel="gr:includes" resource="[{$oBundleProduct->getLink()}]#productdata"></div>
