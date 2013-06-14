@@ -16,6 +16,6 @@ $aTheme = array(
     'title'        => 'Azure Mobile',
     'description'  => 'Azure theme by OXID eSales AG',
     'thumbnail'    => 'theme.jpg',
-    'version'      => '0.1',
+    'version'      => '1.0',
     'author'       => 'OXID'
 );
