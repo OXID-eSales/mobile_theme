@@ -92,9 +92,11 @@
         <p class="article-list-price">
             [{block name="widget_product_listitem_line_price"}]
                 [{oxhasrights ident="SHOWARTICLEPRICE"}]
-                    [{if $product->getTPrice()}]
+                    [{assign var=tprice value=$product->getTPrice()}]
+                    [{assign var=price  value=$product->getPrice()}]
+                    [{if $tprice && $tprice->getBruttoPrice() > $price->getBruttoPrice()}]
                         <span class="old-price">
-                            [{*oxmultilang ident="REDUCED_FROM_2"*}] <del>[{$product->getFTPrice()}] [{$currency->sign}]</del>
+                            <del>[{$product->getFTPrice()}] [{$currency->sign}]</del>
                         </span>
                     [{/if}]
                     [{block name="widget_product_listitem_line_price_value"}]
