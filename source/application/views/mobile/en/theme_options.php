@@ -12,7 +12,6 @@ $aLang = array(
 'charset'                                       => 'ISO-8859-15',
 
 'SHOP_THEME_GROUP_images'                       => 'Images',
-'SHOP_THEME_GROUP_features'                     => 'Features',
 'SHOP_THEME_GROUP_display'                      => 'Display',
 
 'SHOP_THEME_sIconsize'                          => 'Icon size (width*height)',//SHOP_CONFIG_ICONSIZE
@@ -28,47 +27,20 @@ $aLang = array(
                                                  'For avoiding design issues caused by too big thumbnails the thumbnails are resized. Enter the maximum size for thumbnails here.',
 
 'SHOP_THEME_sZoomImageSize'                     => 'Zoom picture size (width*height)',//SHOP_CONFIG_ZOOMIMAGESIZE
-'SHOP_THEME_sCatThumbnailsize'                  => 'Category picture size (width*height)',//SHOP_CONFIG_CATEGORYTHUMBNAILSIZE
-'HELP_SHOP_THEME_sCatThumbnailsize'             => 'In category view, the picture of the selected category is displayed in the defined size.',//SHOP_CONFIG_CATEGORYTHUMBNAILSIZE
 'SHOP_THEME_aDetailImageSizes'                  => 'Product picture size (width*height)',//SHOP_CONFIG_DETAILIMAGESIZE
 
 'SHOP_THEME_sManufacturerIconsize'              => 'Manufacturer\'s/brand logo size', // Check if this is really manufacturer or if it is more like "brand"
 'HELP_SHOP_THEME_sManufacturerIconsize'         => 'Manufacturer\'s/brand logo is shown on start page in manufacturer\'s slider.',
 
-'SHOP_THEME_sCatIconsize'                       => 'Size of a subcategory\'s picture (width*height)',
-'HELP_SHOP_THEME_sCatIconsize'                  => 'In category view, the category pictures of subcategories are displayed in the defined size.',
-
 'SHOP_THEME_sCatPromotionsize'                  => 'Category picture size for promotion on startpage (width*height)',
 'HELP_SHOP_THEME_sCatPromotionsize'             => 'Category promotion on start page needs special size for category pictures. Define size of those pictures here.',
 
-'SHOP_THEME_bl_showOpenId'                      => 'Use Open ID',         //SHOP_CONFIG_SHOWOPENID
-'SHOP_THEME_bl_showGiftWrapping'                => 'Use gift wrapping',   //SHOP_CONFIG_SHOWGIFTWRAPPING
-'SHOP_THEME_bl_showVouchers'                    => 'Use vouchers',        //SHOP_CONFIG_SHOWVOUCHERS
-'SHOP_THEME_bl_showWishlist'                    => 'Use gift registry',   //SHOP_CONFIG_SHOWWISHLIST
-'SHOP_THEME_bl_showCompareList'                 => 'Use compare list',    //SHOP_CONFIG_SHOWCOMPARELIST
-'SHOP_THEME_bl_showListmania'                   => 'Use listmania',       //SHOP_CONFIG_SHOWLISTMANIA
 'SHOP_THEME_blShowBirthdayFields'               => 'Display input fields for date of birth when users enter their personal data',//SHOP_CONFIG_SHOWBIRTHDAYFIELDS
 
-'SHOP_THEME_iTopNaviCatCount'                   => 'Amount of categories that is displayed at top',//SHOP_CONFIG_TOPNAVICATCOUNT
 'SHOP_THEME_iNewBasketItemMessage'              => 'Select action when product is added to cart',//SHOP_SYSTEM_SHOWNEWBASKETITEMMESSAGE
 'HELP_SHOP_THEME_iNewBasketItemMessage'         => 'When customer adds products to cart, OXID eShop can behave differently. Set up what shall happen to give proper feedback to customer.',//SHOP_SYSTEM_SHOWNEWBASKETITEMMESSAGE
 'SHOP_THEME_iNewBasketItemMessage_0'            => 'None',
-'SHOP_THEME_iNewBasketItemMessage_1'            => 'Display message',
-'SHOP_THEME_iNewBasketItemMessage_2'            => 'Open popup',
 'SHOP_THEME_iNewBasketItemMessage_3'            => 'Open basket',
 
-'SHOP_THEME_blShowListDisplayType'              => 'Display product list type selector',
-'HELP_SHOP_THEME_blShowListDisplayType'         => 'Decide if the visitor of your store can select the type of the product list in store front. If this options is not activated, your visitors will see the lists displayed like you adjusted in the drop box "Default product list type".',
-'SHOP_THEME_sDefaultListDisplayType'            => 'Default product list type',
-'SHOP_THEME_sDefaultListDisplayType_grid'       => 'Grid',
-'SHOP_THEME_sDefaultListDisplayType_line'       => 'List',
-'SHOP_THEME_sDefaultListDisplayType_infogrid'   => 'Double grid',
-'SHOP_THEME_sStartPageListDisplayType'          => 'Product list type on Start page',
-'SHOP_THEME_sStartPageListDisplayType_grid'     => 'Grid',
-'SHOP_THEME_sStartPageListDisplayType_line'     => 'List',
-'SHOP_THEME_sStartPageListDisplayType_infogrid' => 'Double grid',
-
-'SHOP_THEME_aNrofCatArticlesInGrid'             => 'Grid view: Number of products which can be shown in a product lists (category pages, search results)<br><br>Attention: A large number of products per page (above 100) can cause performance loss!',
 'SHOP_THEME_aNrofCatArticles'                   => 'Number of products which can be shown in a product lists (category pages, search results)<br><br>Attention: A large number of products per page (above 100) can cause performance loss!',
-
 );
