@@ -30,7 +30,8 @@ class oeMobileThemeLang extends oeMobileThemeLang_parent
         $sTheme         = $oConfig->getConfigParam( "sTheme" );
         $sCustomTheme   = $oConfig->getActiveThemeId();
         $sShopId        = $oConfig->getShopId();
-        $aModulePaths   = $this->_getActiveModuleInfo();
+        //$aModulePaths   = $this->_getActiveModuleInfo();
+        $aModuleInfo    = $this->_getActiveModuleInfo();
 
         //get generic lang files
         $sGenericPath = $sAppDir . 'translations/' . $sLang;
@@ -56,22 +57,37 @@ class oeMobileThemeLang extends oeMobileThemeLang_parent
         // custom theme shop languages
         if ( $this->getConfig()->getEdition() == 'EE' ) {
             if ( $sCustomTheme ) {
-                $sShopPath = $sAppDir . 'views/'. $sCustomTheme .'/' . $sShopId . '/' . $sLang;
-                $aLangFiles[] = $sShopPath . "/lang.php";
-                $aLangFiles = $this->_appendLangFile( $aLangFiles, $sShopPath );
-            } elseif ( $sTheme ) {
+                $sCustPath = $sAppDir . 'views/' . $sCustomTheme .'/' . $sLang;
+                $aLangFiles[] = $sCustPath . "/lang.php";
+                $aLangFiles = $this->_appendLangFile( $aLangFiles, $sCustPath );
+
+                // custom theme shop languages
+                if ( $sCustomTheme ) {
+                    $sShopPath = $sAppDir . 'views/'. $sCustomTheme .'/' . $sShopId . '/' . $sLang;
+                    $aLangFiles[] = $sShopPath . "/lang.php";
+                    $aLangFiles = $this->_appendLangFile( $aLangFiles, $sShopPath );
+                }
+            } else {
                 // theme shop languages
-                $sShopPath = $sAppDir . 'views/'. $sTheme .'/' . $sShopId . '/' . $sLang;
-                $aLangFiles[] = $sShopPath . "/lang.php";
-                $aLangFiles = $this->_appendLangFile( $aLangFiles, $sShopPath );
+                if ( $sTheme ) {
+                    $sShopPath = $sAppDir . 'views/'. $sTheme .'/' . $sShopId . '/' . $sLang;
+                    $aLangFiles[] = $sShopPath . "/lang.php";
+                    $aLangFiles = $this->_appendLangFile( $aLangFiles, $sShopPath );
+                }
             }
         }
 
-        // modules language files
-        $aLangFiles = $this->_appendModuleLangFiles( $aLangFiles, $aModulePaths, $sLang );
-
-        // custom language files
-        $aLangFiles = $this->_appendCustomLangFiles( $aLangFiles, $sLang );
+        //modules language files
+        if ( is_array( $aModuleInfo ) ) {
+            foreach ( $aModuleInfo as $sPath ) {
+                $sFullPath = $oConfig->getModulesDir() . $sPath . '/translations/' . $sLang;
+                // for < 4.6 modules, since 4.7/5.0 translation files should be in modules/modulepath/translations/ dir
+                if ( !is_dir($sFullPath) ) {
+                    $sFullPath = $oConfig->getModulesDir() . $sPath . '/out/lang/' . $sLang;
+                }
+                $aLangFiles = $this->_appendLangFile( $aLangFiles, $sFullPath );
+            }
+        }
 
         return count( $aLangFiles ) ? $aLangFiles : false;
     }
