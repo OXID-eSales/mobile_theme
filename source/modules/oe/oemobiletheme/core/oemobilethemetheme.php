@@ -15,23 +15,22 @@
 class oeMobileThemeTheme extends oeMobileThemeTheme_parent
 {
     /**
-     * Load theme info list
+     * get theme info item
      *
-     * @return array
+     * @param string $sName name of info item to retrieve
+     *
+     * @return mixed
      */
-    public function getList()
+    public function getInfo($sName)
     {
-        $this->_aThemeList   = array();
-        $sOutDir = $this->getConfig()->getViewsDir();
-        foreach ( glob( $sOutDir."*", GLOB_ONLYDIR ) as $sDir ) {
-            $oTheme = oxNew('oxTheme');
-            if ($oTheme->load(basename($sDir))) {
-                if( $oTheme->getId() != $this->getConfig()->getConfigParam('sMobileTheme') ) {
-                    $this->_aThemeList[$sDir] = $oTheme;
-                }
-            }
+        if ( $sName == 'active' && $this->getId() == $this->getConfig()->getConfigParam('sMobileTheme') ) {
+            return true;
         }
-        return $this->_aThemeList;
+        if (!isset($this->_aTheme[$sName])) {
+            return null;
+        }
+        return $this->_aTheme[$sName];
     }
+
 }
 
