@@ -2,7 +2,7 @@
 [{assign var=oBanners value=$oView->getBanners() }]
 [{assign var="currency" value=$oView->getActCurrency()}]
 [{if $oBanners|@count}]
-    <div class="oxSlider carousel slide">
+    <div class="carousel slide">
         <!-- Carousel items -->
         <div class="carousel-inner">
             [{foreach from=$oBanners item=oBanner name=banner}]
@@ -37,7 +37,7 @@
             [{/foreach}]
         </div>
         <!-- Carousel nav -->
-        <a class="carousel-control left" href=".oxSlider" data-slide="prev"><i class="glyphicon-chevron-left"></i></a>
-        <a class="carousel-control right" href=".oxSlider" data-slide="next"><i class="glyphicon-chevron-right"></i></a>
+        <a class="carousel-control left" href=".carousel" data-slide="prev"><i class="glyphicon-chevron-left"></i></a>
+        <a class="carousel-control right" href=".carousel" data-slide="next"><i class="glyphicon-chevron-right"></i></a>
     </div>
 [{/if}]

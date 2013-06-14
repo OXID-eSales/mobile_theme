@@ -34,14 +34,14 @@
         <li>
             <label>[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_NUMBER"}]</label>
             <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[kknumber]" autocomplete="off" value="[{$dynvalue.kknumber}]" />
-            <p class="oxValidateError">
+            <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS"}]</span>
             </p>
         </li>
         <li>
             <label>[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_ACCOUNTHOLDER"}]</label>
             <input type="text" size="20" class="js-oxValidate js-oxValidate_notEmpty" maxlength="64" name="dynvalue[kkname]" value="[{if $dynvalue.kkname}][{$dynvalue.kkname}][{else}][{$oxcmp_user->oxuser__oxfname->value}] [{$oxcmp_user->oxuser__oxlname->value}][{/if}]" />
-            <p class="oxValidateError">
+            <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS"}]</span>
             </p>
             <div class="note">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_DIFFERENTBILLINGADDRESS"}]</div>
@@ -99,7 +99,7 @@
         <li>
             <label>[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_SECURITYCODE"}]</label>
             <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[kkpruef]" autocomplete="off" value="[{$dynvalue.kkpruef}]" />
-            <p class="oxValidateError">
+            <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS"}]</span>
             </p>
             <div class="note">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_SECURITYCODEDESCRIPTION"}]</div>

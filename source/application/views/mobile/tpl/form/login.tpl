@@ -9,15 +9,15 @@
         <input type="hidden" name="cl" value="[{ $oViewConf->getActiveClassName() }]">
     </div>
     <ul class="form">
-        <li [{if $aErrors}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors}]class="invalid-field"[{/if}]>
             <input type="text" name="lgn_usr" class="js-oxValidate js-oxValidate_notEmpty" placeholder="[{ oxmultilang ident="EMAIL_ADDRESS"}]" />
-            <p class="oxValidateError">
+            <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
             </p>
         </li>
-        <li [{if $aErrors}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors}]class="invalid-field"[{/if}]>
             <input type="password" name="lgn_pwd" class="js-oxValidate js-oxValidate_notEmpty" placeholder="[{ oxmultilang ident="PASSWORD" }]" />
-            <p class="oxValidateError">
+            <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
             </p>
         </li>

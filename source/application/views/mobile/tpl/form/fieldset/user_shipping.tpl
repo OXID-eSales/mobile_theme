@@ -43,58 +43,58 @@
         <li>
               [{include file="form/fieldset/salutation.tpl" name="deladr[oxaddress__oxsal]" value=$delivadr->oxaddress__oxsal->value value2=$deladr.oxaddress__oxsal }]
         </li>
-        <li [{if $aErrors.oxaddress__oxfname}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors.oxaddress__oxfname}]class="invalid-field"[{/if}]>
             <input [{if $oView->isFieldRequired(oxaddress__oxfname) }]class="js-oxValidate js-oxValidate_notEmpty"[{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_FIRSTNAME" }]*" type="text" maxlength="255" name="deladr[oxaddress__oxfname]" value="[{if isset( $deladr.oxaddress__oxfname ) }][{ $deladr.oxaddress__oxfname }][{else}][{ $delivadr->oxaddress__oxfname->value }][{/if }]">
             [{if $oView->isFieldRequired(oxaddress__oxfname)}]
-                <p class="oxValidateError">
+                <p class="validation-error">
                     <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxfname}]
                 </p>
             [{/if}]
         </li>
-        <li [{if $aErrors.oxaddress__oxlname}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors.oxaddress__oxlname}]class="invalid-field"[{/if}]>
             <input [{if $oView->isFieldRequired(oxaddress__oxlname)}]class="js-oxValidate js-oxValidate_notEmpty"[{/if}] placeholder="[{ oxmultilang ident="LAST_NAME" }]*" type="text" maxlength="255" name="deladr[oxaddress__oxlname]" value="[{if isset( $deladr.oxaddress__oxlname ) }][{ $deladr.oxaddress__oxlname }][{else}][{ $delivadr->oxaddress__oxlname->value }][{/if }]">
             [{if $oView->isFieldRequired(oxaddress__oxlname)}]
-                <p class="oxValidateError">
+                <p class="validation-error">
                     <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxlname}]
                 </p>
             [{/if}]
         </li>
-        <li [{if $aErrors.oxaddress__oxcompany}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors.oxaddress__oxcompany}]class="invalid-field"[{/if}]>
             <input [{if $oView->isFieldRequired(oxaddress__oxcompany) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_COMPANY2" }]" type="text" size="37" maxlength="255" name="deladr[oxaddress__oxcompany]" value="[{if isset( $deladr.oxaddress__oxcompany ) }][{ $deladr.oxaddress__oxcompany }][{else}][{ $delivadr->oxaddress__oxcompany->value }][{/if}]">
             [{if $oView->isFieldRequired(oxaddress__oxcompany) }]
-                <p class="oxValidateError">
+                <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxcompany}]
                 </p>
             [{/if}]
         </li>
-        <li [{if $aErrors.oxaddress__oxaddinfo}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors.oxaddress__oxaddinfo}]class="invalid-field"[{/if}]>
             [{assign var="_address_addinfo_tooltip" value="FORM_FIELDSET_USER_SHIPPING_ADDITIONALINFO2_TOOLTIP"|oxmultilangassign }]
             <input [{if $oView->isFieldRequired(oxaddress__oxaddinfo) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_ADDITIONALINFO2" }]" type="text" size="37" maxlength="255" name="deladr[oxaddress__oxaddinfo]" value="[{if isset( $deladr.oxaddress__oxaddinfo ) }][{ $deladr.oxaddress__oxaddinfo }][{else}][{ $delivadr->oxaddress__oxaddinfo->value }][{/if}]">
             [{if $oView->isFieldRequired(oxaddress__oxaddinfo) }]
-                <p class="oxValidateError">
+                <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxaddinfo}]
                 </p>
             [{/if}]
         </li>
-        <li class="inlineElements firstBig [{if $aErrors.oxaddress__oxstreet}]oxInValid[{/if}]">
+        <li class="inline-elements first-big [{if $aErrors.oxaddress__oxstreet}]invalid-field[{/if}]">
             <input class="bigField [{if $oView->isFieldRequired(oxaddress__oxstreet) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="STREET" }]*" type="text" data-fieldsize="pair-xsmall" maxlength="255" name="deladr[oxaddress__oxstreet]" value="[{if isset( $deladr.oxaddress__oxstreet ) }][{ $deladr.oxaddress__oxstreet }][{else}][{ $delivadr->oxaddress__oxstreet->value }][{/if}]">
-            <input class="smallField absoluteRight [{if $oView->isFieldRequired(oxaddress__oxstreetnr) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="HOUSE_NO" }]*" type="text" data-fieldsize="xsmall" maxlength="16" name="deladr[oxaddress__oxstreetnr]" value="[{if isset( $deladr.oxaddress__oxstreetnr ) }][{ $deladr.oxaddress__oxstreetnr }][{else}][{ $delivadr->oxaddress__oxstreetnr->value }][{/if}]">
+            <input class="small-field absoluteRight [{if $oView->isFieldRequired(oxaddress__oxstreetnr) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="HOUSE_NO" }]*" type="text" data-fieldsize="xsmall" maxlength="16" name="deladr[oxaddress__oxstreetnr]" value="[{if isset( $deladr.oxaddress__oxstreetnr ) }][{ $deladr.oxaddress__oxstreetnr }][{else}][{ $delivadr->oxaddress__oxstreetnr->value }][{/if}]">
             [{if $oView->isFieldRequired(oxaddress__oxstreet) || $oView->isFieldRequired(oxaddress__oxstreetnr) }]
-                <p class="oxValidateError">
+                <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxstreet}]
                 </p>
             [{/if}]
         </li>
-        <li class="inlineElements firstSmall [{if $aErrors.oxaddress__oxzip || $aErrors.oxaddress__oxcity}]oxInValid[{/if}]">
-            <input class="smallField absoluteLeft [{if $oView->isFieldRequired(oxaddress__oxzip) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="POSTAL_CODE" }]*" type="text" data-fieldsize="small" maxlength="50" name="deladr[oxaddress__oxzip]" value="[{if isset( $deladr.oxaddress__oxzip ) }][{ $deladr.oxaddress__oxzip }][{else}][{ $delivadr->oxaddress__oxzip->value }][{/if}]">
+        <li class="inline-elements first-small [{if $aErrors.oxaddress__oxzip || $aErrors.oxaddress__oxcity}]invalid-field[{/if}]">
+            <input class="small-field absoluteLeft [{if $oView->isFieldRequired(oxaddress__oxzip) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="POSTAL_CODE" }]*" type="text" data-fieldsize="small" maxlength="50" name="deladr[oxaddress__oxzip]" value="[{if isset( $deladr.oxaddress__oxzip ) }][{ $deladr.oxaddress__oxzip }][{else}][{ $delivadr->oxaddress__oxzip->value }][{/if}]">
             <input class="bigField [{if $oView->isFieldRequired(oxaddress__oxcity) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="POSTAL_CITY" }]*" type="text" data-fieldsize="pair-small" maxlength="255" name="deladr[oxaddress__oxcity]" value="[{if isset( $deladr.oxaddress__oxcity ) }][{ $deladr.oxaddress__oxcity }][{else}][{ $delivadr->oxaddress__oxcity->value }][{/if}]">
             [{if $oView->isFieldRequired(oxaddress__oxzip) || $oView->isFieldRequired(oxaddress__oxcity) }]
-                <p class="oxValidateError">
+                <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxzip}]
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxcity}]
@@ -102,7 +102,7 @@
             [{/if}]
         </li>
         [{block name="form_user_shipping_country"}]
-        <li [{if $aErrors.oxaddress__oxcountryid}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors.oxaddress__oxcountryid}]class="invalid-field"[{/if}]>
                 <div id="delCountry" class="dropdown">
                     <input type="hidden" id="delCountrySelected" name="deladr[oxaddress__oxcountryid]" value="" [{if $oView->isFieldRequired(oxaddress__oxcountryid)}] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] />
                     <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
@@ -128,7 +128,7 @@
                     </ul>
                 </div>
               [{if $oView->isFieldRequired(oxaddress__oxcountryid) }]
-              <p class="oxValidateError">
+              <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxcountryid}]
             </p>
@@ -145,19 +145,19 @@
         </li>
         [{oxscript add="$('#delCountry.dropdown').oxDropDown();"}]
         [{/block}]
-        <li [{if $aErrors.oxaddress__oxfon}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors.oxaddress__oxfon}]class="invalid-field"[{/if}]>
             <input [{if $oView->isFieldRequired(oxaddress__oxfon) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_PHONE2" }]" type="text" size="37" maxlength="128" name="deladr[oxaddress__oxfon]" value="[{if isset( $deladr.oxaddress__oxfon ) }][{ $deladr.oxaddress__oxfon }][{else}][{ $delivadr->oxaddress__oxfon->value }][{/if }]">
             [{if $oView->isFieldRequired(oxaddress__oxfon) }]
-                <p class="oxValidateError">
+                <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxfon}]
                 </p>
             [{/if}]
         </li>
-        <li [{if $aErrors.oxaddress__oxfax}]class="oxInValid"[{/if}]>
+        <li [{if $aErrors.oxaddress__oxfax}]class="invalid-field"[{/if}]>
             <input [{if $oView->isFieldRequired(oxaddress__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_FAX2" }]" type="text" size="37" maxlength="128" name="deladr[oxaddress__oxfax]" value="[{if isset( $deladr.oxaddress__oxfax ) }][{ $deladr.oxaddress__oxfax }][{else}][{ $delivadr->oxaddress__oxfax->value }][{/if}]">
             [{if $oView->isFieldRequired(oxaddress__oxfax) }]
-                <p class="oxValidateError">
+                <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxaddress__oxfax}]
                 </p>

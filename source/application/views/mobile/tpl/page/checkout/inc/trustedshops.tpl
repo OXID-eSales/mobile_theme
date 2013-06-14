@@ -1,7 +1,7 @@
 [{block name="checkout_payment_trustedshops"}]
     [{if $oView->getTSExcellenceId()}]
         <div id="tsBox">
-            <h3 class="blockHead" id="tsProtectionHeader">[{ oxmultilang ident="PAGE_CHECKOUT_PAYMENT_TSPROTECTION" }]</h3>
+            <h3 class="block-head" id="tsProtectionHeader">[{ oxmultilang ident="PAGE_CHECKOUT_PAYMENT_TSPROTECTION" }]</h3>
             <div class="etrustlogocol">
             <a href="https://www.trustedshops.com/shop/certificate.php?shop_id=[{$oView->getTSExcellenceId()}]" target="_blank">
               <img src="[{$oViewConf->getImageUrl('trustedshops_m.gif')}]" title="[{ oxmultilang ident="INC_TRUSTEDSHOPS_ITEM_IMGTITLE" }]">

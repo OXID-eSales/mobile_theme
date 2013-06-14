@@ -12,7 +12,7 @@
                 <input type="hidden" name="CustomError" value='user'>
                 <input type="hidden" name="blshowshipaddress" value="1">
             </div>
-            <h3 class="blockHead">
+            <h3 class="block-head">
             [{ oxmultilang ident="FORM_USER_BILLINGADDRESS" }]
                 <input id="userChangeAddress" class="btn submitButton largeButton" [{if !empty($aErrors)}]style="display: none;"[{/if}] name="changeBillAddress" type="submit" value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]"/>
             </h3>
@@ -28,7 +28,7 @@
             [{oxscript add="$('#userChangeAddress').click( function() { $('#addressForm').show();$('#addressText').hide();$('#userChangeAddress').hide();return false;});"}]
         </div>
         <div class="collumn">
-            <h3 id="addShippingAddress" class="blockHead">
+            <h3 id="addShippingAddress" class="block-head">
             [{ oxmultilang ident="FORM_USER_SHIPPINGADDRESSES" }]
                 <input id="userChangeShippingAddress" class="btn submitButton largeButton" name="changeShippingAddress" type="submit" [{if !$oView->showShipAddress() or !$oxcmp_user->getSelectedAddress()}] style="display: none;"[{/if}] value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]"/>
             </h3>

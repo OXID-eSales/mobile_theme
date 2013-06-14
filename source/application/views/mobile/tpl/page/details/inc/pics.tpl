@@ -2,7 +2,7 @@
 [{oxscript include="js/widgets/oxcarouselswipe.js"}]
 <div class="span12">
     [{block name="details_productmain_pics"}]
-        <div class="oxSlider carousel slide" id="morePicsContainer">
+        <div class="carousel slide" id="morePicsContainer">
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="[{$oView->getActPicture()}]" alt="[{$oPictureProduct->oxarticles__oxtitle->value|strip_tags}] [{$oPictureProduct->oxarticles__oxvarselect->value|strip_tags}]">
@@ -16,10 +16,10 @@
                 [{/if}]
             </div>
             [{if $oView->morePics()}]
-                <a class="carousel-control left" href=".oxSlider" data-slide="prev">
+                <a class="carousel-control left" href=".carousel" data-slide="prev">
                     <i class="glyphicon-chevron-left"></i>
                 </a>
-                <a class="carousel-control right" href=".oxSlider" data-slide="next">
+                <a class="carousel-control right" href=".carousel" data-slide="next">
                     <i class="glyphicon-chevron-right"></i>
                 </a>
             [{/if}]

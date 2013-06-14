@@ -18,19 +18,19 @@
         <input type="hidden" name="blshowshipaddress" value="1">
 
         <div>
-            <h3 class="blockHead">[{ oxmultilang ident="FORM_REGISTER_ACCOUNTINFO" }]</h3>
+            <h3 class="block-head">[{ oxmultilang ident="FORM_REGISTER_ACCOUNTINFO" }]</h3>
             <ul class="form">
                 [{ include file="form/fieldset/user_account.tpl" }]
             </ul>
         </div>
         <div class="collumn">
-            <h3 class="blockHead">[{ oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
+            <h3 class="block-head">[{ oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
             <ul class="form">
             [{ include file="form/fieldset/user_billing.tpl" noFormSubmit=true blSubscribeNews=false blOrderRemark=true}]
             </ul>
         </div>
         <div class="collumn">
-            <h3 class="blockHead">[{ oxmultilang ident="FORM_REGISTER_SHIPPINGADDRESS" }]</h3>
+            <h3 class="block-head">[{ oxmultilang ident="FORM_REGISTER_SHIPPINGADDRESS" }]</h3>
             <div class="checkbox">
                 <input type="checkbox" name="blshowshipaddress" id="showShipAddress" [{if !$oView->showShipAddress()}]checked[{/if}] value="0">
                 <label for="showShipAddress" class="glyphicon-ok"></label>

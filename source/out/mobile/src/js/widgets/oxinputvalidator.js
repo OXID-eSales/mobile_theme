@@ -11,8 +11,8 @@
     oxInputValidator = {
             options: {
                 classValid                 : "oxValid",
-                classInValid               : "oxInValid",
-                errorParagraf              : "p.oxValidateError",
+                classInValid               : "invalid-field",
+                errorParagraf              : "p.validation-error",
                 errorMessageNotEmpty       : "js-oxError_notEmpty",
                 errorMessageNotEmail       : "js-oxError_email",
                 errorMessageShort          : "js-oxError_length",

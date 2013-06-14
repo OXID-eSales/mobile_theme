@@ -34,27 +34,27 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 
-.inlineElements {
+.inline-elements {
   position: relative;
-  .smallField {
+  .small-field {
     width: @inline-elements-small-field-width;
     position: absolute;
     top: @inline-elements-small-field-top;
   }
-  &.firstSmall {
+  &.first-small {
     padding: @inline-elements-first-small-padding;
     padding-left: @inline-elements-small-field-width + @inline-elements-small-field-margin;
-    .smallField {
+    .small-field {
       left: @inline-elements-small-field-left;
     }
-    > .oxValidateError {
+    > .validation-error {
       margin-left: -(@inline-elements-small-field-width + @inline-elements-small-field-margin);
     }
   }
-  &.firstBig {
+  &.first-big {
     padding: @inline-elements-first-big-padding;
     padding-right: @inline-elements-small-field-width + @inline-elements-small-field-margin;
-    .smallField {
+    .small-field {
       right: @inline-elements-small-field-right;
     }
   }

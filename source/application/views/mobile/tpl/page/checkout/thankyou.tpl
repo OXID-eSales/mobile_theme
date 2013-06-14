@@ -7,7 +7,7 @@
         <div class="checkout-thank-you content" id="thankyouPage">
             [{* ordering steps *}]
             [{include file="page/checkout/inc/steps.tpl" active=5 }]
-            <h3 class="blockHead">[{ oxmultilang ident="THANK_YOU" }]</h3>
+            <h3 class="block-head">[{ oxmultilang ident="THANK_YOU" }]</h3>
             <div class="separator"></div>
             [{block name="checkout_thankyou_info"}]
                 [{ oxmultilang ident="PAGE_CHECKOUT_THANKYOU_THANKYOU1" }] [{ oxmultilang ident="PAGE_CHECKOUT_THANKYOU_THANKYOU2" }] [{$oxcmp_shop->oxshops__oxname->value }]. <br>
@@ -33,7 +33,7 @@
             [{block name="checkout_thankyou_ts"}]
                 [{if $oViewConf->showTs("THANKYOU") && $oViewConf->getTsId() }]
                     [{assign var="sTSRatingImg" value="https://www.trustedshops.com/bewertung/widget/img/bewerten_"|cat:$oView->getActiveLangAbbr()|cat:".gif"}]
-                    <h3 class="blockHead">[{ oxmultilang ident="TS_RATINGS" }]</h3>
+                    <h3 class="block-head">[{ oxmultilang ident="TS_RATINGS" }]</h3>
                     [{ oxmultilang ident="TS_RATINGS_RATEUS" }]
                     <div class="etrustTsRatingButton">
                         <a href="[{ $oViewConf->getTsRatingUrl() }]" target="_blank" title="[{ oxmultilang ident="TS_RATINGS_URL_TITLE" }]">

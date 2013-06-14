@@ -1,13 +1,13 @@
 [{block name="checkout_user_options"}]
-    <div class="checkoutOptions">
+    <div class="checkout-options">
         [{block name="checkout_options_login"}]
-            <div id="optionLogin" class="checkoutOption">
+            <div id="optionLogin" class="checkout-option">
                 [{ include file="form/login.tpl"}]
             </div>
         [{/block}]
 
         [{block name="checkout_options_reg"}]
-            <div id="optionRegistration" class="checkoutOption">
+            <div id="optionRegistration" class="checkout-option">
                 <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
                     <div>
                         [{ $oViewConf->getHiddenSid() }]
@@ -23,7 +23,7 @@
 
         [{block name="checkout_options_noreg"}]
             [{if $oView->getShowNoRegOption() }]
-                <div id="optionNoRegistration" class="checkoutOption">
+                <div id="optionNoRegistration" class="checkout-option">
                     <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
                         <div>
                             [{ $oViewConf->getHiddenSid() }]

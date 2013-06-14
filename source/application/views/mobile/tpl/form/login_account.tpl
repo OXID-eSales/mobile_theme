@@ -19,15 +19,15 @@
         </div>
 
         <ul class="form">
-            <li [{if $aErrors}]class="oxInValid"[{/if}]>
+            <li [{if $aErrors}]class="invalid-field"[{/if}]>
                 <input placeholder="[{ oxmultilang ident="FORM_LOGIN_ACCOUNT_EMAIL"}]" id="loginUser" class="js-oxValidate js-oxValidate_notEmpty" type="text" name="lgn_usr" value="" size="37" >
-                <p class="oxValidateError">
+                <p class="validation-error">
                     <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                 </p>
             </li>
-            <li [{if $aErrors}]class="oxInValid"[{/if}]>
+            <li [{if $aErrors}]class="invalid-field"[{/if}]>
                 <input placeholder="[{ oxmultilang ident="PASSWORD" }]" id="loginPwd" class="js-oxValidate js-oxValidate_notEmpty textbox" type="password" name="lgn_pwd" value="" size="37">
-                <p class="oxValidateError">
+                <p class="validation-error">
                     <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                 </p>
             </li>

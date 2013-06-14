@@ -15,7 +15,7 @@
     [{/block}]
 
     [{block name="checkout_wrapping_contents"}]
-        <h3 class="blockHead">[{ oxmultilang ident="PAGE_CHECKOUT_WRAPPING_ADDWRAPPING" }]</h3>
+        <h3 class="block-head">[{ oxmultilang ident="PAGE_CHECKOUT_WRAPPING_ADDWRAPPING" }]</h3>
         [{if !$oxcmp_basket->getProductsCount()}]
             <div>[{ oxmultilang ident="PAGE_CHECKOUT_WRAPPING_BASKETEMPTY" }]</div>
         [{else}]
@@ -78,7 +78,7 @@
                 [{assign var="oCardList" value=$oView->getCardList()}]
                 [{if $oCardList->count()}]
                     [{block name="checkout_wrapping_cards"}]
-                        <h3 class="blockHead">[{ oxmultilang ident="PAGE_CHECKOUT_WRAPPING_GREETINGCARD" }]</h3>
+                        <h3 class="block-head">[{ oxmultilang ident="PAGE_CHECKOUT_WRAPPING_GREETINGCARD" }]</h3>
                         <ul class="wrappingCard clear" id="wrappCard">
                             <li>
                                 <p class="clear">

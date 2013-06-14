@@ -167,7 +167,7 @@
                     [{elseif $oView->getEmptyPayment()}]
                         [{block name="checkout_payment_nopaymentsfound"}]
                             <ul class="form">
-                                <h3 id="paymentHeader" class="blockHead">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_INFO"}]</h3>
+                                <h3 id="paymentHeader" class="block-head">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_INFO"}]</h3>
                                 [{oxifcontent ident="oxnopaymentmethod" object="oCont"}]
                                     [{$oCont->oxcontents__oxcontent->value}]
                                 [{/oxifcontent}]
