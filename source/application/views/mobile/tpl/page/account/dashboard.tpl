@@ -43,30 +43,6 @@
                 <i class="glyphicon-chevron-right"></i>
             </a>
         </li>
-        [{if $oViewConf->getShowWishlist()}]
-            <li>
-                <a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_wishlist" }]" rel="nofollow">
-                    <span>[{ oxmultilang ident="MY_GIFT_REGISTRY" }]</span>
-                    <i class="glyphicon-chevron-right"></i>
-                </a>
-            </li>
-        [{/if}]
-        [{if $oViewConf->getShowCompareList()}]
-            <li>
-                <a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=compare" }]" rel="nofollow">
-                    <span>[{ oxmultilang ident="MY_PRODUCT_COMPARISON" }]</span>
-                    <i class="glyphicon-chevron-right"></i>
-                </a>
-            </li>
-        [{/if}]
-        [{if $oViewConf->getShowListmania()}]
-            <li>
-                <a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_recommlist" }]">
-                    <span>[{ oxmultilang ident="MY_LISTMANIA" }]</span>
-                    <i class="glyphicon-chevron-right"></i>
-                </a>
-            </li>
-        [{/if}]
         [{/block}]
     </ul>
     [{insert name="oxid_tracker" title=$template_title }]

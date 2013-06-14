@@ -1,5 +1,13 @@
 [{capture append="oxidBlock_content"}]
 [{assign var="template_title" value="NEWSLETTER_SETTINGS"|oxmultilangassign }]
+<ul class="nav nav-list main-nav-list">
+    <li>
+        <a class="back" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account"}]">
+            <span>[{oxmultilang ident="BACK"}]</span>
+            <i class="glyphicon-chevron-left"></i>
+        </a>
+    </li>
+</ul>
 <h1 id="newsletterSettingsHeader" class="pageHead">[{ oxmultilang ident="NEWSLETTER_SETTINGS" }]</h1>
 <div class="content">
     [{if $oView->getSubscriptionStatus() != 0 }]

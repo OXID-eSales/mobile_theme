@@ -1,5 +1,13 @@
 [{capture append="oxidBlock_content"}]
     [{assign var="template_title" value="MY_DOWNLOADS"|oxmultilangassign }]
+    <ul class="nav nav-list main-nav-list">
+        <li>
+            <a class="back" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account"}]">
+                <span>[{oxmultilang ident="BACK"}]</span>
+                <i class="glyphicon-chevron-left"></i>
+            </a>
+        </li>
+    </ul>
     <h1 class="pageHead">[{ oxmultilang ident="MY_DOWNLOADS" }]</h1>
     <div class="content">
         [{if $oView->getOrderFilesList()|count }]

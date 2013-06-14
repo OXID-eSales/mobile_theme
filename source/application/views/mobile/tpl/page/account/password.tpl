@@ -1,5 +1,14 @@
 [{capture append="oxidBlock_content"}]
 [{assign var="template_title" value="CHANGE_PASSWORD"|oxmultilangassign }]
+
+<ul class="nav nav-list main-nav-list">
+    <li>
+        <a class="back" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account"}]">
+            <span>[{oxmultilang ident="BACK"}]</span>
+            <i class="glyphicon-chevron-left"></i>
+        </a>
+    </li>
+</ul>
 [{if $oView->isPasswordChanged() }]
      <div class="alert alert-success">
       [{ oxmultilang ident="PAGE_ACCOUNT_PASSWORD_PASSWORDCHANGED" }]

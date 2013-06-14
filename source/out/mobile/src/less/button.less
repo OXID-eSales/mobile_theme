@@ -30,19 +30,25 @@
     background: @btn-previous-background;
     color: @btn-previous-color;
   }
+  &.update,
+  &.remove,
+  &.wishlist-btn,
   &.small {
     width: @btn-small-width;
     padding: @padding-small-vertical @padding-small-horizontal;
   }
-  &.remove {
+  &.update,
+  &.remove,
+  &.wishlist-btn {
     background: @btn-remove-background;
     border: @btn-remove-border;
+    color: @btn-update-color;
+  }
+  &.remove {
     color: @btn-remove-color;
   }
-  &.update {
-    background: @btn-update-background;
-    border: @btn-update-border;
-    color: @btn-update-color;
+  &.wishlist-btn.wishlisted {
+    color: @wishlisted-color;
   }
 }
 

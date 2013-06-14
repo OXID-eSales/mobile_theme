@@ -48,8 +48,8 @@
                 [{* basket btn next *}]
                 [{if $oView->isLowOrderPrice() }]
                     [{block name="checkout_basket_loworderprice_bottom"}]
-                        <div>[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_MINORDERPRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
-                        module-dir            [{/block}]
+                        <div class="alert alert-error">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_MINORDERPRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
+                    [{/block}]
                 [{else}]
                     <div id="btnNextStepBottom">
                     [{block name="basket_btn_next_bottom"}]

@@ -42,23 +42,25 @@
                                 </ul>
                             [{/block}]
                         </div>
-                        [{if $oxcmp_basket->getDeliveryCosts()}]
-                            [{if $oxcmp_basket->getDelCostNet()}]
-                            <div id="shipSetCost">
-                                <b>[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_CHARGE"}] [{$oxcmp_basket->getDelCostNet()}] [{$currency->sign}]
-                                [{if $oxcmp_basket->getDelCostVat()}]
-                                    ([{oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX1"}]
-                                    [{$oxcmp_basket->getDelCostVat()}] [{$currency->sign}])
+                        <ul class="form">
+                            <li>
+                                [{if $oxcmp_basket->getDeliveryCosts()}]
+                                    [{if $oxcmp_basket->getDelCostNet()}]
+                                        <div id="shipSetCost" class="payment-charge">
+                                            [{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_CHARGE"}] [{$oxcmp_basket->getDelCostNet()}] [{$currency->sign}]
+                                                [{if $oxcmp_basket->getDelCostVat()}]
+                                                ([{oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX1"}]
+                                                [{$oxcmp_basket->getDelCostVat()}] [{$currency->sign}])
+                                                [{/if}]
+                                        </div>
+                                        [{else}]
+                                        <div id="shipSetCost" class="payment-charge">
+                                            [{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_CHARGE"}] [{$oxcmp_basket->getFDeliveryCosts()}] [{$currency->sign}]
+                                        </div>
+                                    [{/if}]
                                 [{/if}]
-                                </b>
-                            </div>
-                            [{else}]
-                                <div id="shipSetCost">
-                                    <b>[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_CHARGE"}] [{$oxcmp_basket->getFDeliveryCosts()}] [{$currency->sign}]</b>
-                                </div>
-                            [{/if}]
-                        [{/if}]
-                        <div class="lineBlock"></div>
+                            </li>
+                        </ul>
                     </form>
                 [{/if}]
             </div>

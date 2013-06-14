@@ -1,4 +1,12 @@
 [{capture append="oxidBlock_content"}]
+    <ul class="nav nav-list main-nav-list">
+        <li>
+            <a class="back" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account"}]">
+                <span>[{oxmultilang ident="BACK"}]</span>
+                <i class="glyphicon-chevron-left"></i>
+            </a>
+        </li>
+    </ul>
     [{assign var="template_title" value="PAGE_ACCOUNT_NOTICELIST_MYWISHLIST"|oxmultilangassign }]
      <h1 class="pageHead">[{ oxmultilang ident="PAGE_ACCOUNT_NOTICELIST_MYWISHLIST" }]</h1>
         [{if $oView->getNoticeProductList() }]

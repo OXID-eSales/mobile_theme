@@ -1,8 +1,8 @@
 [{oxscript include="js/libs/cookie/jquery.cookie.js"}]
 [{oxscript include="js/widgets/oxwishlistcontrol.js" priority=10}]
-[{oxscript add="$('.article-list-remove > button').oxWishlistControl();"}]
+[{oxscript add="$('.wishlist-btn').oxWishlistControl();"}]
 [{oxscript include="js/widgets/oxtriggerform.js" priority=10 }]
-[{oxscript add="$('.article-list-remove > button').oxFormTrigger();"}]
+[{oxscript add="$('.wishlist-btn').oxFormTrigger();"}]
 [{block name="widget_product_listitem_line"}]
 [{assign var="currency" value=$oView->getActCurrency()}]
 [{if $showMainLink}]
@@ -59,7 +59,7 @@
                 [{if $removeFunction && (($owishid && ($owishid==$oxcmp_user->oxuser__oxid->value)) || (($wishid==$oxcmp_user->oxuser__oxid->value)) || $recommid)}]
                     [{block name="widget_product_listitem_line_removefromwishlist"}]
                         <div class="article-list-remove">
-                            <button data-form="remove_[{$removeFunction}][{$testid}]" class="btn small remove" name="wishlist_remove_button"><i class="glyphicon-remove"></i></button>
+                            <button data-form="remove_[{$removeFunction}][{$testid}]" class="btn remove wishlist-btn" data-action="remove" data-anid="[{$product->oxarticles__oxnid->value}]" name="wishlist_remove_button"><i class="glyphicon-remove"></i></button>
                         </div>
                     [{/block}]
                 [{/if}]

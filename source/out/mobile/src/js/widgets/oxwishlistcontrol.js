@@ -10,108 +10,79 @@
 
     oxWishlistControl = {
         options: {
-            oWishlistLogin  : $( ".wishlist-login" ),
-            sLoginLink      : $( ".wishlist-login" ).attr( "href" ),
-            oWishlistAdder  : $( ".wishlist-adder" ),
-            sAddLink        : $( ".wishlist-adder" ).attr( "href" ),
-            oAlert          : $( ".wishlist-alert" ),
-            oAlertMsgBox    : $( ".wishlist-alert" ).find( "span" ),
-            oAlertClose     : $( ".wishlist-alert" ).find( ".close" ),
-            oAlertMessages  : $( ".wishlist-alert").find( ".alert-messages" ),
-            sHidden         : "hidden",
-            sActiveLink     :  "",
+            oWishlistBtn    : ".wishlist-btn",
+            oAlert          : $(".wishlist-alert"),
+            oAlertMsgBox    : $(".wishlist-alert span"),
+            oAlertClose     : $(".wishlist-alert .close"),
             sCookieVar      :  "oxid-mobile-wishlisted",
             iRedirectionTime: 3000,
             sCookiePath     : "/"
+        },
+
+        _create: function() {
+            var $this = this;
+
+            $($this.options.oWishlistBtn).each(function() {
+                if ( $this.isWishlisted( $(this).attr('data-anid') ) ) {
+                    $(this).addClass( "wishlisted" );
+                }
+            });
+
+            $($this.options.oWishlistBtn).on( "click", function() {
+                var sItemId = $(this).attr('data-anid');
+                switch ( $(this).data( "action" ) ) {
+                    case "login":
+                        $this.showAlert("please_login");
+                        $this.redirect( $(this).attr("href"), $this.options.iRedirectionTime );
+                        break;
+                    case "add":
+                        if ( $(this).hasClass("wishlisted") ) {
+                            break;
+                        }
+                        $this.add($(this).attr("href"), sItemId);
+                        $(this).addClass( "wishlisted" );
+                        break;
+                    case "remove":
+                        $this.deleteCookie( sItemId );
+                        break;
+                }
+
+                return false;
+            } );
+
+            $(this.options.oAlertClose).on( "click", function() {
+                $( $this.options.oAlert).hide();
+            } );
         },
 
         /**
          * Gets translated alert message from alert-messages
          * Returns translated string if it exists and is found,
          * or an empty string, when not found
-         *
-         * @param key
-         *
-         * @return string
          */
-        getMessage: function( key ) {
-            var sMessage = this.options.oAlertMessages.find( key ).html();
-            if ( sMessage === undefined ) {
-                sMessage = '';
+        showAlert: function( key ) {
+            var $this = this;
+            var oAlertMsg =  $($this.options.oAlertMsgBox);
+            var sMessage = oAlertMsg.data("messages")[key];
+            if ( sMessage !== undefined ) {
+                oAlertMsg.html(sMessage);
             }
-            return sMessage;
+            $(this.options.oAlert).show();
         },
 
-        _create: function() {
-            var $this = this,
-                aWishlisted = $.cookie( this.options.sCookieVar),
-                sItemId = $( "form#" + this.element.attr('data-form') ).find( "input[name=aid]").val();
-
-            if ( $( ".wishlist-star" )[0] ) {
-                if ( aWishlisted != null ) {
-                    if ( this.cookieExists( aWishlisted, sItemId ) ) {
-                        this.addWishlisted();
-                    }
-                }
-            }
-
-            this.options.oAlertClose.on( "click", function() {
-                $this.hide( $this.options.oAlert );
-            } );
-
-            this.options.oWishlistLogin.on( "click", function() {
-                $this.hide( $this.options.oAlert );
-                $this.options.oAlertMsgBox.text( $this.getMessage( ".please_login" ) );
-                $this.show( $this.options.oAlert );
-
-                $this.options.sActiveLink = $this.options.sLoginLink;
-                $this.redirect( $this.options.iRedirectionTime );
-
-                return false;
-            } );
-
-            this.options.oWishlistAdder.on( "click", function() {
-                if ( !$( this ).hasClass( "disabled" ) ) {
-                    $this.hide( $this.options.oAlert );
-                    $this.options.oAlertMsgBox.text( $this.getMessage( ".adding_to_wishlist" ) );
-                    $this.show( $this.options.oAlert );
-                    $this.add();
-                }
-                return false;
-            } );
-
-            this.element.on( "click", function(){
-                sItemId = $( "form#" + $this.element.attr('data-form') ).find( "input[name=aid]").val()
-                $this.deleteCookie( sItemId );
-            } );
-        },
-
-        hide: function( obj ) {
-            obj.addClass( this.options.sHidden );
-        },
-
-        show: function(obj) {
-            obj.removeClass( this.options.sHidden );
-        },
-
-        disable: function( obj ) {
-            obj.addClass( "disabled" );
-        },
-
-        redirect: function(iTime) {
+        redirect: function(sLink, iTime) {
             var $this = this;
             setTimeout( function(){
-                window.location = $this.options.sActiveLink;
+                window.location = sLink;
             }, iTime );
         },
 
-        add: function() {
+        add: function(href, anid) {
             var $this = this;
-            $.ajax( {
-                url: $this.options.sAddLink
-            } ).done( function() {
-                $this.options.oAlertMsgBox.text( $this.getMessage( ".done" ) );
-                $this.saveCookie();
+            $this.showAlert("adding_to_wishlist");
+            $.get( href, function() {
+                $this.showAlert("done");
+                $this.saveCookie( anid );
             } );
         },
 
@@ -123,22 +94,20 @@
             }
         },
 
-        saveCookie: function() {
-            var self = this,
-                sItemId = $( this.element ).data( "anid" ),
-                sCookie = $.cookie( self.options.sCookieVar );
+        saveCookie: function( sItemId ) {
+            var $this = this,
+                sCookie = $.cookie( $this.options.sCookieVar );
             if ( sCookie != null && sCookie != "" ) {
                 var aItems = sCookie.split( "|" );
-                if ( !self.cookieExists( aItems, sItemId ) ) {
+                if ( !$this.cookieExists( aItems, sItemId ) ) {
                     aItems.push( sItemId );
-                    $.cookie( self.options.sCookieVar, aItems.join( "|" ) , { path : self.options.sCookiePath } );
+                    $.cookie( $this.options.sCookieVar, aItems.join( "|" ) , { path : $this.options.sCookiePath } );
                 }
             } else {
                 var aItems = new Array();
                 aItems.push( sItemId );
-                $.cookie( self.options.sCookieVar, aItems.join( "|" ) , { path : self.options.sCookiePath } );
+                $.cookie( $this.options.sCookieVar, aItems.join( "|" ) , { path : $this.options.sCookiePath } );
             }
-            self.addWishlisted();
         },
 
         deleteCookie: function( sItemId ) {
@@ -153,9 +122,13 @@
             }
         },
 
-        addWishlisted: function() {
-            this.options.oWishlistAdder.addClass( "wishlisted" );
-            this.disable( this.options.oWishlistAdder );
+        isWishlisted: function( anid ) {
+            var aWishlisted = $.cookie( this.options.sCookieVar );
+
+            if ( aWishlisted != null && this.cookieExists( aWishlisted, anid ) ) {
+                return true;
+            }
+            return false;
         }
     }
 

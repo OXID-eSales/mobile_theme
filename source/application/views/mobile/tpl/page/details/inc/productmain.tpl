@@ -109,13 +109,15 @@
                     [{oxscript include="js/widgets/oxarticlevariant.js" priority=10 }]
                     [{oxscript add="$( '#variants' ).oxArticleVariant();"}]
                     [{assign var="blCanBuy" value=$aVariantSelections.blPerfectFit}]
-                    <div id="variants" class="js-fnSubmit clear">
+                    <ul id="variants" class="form js-fnSubmit clear">
                         [{assign var="blHasActiveSelections" value=false}]
                         [{foreach from=$aVariantSelections.selections item=oList key=iKey}]
-                            [{if $oList->getActiveSelection()}]
-                                [{assign var="blHasActiveSelections" value=true}]
-                            [{/if}]
-                            [{include file="widget/product/selectbox.tpl" oSelectionList=$oList iKey=$iKey blInDetails=true}]
+                            <li>
+                                [{if $oList->getActiveSelection()}]
+                                    [{assign var="blHasActiveSelections" value=true}]
+                                [{/if}]
+                                [{include file="widget/product/selectbox.tpl" oSelectionList=$oList iKey=$iKey blInDetails=true}]
+                            </li>
                         [{/foreach}]
                     </div>
                     [{if !$blCanBuy }]
