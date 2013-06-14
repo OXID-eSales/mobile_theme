@@ -35,11 +35,12 @@ $aLang = array(
     'HOUSE_NO'                                                    => "Hausnummer",
     'BACK'                                                        => "Zurück", // move to generic
     'ERROR_MESSAGE_ACCESS_DENIED'                                 => "Zugang verweigert",
-    'ERROR_MESSAGE_PERMISSION_DENIED'                              => "Der Zugang wurde Ihnen verweigert",
+    'ERROR_MESSAGE_PERMISSION_DENIED'                             => "Der Zugang wurde Ihnen verweigert",
     'USE_BILLINGADDRESS_FOR_SHIPPINGADDRESS'                      => "An Rechnungsanschrift schicken",
     'CONTINUE_TO_NEXT_STEP'                                       => "Weiter", // make CONTINUE key, translate to Weiter
     'OK'                                                          => "OK", // move to generic
     'LIST_DISPLAY_TYPE'                                           => "Ansicht",
+
 
 //    // THESE KEYS ARE ALL REQUIRED FOR 5.0, and can be removed in 5.1
 ////    'COD_CHARGE'                                                  => "Nachnahmegebühr",
