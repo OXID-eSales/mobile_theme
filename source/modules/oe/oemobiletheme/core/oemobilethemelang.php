@@ -28,9 +28,9 @@ class oeMobileThemeLang extends oeMobileThemeLang_parent
         $sAppDir        = $oConfig->getAppDir();
         $sLang          = oxRegistry::getLang()->getLanguageAbbr( $iLang );
         $sTheme         = $oConfig->getConfigParam( "sTheme" );
-        $sCustomTheme   = $oConfig->getActiveThemeId();
+        $sCustomTheme   = $oConfig->getConfigParam( "sCustomTheme" );
+        $sActiveTheme   = $oConfig->getActiveThemeId();
         $sShopId        = $oConfig->getShopId();
-        //$aModulePaths   = $this->_getActiveModuleInfo();
         $aModuleInfo    = $this->_getActiveModuleInfo();
 
         //get generic lang files
@@ -48,7 +48,7 @@ class oeMobileThemeLang extends oeMobileThemeLang_parent
         }
 
         //get custom theme lang files
-        if ( $sCustomTheme && $sCustomTheme != $sTheme ) {
+        if ( $sCustomTheme && $sCustomTheme == $sActiveTheme ) {
             $sCustPath = $sAppDir . 'views/' . $sCustomTheme .'/' . $sLang;
             $aLangFiles[] = $sCustPath . "/lang.php";
             $aLangFiles = $this->_appendLangFile( $aLangFiles, $sCustPath );
@@ -56,17 +56,10 @@ class oeMobileThemeLang extends oeMobileThemeLang_parent
 
         // custom theme shop languages
         if ( $this->getConfig()->getEdition() == 'EE' ) {
-            if ( $sCustomTheme ) {
-                $sCustPath = $sAppDir . 'views/' . $sCustomTheme .'/' . $sLang;
-                $aLangFiles[] = $sCustPath . "/lang.php";
-                $aLangFiles = $this->_appendLangFile( $aLangFiles, $sCustPath );
-
-                // custom theme shop languages
-                if ( $sCustomTheme ) {
+            if ( $sCustomTheme && $sCustomTheme == $sActiveTheme) {
                     $sShopPath = $sAppDir . 'views/'. $sCustomTheme .'/' . $sShopId . '/' . $sLang;
                     $aLangFiles[] = $sShopPath . "/lang.php";
                     $aLangFiles = $this->_appendLangFile( $aLangFiles, $sShopPath );
-                }
             } else {
                 // theme shop languages
                 if ( $sTheme ) {
