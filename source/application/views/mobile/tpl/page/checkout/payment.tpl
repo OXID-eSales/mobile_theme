@@ -83,7 +83,7 @@
                     <!--Add custom error message here-->
                        <div class="[{$sPayErrorClass}]">[{oxmultilang ident="MESSAGE_PAYMENT_UNAVAILABLE_PAYMENT"}]</div>
                     [{elseif $iPayError == -1}]
-                       <div class="[{$sPayErrorClass}]">[{oxmultilang ident="MESSAGE_PAYMENT_UNAVAILABLE_PAYMENT_ERROR" suffix="COLON"}] "[{$oView->getPaymentErrorText()}]").</div>
+                       <div class="[{$sPayErrorClass}]">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_ERRUNAVAILABLEPAYMENT"}] "[{$oView->getPaymentErrorText()}]").</div>
                     [{elseif $iPayError == -2}]
                        <div class="[{$sPayErrorClass}]">[{oxmultilang ident="MESSAGE_NO_SHIPPING_METHOD_FOUND"}]</div>
                     [{elseif $iPayError == -3}]

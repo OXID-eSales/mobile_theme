@@ -4,7 +4,7 @@
         [{foreach from=$oNews item=_oNewsItem name=_sNewsList }]
             <li >
                 [{ $_oNewsItem->getLongDesc()|strip_tags|oxtruncate:100 }]<br>
-                <a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=news" }]#[{$_oNewsItem->oxnews__oxid->value}]" class="readMore">[{ oxmultilang ident="MORE" suffix="ELLIPSIS" }]</a>
+                <a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=news" }]#[{$_oNewsItem->oxnews__oxid->value}]" class="readMore">[{ oxmultilang ident="WIDGET_NEWS_LINKMORE"}]</a>
             </li>
         [{/foreach}]
     </ul>
