@@ -14,7 +14,7 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
 /**
  * Tests for  class
  */
-class Unit_Controllers_oeThemeSwitcherrssTest extends OxidTestCase
+class Unit_Controllers_oeThemeSwitcherRssTest extends OxidTestCase
 {
 
     /**
@@ -30,8 +30,8 @@ class Unit_Controllers_oeThemeSwitcherrssTest extends OxidTestCase
      */
     public function testGetViewId()
     {
-        $oMlist = new oeThemeSwitchermanufacturerlist();
-        $sViewId = $oMlist->getViewId();
+        $oRss = new oeThemeSwitcherRss();
+        $sViewId = $oRss->getViewId();
 
         $this->assertContains( 'azure', $sViewId );
     }

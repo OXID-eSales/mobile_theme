@@ -52,7 +52,7 @@ class Unit_Controllers_oeThemeSwitcherAListTest extends OxidTestCase
      */
     public function testGetViewId()
     {
-        $oAList = $this->getProxyClass( "oeThemeSwitcherAList" );
+        $oAList = new oeThemeSwitcherAList();
         $sViewId = $oAList->getViewId();
 
         $this->assertContains( "azure", $sViewId );

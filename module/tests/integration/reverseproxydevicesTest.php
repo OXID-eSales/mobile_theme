@@ -24,7 +24,7 @@ if ( OXID_VERSION_EE ) :
          */
         protected function _getDevicesTypesFromShopSide()
         {
-            $oUserAgent = new oemobilethemeuseragent();
+            $oUserAgent = new oeThemeSwitcherUserAgent();
             $sMobileDevicesTypes = $oUserAgent->getMobileDeviceTypes();
             $aMobileDevicesTypes = explode( '|', $sMobileDevicesTypes );
 
@@ -38,7 +38,7 @@ if ( OXID_VERSION_EE ) :
          */
         protected function _getDeviceVclContent()
         {
-            $sDeviceVclContentPath = realpath( dirname(__FILE__).'/../../' ) . '/library/ReverseProxy/Varnish/device.vcl';
+            $sDeviceVclContentPath = realpath( dirname(__FILE__).'/../../../' ) . '/documentation/device.vcl';
             $sVclContent = strtolower( file_get_contents( $sDeviceVclContentPath ) );
 
             return $sVclContent;

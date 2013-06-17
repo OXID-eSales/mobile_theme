@@ -30,7 +30,7 @@ class Unit_Controllers_oeThemeSwitcherreviewTest extends OxidTestCase
      */
     public function testGetViewId()
     {
-        $oMlist = new oeThemeSwitchermanufacturerlist();
+        $oMlist = new oeThemeSwitcherReview();
         $sViewId = $oMlist->getViewId();
 
         $this->assertContains( 'azure', $sViewId );

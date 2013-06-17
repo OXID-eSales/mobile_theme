@@ -23,7 +23,7 @@ class Unit_Controllers_oeThemeSwitcherManufacturerListTest extends OxidTestCase
      */
     public function setUp()
     {
-        oxRegistry::set("oxConfig", new oeThemeSwitcherconfig() );
+        oxRegistry::set("oxConfig", new oeThemeSwitcherConfig() );
     }
 
     /**
@@ -31,8 +31,8 @@ class Unit_Controllers_oeThemeSwitcherManufacturerListTest extends OxidTestCase
      */
     public function testGetViewId()
     {
-        $oMList = new oeThemeSwitcherManufacturerList();
-        $sViewId = $oMList->getViewId();
+        $oManufacturerList = new oeThemeSwitcherManufacturerList();
+        $sViewId = $oManufacturerList->getViewId();
 
         $this->assertContains( 'azure', $sViewId );
     }
