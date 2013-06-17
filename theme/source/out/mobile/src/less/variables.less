@@ -18,31 +18,36 @@
 // @copyright (C) OXID eSales AG 2003-2013
 //
 
-
 // Custom variables
+
+@body-background-color:        #000000;
+@body-text-color:              #ffffff;
+
 // Brand colors
-@brand-common:                #50a9be; // added for reusability
-@brand-header:                #232323;
-@brand-danger:                #b81c00;
-@brand-primary:               #428bca;
-@base-color:                  #000000;
-@base-inverted-color:         #ffffff;
-@gray-lighter-2:              #e6e6e6; //#e5e5e5 #ededed #eeeeee #ebebeb #e9e9e9 #eff0f0 #e9e9e9
+@brand-primary-lighter:        #73bacb;
+@brand-primary:                #50a9be;
+@brand-primary-darker:         #1d7e96;
+
+@brand-secondary-lighter:      #eeeeee;
+@brand-secondary:              #cccccc;
+@brand-secondary-darker:       #666666;
+
+@brand-danger:                 #b81c00;
 
 @order-padding:                        0 15px;
 @order-margin:                         0 0 2px 0;
 @order-list-style:                     none;
-@order-background:                     @brand-header;
-@order-li-border:                      1px solid #575757;
+@order-background:                     @brand-secondary-darker;
+@order-li-border:                      1px solid @brand-secondary;
 @order-li-padding:                     10px 0;
 @order-li-last-child-border-bottom:    none;
-@order-details-li-color:               #666666;
+@order-details-li-color:               @brand-secondary;
 @order-details-li-text-transform:      uppercase;
 @order-details-orderDate-margin-right: 20px;
 @order-list-margin:                    0;
 @order-list-margin-li:                 0 0 2px 0;
 @order-list-style:                     none;
-@order-article-border:                 @gray-lighter;
+@order-article-border-color:           @brand-secondary;
 @order-articles-padding-left:          20px;
 
 @alerts-margin:             5px 0;
@@ -51,24 +56,24 @@
 @alerts-error-background:   url(../../img/error-inline.png) no-repeat 12px 13px #ffe7e3;
 @alerts-success-background: url(../../img/success-inline.png) no-repeat 12px 13px #f8ffe3;
 
-@article-list-background-color:            @base-inverted-color;
+@article-list-background-color:            #ffffff;
 @article-list-padding:                     0;
-@article-list-media-border-bottom:         1px solid #cccccc;
-@article-list-media-color:                 #1d7e96;
+@article-list-media-border-bottom:         1px solid @brand-secondary;
+@article-list-media-color:                 @brand-primary-darker;
 @article-list-media-margin:                0;
 @article-list-pull-left-width:             100px;
 @article-list-pull-left-text-align:        center;
 @article-list-img-max-width:               100%;
 @article-list-media-body-padding:          10px;
-@article-list-media-heading-link-color:    @base-color;
-@article-list-hover-background-color:      @brand-common;
+@article-list-media-heading-link-color:    #000000;
+@article-list-hover-background-color:      @brand-primary;
 @article-list-hover-color:                 @article-list-background-color;
 @article-list-hover-cursor:                pointer;
 @article-list-hover-media-heading-link-color: inherit;
 @article-list-remove-float:                right;
 @article-list-price-margin-bottom:         10px;
 @article-list-price-old-price-font-size:   14pt;
-@article-list-price-old-price-color:       @base-color;
+@article-list-price-old-price-color:       #000000;
 @article-list-price-main-price-font-size:  16pt;
 @article-list-price-old-price-on-color:    inherit;
 
@@ -82,18 +87,18 @@
 @article-list-variants-padding:     5px 0 10px;
 @article-list-variants-font-weight: normal;
 
-@order-history-article-quantity-color:                    #1d7e96;
+@order-history-article-quantity-color:                    @brand-primary-darker;
 @order-history-article-quantity-float:                    left;
 @order-history-article-quantity-margin-right:             5px;
 
-@basket-articles-border-color:                     #cccccc;
+@basket-articles-border-color:                     @brand-secondary;
 @basket-articles-border-top:                       1px solid @basket-articles-border-color;
 @basket-articles-margin-bottom:                    10px;
-@basket-articles-vat-percent-color:                @brand-common;
+@basket-articles-vat-percent-color:                @brand-primary-lighter;
 @basket-articles-vat-percent-margin:               0 5px;
 @basket-articles-vat-percent-hover-color:          inherit;
 @basket-functions-margin-bottom:                   15px;
-@basket-functions-color:                           @brand-common;
+@basket-functions-color:                           @brand-primary;
 @basket-functions-cursor:                          pointer;
 @basket-summary-margin-bottom:                     15px;
 @basket-summary-width:                             100%;
@@ -101,16 +106,16 @@
 @basket-summary-th-text-align:                     left;
 @basket-summary-th-font-weight:                    normal;
 @basket-summary-td-text-align:                     right;
-@basket-summary-td-color:                          #1d7e96;
+@basket-summary-td-color:                          @brand-primary-darker;
 @basket-total-price-border-top:                    2px solid @basket-articles-border-color;
 @basket-total-price-font-weight:                   bold;
 
-@btn-border-color:              #cccccc;
+@btn-border-color:              @brand-secondary;
 @btn-border:                   0;
-@btn-background-color:          @brand-common;
-@btn-color:                     @base-inverted-color;
-@btn-lighter-background-color:  @gray-lighter-2;
-@btn-lighter-color:             @brand-common;
+@btn-background-color:          @brand-primary;
+@btn-color:                     #ffffff;
+@btn-lighter-background-color:  #e6e6e6;
+@btn-lighter-color:             @brand-primary;
 @btn-small-width:              auto;
 @btn-padding-small-vertical:    @padding-small-vertical;
 @btn-padding-small-horizontal:  @padding-small-horizontal;
@@ -119,7 +124,7 @@
 @btn-width:                    100%;
 @btn-line-height:              normal;
 @btn-glyphicon-vertical-align: middle;
-@btn-disabled-background-color: #888888;
+@btn-disabled-background-color: @brand-secondary-darker;
 @btn-disabled-cursor:          default;
 @btn-disabled-hover-background-color: @btn-disabled-background-color;
 @btn-previous-background-color: @btn-lighter-background-color;
@@ -148,14 +153,14 @@
 @inline-elements-small-field-right:          0;
 @inline-elements-small-field-left:           0;
 
-@checkout-order-color: #666666;
+@checkout-order-color: @brand-secondary-darker;
 
 @payment-select-payment-row-first-of-type-margin-top: 0px;
 @payment-select-payment-row-margin-top:               15px;
 @payment-select-payment-padding:                      0px 12px;
-@payment-select-payment-color:                        #666666;
+@payment-select-payment-color:                        @brand-secondary-darker;
 @payment-select-payment-font-size:                    18px;
-@payment-select-note-color:                           #666666;
+@payment-select-note-color:                           @brand-secondary-darker;
 @payment-select-card-valid-date-month-width:          75px;
 @payment-select-card-valid-date-year-width:           95px;
 @payment-select-card-valid-date-divider-padding:      0px 5px;
@@ -173,19 +178,19 @@
 @checkout-steps-li-before-background:                   url("../../img/steps_small.png") -15px 0 no-repeat transparent;
 @checkout-steps-li-before-margin-left:                  -43px;
 @checkout-steps-li-first-child-margin-left:             0;
-@checkout-steps-li-first-child-before-background-color: @base-inverted-color;
+@checkout-steps-li-first-child-before-background-color: #ffffff;
 @checkout-steps-li-last-child-padding-right:            0;
 @checkout-steps-li-last-font-size:                      14px;
 @checkout-steps-li-last-font-weight:                    bold;
 @checkout-steps-li-last-color:                          #acacac;
-@checkout-steps-li-active-color:                        @base-inverted-color;
+@checkout-steps-li-active-color:                        #ffffff;
 @checkout-steps-li-active-before-background-position:   0 0;
-@checkout-steps-li-active-a-color:                      @base-inverted-color;
-@checkout-steps-li-active-background:                   #50a9be;
+@checkout-steps-li-active-a-color:                      #ffffff;
+@checkout-steps-li-active-background:                   @brand-primary;
 @checkout-steps-step-id-border-right:                   1px solid #84c2d1;
-@checkout-steps-li-a-color:                             #50a9be;
+@checkout-steps-li-a-color:                             @brand-primary;
 @checkout-steps-li-after-content:                       " ";
-@checkout-steps-li-last-step-background:                #50a9be;
+@checkout-steps-li-last-step-background:                @brand-primary;
 @checkout-steps-step-id-line-height:                    32px;
 @checkout-steps-step-id-font-size:                      18px;
 @checkout-steps-step-id-padding:                        0 1px;
@@ -198,7 +203,7 @@
 @checkout-steps-step-name-max-width:                    75px;
 @checkout-steps-next-step-margin-bottom:                10px;
 
-@checkout-thank-you-color:                    #666666;
+@checkout-thank-you-color:                    @brand-secondary-darker;
 @checkout-thank-you-blockhead-color:          #eb6005;
 @checkout-thank-you-blockhead-font-size:      16px;
 @checkout-thank-you-blockhead-font-weight:    bold;
@@ -211,7 +216,7 @@
 @cookie-note-z-index:             105;
 @cookie-note-font-weight:         normal;
 @cookie-note-font-size:           16px;
-@cookie-note-color:               @base-inverted-color;
+@cookie-note-color:               #ffffff;
 @cookie-note-background-color:    #f77704;
 @cookie-note-opacity:             0.9;
 @cookie-note-filter:              alpha(opacity=90);
@@ -226,7 +231,7 @@
 @cookie-note-dismiss-height:      18px;
 @cookie-note-dismiss-text-indent: -9999px;
 @cookie-note-dismiss-background:  url(../../img/close.png) no-repeat 0 0;
-@cookie-note-a-color:             @base-inverted-color;
+@cookie-note-a-color:             #ffffff;
 @cookie-note-a-text-decoration:   underline;
 @cookie-note-a-font-weight:       bold;
 @cookie-note-page-padding-top:    35px;
@@ -253,8 +258,8 @@
 @dropdown-z-index:                        1;
 @dropdown-open-z-index:                   2;
 @dropdown-cursor:                         pointer;
-@dropdown-color:                          @brand-common;
-@dropdown-background-color:               @base-inverted-color;
+@dropdown-color:                          @brand-primary;
+@dropdown-background-color:               #ffffff;
 @dropdown-border:                         2px solid @dropdown-color;
 @dropdown-toggle-border:                  @dropdown-border;
 @dropdown-toggle-color:                   @dropdown-color;
@@ -274,8 +279,8 @@
 @dropdown-link-background-color:          @dropdown-background-color;
 @dropdown-link-hover-color:               @dropdown-link-background-color;
 @dropdown-link-hover-background-color:    @dropdown-link-color;
-@dropdown-link-selected-color:            @dropdown-link-hover-color;
-@dropdown-link-selected-background-color: @dropdown-link-hover-background-color;
+@dropdown-link-selected-color:            @dropdown-background-color;
+@dropdown-link-selected-background-color: @brand-primary-darker;
 @dropdown-link-padding:                   10px 5px;
 @dropdown-link-white-space:               normal;
 @dropdown-option-span-color:              @dropdown-link-color;
@@ -292,9 +297,9 @@
 @filter-open-title-background-color:            #e6e6e6;
 @filter-open-title-padding:                     10px;
 @filter-open-title-width:                       100%;
-@filter-close-color:                            @base-inverted-color;
+@filter-close-color:                            #ffffff;
 @filter-close-font-size:                        17px;
-@filter-close-background-color:                 #50a9be;
+@filter-close-background-color:                 @brand-primary;
 @filter-close-padding:                          10px;
 @filter-close-margin-left:                      10px;
 @filter-close-right:                            0;
@@ -306,7 +311,7 @@
 @filter-box-opened-filter-title-padding-top:    10px;
 @filter-box-opened-filter-title-padding-left:   10px;
 
-@footer-background-color:                     @brand-header;
+@footer-background-color:                     #232323;
 @footer-margin-top:                           40px;
 @footer-margin-bottom:                        20px;
 @footer-nav-background-color:                 @footer-background-color;
@@ -319,7 +324,7 @@
 @footer-nav-link-font-size:                   14px;
 @footer-nav-link-text-align:                  center;
 @footer-nav-link-text-transform:              uppercase;
-@footer-nav-link-color:                       @brand-common;
+@footer-nav-link-color:                       @brand-primary;
 @footer-nav-link-hover-color:                 @footer-background-color;
 @footer-nav-link-active-color:                @footer-nav-link-hover-color;
 @footer-nav-link-background-color:            transparent;
@@ -348,7 +353,7 @@
 @radiocheckbox-margin:                     0 0 0 10px;
 @radiocheckbox-input-margin:               0;
 @radiocheckbox-cursor:                     pointer;
-@radiocheckbox-border:                     2px solid #50a9be;
+@radiocheckbox-border:                     2px solid @brand-primary;
 @radiocheckbox-color:                      transparent;
 @radiocheckbox-font-size:                  18px;
 @radiocheckbox-text-align:                 center;
@@ -357,10 +362,10 @@
 @radiocheckbox-label-margin-left:          5px;
 
 @radio-border-radius:                      25px;
-@radio-checked-background:                 #50a9be;
+@radio-checked-background:                 @brand-primary;
 @radio-checked-color:                      #fff;
 
-@checkbox-checked-color:                   #50a9be;
+@checkbox-checked-color:                   @brand-primary;
 
 @areabox-height:                           100px;
 
@@ -390,7 +395,7 @@
 @mini-basket-count-top:              3px;
 @mini-basket-count-right:            28px;
 @mini-basket-count-background:       #eb6005;
-@mini-basket-count-color:            @base-inverted-color;
+@mini-basket-count-color:            #ffffff;
 @mini-basket-count-z-index:          1;
 @mini-basket-new-item-max-width:     150px;
 @mini-basket-new-item-white-space:   normal;
@@ -428,30 +433,30 @@
 @pagination-separator-padding:                12px 5px;
 @pagination-prev-next-padding:                12px 14px;
 @pagination-glyphicon-font-size:              15px;
-@pagination-page-background-color:            @brand-common;
+@pagination-page-background-color:            @brand-primary;
 @pagination-bg:                               @pagination-container-background-color;
 @pagination-border:                           @pagination-link-border-color;
-@pagination-active-bg:                        @brand-common;
+@pagination-active-bg:                        @brand-primary;
 
 @product-details-margin-top:                             2px;
 @product-title-font-size:                                18px;
 @product-description-container-margin-top:               15px;
 @product-description-cursor:                             pointer;
-@product-description-glyphicon-chevron-down-color:       #50a9be;
+@product-description-glyphicon-chevron-down-color:       @brand-primary;
 @product-description-glyphicon-chevron-down-font-size:   18px;
 @product-description-glyphicon-chevron-down-font-weight: bold;
 @product-header-info-width:                              80%;
 @product-header-info-word-wrap:                          normal;
 @product-footer-margin:                                  0 10px 15px 10px;
 @product-attribute-margin-top:                           15px;
-@product-attributes-switch-color:                        #50a9be;
+@product-attributes-switch-color:                        @brand-primary;
 @product-attributes-switch-font-size:                    18px;
 @product-attributes-switch-text-transform:               uppercase;
 @product-attributes-switch-font-weight:                  bold;
 @product-price-container-min-width:                      245px;
 @product-price-container-min-height:                     40px;
 @product-price-container-text-align:                     right;
-@product-price-color:                                    #50a9be;
+@product-price-color:                                    @brand-primary;
 @product-price-font-size:                                18px;
 @product-price-old-product-price-margin-left:            5px;
 @product-ratings-bottom:                                 0;
@@ -461,9 +466,9 @@
 @product-ratings-placeholder-height:                     17px;
 @product-variants-message-color:                         #b81c00;
 
-@content-background: @base-inverted-color;
+@content-background: #ffffff;
 @content-padding:    15px;
-@color-color:        @base-color;
+@color-color:        #000000;
 
 @search-box-container-width:                 100%;
 @search-box-container-margin-top:            0;
@@ -479,7 +484,7 @@
 @oxslider-i-top:                        50%;
 @oxslider-i-margin-top:                 -11px;
 @oxslider-i-font-size:                  36px;
-@oxslider-i-color:                      #50a9be;
+@oxslider-i-color:                      @brand-primary;
 @oxslider-i-text-shadow:                -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 @oxslider-i-left:                       15px;
 @oxslider-i-right:                      15px;
@@ -517,13 +522,13 @@
 @oxvalidate-error-padding:     5px 0px;
 @oxinvalid-color:              #b81c00;
 @oxinvalid-border-color:       #b81c00;
-@oxinvalid-input-background:   @base-inverted-color;
+@oxinvalid-input-background:   #ffffff;
 @oxinvalid-select-border:      1px solid #b81c00;
-@oxinvalid-select-background:  @base-inverted-color;
+@oxinvalid-select-background:  #ffffff;
 
 @wishlist-control-top:              0;
 @wishlist-control-right:            15px;
-@wishlist-control-color:            #50a9be;
+@wishlist-control-color:            @brand-primary;
 @wishlist-control-border:           1px solid #acacac;
 @wishlist-control-margin-left:      10px;
 @wishlist-control-width:            17px;
@@ -541,8 +546,8 @@
 // Scaffolding
 // -------------------------
 
-@text-color:                  @base-inverted-color;
-@body-bg:                     @base-color;
+@text-color:                  @body-text-color;
+@body-bg:                     @body-background-color;
 
 // Links
 // -------------------------
@@ -576,8 +581,8 @@
 @border-radius-large:         0;
 @border-radius-small:         0;
 @zindex-dropdown:             9999;
-@navbar-link-hover-color:     @brand-common;
-@navbar-link-color:           @brand-common;
+@navbar-link-hover-color:     @brand-primary;
+@navbar-link-color:           @brand-primary;
 @component-active-bg:         #8abfcb;
 
 
@@ -592,22 +597,22 @@
 // Forms
 // -------------------------
 
-@input-border:                #50a9be;
+@input-border:                @brand-primary;
 
 // COMPONENT VARIABLES
 // --------------------------------------------------
 
 // Basics of a navbar
-@navbar-color:                @base-inverted-color;
+@navbar-color:                #ffffff;
 @navbar-bg:                   #8abfcb;
 
 // Navbar links
-@navbar-link-color:           @brand-common;
-@navbar-link-hover-color:     @brand-common;
+@navbar-link-color:           @brand-primary;
+@navbar-link-hover-color:     @brand-primary;
 @navbar-link-hover-bg:        #e6e6e6;
 
 // Inverted navbar
-@navbar-inverse-color:        @brand-common;
+@navbar-inverse-color:        @brand-primary;
 @navbar-inverse-bg:           #232323;
 
 
@@ -626,7 +631,7 @@
 // -------------------------
 
 @state-warning-text:          @brand-danger;
-@state-warning-bg:            @base-inverted-color;
+@state-warning-bg:            #ffffff;
 @state-warning-border:        transparent;
 
 @state-danger-text:           @state-warning-text;
@@ -636,11 +641,11 @@
 
 // Labels
 // -------------------------
-@label-success-bg:            @base-inverted-color;
-@label-info-bg:               @base-inverted-color;
+@label-success-bg:            #ffffff;
+@label-info-bg:               #ffffff;
 
 
 // Wells
 // -------------------------
-@well-bg:                     @base-inverted-color;
+@well-bg:                     #ffffff;
 
