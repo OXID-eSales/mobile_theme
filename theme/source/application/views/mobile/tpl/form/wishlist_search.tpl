@@ -7,7 +7,7 @@
             <li class="formTitle"><label>[{ oxmultilang ident="FORM_WISHLIST_SEARCH_SEARCHWISHLIST" }]</label></li>
             <li>
                 <label>[{ oxmultilang ident="FORM_WISHLIST_SEARCH_ENTEREMAILORNAME"}]&nbsp;</label>
-                <input type="text" name="search" value="[{ $oView->getWishListSearchParam() }]" size="30">&nbsp;&nbsp;
+                <input type="search" name="search" value="[{ $oView->getWishListSearchParam() }]" size="30">&nbsp;&nbsp;
                 <button class="submitButton" type="submit">[{ oxmultilang ident="FORM_WISHLIST_SEARCH_SEARCH" }]</button>
             </li>
         </ul>
