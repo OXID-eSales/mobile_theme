@@ -200,7 +200,7 @@
         [{if $editable}]
             <div id="basketFn" class="basket-functions">
                 [{*  basket update/delete buttons  *}]
-                <button id="basketUpdate" class="btn small update update-basket-btn" type="submit" name="updateBtn"><i class="glyphicon-refresh"></i></button> <label for="basketUpdate">[{ oxmultilang ident="UPDATE"}]</label>
+                <button id="basketUpdate" class="btn small update basket-update" type="submit" name="updateBtn"><i class="glyphicon-refresh"></i></button> <label for="basketUpdate">[{ oxmultilang ident="UPDATE"}]</label>
             </div>
         [{/if}]
     [{/block}]
@@ -348,7 +348,7 @@
             [{/block}]
 
             [{block name="checkout_basketcontents_grandtotal"}]
-                <tr id="basketGrandTotal" class="total-price">
+                <tr id="basketGrandTotal" class="basket-total-price">
                         <th><strong>[{ oxmultilang ident="GRAND_TOTAL" }]</strong></th>
                     <td><strong>[{ $oxcmp_basket->getFPrice() }]&nbsp;[{ $currency->sign }]</strong></td>
                 </tr>
