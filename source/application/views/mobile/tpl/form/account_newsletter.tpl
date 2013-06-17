@@ -1,14 +1,13 @@
 [{oxscript include="js/widgets/oxdropdown.js" priority=10 }]
 [{oxscript add="$('div.dropdown').oxDropDown();" }]
-<form class="form" action="[{ $oViewConf->getSelfActionLink() }]" name="newsletter" method="post">
-    [{ $oViewConf->getHiddenSid() }]
-    [{ $oViewConf->getNavFormParams() }]
-    <input type="hidden" name="fnc" value="subscribe">
-    <input type="hidden" name="cl" value="account_newsletter">
-    [{if $oView->isNewsletter() == 2}]
-        <div class="alert">[{ oxmultilang ident="MESSAGE_SENT_CONFIRMATION_EMAIL" }]</div>
-    [{/if}]
-    <ul class="form">
+<form action="[{$oViewConf->getSelfActionLink()}]" name="newsletter" method="post">
+    <div>
+        [{$oViewConf->getHiddenSid()}]
+        [{$oViewConf->getNavFormParams()}]
+        <input type="hidden" name="fnc" value="subscribe">
+        <input type="hidden" name="cl" value="account_newsletter">
+    </div>
+    <ul class="form inlineForm clear">
         <li>
             <label for="status">[{ oxmultilang ident="FORM_USER_NEWSLETTER_SUBSCRIPTION" }]</label>
             <div id="status" class="dropdown">
@@ -37,4 +36,3 @@
         </li>
     </ul>
 </form>
-[{oxscript add="$('#status.dropdown').oxDropDown();"}]
