@@ -64,7 +64,7 @@
     </li>
     <li class="inline-elements first-big [{if $aErrors.oxuser__oxstreet}]invalid-field[{/if}]">
         <input class="bigField [{if $oView->isFieldRequired(oxuser__oxstreet) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="STREET" }]*" type="text" data-fieldsize="pair-xsmall" maxlength="255" name="invadr[oxuser__oxstreet]" value="[{if isset( $invadr.oxuser__oxstreet ) }][{ $invadr.oxuser__oxstreet }][{else }][{ $oxcmp_user->oxuser__oxstreet->value }][{/if}]">
-        <input class="small-field absoluteRight [{if $oView->isFieldRequired(oxuser__oxstreetnr) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="HOUSE_NO" }]*" type="text" data-fieldsize="xsmall" maxlength="16" name="invadr[oxuser__oxstreetnr]" value="[{if isset( $invadr.oxuser__oxstreetnr ) }][{ $invadr.oxuser__oxstreetnr }][{else }][{ $oxcmp_user->oxuser__oxstreetnr->value }][{/if}]">
+        <input class="small-field absoluteRight [{if $oView->isFieldRequired(oxuser__oxstreetnr) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="HOUSE_NO" }]*" type="number" data-fieldsize="xsmall" maxlength="16" name="invadr[oxuser__oxstreetnr]" value="[{if isset( $invadr.oxuser__oxstreetnr ) }][{ $invadr.oxuser__oxstreetnr }][{else }][{ $oxcmp_user->oxuser__oxstreetnr->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxstreet) || $oView->isFieldRequired(oxuser__oxstreetnr) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
@@ -136,7 +136,7 @@
 
 
     <li [{if $aErrors.oxuser__oxfon}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxfon) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_PHONE" }]" type="text" size="37" maxlength="128" name="invadr[oxuser__oxfon]" value="[{if isset( $invadr.oxuser__oxfon ) }][{ $invadr.oxuser__oxfon }][{else }][{ $oxcmp_user->oxuser__oxfon->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxfon) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_PHONE" }]" type="tel" size="37" maxlength="128" name="invadr[oxuser__oxfon]" value="[{if isset( $invadr.oxuser__oxfon ) }][{ $invadr.oxuser__oxfon }][{else }][{ $oxcmp_user->oxuser__oxfon->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxfon) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
@@ -145,7 +145,7 @@
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxfax}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_FAX" }]" type="text" size="37" maxlength="128" name="invadr[oxuser__oxfax]" value="[{if isset( $invadr.oxuser__oxfax ) }][{ $invadr.oxuser__oxfax }][{else }][{ $oxcmp_user->oxuser__oxfax->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_FAX" }]" type="tel" size="37" maxlength="128" name="invadr[oxuser__oxfax]" value="[{if isset( $invadr.oxuser__oxfax ) }][{ $invadr.oxuser__oxfax }][{else }][{ $oxcmp_user->oxuser__oxfax->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxfax) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
@@ -154,7 +154,7 @@
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxmobfon}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxmobfon) }] class="js-oxValidate js-oxValidate_notEmpty"[{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_CELLUARPHONE" }]" type="text" size="37" maxlength="64" name="invadr[oxuser__oxmobfon]" value="[{if isset( $invadr.oxuser__oxmobfon ) }][{$invadr.oxuser__oxmobfon }][{else}][{$oxcmp_user->oxuser__oxmobfon->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxmobfon) }] class="js-oxValidate js-oxValidate_notEmpty"[{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_CELLUARPHONE" }]" type="tel" size="37" maxlength="64" name="invadr[oxuser__oxmobfon]" value="[{if isset( $invadr.oxuser__oxmobfon ) }][{$invadr.oxuser__oxmobfon }][{else}][{$oxcmp_user->oxuser__oxmobfon->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxmobfon) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
@@ -163,7 +163,7 @@
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxprivfon}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxprivfon) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_EVENINGPHONE" }]" type="text" size="37" maxlength="64" name="invadr[oxuser__oxprivfon]" value="[{if isset( $invadr.oxuser__oxprivfon ) }][{$invadr.oxuser__oxprivfon }][{else}][{$oxcmp_user->oxuser__oxprivfon->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxprivfon) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_EVENINGPHONE" }]" type="tel" size="37" maxlength="64" name="invadr[oxuser__oxprivfon]" value="[{if isset( $invadr.oxuser__oxprivfon ) }][{$invadr.oxuser__oxprivfon }][{else}][{$oxcmp_user->oxuser__oxprivfon->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxprivfon) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
