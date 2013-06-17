@@ -157,7 +157,7 @@
             [{block name="details_productmain_tobasket"}]
                 [{oxhasrights ident="TOBASKET"}]
                 [{if !$oDetailsProduct->isNotBuyable()}]
-                    <input class="hidden" id="amountToBasket" type="text" name="am" value="1" size="3" autocomplete="off" class="textbox">
+                    <input class="hidden" id="amountToBasket" type="number" name="am" value="1" size="3" autocomplete="off" class="textbox">
                     <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="submitButton largeButton btn[{if !$blCanBuy}] disabled[{/if}]">[{oxmultilang ident="DETAILS_ADDTOCART"}]</button>
                 [{/if}]
                 [{/oxhasrights}]
