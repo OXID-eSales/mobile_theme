@@ -1,24 +1,23 @@
 /**
- * #PHPHEADER_OXID_LICENSE_INFORMATION#
+ * This file is part of OXID eSales mobile theme.
+ *
+ * OXID eSales mobile theme is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * OXID eSales mobile theme is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with OXID eSales mobile theme.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @link      http://www.oxid-esales.com
- * @package   out
- * @copyright (c) OXID eSales AG 2003-#OXID_VERSION_YEAR#
- * @version   SVN: $Id: oxcountdown.js 35529 2011-05-23 07:31:20Z vilma $
+ * @copyright (C) OXID eSales AG 2003-2013
  */
 
-/**
- * jQuery plugin for countdown
- * usage is:
- * $(SELECTOR)
- *      .countdown(
- *          function(count, element, container) {
- *              CALLBACK FUNCTION CODE
- *          }
- *      );
- * where the SELECTOR should return elements with time information in format hh:mm:ss
- * if CALLBACK function returns a jQuery container, it is replaced from the next iteration
- */
 jQuery.fn.countdown = function(callback, start) {
 
     if(jQuery(this).length == 0 ){ return false;}
