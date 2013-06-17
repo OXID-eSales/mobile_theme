@@ -145,7 +145,7 @@
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxfax}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_FAX" }]" type="tel" size="37" maxlength="128" name="invadr[oxuser__oxfax]" value="[{if isset( $invadr.oxuser__oxfax ) }][{ $invadr.oxuser__oxfax }][{else }][{ $oxcmp_user->oxuser__oxfax->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_FAX" }]" type="number" size="37" maxlength="128" name="invadr[oxuser__oxfax]" value="[{if isset( $invadr.oxuser__oxfax ) }][{ $invadr.oxuser__oxfax }][{else }][{ $oxcmp_user->oxuser__oxfax->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxfax) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
