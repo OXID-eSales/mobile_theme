@@ -23,7 +23,7 @@
             </li>
             <li>
                 <label class="req">[{ oxmultilang ident="FORM_SUGGEST_RECIPIENTEMAIL" }]</label>
-                <input class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email" type="text" name="editval[rec_email]" size="73" maxlength="73" value="[{$editval->rec_email}]">
+                <input class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email" type="email" name="editval[rec_email]" size="73" maxlength="73" value="[{$editval->rec_email}]">
                 <p class="validation-error">
                     <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     <span class="js-oxError_email">[{ oxmultilang ident="EXCEPTION_INPUT_NOVALIDEMAIL" }]</span>
@@ -41,7 +41,7 @@
             </li>
             <li>
                 <label class="req">[{ oxmultilang ident="FORM_SUGGEST_SENDEREMAIL" }]</label>
-                <input class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email" type="text" name="editval[send_email]" size=73 maxlength=73 value="[{$editval->send_email}]" >
+                <input class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email" type="email" name="editval[send_email]" size=73 maxlength=73 value="[{$editval->send_email}]" >
                 <p class="validation-error">
                     <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                     <span class="js-oxError_email">[{ oxmultilang ident="EXCEPTION_INPUT_NOVALIDEMAIL" }]</span>
