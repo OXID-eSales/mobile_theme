@@ -17,7 +17,7 @@ $sMetadataVersion = '1.0';
  * Module information
  */
 $aModule = array(
-    'id'           => 'oemobiletheme',
+    'id'           => 'oethemeswitcher',
     'title'        => 'Mobile theme module',
     'description'  => 'Module for mobile theme',
     'thumbnail'    => 'picture.png',

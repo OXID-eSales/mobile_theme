@@ -14,7 +14,7 @@
  * metatags (for search engines). Result - "vendorlist.tpl" template.
  * OXID eShop -> (Any selected shop product category).
  */
-class oemobilethemevendorlist extends oemobilethemevendorlist_parent
+class oeThemeSwitcherVendorList extends oeThemeSwitcherVendorList_parent
 {
 
     /**

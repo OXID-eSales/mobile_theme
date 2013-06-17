@@ -9,10 +9,13 @@
  */
 
 /**
- * Review of chosen article.
- * Collects article review data, saves new review to DB.
+ * Article details information page.
+ * Collects detailed article information, possible variants, such information
+ * as crosselling, similarlist, picture gallery list, etc.
+ * OXID eShop -> (Any chosen product).
+ * @package main
  */
-class oemobilethemereview extends oemobilethemereview_parent
+class oeThemeSwitcherDetails extends oeThemeSwitcherDetails_parent
 {
 
     /**

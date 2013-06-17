@@ -13,7 +13,7 @@
  *
  * @package core
  */
-class oeMobileThemeUserAgent
+class oeThemeSwitcherUserAgent
 {
     /**
      * Detected device type

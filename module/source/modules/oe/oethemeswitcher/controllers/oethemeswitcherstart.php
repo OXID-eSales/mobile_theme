@@ -9,13 +9,10 @@
  */
 
 /**
- * Article details information page.
- * Collects detailed article information, possible variants, such information
- * as crosselling, similarlist, picture gallery list, etc.
- * OXID eShop -> (Any chosen product).
- * @package main
+ * Starting shop page.
+ * Shop starter, manages starting visible articles, etc.
  */
-class oemobilethemedetails extends oemobilethemedetails_parent
+class oeThemeSwitcherStart extends oeThemeSwitcherStart_parent
 {
 
     /**
@@ -25,7 +22,8 @@ class oemobilethemedetails extends oemobilethemedetails_parent
      */
     public function getViewId()
     {
-        $sViewId = parent::getViewId();
+        $oUBase = oxNew( 'oxUBase' );
+        $sViewId = $oUBase->getViewId();
         $sViewId .= $this->getConfig()->getActiveThemeId();
 
         return $sViewId;

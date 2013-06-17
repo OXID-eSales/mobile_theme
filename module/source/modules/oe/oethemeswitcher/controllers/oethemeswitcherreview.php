@@ -9,10 +9,10 @@
  */
 
 /**
- * Starting shop page.
- * Shop starter, manages starting visible articles, etc.
+ * Review of chosen article.
+ * Collects article review data, saves new review to DB.
  */
-class oemobilethemestart extends oemobilethemestart_parent
+class oeThemeSwitcherReview extends oeThemeSwitcherReview_parent
 {
 
     /**
@@ -22,8 +22,7 @@ class oemobilethemestart extends oemobilethemestart_parent
      */
     public function getViewId()
     {
-        $oUBase = oxNew( 'oxUBase' );
-        $sViewId = $oUBase->getViewId();
+        $sViewId = parent::getViewId();
         $sViewId .= $this->getConfig()->getActiveThemeId();
 
         return $sViewId;

@@ -13,7 +13,7 @@
  *
  * @package core
  */
-class oeMobileThemeConfig extends oeMobileThemeConfig_parent
+class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
 {
     /**
      * Active template theme type
@@ -74,7 +74,7 @@ class oeMobileThemeConfig extends oeMobileThemeConfig_parent
             } else {
                 $sRequestedThemeType = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
                 if ( empty( $sRequestedThemeType ) ) {
-                    $oUserAgent = oxNew( 'oeMobileThemeUserAgent' );
+                    $oUserAgent = oxNew( 'oeThemeSwitcherUserAgent' );
                     $sRequestedThemeType = $oUserAgent->getDeviceType();
                 }
             }

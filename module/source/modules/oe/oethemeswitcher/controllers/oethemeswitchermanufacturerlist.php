@@ -9,9 +9,12 @@
  */
 
 /**
- * Tag filter for articles
+ * List of articles for a selected Manufacturer.
+ * Collects list of articles, according to it generates links for list gallery,
+ * metatags (for search engines). Result - "manufacturerlist.tpl" template.
+ * OXID eShop -> (Any selected shop product category).
  */
-class oemobilethemetag extends oemobilethemetag_parent
+class oeThemeSwitcherManufacturerList extends oeThemeSwitcherManufacturerList_parent
 {
 
     /**

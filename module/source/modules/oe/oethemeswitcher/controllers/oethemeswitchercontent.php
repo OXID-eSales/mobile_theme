@@ -11,7 +11,7 @@
 /**
  * CMS - loads pages and displays it
  */
-class oemobilethemecontent extends oemobilethemecontent_parent
+class oeThemeSwitcherContent extends oeThemeSwitcherContent_parent
 {
 
     /**

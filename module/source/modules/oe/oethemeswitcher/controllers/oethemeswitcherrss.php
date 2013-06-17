@@ -9,12 +9,9 @@
  */
 
 /**
- * List of articles for a selected Manufacturer.
- * Collects list of articles, according to it generates links for list gallery,
- * metatags (for search engines). Result - "manufacturerlist.tpl" template.
- * OXID eShop -> (Any selected shop product category).
+ * Shop RSS page.
  */
-class oemobilethememanufacturerlist extends oemobilethememanufacturerlist_parent
+class oeThemeSwitcherRss extends oeThemeSwitcherRss_parent
 {
 
     /**

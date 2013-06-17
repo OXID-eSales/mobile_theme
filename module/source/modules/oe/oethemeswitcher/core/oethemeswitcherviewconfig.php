@@ -13,7 +13,7 @@
  * of getters needed for formatting various urls,
  * config parameters, session information etc.
  */
-class oeMobileThemeViewConfig extends oeMobileThemeViewConfig_parent
+class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
 {
     /**
      * Active theme name
@@ -50,7 +50,7 @@ class oeMobileThemeViewConfig extends oeMobileThemeViewConfig_parent
     public function getActiveDeviceType()
     {
         if ( $this->_sActiveDeviceType === null ) {
-            $oUserAgent = oxNew( 'oeMobileThemeUserAgent' );
+            $oUserAgent = oxNew( 'oeThemeSwitcherUserAgent' );
             $this->_sActiveDeviceType = $oUserAgent->getDeviceType();
         }
         return $this->_sActiveDeviceType;

@@ -9,9 +9,9 @@
  */
 
 /**
- * Shop RSS page.
+ * Tag filter for articles
  */
-class oemobilethemerss extends oemobilethemecontent_parent
+class oeThemeSwitcherTag extends oeThemeSwitcherTag_parent
 {
 
     /**

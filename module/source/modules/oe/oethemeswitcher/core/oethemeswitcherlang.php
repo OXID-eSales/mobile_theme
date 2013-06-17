@@ -11,7 +11,7 @@
 /**
  * Language related utility class
  */
-class oeMobileThemeLang extends oeMobileThemeLang_parent
+class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
 {
     /**
      * Returns array with paths where frontend language files are stored
