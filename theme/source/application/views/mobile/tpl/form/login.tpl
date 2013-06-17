@@ -10,7 +10,7 @@
     </div>
     <ul class="form">
         <li [{if $aErrors}]class="invalid-field"[{/if}]>
-            <input type="text" name="lgn_usr" class="js-oxValidate js-oxValidate_notEmpty" placeholder="[{ oxmultilang ident="EMAIL_ADDRESS"}]" />
+            <input type="email" name="lgn_usr" class="js-oxValidate js-oxValidate_notEmpty" placeholder="[{ oxmultilang ident="EMAIL_ADDRESS"}]" />
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
             </p>
