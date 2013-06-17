@@ -4,23 +4,16 @@
 <div class="product-details">
     [{include file="page/details/inc/productmain.tpl"}]
 </div>
-<div class="product-description-container" class="row">
+<div class="product-description-container">
     [{* Full description *}]
     [{block name="details_longdescription"}]
         [{oxhasrights ident="SHOWLONGDESCRIPTION"}]
         [{assign var="oLongdesc" value=$oDetailsProduct->getLongDescription()}]
-        [{assign var="oLongDescTrunc" value=$oLongdesc}]
-        [{assign var="oChevronDown" value="<i class=\"glyphicon-chevron-down\"></i>"}]
-        [{assign var="oChevronUp" value="<i class=\"glyphicon-chevron-up\"></i>"}]
         [{if $oLongdesc->value}]
-            <div class="product-description-truncated">
-                [{oxeval var=$oLongDescTrunc|html_substr:100}]
-                [{$oChevronDown}]
+            <div class="product-description">
+                [{oxeval var=$oLongdesc}]
             </div>
-            <div class="product-description-full hidden">
-                [{oxeval var=$oLongDescTrunc}]
-                [{$oChevronUp}]
-            </div>
+            <i class="glyphicon-chevron-down" data-toggle="glyphicon-chevron-up"></i>
         [{/if}]
         [{/oxhasrights}]
     [{/block}]
@@ -31,7 +24,7 @@
         [{if $oView->getAttributes()}]
             <a class="product-attributes-switch" data-toggle="collapse" data-parent="#details_attributes" href="#attributes">
                 [{oxmultilang ident="SPECIFICATION"}]
-                [{$oChevronDown}]
+                <i class="glyphicon-chevron-down"></i>
             </a>
             <div id="attributes" class="collapse">
                 [{include file="page/details/inc/attributes.tpl"}]

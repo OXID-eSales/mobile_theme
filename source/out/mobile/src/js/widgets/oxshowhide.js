@@ -9,22 +9,31 @@
 
     oxShowHide = {
         options: {
-            blockTruncated : ".product-description-truncated",
-            blockFull : ".product-description-full"
+            content:          ".product-description",
+            maxHeight:        80,
+            hideSpeed:        350
         },
+        fullHeight: 0,
+        truncatedHeight: 0,
+        truncated: false,
 
         _create: function() {
-            var oDescTrunc = $(this.options.blockTruncated, this.element);
-            var oDescFull = $(this.options.blockFull, this.element);
-            var iSpeed = 350;
-            oDescTrunc.on("click", function() {
-                // TODO: animate
-                oDescTrunc.addClass("hidden");
-                oDescFull.removeClass("hidden");
-            });
-            oDescFull.on("click", function() {
-                oDescFull.addClass("hidden");
-                oDescTrunc.removeClass("hidden");
+            var $this = this;
+            var oBlock = $($this.options.content, $(this.element));
+
+            $this.fullHeight = oBlock.outerHeight();
+            var firstElement = $("*:first-child", oBlock);
+            $this.truncatedHeight = firstElement.outerHeight();
+            if ($this.truncatedHeight > $this.options.maxHeight) {
+                $this.truncatedHeight = parseInt(firstElement.css("line-height"));
+            }
+            oBlock.height($this.truncatedHeight);
+            $this.truncated = true;
+
+            $(this.element).on("click", function() {
+                var newHeight = $this.truncated? $this.fullHeight : $this.truncatedHeight;
+                oBlock.animate({height: newHeight}, $this.options.hideSpeed);
+                $this.truncated = !$this.truncated;
             });
         }
 };
