@@ -20,11 +20,11 @@
                 <li class="formTitle"><label>[{ oxmultilang ident="FORM_WISHLIST_SUGGEST_SENDWISHLIST" }]</label></li>
                 <li>
                     <label>[{ oxmultilang ident="FORM_WISHLIST_SUGGEST_RECIPIENTSNAME" }]</label>
-                    <input type="Text" name="editval[rec_name]" size="37" maxlength="70" value="[{ $editval->rec_name }]">
+                    <input type="text" name="editval[rec_name]" size="37" maxlength="70" value="[{ $editval->rec_name }]">
                 </li>
                 <li>
                     <label>[{ oxmultilang ident="FORM_WISHLIST_SUGGEST_RECIPIENTSEMAIL" }]</label>
-                    <input type="Text" name="editval[rec_email]" size="37" maxlength="70" value="[{ $editval->rec_email }]">
+                    <input type="email" name="editval[rec_email]" size="37" maxlength="70" value="[{ $editval->rec_email }]">
                 </li>
                 <li>
                     <label>[{ oxmultilang ident="FORM_WISHLIST_SUGGEST_YUORMESSAGE" }]</label>
