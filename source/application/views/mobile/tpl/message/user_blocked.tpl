@@ -1,7 +1,10 @@
 [{capture append="oxidBlock_content"}]
-    <div class="alert-page alert-page-error">
-        <h4 class="alertPageHeader">[{ oxmultilang ident="ERROR_MESSAGE_PERMISSION_DENIED" }]</h4>
-        <div class="alertPageBody">[{ oxmultilang ident="ERROR_MESSAGE_ACCESS_DENIED" }]</div>
+[{capture append="oxidBlock_content"}]
+    <h1 class="pageHead">[{ oxmultilang ident="ERROR_MESSAGE_PERMISSION_DENIED" }]</h1>
+    <div class="content">
+        <div class="alert alert-error">
+            [{ oxmultilang ident="ERROR_MESSAGE_ACCESS_DENIED" }]
+        </div>
     </div>
     [{ insert name="oxid_tracker"}]
 [{/capture}]

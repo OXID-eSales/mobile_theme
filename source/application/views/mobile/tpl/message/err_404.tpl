@@ -1,7 +1,7 @@
 [{capture append="oxidBlock_content"}]
-    <div class="alert-page alert-page-error404">
-        <h4 class="alertPageHeader">[{ oxmultilang ident="MESSAGE_ERR_404TITLE" }]</h4>
-        <div class="alertPageBody">
+    <h1 class="pageHead">[{ oxmultilang ident="MESSAGE_ERR_404TITLE" }]</h1>
+    <div class="content">
+        <div class="alert alert-error">
             [{if $sUrl}]
                 [{assign var="sModifiedUrl" value=$sUrl|escape }]
                 [{assign var="sModifiedUrl" value="<i><strong>'"|cat:$sModifiedUrl|cat:"'</strong></i>"}]
