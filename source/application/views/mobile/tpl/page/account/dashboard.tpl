@@ -38,7 +38,7 @@
         [{/block}]
         [{block name="account_dashboard_col2"}]
         <li>
-            <a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_noticelist" }]" rel="nofollow">
+            <a  id="linkAccountWishlist" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_noticelist" }]" rel="nofollow">
                 <span>[{ oxmultilang ident="MY_WISH_LIST" }]</span>
                 <i class="glyphicon-chevron-right"></i>
             </a>
