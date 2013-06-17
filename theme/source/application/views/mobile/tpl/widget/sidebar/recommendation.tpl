@@ -43,7 +43,7 @@
                         [{ $oViewConf->getHiddenSid() }]
                     </div>
                     <label>[{ oxmultilang ident="WIDGET_RECOMMENDATIONLIST_SEARCHFORLISTS" }]</label>
-                    <input type="text" name="searchrecomm" id="searchRecomm" value="[{$oRecommList->getRecommSearch()}]" class="searchInput">
+                    <input type="search" name="searchrecomm" id="searchRecomm" value="[{$oRecommList->getRecommSearch()}]" class="searchInput">
                     <button class="submitButton largeButton" type="submit">[{ oxmultilang ident="WIDGET_RECOMMENDATIONLIST_SEARCHBUTTON" }]</button>
                 </form>
             </li>
