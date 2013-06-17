@@ -33,7 +33,7 @@
         </li>
         <li>
             <label>[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_NUMBER"}]</label>
-            <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[kknumber]" autocomplete="off" value="[{$dynvalue.kknumber}]" />
+            <input type="number" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[kknumber]" autocomplete="off" value="[{$dynvalue.kknumber}]" />
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS"}]</span>
             </p>
