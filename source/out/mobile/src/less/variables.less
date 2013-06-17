@@ -6,8 +6,11 @@
 
 
 // Custom variables
+// Brand colors
 @brand-common:                #50a9be; // added for reusability
 @brand-header:                #232323;
+@brand-danger:                #b81c00;
+@brand-primary:               #428bca;
 @base-color:                  #000000;
 @base-inverted-color:         #ffffff;
 @gray-lighter-2:              #e6e6e6; //#e5e5e5 #ededed #eeeeee #ebebeb #e9e9e9 #eff0f0 #e9e9e9
@@ -15,7 +18,7 @@
 @order-padding:                        0 15px;
 @order-margin:                         0 0 2px 0;
 @order-list-style:                     none;
-@order-background:                     #232323;
+@order-background:                     @brand-header;
 @order-li-border:                      1px solid #575757;
 @order-li-padding:                     10px 0;
 @order-li-last-child-border-bottom:    none;
@@ -46,18 +49,16 @@
 @article-list-img-max-width:               100%;
 @article-list-media-body-padding:          10px;
 @article-list-media-heading-link-color:    @base-color;
-@article-list-on-background-color:         #50a9be;
-@article-list-on-color:                    @base-inverted-color;
-@article-list-on-cursor:                   pointer;
-@article-list-on-media-heading-link-color: inherit;
+@article-list-hover-background-color:      @brand-common;
+@article-list-hover-color:                 @article-list-background-color;
+@article-list-hover-cursor:                pointer;
+@article-list-hover-media-heading-link-color: inherit;
 @article-list-remove-float:                right;
 @article-list-price-margin-bottom:         10px;
 @article-list-price-old-price-font-size:   14pt;
 @article-list-price-old-price-color:       @base-color;
 @article-list-price-main-price-font-size:  16pt;
 @article-list-price-old-price-on-color:    inherit;
-
-@basketitems-vat-percent-on-color: inherit;
 
 @add-to-basket-padding-left:   50px;
 @add-to-basket-position:       relative;
@@ -74,29 +75,15 @@
 @order-history-article-quantity-float:                    left;
 @order-history-article-quantity-margin-right:             5px;
 
-@basketitems-border-top:                           1px solid #cccccc;
-@basketitems-margin-bottom:                        10px;
-@basketitems-li-position:                          relative;
-@basketitems-basket-remove-position:               absolute;
-@basketitems-basket-remove-top:                    5px;
-@basketitems-basket-remove-right:                  5px;
-@basketitems-product-list-container-padding-right: 40px;
-@basketitems-product-list-price-bottom:            0;
-@basketitems-product-list-price-right:             5px;
-@basketitems-product-list-price-position:          absolute;
-@basketitems-vat-percent-color:                     #50a9be;
-@basketitems-vat-percent-margin:                   0 5px;
-@basketitems-vat-percent-display:                  block;
-@basketitems-vat-percent-text-align:               right;
-@basketitems-vat-percent-display-tiny:             inline;
-@basketitems-vat-percent-text-align-tiny:          left;
-@basketitems-price-color:                          #1d7e96;
+@basket-articles-border-color:                     #cccccc;
+@basket-articles-border-top:                       1px solid @basket-articles-border-color;
+@basket-articles-margin-bottom:                    10px;
+@basket-articles-vat-percent-color:                @brand-common;
+@basket-articles-vat-percent-margin:               0 5px;
+@basket-articles-vat-percent-hover-color:          inherit;
 @basket-functions-margin-bottom:                   15px;
-@basket-functions-color:                           #50a9be;
+@basket-functions-color:                           @brand-common;
 @basket-functions-cursor:                          pointer;
-@basket-functions-btn-small-background:            #f0f0f0;
-@basket-functions-btn-small-color:                 #50a9be;
-@basket-functions-btn-small-display:               inline-block;
 @basket-summary-margin-bottom:                     15px;
 @basket-summary-width:                             100%;
 @basket-summary-padding:                           5px 0;
@@ -104,32 +91,32 @@
 @basket-summary-th-font-weight:                    normal;
 @basket-summary-td-text-align:                     right;
 @basket-summary-td-color:                          #1d7e96;
-@basket-total-price-border-top:                    2px solid #cccccc;
+@basket-total-price-border-top:                    2px solid @basket-articles-border-color;
 @basket-total-price-font-weight:                   bold;
 
-@btn-display:                  block;
-@btn-position:                 relative;
+@btn-default-bg:                @brand-common;
+@btn-default-border:            @btn-default-bg;
+@btn-border-color:              #cccccc;
 @btn-border:                   0;
-@btn-background:               #50a9be;
+@btn-background:                @brand-common;
 @btn-text-transform:           uppercase;
 @btn-cursor:                   pointer;
 @btn-width:                    100%;
 @btn-line-height:              normal;
-@btn-on-outline:               none;
 @btn-glyphicon-vertical-align: middle;
 @btn-disabled-background:      #888888;
 @btn-disabled-cursor:          default;
-@btn-disabled-on-background:   #888888;
-@btn-previous-background:      #e6e6e6;
-@btn-previous-color:           #50a9be;
+@btn-disabled-hover-background: #888888;
+@btn-previous-background:       @gray-lighter-2;
+@btn-previous-color:            @brand-common;
 @btn-small-width:              auto;
-@btn-remove-background:        #f0f0f0;
+@btn-remove-background:         @gray-lighter-2;
 @btn-remove-color:             #e2001a;
-@btn-remove-border:            1px solid #cccccc;
-@btn-update-background:        #f0f0f0;
-@btn-update-color:             #50a9be;
-@btn-update-border:            1px solid #cccccc;
-@btn-input-width:              100%;
+@btn-remove-border:             1px solid @btn-border-color;
+@btn-update-background:         @gray-lighter-2;
+@btn-update-color:              @brand-common;
+@btn-update-border:             1px solid @btn-border-color;
+@btn-input-width:               @btn-width;
 
 @checkout-options-margin-top:                15px;
 @inline-elements-first-small-padding:        0;
@@ -247,35 +234,38 @@
 @main-nav-list-back-glyphicon-right:    auto;
 @main-nav-list-first-child-border-top:  none;
 
-@dropdown-background-color:               @base-inverted-color;
 @dropdown-z-index:                        1;
 @dropdown-open-z-index:                   2;
-@dropdown-toggle-border:                  2px solid #50a9be;
-@dropdown-toggle-cursor:                  pointer;
-@dropdown-toggle-color:                   #50a9be;
+@dropdown-cursor:                         pointer;
+@dropdown-color:                          @brand-common;
+@dropdown-background-color:               @base-inverted-color;
+@dropdown-border:                         2px solid @dropdown-color;
+@dropdown-toggle-border:                  @dropdown-border;
+@dropdown-toggle-color:                   @dropdown-color;
+@dropdown-toggle-background-color:        @dropdown-background-color;
 @dropdown-toggle-font-size:               18px;
 @dropdown-toggle-padding:                 @padding-base-vertical @padding-base-horizontal;
-@dropdown-toggle-glyphicon-float:         right;
+@dropdown-toggle-icon-float:              right;
 @dropdown-menu-min-width:                 0;
-@dropdown-menu-border:                    2px solid #50a9be;
+@dropdown-menu-border:                    @dropdown-border;
 @dropdown-menu-border-radius:             0;
 @dropdown-menu-padding:                   5px 0;
 @dropdown-menu-margin:                    0;
 @dropdown-menu-width:                     100%;
-@dropdown-menu-z-index:                   9999;
 @dropdown-option-padding:                     0 5px;
-@dropdown-option-margin:                      0;
-@dropdown-option-aspan-background:            @base-inverted-color;
-@dropdown-option-aspan-padding:               10px 5px;
-@dropdown-option-aspan-white-space:           normal;
-@dropdown-option-aspan-display:               block;
-@dropdown-option-a-color:                     #50a9be;
-@dropdown-option-a-cursor:                    pointer;
-@dropdown-option-a-selected-background:       #50a9be;
-@dropdown-option-a-selected-color:            @base-inverted-color;
-@dropdown-option-a-on-background:             #317883;
-@dropdown-option-a-on-color:                  @base-inverted-color;
-@dropdown-option-span-color:                  @base-color;
+@dropdown-option-margin:                  @dropdown-menu-margin;
+@dropdown-link-color:                     @dropdown-color;
+@dropdown-link-background-color:          @dropdown-background-color;
+@dropdown-link-hover-color:               @dropdown-link-background-color;
+@dropdown-link-hover-background-color:    @dropdown-link-color;
+@dropdown-link-selected-color:            @dropdown-link-hover-color;
+@dropdown-link-selected-background-color: @dropdown-link-hover-background-color;
+@dropdown-link-padding:                   10px 5px;
+@dropdown-link-white-space:               normal;
+@dropdown-option-span-color:              @dropdown-link-color;
+@dropdown-option-span-background:         @dropdown-link-background-color;
+@dropdown-option-span-padding:            @dropdown-link-padding;
+@dropdown-option-span-white-space:        @dropdown-link-white-space;
 
 @filter-box-closed-cursor:                      pointer;
 @filter-box-closed-btn-text-align:              left;
@@ -300,34 +290,34 @@
 @filter-box-opened-filter-title-padding-top:    10px;
 @filter-box-opened-filter-title-padding-left:   10px;
 
-@footer-background-color:                     #232323;
+@footer-background-color:                     @brand-header;
 @footer-margin-top:                           40px;
 @footer-margin-bottom:                        20px;
-@footer-nav-pills-max-height:                 none;
-@footer-nav-justified-vertical-align:         middle;
-@footer-nav-pills-li-border-color:            #474747;
-@footer-nav-pills-li-border-style:            solid;
-@footer-nav-pills-li-border-width:            1px 1px 1px 0;
-@footer-nav-pills-li-last-child-border-right: 0;
-@footer-nav-pills-active-background-color:    #8abfcb;
-@footer-nav-pills-active-color:               #232323;
-@footer-nav-pills-a-background:               transparent;
-@footer-nav-list-padding-top:                 50px;
-@footer-nav-list-last-child-padding-bottom:   50px;
-@footer-nav-list-nav-list-padding-top:        0;
+@footer-nav-background-color:                 @footer-background-color;
+@footer-nav-hover-background-color:           #8abfcb;
+@footer-nav-active-background-color:          @footer-nav-hover-background-color;
 @footer-nav-border-radius:                    0;
-@footer-nav-li-background-color:              #232323;
-@footer-nav-li-on-background-color:           #8abfcb;
-@footer-nav-li-on-color:                      #232323;
-@footer-nav-a-border-radius:                  0;
-@footer-nav-a-border:                         none;
-@footer-nav-a-color:                          #50a9be;
-@footer-nav-a-font-size:                      14px;
-@footer-nav-a-padding:                        20px 0;
-@footer-nav-a-text-align:                     center;
-@footer-nav-a-text-transform:                 uppercase;
-@footer-nav-a-on-background-color:            #8abfcb;
-@footer-nav-a-on-color:                       #232323;
+@footer-nav-link-border:                      none;
+@footer-nav-link-border-radius:               @footer-nav-border-radius;
+@footer-nav-link-padding:                     20px 0;
+@footer-nav-link-font-size:                   14px;
+@footer-nav-link-text-align:                  center;
+@footer-nav-link-text-transform:              uppercase;
+@footer-nav-link-color:                       @brand-common;
+@footer-nav-link-hover-color:                 @footer-background-color;
+@footer-nav-link-active-color:                @footer-nav-link-hover-color;
+@footer-nav-link-background-color:            transparent;
+@footer-nav-link-hover-background-color:      @footer-nav-hover-background-color;
+@footer-nav-pills-max-height:                 none;
+@footer-nav-pills-border-color:               #474747;
+@footer-nav-pills-border-style:               solid;
+@footer-nav-pills-border-width:               1px 0;
+@footer-nav-pills-next-child-border-left-width: 1px;
+@footer-nav-pills-active-color:               @footer-nav-link-active-color;
+@footer-nav-pills-active-background-color:    @footer-nav-active-background-color;
+@footer-nav-list-padding-top:                 50px;
+@footer-nav-list-next-child-padding-top:      0;
+@footer-nav-list-last-child-padding-bottom:   @footer-nav-list-padding-top;
 
 @form-list-style:                       none;
 @form-padding:                          0;
@@ -408,20 +398,24 @@
 @pagination-container-line-height:            0;
 @pagination-margin:                           0;
 @pagination-padding:                          0;
-@pagination-a-background-color:               #232323;
-@pagination-a-color:                          #f5f6f6;
-@pagination-a-font-size:                      18px;
-@pagination-a-border:                         none;
-@pagination-a-border-left:                    solid 2px #474747;
-@pagination-a-margin:                         0;
-@pagination-a-hover-background-color:         #232323;
-@pagination-a-hover-color:                    #f5f6f6;
-@pagination-a-first-child-border:             none;
-@pagination-a-first-last-child-border-radius: inherit;
-@pagination-separator-padding:                12px 5px 12px 5px;
-@pagination-prev-next-padding:                12px 14px 12px 14px;
+@pagination-link-background-color:            @pagination-container-background-color;
+@pagination-link-color:                       #f5f6f6;
+@pagination-link-font-size:                   18px;
+@pagination-link-border:                      none;
+@pagination-link-border-color:                #474747;
+@pagination-link-border-left:                 2px solid @pagination-link-border-color;
+@pagination-link-margin:                      0;
+@pagination-link-hover-background-color:      @pagination-container-background-color;
+@pagination-link-hover-color:                 @pagination-link-color;
+@pagination-a-first-child-border:             @pagination-link-border;
+@pagination-link-border-radius:               inherit;
+@pagination-separator-padding:                12px 5px;
+@pagination-prev-next-padding:                12px 14px;
 @pagination-glyphicon-font-size:              15px;
-@pagination-page-background-color:            #50a9be;
+@pagination-page-background-color:            @brand-common;
+@pagination-bg:                               @pagination-container-background-color;
+@pagination-border:                           @pagination-link-border-color;
+@pagination-active-bg:                        @brand-common;
 
 @product-details-margin-top:                             2px;
 @product-title-font-size:                                18px;
@@ -529,12 +523,6 @@
 // -------------------------
 @gray-lighter:                #cccccc; // make it with lighten method
 
-// Brand colors
-// -------------------------
-
-@brand-danger:                #b81c00;
-@brand-primary:               #428bca;
-
 
 // Scaffolding
 // -------------------------
@@ -574,8 +562,6 @@
 @border-radius-large:         0;
 @border-radius-small:         0;
 @zindex-dropdown:             9999;
-@dropdown-bg:                 @base-inverted-color;
-@dropdown-link-active-color:  @brand-common;
 @navbar-link-hover-color:     @brand-common;
 @navbar-link-color:           @brand-common;
 @component-active-bg:         #8abfcb;
@@ -589,30 +575,10 @@
 @table-bg-hover:              transparent; // for hover
 @table-border-color:          transparent; // table and cell border
 
-
-// Buttons
-// -------------------------
-
-@btn-default-bg:              @brand-primary;
-@btn-default-border:          @btn-default-bg;
-
 // Forms
 // -------------------------
 
 @input-border:                #50a9be;
-
-
-// Dropdowns
-// -------------------------
-
-@dropdown-border:             @brand-common;
-@dropdown-divider-top:        #e6e6e6;
-@dropdown-divider-bottom:     @gray-lighter;
-
-@dropdown-link-active-bg:     #317883;
-
-@dropdown-link-color:         @dropdown-link-active-color;
-
 
 // COMPONENT VARIABLES
 // --------------------------------------------------
@@ -641,15 +607,6 @@
 // Normal navbar needs no special styles or vars
 @navbar-inverse-search-bg:                  #232323;
 @navbar-inverse-search-border:              @input-border;
-
-
-// Pagination
-// -------------------------
-
-@pagination-bg:               #232323;
-@pagination-border:           #474747;
-@pagination-active-bg:        @brand-common;
-
 
 // Form states and alerts
 // -------------------------

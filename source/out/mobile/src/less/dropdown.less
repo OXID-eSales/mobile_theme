@@ -5,7 +5,7 @@
 
 /*--------------------------dropdown-----------------------------*/
 .dropdown {
-  background: @dropdown-background-color;
+  background-color: @dropdown-background-color;
   position: relative;
   z-index: @dropdown-z-index;
   &.open {
@@ -15,11 +15,15 @@
 
 .dropdown-toggle {
   border: @dropdown-toggle-border;
-  cursor: @dropdown-toggle-cursor;
+  cursor: @dropdown-cursor;
   padding: @dropdown-toggle-padding;
   color: @dropdown-toggle-color;
+  background-color: @dropdown-toggle-background-color;
+  a {
+    color: @dropdown-link-color;
+  }
   .glyphicon-chevron-down {
-    float: @dropdown-toggle-glyphicon-float;
+    float: @dropdown-toggle-icon-float;
   }
 }
 
@@ -31,30 +35,25 @@
   margin: @dropdown-menu-margin;
   width: @dropdown-menu-width;
   overflow: auto;
-  z-index: @dropdown-menu-z-index;
+  z-index: 9999;
   .dropdown-option {
     padding: @dropdown-option-padding;
     margin: @dropdown-option-margin;
-    a, span {
-      background: @dropdown-option-aspan-background;
-      padding: @dropdown-option-aspan-padding;
-      display: @dropdown-option-a-display;
-      white-space: @dropdown-option-aspan-white-space;
-    }
     a {
-      color: @dropdown-option-a-color;
-      cursor: @dropdown-option-a-cursor;
+      color: @dropdown-link-color;
+      background-color: @dropdown-link-background-color;
+      padding: @dropdown-link-padding;
+      display: block;
+      white-space: @dropdown-link-white-space;
+      cursor: @dropdown-cursor;
       &.selected {
-        background: @dropdown-option-a-selected-background;
-        color: @dropdown-option-a-selected-color;
+        color: @dropdown-link-selected-color;
+        background-color: @dropdown-link-selected-background-color;
       }
       &:hover, &:focus {
-        background: @dropdown-option-a-on-background;
-        color: @dropdown-option-a-on-color;
+        color: @dropdown-link-hover-color;
+        background-color: @dropdown-link-hover-background-color;
       }
-    }
-    span {
-      color: @dropdown-option-span-color;
     }
   }
 }

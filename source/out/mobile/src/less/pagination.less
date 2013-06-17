@@ -15,25 +15,21 @@
   padding: @pagination-padding;
   > li {
     a {
-      background-color: @pagination-a-background-color;
-      color: @pagination-a-color;
-      font-size: @pagination-a-font-size;
-      border: @pagination-a-border;
-      border-left: @pagination-a-border-left;
-      margin: @pagination-a-margin;
+      background-color: @pagination-link-background-color;
+      color: @pagination-link-color;
+      font-size: @pagination-link-font-size;
+      border: @pagination-link-border;
+      border-left: @pagination-link-border-left;
+      margin: @pagination-link-margin;
       display: block;
+      border-radius: @pagination-link-border-radius;
       &:hover {
-        background-color: @pagination-a-hover-background-color;
-
-        color: @pagination-a-hover-color;
+        background-color: @pagination-link-hover-background-color;
+        color: @pagination-link-hover-color;
       }
     }
     &:first-child > a {
       border: @pagination-a-first-child-border;
-    }
-    &:first-child > a,
-    &:last-child  > a {
-      border-radius: @pagination-a-first-last-child-border-radius;
     }
     > .pagination-separator {
       padding: @pagination-separator-padding;
@@ -46,7 +42,6 @@
   .glyphicon-chevron-left:before,
   .glyphicon-chevron-right:before {
     font-size: @pagination-glyphicon-font-size;
-
   }
 }
 

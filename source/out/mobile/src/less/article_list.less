@@ -26,11 +26,11 @@
       color: @article-list-media-heading-link-color;
     }
     &:hover {
-      background-color: @article-list-on-background-color;
-      color: @article-list-on-color;
-      cursor: @article-list-on-cursor;
+      background-color: @article-list-hover-background-color;
+      color: @article-list-hover-color;
+      cursor: @article-list-hover-cursor;
       .media-heading-link {
-        color: @article-list-on-media-heading-link-color;
+        color: @article-list-hover-media-heading-link-color;
       }
     }
   }
@@ -52,18 +52,6 @@
 }
 .media:hover .article-list-price .old-price {
   color: @article-list-price-old-price-on-color;
-}
-
-.vat-percent {
-  color: @basketitems-vat-percent-color;
-  margin: @basketitems-vat-percent-margin;
-  display: @basketitems-vat-percent-display;
-  @media (min-width: @screen-tiny) {
-    display: @basketitems-vat-percent-display-tiny;
-  }
-}
-.media:hover .vat-percent {
-  color: @basketitems-vat-percent-on-color;
 }
 
 .add-to-basket {

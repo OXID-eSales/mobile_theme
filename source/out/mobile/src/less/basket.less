@@ -6,8 +6,19 @@
 /* ----- Basket Checkout (basket) ----------------------- */
 
 .basket-articles {
-  border-top: @basketitems-border-top;
-  margin-bottom: @basketitems-margin-bottom;
+  border-top: @basket-articles-border-top;
+  margin-bottom: @basket-articles-margin-bottom;
+  .vat-percent {
+    color: @basket-articles-vat-percent-color;
+    margin: @basket-articles-vat-percent-margin;
+    display: block;
+    @media (min-width: @screen-tiny) {
+      display: inline;
+    }
+  }
+  .media:hover .vat-percent {
+    color: @basket-articles-vat-percent-hover-color;
+  }
 }
 
 .basket-functions {
@@ -16,8 +27,8 @@
     color: @basket-functions-color;
     cursor: @basket-functions-cursor;
   }
-  .update-basket-btn {
-    display: @basket-functions-btn-small-display;
+  .basket-update {
+    display: inline-block;
   }
 }
 
@@ -37,7 +48,7 @@
   }
 }
 
-.total-price {
+.basket-total-price {
   border-top: @basket-total-price-border-top;
   font-weight: @basket-total-price-font-weight;
 }
