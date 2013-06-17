@@ -7,8 +7,8 @@
   display: block;
   position: relative;
   border: @btn-border;
-  background: @btn-background;
-  color: @base-inverted-color;
+  background-color: @btn-background-color;
+  color: @btn-color;
   text-transform: @btn-text-transform;
   cursor: @btn-cursor;
   width: @btn-width;
@@ -17,14 +17,15 @@
     vertical-align: @btn-glyphicon-vertical-align;
   }
   &.disabled {
-    background: @btn-disabled-background;
+    background: @btn-disabled-background-color;
     cursor: @btn-disabled-cursor;
     &:hover {
-      background: @btn-disabled-hover-background;
+      background: @btn-disabled-hover-background-color;
     }
   }
   &.previous {
-    background: @btn-previous-background;
+    background: @btn-previous-background-color;
+    border: @btn-previous-border;
     color: @btn-previous-color;
   }
   &.update,
@@ -32,25 +33,25 @@
   &.wishlist-btn,
   &.small {
     width: @btn-small-width;
-    padding: @padding-small-vertical @padding-small-horizontal;
+    padding: @btn-padding-small-vertical @btn-padding-small-horizontal;
   }
   &.remove {
-    background: @btn-remove-background;
+    background: @btn-remove-background-color;
     border: @btn-remove-border;
     color: @btn-remove-color;
   }
   &.update {
-    background: @btn-update-background;
+    background: @btn-update-background-color;
     border: @btn-update-border;
     color: @btn-update-color;
   }
   &.wishlist-btn {
-    background: @btn-remove-background;
-    border: @btn-remove-border;
-    color: @btn-update-color;
+    background: @btn-wishlist-background-color;
+    border: @btn-wishlist-border;
+    color: @btn-wishlist-color;
   }
   &.wishlist-btn.wishlisted {
-    color: @wishlisted-color;
+    color: @btn-wishlisted-color;
   }
 }
 

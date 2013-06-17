@@ -94,29 +94,39 @@
 @basket-total-price-border-top:                    2px solid @basket-articles-border-color;
 @basket-total-price-font-weight:                   bold;
 
-@btn-default-bg:                @brand-common;
-@btn-default-border:            @btn-default-bg;
 @btn-border-color:              #cccccc;
 @btn-border:                   0;
-@btn-background:                @brand-common;
+@btn-background-color:          @brand-common;
+@btn-color:                     @base-inverted-color;
+@btn-lighter-background-color:  @gray-lighter-2;
+@btn-lighter-color:             @brand-common;
+@btn-small-width:              auto;
+@btn-padding-small-vertical:    @padding-small-vertical;
+@btn-padding-small-horizontal:  @padding-small-horizontal;
 @btn-text-transform:           uppercase;
 @btn-cursor:                   pointer;
 @btn-width:                    100%;
 @btn-line-height:              normal;
 @btn-glyphicon-vertical-align: middle;
-@btn-disabled-background:      #888888;
+@btn-disabled-background-color: #888888;
 @btn-disabled-cursor:          default;
-@btn-disabled-hover-background: #888888;
-@btn-previous-background:       @gray-lighter-2;
-@btn-previous-color:            @brand-common;
-@btn-small-width:              auto;
-@btn-remove-background:         @gray-lighter-2;
+@btn-disabled-hover-background-color: @btn-disabled-background-color;
+@btn-previous-background-color: @btn-lighter-background-color;
+@btn-previous-color:            @btn-lighter-color;
+@btn-previous-border:           @btn-border;
+@btn-remove-background-color:   @btn-lighter-background-color;
 @btn-remove-color:             #e2001a;
 @btn-remove-border:             1px solid @btn-border-color;
-@btn-update-background:         @gray-lighter-2;
-@btn-update-color:              @brand-common;
+@btn-update-background-color:   @btn-lighter-background-color;
+@btn-update-color:              @btn-lighter-color;
 @btn-update-border:             1px solid @btn-border-color;
+@btn-wishlist-background-color: @btn-lighter-background-color;
+@btn-wishlist-color:            @btn-lighter-color;
+@btn-wishlist-border:           1px solid @btn-border-color;
+@btn-wishlisted-color:          #eb6005;
 @btn-input-width:               @btn-width;
+@btn-default-bg:                @btn-background-color;
+@btn-default-border:            @btn-default-bg;
 
 @checkout-options-margin-top:                15px;
 @inline-elements-first-small-padding:        0;
@@ -514,7 +524,6 @@
 @wishlist-control-width:            17px;
 @wishlist-control-background-color: #e6e6e6;
 @wishlist-control-on-border-color:  transparent;
-@wishlisted-color:                  #eb6005;
 @wishlist-alert-margin-bottom:      10px;
   // Custom variables
 
