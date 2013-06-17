@@ -15,26 +15,15 @@
 
     <h1 class="pageHead">[{$template_title}]</h1>
 
-    [{if $oView->isExpiredLink() }]
-        <div class="box info">[{ oxmultilang ident="FORGOTPWD_ERRLINKEXPIRED" }]</div>
-    [{elseif $oView->showUpdateScreen() }]
-        [{include file="form/forgotpwd_change_pwd.tpl"}]
-    [{elseif $oView->updateSuccess() }]
+    <div class="content">
+        [{if $oView->isExpiredLink() }]
+            <div class="alert alert-error">[{ oxmultilang ident="FORGOTPWD_ERRLINKEXPIRED" }]</div>
+        [{elseif $oView->showUpdateScreen() }]
+            [{include file="form/forgotpwd_change_pwd.tpl"}]
+        [{elseif $oView->updateSuccess() }]
 
-        <div class="box info">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_UPDATE_SUCCESS" }]</div>
+            <div class="alert alert-success">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_UPDATE_SUCCESS" }]</div>
 
-        <div class="bar">
-            <form action="[{ $oViewConf->getSelfActionLink() }]" name="forgotpwd" method="post">
-                <div>
-                    [{ $oViewConf->getHiddenSid() }]
-                    <input type="hidden" name="cl" value="start">
-                    <button id="backToShop" class="btn" type="submit">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_BACKTOSHOP" }]</button>
-                </div>
-            </form>
-        </div>
-    [{else}]
-        [{if $oView->getForgotEmail()}]
-            <div class="box info">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_PWDWASSEND" }] [{$oView->getForgotEmail()}]</div>
             <div class="bar">
                 <form action="[{ $oViewConf->getSelfActionLink() }]" name="forgotpwd" method="post">
                     <div>
@@ -42,12 +31,21 @@
                         <input type="hidden" name="cl" value="start">
                         <button id="backToShop" class="btn" type="submit">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_BACKTOSHOP" }]</button>
                     </div>
-                 </form>
-             </div>
+                </form>
+            </div>
         [{else}]
-            [{include file="form/forgotpwd_email.tpl"}]
+            [{if $oView->getForgotEmail()}]
+                <div class="alert alert-success">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_PWDWASSEND" }] [{$oView->getForgotEmail()}]</div>
+                <form action="[{ $oViewConf->getSelfActionLink() }]" name="forgotpwd" method="post">
+                    [{ $oViewConf->getHiddenSid() }]
+                    <input type="hidden" name="cl" value="start">
+                    <button id="backToShop" class="btn" type="submit">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_BACKTOSHOP" }]</button>
+                 </form>
+            [{else}]
+                [{include file="form/forgotpwd_email.tpl"}]
+            [{/if}]
         [{/if}]
-    [{/if}]
+    </div>
 
     [{if !$oView->isActive('PsLogin') }]
         [{insert name="oxid_tracker" title=$template_title }]
