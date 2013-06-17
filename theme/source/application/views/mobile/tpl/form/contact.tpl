@@ -31,7 +31,7 @@
             </p>
         </li>
         <li [{if $aErrors.oxuser__oxusername}]class="invalid-field"[{/if}]>
-            <input id="contactEmail" type="text" name="editval[oxuser__oxusername]" placeholder="[{ oxmultilang ident="FORM_CONTACT_EMAIL2" }]" size=70 maxlength=40 value="[{if $oxcmp_user && !$editval.oxuser__oxusername}][{$oxcmp_user->oxuser__oxusername->value}][{else}][{$editval.oxuser__oxusername}][{/if}]" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email">
+            <input id="contactEmail" type="email" name="editval[oxuser__oxusername]" placeholder="[{ oxmultilang ident="FORM_CONTACT_EMAIL2" }]" size=70 maxlength=40 value="[{if $oxcmp_user && !$editval.oxuser__oxusername}][{$oxcmp_user->oxuser__oxusername->value}][{else}][{$editval.oxuser__oxusername}][{/if}]" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email">
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                 <span class="js-oxError_email">[{ oxmultilang ident="EXCEPTION_INPUT_NOVALIDEMAIL" }]</span>
