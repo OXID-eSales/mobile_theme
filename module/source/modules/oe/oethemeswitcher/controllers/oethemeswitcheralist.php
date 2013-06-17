@@ -14,7 +14,7 @@
  * meta tags (for search engines). Result - "list.tpl" template.
  * OXID eShop -> (Any selected shop product category).
  */
-class oeThemeSwitcheraList extends oeThemeSwitcheraList_parent
+class oeThemeSwitcherAList extends oeThemeSwitcherAList_parent
 {
     /**
      * If filter should be displayed
