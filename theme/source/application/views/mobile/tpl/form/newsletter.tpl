@@ -23,7 +23,7 @@
         </li>
         <li [{if $aErrors}]class="invalid-field"[{/if}]>
             <label class="req">[{ oxmultilang ident="FORM_NEWSLETTER_EMAIL" }]</label>
-            <input id="newsletterUserName" type="text" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email" name="editval[oxuser__oxusername]" size=40 maxlength=40 value="[{if $aRegParams.oxuser__oxusername}][{$aRegParams.oxuser__oxusername}][{/if}]">
+            <input id="newsletterUserName" type="email" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email" name="editval[oxuser__oxusername]" size=40 maxlength=40 value="[{if $aRegParams.oxuser__oxusername}][{$aRegParams.oxuser__oxusername}][{/if}]">
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
                 <span class="js-oxError_email">[{ oxmultilang ident="EXCEPTION_INPUT_NOVALIDEMAIL" }]</span>
