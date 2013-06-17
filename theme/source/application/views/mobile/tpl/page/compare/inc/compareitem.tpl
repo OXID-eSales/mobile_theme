@@ -110,7 +110,7 @@
                 [{ if $blShowToBasket }]
                     [{oxhasrights ident="TOBASKET"}]
                         <p class="fn clear">
-                            <input type="text" name="am" value="1" size="3" autocomplete="off" class="textbox" title="[{ oxmultilang ident="DETAILS_QUANTITY" }]">
+                            <input type="number" name="am" value="1" size="3" autocomplete="off" class="textbox" title="[{ oxmultilang ident="DETAILS_QUANTITY" }]">
                             <button type="submit" class="submitButton largeButton">[{oxmultilang ident="PAGE_PRODUCT_INC_PRODUCT_ADDTOCARD2"}]</button>
                         </p>
                     [{/oxhasrights}]
