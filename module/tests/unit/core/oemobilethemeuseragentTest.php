@@ -12,9 +12,9 @@ require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
 /**
- * Tests for oeMobileThemeUserAgent class
+ * Tests for oeThemeSwitcherUserAgent class
  */
-class Unit_Core_oeMobileThemeUserAgentTest extends OxidTestCase
+class Unit_Core_oeThemeSwitcherUserAgentTest extends OxidTestCase
 {
     public function providerIsMobile()
     {
@@ -37,7 +37,7 @@ class Unit_Core_oeMobileThemeUserAgentTest extends OxidTestCase
     public function testDeviceType_Detect( $sUserAgent, $sType )
     {
         $_SERVER['HTTP_USER_AGENT'] = $sUserAgent;
-        $oUserAgent = new oeMobileThemeUserAgent();
+        $oUserAgent = new oeThemeSwitcherUserAgent();
 
         $this->assertEquals( $sType, $oUserAgent->getDeviceType() );
     }
@@ -47,7 +47,7 @@ class Unit_Core_oeMobileThemeUserAgentTest extends OxidTestCase
      */
     public function testGetMobileDevicesTypes_NotNullAndWithSeparators()
     {
-        $oUserAgent = new oeMobileThemeUserAgent();
+        $oUserAgent = new oeThemeSwitcherUserAgent();
         $sMobileDevicesTypes = $oUserAgent->getMobileDeviceTypes();
         $this->assertContains( 'iphone|', $sMobileDevicesTypes );
     }
@@ -57,7 +57,7 @@ class Unit_Core_oeMobileThemeUserAgentTest extends OxidTestCase
      */
     public function testGetMobileDevicesTypes_SetAndGet()
     {
-        $oUserAgent = new oeMobileThemeUserAgent();
+        $oUserAgent = new oeThemeSwitcherUserAgent();
         $oUserAgent->setMobileDeviceTypes( 'testDevice1|testDevice2' );
         $this->assertEquals( 'testDevice1|testDevice2', $oUserAgent->getMobileDeviceTypes() );
     }
@@ -67,7 +67,7 @@ class Unit_Core_oeMobileThemeUserAgentTest extends OxidTestCase
      */
     public function testGetDeviceType_SetAndGet()
     {
-        $oUserAgent = new oeMobileThemeUserAgent();
+        $oUserAgent = new oeThemeSwitcherUserAgent();
         $oUserAgent->setDeviceType( 'mobile' );
         $this->assertEquals( 'mobile', $oUserAgent->getDeviceType() );
     }

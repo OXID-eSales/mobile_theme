@@ -14,7 +14,7 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
 /**
  * Tests for aList class
  */
-class Unit_Controllers_oemobilethemealistTest extends OxidTestCase
+class Unit_Controllers_oeThemeSwitcherAListTest extends OxidTestCase
 {
 
     /**
@@ -22,7 +22,7 @@ class Unit_Controllers_oemobilethemealistTest extends OxidTestCase
      */
     public function setUp()
     {
-        oxRegistry::set("oxConfig", new oemobilethemeconfig() );
+        oxRegistry::set("oxConfig", new oeThemeSwitcherConfig() );
         modConfig::setParameter( "showFilter", null );
     }
 
@@ -42,9 +42,9 @@ class Unit_Controllers_oemobilethemealistTest extends OxidTestCase
     public function testGetShowFilter( $blFilterValue )
     {
         modConfig::setParameter( "showFilter", $blFilterValue );
-        $oAlist = new oemobilethemealist();
+        $oAList = new oeThemeSwitcherAList();
 
-        $this->assertEquals( $blFilterValue, $oAlist->getShowFilter() );
+        $this->assertEquals( $blFilterValue, $oAList->getShowFilter() );
     }
 
     /**
@@ -52,8 +52,8 @@ class Unit_Controllers_oemobilethemealistTest extends OxidTestCase
      */
     public function testGetViewId()
     {
-        $oAlist = $this->getProxyClass( "oemobilethemealist" );
-        $sViewId = $oAlist->getViewId();
+        $oAList = $this->getProxyClass( "oeThemeSwitcherAList" );
+        $sViewId = $oAList->getViewId();
 
         $this->assertContains( "azure", $sViewId );
     }

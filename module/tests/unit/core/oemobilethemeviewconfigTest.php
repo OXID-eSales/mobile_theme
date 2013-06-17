@@ -11,14 +11,14 @@
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
-class Unit_Core_oeMobileThemeViewConfigTest extends OxidTestCase
+class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
 {
     /**
      * oxViewConfig::getEdition()
      */
     public function testGetEdition()
     {
-        $oViewConf = new oeMobileThemeViewConfig();
+        $oViewConf = new oeThemeSwitcherViewConfig();
         $this->assertEquals( $this->getConfig()->getEdition(), $oViewConf->getEdition() );
     }
 

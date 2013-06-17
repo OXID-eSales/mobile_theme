@@ -15,7 +15,7 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
 /**
  * Tests for  class
  */
-class Unit_Controllers_oemobilethememanufacturerlistTest extends OxidTestCase
+class Unit_Controllers_oeThemeSwitcherManufacturerListTest extends OxidTestCase
 {
 
     /**
@@ -23,7 +23,7 @@ class Unit_Controllers_oemobilethememanufacturerlistTest extends OxidTestCase
      */
     public function setUp()
     {
-        oxRegistry::set("oxConfig", new oemobilethemeconfig() );
+        oxRegistry::set("oxConfig", new oeThemeSwitcherconfig() );
     }
 
     /**
@@ -31,8 +31,8 @@ class Unit_Controllers_oemobilethememanufacturerlistTest extends OxidTestCase
      */
     public function testGetViewId()
     {
-        $oMlist = new oemobilethememanufacturerlist();
-        $sViewId = $oMlist->getViewId();
+        $oMList = new oeThemeSwitcherManufacturerList();
+        $sViewId = $oMList->getViewId();
 
         $this->assertContains( 'azure', $sViewId );
     }
