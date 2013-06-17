@@ -22,7 +22,7 @@
 .checkout-steps {
   background: @checkout-steps-background;
   list-style: @checkout-steps-list-style;
-  overflow: @checkout-steps-overflow;
+  overflow: hidden;
   padding: @checkout-steps-padding;
   margin: @checkout-steps-margin;
   height: @checkout-steps-height;
@@ -35,13 +35,13 @@
   li {
     float: @checkout-steps-li-float;
     color: @checkout-steps-li-color;
-    position: @checkout-steps-li-position;
+    position: relative;
     padding: @checkout-steps-li-padding;
     @media screen and (min-width: 721px) {
       padding: 0 29px 0 57px;
     }
     &:before {
-      display: @checkout-steps-li-before-display;
+      display: block;
       content: @checkout-steps-li-before-content;
       float: @checkout-steps-li-before-float;
       background: @checkout-steps-li-before-background;
