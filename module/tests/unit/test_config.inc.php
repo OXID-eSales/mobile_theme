@@ -1,11 +1,22 @@
 <?php
 /**
- * #PHPHEADER_OXID_LICENSE_INFORMATION#
+ * This file is part of OXID eSales theme switcher module.
+ *
+ * OXID eSales theme switcher module is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * OXID eSales theme switcher module is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with OXID eSales theme switcher module.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @link      http://www.oxid-esales.com
- * @package   tests
- * @copyright (c) OXID eSales AG 2003-#OXID_VERSION_YEAR#
- * @version   SVN: $Id: test_config.inc.php 50843 2012-10-22 22:51:18Z alfonsas $
+ * @copyright (C) OXID eSales AG 2003-2013
  */
 
 // DO NOT TOUCH THIS _ INSTEAD FIX NOTICES - DODGER
@@ -32,16 +43,6 @@ function overrideGetShopBasePath($sPath)
 }
 
 define( 'OX_BASE_PATH',  isset( $_sOverridenShopBasePath ) ? $_sOverridenShopBasePath : oxPATH  );
-
-/*
-function getShopBasePath()
-{
-    global $_sOverridenShopBasePath;
-    if (isset($_sOverridenShopBasePath)) {
-        return $_sOverridenShopBasePath;
-    }
-    return oxPATH;
-}*/
 
 function getTestsBasePath()
 {
@@ -96,11 +97,7 @@ require_once getShopBasePath() . 'core/adodblite/adodb.inc.php';
 // Session managing class.
 require_once getShopBasePath() . 'core/oxsession.php';
 
-// Database session managing class.
-// included in session file if needed - require_once( getShopBasePath() . 'core/adodb/session/adodb-session.php');
-
 // DB managing class.
-//require_once( getShopBasePath() . 'core/adodb/drivers/adodb-mysql.inc.php');
 require_once getShopBasePath() . 'core/oxconfig.php';
 
 function initDbDump()

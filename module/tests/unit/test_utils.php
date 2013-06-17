@@ -1,11 +1,22 @@
 <?php
 /**
- * #PHPHEADER_OXID_LICENSE_INFORMATION#
+ * This file is part of OXID eSales theme switcher module.
+ *
+ * OXID eSales theme switcher module is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * OXID eSales theme switcher module is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with OXID eSales theme switcher module.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @link      http://www.oxid-esales.com
- * @package   tests
- * @copyright (c) OXID eSales AG 2003-#OXID_VERSION_YEAR#
- * @version   SVN: $Id: test_utils.php 50843 2012-10-22 22:51:18Z alfonsas $
+ * @copyright (C) OXID eSales AG 2003-2013
  */
 
 define ('MAX_LOOP_AMOUNT', 4);
@@ -258,34 +269,7 @@ class oxTestModules
     {
         oxRegistry::set( $sClassName, null);
         oxUtilsObject::setClassInstance( $sClassName, $oObject );
-        /*
-        $sClassName = strtolower($sClassName);
-        if (!self::$_oOrigOxUtilsObj) {
-            self::$_oOrigOxUtilsObj = oxUtilsObject::getInstance();
-            self::addFunction('oxUtilsObject', 'oxNew($class)', '{return oxTestModules::getModuleObject($class);}');
-        }
-        self::$_aModuleMap[$sClassName] = $oObject;
-        */
     }
-
-    /**
-     * rewrittern oxNew logic to return object from the map
-     *
-     * @param string $sClassName
-     *
-     * @return object
-     */
-    /*public static function getModuleObject($sClassName)
-    {
-        $sClassName = strtolower($sClassName);
-        if (isset(self::$_aModuleMap[$sClassName])) {
-            return self::$_aModuleMap[$sClassName];
-        }
-        if (!self::$_oOrigOxUtilsObj) {
-            throw new Exception("TEST ERROR: original oxUtilsObject is badly initialized");
-        }
-        return self::$_oOrigOxUtilsObj->oxNew($sClassName);
-    }*/
 
     /**
      * publicize method = creates a wrapper for it named p_XXX instead of _XXX
@@ -313,9 +297,7 @@ class oxTestModules
         self::$_aModuleMap = array();
         self::$_oOrigOxUtilsObj = null;
         foreach (self::$_addedmods as $class => $arr) {
-//            foreach ($arr as $mod) {
-                oxRemClassModule('allmods', $class);
-  //          }
+            oxRemClassModule('allmods', $class);
         }
         self::$_addedmods = array();
     }
