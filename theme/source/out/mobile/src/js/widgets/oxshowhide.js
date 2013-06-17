@@ -21,12 +21,9 @@
             var $this = this;
             var oBlock = $($this.options.content, $(this.element));
 
-            $this.fullHeight = oBlock.outerHeight();
-            var firstElement = $("*:first-child", oBlock);
-            $this.truncatedHeight = firstElement.outerHeight();
-            if ($this.truncatedHeight > $this.options.maxHeight) {
-                $this.truncatedHeight = parseInt(firstElement.css("line-height"));
-            }
+            $this.fullHeight = oBlock.outerHeight(true);
+            $this.truncatedHeight = $this.countFullHeight($("> *:first", oBlock), $this.options.maxHeight);
+
             oBlock.height($this.truncatedHeight);
             $this.truncated = true;
 
@@ -35,6 +32,24 @@
                 oBlock.animate({height: newHeight}, $this.options.hideSpeed);
                 $this.truncated = !$this.truncated;
             });
+        },
+
+        countFullHeight: function(element, maxHeight) {
+            var $this = this,
+                elementHeight = element.height();
+            var height = parseInt(element.css("padding-top")) + parseInt(element.css("margin-top"));
+
+            var children = element.children(":not(br):first");
+            if (children.length > 0) {
+                height += $this.countFullHeight(children, maxHeight);
+                return height;
+            }
+            if (elementHeight <= maxHeight) {
+                return height + elementHeight;
+            }
+            var lineHeight = parseInt(element.css('line-height'));
+            var lines = Math.floor(maxHeight / lineHeight);
+            return height + (lineHeight * (lines? lines : 1));
         }
 };
 
