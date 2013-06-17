@@ -104,72 +104,66 @@
         [{/oxhasrights}]
     </div>
     <div id="product-variants-container" class="row">
-        <div class="span12">
-            [{* Variant Selector *}]
-            [{assign var="blCanBuy" value=true}]
-            [{* Variants | md variants *}]
-            [{block name="details_productmain_variantselections"}]
-                [{if $aVariantSelections && $aVariantSelections.selections }]
-                    [{oxscript include="js/widgets/oxajax.js" priority=10 }]
-                    [{oxscript include="js/widgets/oxarticlevariant.js" priority=10 }]
-                    [{oxscript add="$( '#variants' ).oxArticleVariant();"}]
-                    [{assign var="blCanBuy" value=$aVariantSelections.blPerfectFit}]
-                    <ul id="variants" class="form js-fnSubmit clear">
-                        [{assign var="blHasActiveSelections" value=false}]
-                        [{foreach from=$aVariantSelections.selections item=oList key=iKey}]
-                            <li>
-                                [{if $oList->getActiveSelection()}]
-                                    [{assign var="blHasActiveSelections" value=true}]
-                                [{/if}]
-                                [{include file="widget/product/selectbox.tpl" oSelectionList=$oList iKey=$iKey blInDetails=true}]
-                            </li>
+        [{* Variant Selector *}]
+        [{assign var="blCanBuy" value=true}]
+        [{* Variants | md variants *}]
+        [{block name="details_productmain_variantselections"}]
+            [{if $aVariantSelections && $aVariantSelections.selections }]
+                [{oxscript include="js/widgets/oxajax.js" priority=10 }]
+                [{oxscript include="js/widgets/oxarticlevariant.js" priority=10 }]
+                [{oxscript add="$( '#variants' ).oxArticleVariant();"}]
+                [{assign var="blCanBuy" value=$aVariantSelections.blPerfectFit}]
+                <ul id="variants" class="form js-fnSubmit clear">
+                    [{assign var="blHasActiveSelections" value=false}]
+                    [{foreach from=$aVariantSelections.selections item=oList key=iKey}]
+                        <li>
+                            [{if $oList->getActiveSelection()}]
+                                [{assign var="blHasActiveSelections" value=true}]
+                            [{/if}]
+                            [{include file="widget/product/selectbox.tpl" oSelectionList=$oList iKey=$iKey blInDetails=true}]
+                        </li>
+                    [{/foreach}]
+                </ul>
+                [{if !$blCanBuy }]
+                    <p class="product-variants-message">[{oxmultilang ident="CHOOSE_VARIANT"}]</p>
+                [{/if}]
+            [{/if}]
+        [{/block}]
+        [{* Selection lists *}]
+        [{block name="details_productmain_selectlists"}]
+            [{if $oViewConf->showSelectLists()}]
+                [{assign var="oSelections" value=$oDetailsProduct->getSelections()}]
+                [{if $oSelections}]
+                    <div class="js-fnSubmit clear" id="productSelections">
+                        [{foreach from=$oSelections item=oList name=selections}]
+                            [{include file="widget/product/selectbox.tpl" oSelectionList=$oList sFieldName="sel" iKey=$smarty.foreach.selections.index blHideDefault=true sSelType="seldrop"}]
                         [{/foreach}]
                     </div>
-                    [{if !$blCanBuy }]
-                        <p class="product-variants-message">[{oxmultilang ident="CHOOSE_VARIANT"}]</p>
-                    [{/if}]
                 [{/if}]
-            [{/block}]
-            [{* Selection lists *}]
-            [{block name="details_productmain_selectlists"}]
-                [{if $oViewConf->showSelectLists()}]
-                    [{assign var="oSelections" value=$oDetailsProduct->getSelections()}]
-                    [{if $oSelections}]
-                        <div class="js-fnSubmit clear" id="productSelections">
-                            [{foreach from=$oSelections item=oList name=selections}]
-                                [{include file="widget/product/selectbox.tpl" oSelectionList=$oList sFieldName="sel" iKey=$smarty.foreach.selections.index blHideDefault=true sSelType="seldrop"}]
-                            [{/foreach}]
-                        </div>
-                    [{/if}]
-                [{/if}]
-            [{/block}]
-        </div>
+            [{/if}]
+        [{/block}]
     </div>
     [{* Add to basket *}]
     <div id="product-add-to-basket" class="row">
-        <div class="span12">
-            [{* Persistent parameters *}]
-            [{block name="details_productmain_persparams"}]
-            [{if $oView->isPersParam()}]
-                <div class="persparamBox clear">
-                    <label for="persistentParam">[{ oxmultilang ident="LABEL"  }]</label><input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35">
-                </div>
-            [{/if}]
-            [{/block}]
-            <div class="tobasketFunction clear">
-                [{block name="details_productmain_tobasket"}]
-                    [{oxhasrights ident="TOBASKET"}]
-                    [{if !$oDetailsProduct->isNotBuyable()}]
-                        <input class="hidden" id="amountToBasket" type="text" name="am" value="1" size="3" autocomplete="off" class="textbox">
-                        <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="submitButton largeButton btn[{if !$blCanBuy}] disabled[{/if}]">[{oxmultilang ident="DETAILS_ADDTOCART"}]</button>
-                    [{/if}]
-                    [{/oxhasrights}]
-                [{/block}]
+        [{* Persistent parameters *}]
+        [{block name="details_productmain_persparams"}]
+        [{if $oView->isPersParam()}]
+            <div class="persparamBox clear">
+                <label for="persistentParam">[{ oxmultilang ident="LABEL"  }]</label><input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35">
             </div>
+        [{/if}]
+        [{/block}]
+        <div class="tobasketFunction clear">
+            [{block name="details_productmain_tobasket"}]
+                [{oxhasrights ident="TOBASKET"}]
+                [{if !$oDetailsProduct->isNotBuyable()}]
+                    <input class="hidden" id="amountToBasket" type="text" name="am" value="1" size="3" autocomplete="off" class="textbox">
+                    <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="submitButton largeButton btn[{if !$blCanBuy}] disabled[{/if}]">[{oxmultilang ident="DETAILS_ADDTOCART"}]</button>
+                [{/if}]
+                [{/oxhasrights}]
+            [{/block}]
         </div>
     </div>
-
-
 </div>
 
 [{* To basket form end *}]
