@@ -50,6 +50,14 @@
     width: @btn-small-width;
     padding: @btn-padding-small-vertical @btn-padding-small-horizontal;
   }
+  &.wishlist-btn {
+    background: @btn-wishlist-background-color;
+    border: @btn-wishlist-border;
+    color: @btn-wishlist-color;
+    &.wishlisted {
+      color: @btn-wishlisted-color;
+    }
+  }
   &.remove {
     background: @btn-remove-background-color;
     border: @btn-remove-border;
@@ -59,14 +67,6 @@
     background: @btn-update-background-color;
     border: @btn-update-border;
     color: @btn-update-color;
-  }
-  &.wishlist-btn {
-    background: @btn-wishlist-background-color;
-    border: @btn-wishlist-border;
-    color: @btn-wishlist-color;
-    &.wishlisted {
-      color: @btn-wishlisted-color;
-    }
   }
 }
 

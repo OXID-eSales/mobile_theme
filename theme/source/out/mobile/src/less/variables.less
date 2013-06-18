@@ -33,6 +33,7 @@
 @brand-secondary-darker:  #666666;
 
 @brand-danger:            #b81c00;
+@brand-note:              #eb6005;
 
 @order-padding:                        0 15px;
 @order-margin:                         0 0 2px 0;
@@ -114,7 +115,6 @@
 @btn-border:                          0;
 @btn-background-color:                @brand-primary;
 @btn-color:                           #ffffff;
-@btn-lighter-background-color:        #e6e6e6;
 @btn-lighter-color:                   @brand-primary;
 @btn-small-width:                     auto;
 @btn-padding-small-vertical:          @padding-small-vertical;
@@ -124,22 +124,22 @@
 @btn-width:                           100%;
 @btn-line-height:                     normal;
 @btn-glyphicon-vertical-align:        middle;
-@btn-disabled-background-color:       @brand-secondary-darker;
+@btn-disabled-background-color:       @brand-secondary-lighter;
 @btn-disabled-cursor:                 default;
 @btn-disabled-hover-background-color: @btn-disabled-background-color;
-@btn-previous-background-color:       @btn-lighter-background-color;
+@btn-previous-background-color:       @brand-secondary-lighter;
 @btn-previous-color:                  @btn-lighter-color;
 @btn-previous-border:                 @btn-border;
-@btn-remove-background-color:         @btn-lighter-background-color;
-@btn-remove-color:                    #e2001a;
+@btn-remove-background-color:         @brand-secondary-lighter;
+@btn-remove-color:                    @brand-danger;
 @btn-remove-border:                   1px solid @btn-border-color;
-@btn-update-background-color:         @btn-lighter-background-color;
+@btn-update-background-color:         @brand-secondary-lighter;
 @btn-update-color:                    @btn-lighter-color;
 @btn-update-border:                   1px solid @btn-border-color;
-@btn-wishlist-background-color:       @btn-lighter-background-color;
+@btn-wishlist-background-color:       @brand-secondary-lighter;
 @btn-wishlist-color:                  @btn-lighter-color;
 @btn-wishlist-border:                 1px solid @btn-border-color;
-@btn-wishlisted-color:                #eb6005;
+@btn-wishlisted-color:                @brand-note;
 @btn-input-width:                     @btn-width;
 @btn-default-bg:                      @btn-background-color;
 @btn-default-border:                  @btn-default-bg;
@@ -204,7 +204,7 @@
 @checkout-steps-next-step-margin-bottom:                10px;
 
 @checkout-thank-you-color:                    @brand-secondary-darker;
-@checkout-thank-you-blockhead-color:          #eb6005;
+@checkout-thank-you-blockhead-color:          @brand-note;
 @checkout-thank-you-blockhead-font-size:      16px;
 @checkout-thank-you-blockhead-font-weight:    bold;
 @checkout-thank-you-blockhead-text-transform: uppercase;
@@ -394,7 +394,7 @@
 @mini-basket-cursor:                 default;
 @mini-basket-count-top:              3px;
 @mini-basket-count-right:            28px;
-@mini-basket-count-background:       #eb6005;
+@mini-basket-count-background:       @brand-note;
 @mini-basket-count-color:            #ffffff;
 @mini-basket-count-z-index:          1;
 @mini-basket-new-item-max-width:     150px;
