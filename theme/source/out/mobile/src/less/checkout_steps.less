@@ -48,7 +48,7 @@
       margin-left: @checkout-steps-li-before-margin-left;
       .size(15px, 32px);
       @media screen and (min-width: 721px) {
-        background: url("../../img/steps.png") -29px 0 no-repeat transparent;
+        background: url("../../img/steps.png") -58px 0 no-repeat transparent;
         margin-left: -86px;
         .size(29px, 61px);
       }
@@ -70,12 +70,18 @@
     &.active, &.passed {
       color: @checkout-steps-li-active-color;
       background: @checkout-steps-li-active-background;
-      &:before {
-        background-position: @checkout-steps-li-active-before-background-position;
-      }
       a {
         color: @checkout-steps-li-active-a-color;
       }
+    }
+    &.active:before {
+      background-position: @checkout-steps-li-active-background-position;
+      @media screen and (min-width: 721px) {
+        background-position: -29px 0;
+      }
+    }
+    &.passed:before {
+      background-position: @checkout-steps-li-passed-background-position;
     }
     &.passed {
       background: @checkout-steps-li-passed-background;
