@@ -97,8 +97,6 @@
 
         [{block name="change_payment"}]
             <div class="payment-row">
-                [{oxscript include="js/widgets/oxpayment.js" priority=10}]
-                [{oxscript add="$( '#payment' ).oxPayment();"}]
                 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10}]
                 [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
                 <form action="[{$oViewConf->getSslSelfLink()}]" class="js-oxValidate payment" id="payment" name="order" method="post">

@@ -44,10 +44,6 @@
         [{* Ratings *}]
         [{if $oView->ratingIsActive()}]
             [{block name="details_productmain_ratings"}]
-                <div class="product-ratings pull-left">
-                    [{*<div class="product-ratings-placeholder"></div>*}]
-                    [{*include file="widget/reviews/rating.tpl" itemid="anid=`$oDetailsProduct->oxarticles__oxnid->value`" sRateUrl=$oDetailsProduct->getLink()*}]
-                </div>
             [{/block}]
         [{/if}]
         [{*Price Info*}]

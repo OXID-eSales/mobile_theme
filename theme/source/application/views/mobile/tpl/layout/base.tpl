@@ -57,7 +57,7 @@
 [{/capture}]
 <!DOCTYPE HTML>
 [{assign var="sLanguage" value=$oView->getActiveLangAbbr()}]
-<html [{if $sLanguage}]lang="[{$sLanguage}]"[{/if}] [{if $oViewConf->getShowFbConnect() }]xmlns:fb="http://www.facebook.com/2008/fbml"[{/if}]>
+<html [{if $sLanguage}]lang="[{$sLanguage}]"[{/if}]>
 <head>
     [{foreach from=$oxidBlock_pageHead item="_block"}]
         [{$_block}]

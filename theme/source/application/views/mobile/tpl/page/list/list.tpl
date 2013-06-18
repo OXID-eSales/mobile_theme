@@ -1,7 +1,3 @@
-[{oxscript add="$('a.js-external').attr('target', '_blank');"}]
-[{oxscript include="js/widgets/oxarticlebox.js" priority=10}]
-[{oxscript add="$( '#content' ).oxArticleBox();"}]
-
 [{assign var="actCategory" value=$oView->getActiveCategory()}]
 [{assign var="parentCategory" value=$actCategory->getParentCategory()}]
 
