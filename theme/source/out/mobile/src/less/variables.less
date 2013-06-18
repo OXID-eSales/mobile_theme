@@ -127,7 +127,7 @@
 @btn-border-color:                    @brand-secondary;
 @btn-border:                          0;
 @btn-background-color:                @brand-primary;
-@btn-color:                           #ffffff;
+@btn-color:                           @body-text-color;
 @btn-lighter-color:                   @brand-primary;
 @btn-small-width:                     auto;
 @btn-padding-small-vertical:          @padding-small-vertical;
@@ -191,7 +191,7 @@
 @checkout-steps-li-last-color:                          @brand-secondary-dark;
 @checkout-steps-li-active-color:                        #ffffff;
 @checkout-steps-li-active-before-background-position:   0 0;
-@checkout-steps-li-active-a-color:                      #ffffff;
+@checkout-steps-li-active-a-color:                      @checkout-steps-li-active-color;
 @checkout-steps-li-active-background:                   @brand-primary;
 @checkout-steps-li-passed-background:                   @brand-secondary-dark;
 @checkout-steps-step-id-border-right:                   1px solid @brand-primary-light;
@@ -224,7 +224,7 @@
 @cookie-note-z-index:             105;
 @cookie-note-font-weight:         normal;
 @cookie-note-font-size:           16px;
-@cookie-note-color:               #ffffff;
+@cookie-note-color:               @body-text-color;
 @cookie-note-background-color:    @brand-note;
 @cookie-note-opacity:             0.9;
 @cookie-note-filter:              alpha(opacity=90);
@@ -267,7 +267,7 @@
 @dropdown-open-z-index:                   2;
 @dropdown-cursor:                         pointer;
 @dropdown-color:                          @brand-primary;
-@dropdown-background-color:               #ffffff;
+@dropdown-background-color:               @body-text-color;
 @dropdown-border:                         2px solid @dropdown-color;
 @dropdown-toggle-border:                  @dropdown-border;
 @dropdown-toggle-color:                   @dropdown-color;
@@ -324,7 +324,7 @@
 @footer-margin-top:                             40px;
 @footer-margin-bottom:                          20px;
 @footer-nav-background-color:                   @footer-background-color;
-@footer-nav-hover-background-color:             #8abfcb;
+@footer-nav-hover-background-color:             @brand-primary;
 @footer-nav-active-background-color:            @footer-nav-hover-background-color;
 @footer-nav-border-radius:                      0;
 @footer-nav-link-border:                        none;
@@ -377,7 +377,7 @@
 @radiocheckbox-label-margin-left: 5px;
 
 @radio-border-radius:      25px;
-@radio-color:              #ffffff;
+@radio-color:              @body-text-color;
 @radio-checked-background: @brand-primary;
 @radio-checked-color:      @radio-color;
 
@@ -411,13 +411,13 @@
 @mini-basket-count-top:              3px;
 @mini-basket-count-right:            28px;
 @mini-basket-count-background:       @brand-note;
-@mini-basket-count-color:            #ffffff;
+@mini-basket-count-color:            @body-text-color;
 @mini-basket-count-z-index:          1;
 @mini-basket-new-item-max-width:     150px;
 @mini-basket-new-item-white-space:   normal;
 
-@cms-content-color:                 #000000;
-@cms-content-background-color:      #ffffff;
+@cms-content-color:                 @body-background-color;
+@cms-content-background-color:      @body-text-color;
 @cms-content-font-size:             18px;
 @cms-content-padding:               20px;
 @cms-content-text-color:            @cms-content-color;
@@ -488,13 +488,13 @@
 @product-ratings-placeholder-height:                     17px;
 @product-variants-message-color:                         @brand-danger;
 
-@content-background: #ffffff;
+@content-background: @body-text-color;
 @content-padding:    15px;
-@color-color:        #000000;
+@color-color:        @body-background-color;
 
 @search-box-container-width:                 100%;
 @search-box-container-margin-top:            0;
-@search-box-container-search-box-border-top: 1px solid #000000;
+@search-box-container-search-box-border-top: 1px solid @body-background-color;
 @search-box-container-search-box-padding:    10px 65px 10px 10px;
 @search-box-container-btn-small-right:       15px;
 
@@ -545,7 +545,7 @@
 @oxvalidate-error-padding:     5px 0px;
 @oxinvalid-color:              @oxvalidate-error-color;
 @oxinvalid-border-color:       @oxinvalid-color;
-@oxinvalid-input-background:   #ffffff;
+@oxinvalid-input-background:   @body-text-color;
 @oxinvalid-select-border:      1px solid @oxinvalid-color;
 @oxinvalid-select-background:  @oxinvalid-input-background;
 
@@ -553,7 +553,7 @@
 
 // Grays
 // -------------------------
-@gray-lighter:                #cccccc; // make it with lighten method
+@gray-lighter:                @brand-secondary; // make it with lighten method
 
 
 // Scaffolding
@@ -582,9 +582,9 @@
 //@line-height-base:            1.714285714; // 24/14
 @line-height-computed:        floor(@font-size-base * @line-height-base); // ~25px
 
-@headings-border-bottom:         1px solid #cccccc;
+@headings-border-bottom:         1px solid @brand-secondary;
 @headings-font-weight:           500;
-@headings-section-heading-color: #000000;
+@headings-section-heading-color: @body-background-color;
 
 @padding-large-vertical:         12px;
 @padding-large-horizontal:       18px;
@@ -595,7 +595,7 @@
 @border-radius-large:         0;
 @border-radius-small:         0;
 @zindex-dropdown:             9999;
-@component-active-bg:         #8abfcb;
+@component-active-bg:         @brand-primary-light;
 
 
 // Tables
@@ -615,7 +615,7 @@
 // --------------------------------------------------
 
 // Basics of a navbar
-@navbar-color:                #ffffff;
+@navbar-color:                @body-text-color;
 @navbar-bg:                   @brand-primary;
 
 // Navbar links
@@ -642,7 +642,7 @@
 // -------------------------
 
 @state-warning-text:          @brand-danger;
-@state-warning-bg:            #ffffff;
+@state-warning-bg:            @body-text-color;
 @state-warning-border:        transparent;
 
 @state-danger-text:           @state-warning-text;
@@ -652,10 +652,10 @@
 
 // Labels
 // -------------------------
-@label-success-bg:            #ffffff;
-@label-info-bg:               #ffffff;
+@label-success-bg:            @body-text-color;
+@label-info-bg:               @body-text-color;
 
 
 // Wells
 // -------------------------
-@well-bg:                     #ffffff;
+@well-bg:                     @body-text-color;
