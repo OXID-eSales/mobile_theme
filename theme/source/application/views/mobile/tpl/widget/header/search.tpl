@@ -10,7 +10,7 @@
         <form class="search-box" action="[{ $oViewConf->getSelfActionLink() }]" method="get" name="search">
             [{ $oViewConf->getHiddenSid() }]
             <input type="hidden" name="cl" value="search" >
-            <button class="btn small"><i class="glyphicon-search"></i></button>
+            <button class="btn search-btn"><i class="glyphicon-search"></i></button>
             [{block name="header_search_field"}]
                 <input  placeholder="[{oxmultilang ident="SEARCH_TITLE" }]" type="search" id="searchParam" name="searchparam" value="[{$oView->getSearchParamForHtml()}]">
             [{/block}]
