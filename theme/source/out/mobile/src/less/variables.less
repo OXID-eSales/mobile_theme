@@ -43,7 +43,7 @@
 @order-li-border:                      1px solid @brand-secondary-dark;
 @order-li-padding:                     10px 0;
 @order-li-last-child-border-bottom:    none;
-@order-details-color:                  #ffffff;
+@order-details-color:                  @body-text-color;
 @order-details-li-color:               @brand-secondary-dark;
 @order-details-li-text-transform:      uppercase;
 @order-details-link-color:             @order-details-color;
@@ -53,7 +53,7 @@
 @order-list-style:                     none;
 @order-article-background-color:       @brand-secondary-light;
 @order-article-border-color:           @brand-secondary;
-@order-article-link-color:             #000000;
+@order-article-link-color:             @body-background-color;
 @order-articles-padding-left:          20px;
 
 @alerts-margin:             5px 0;
@@ -62,7 +62,8 @@
 @alerts-error-background:   url(../../img/error-inline.png) no-repeat 12px 13px #ffe7e3;
 @alerts-success-background: url(../../img/success-inline.png) no-repeat 12px 13px #f8ffe3;
 
-@article-list-background-color:               #ffffff;
+@article-list-background-color:               @body-text-color;
+@article-list-color:                          @body-background-color;
 @article-list-padding:                        0;
 @article-list-media-border-bottom:            1px solid @brand-secondary;
 @article-list-media-color:                    @brand-primary-dark;
@@ -71,7 +72,7 @@
 @article-list-pull-left-text-align:           center;
 @article-list-img-max-width:                  100%;
 @article-list-media-body-padding:             10px;
-@article-list-media-heading-link-color:       #000000;
+@article-list-media-heading-link-color:       @article-list-color;
 @article-list-hover-background-color:         @brand-primary;
 @article-list-hover-color:                    @article-list-background-color;
 @article-list-hover-cursor:                   pointer;
@@ -79,7 +80,7 @@
 @article-list-remove-float:                   right;
 @article-list-price-margin-bottom:            10px;
 @article-list-price-old-price-font-size:      14pt;
-@article-list-price-old-price-color:          #000000;
+@article-list-price-old-price-color:          @article-list-color;
 @article-list-price-main-price-font-size:     16pt;
 @article-list-price-old-price-on-color:       inherit;
 @article-list-vat-percent-color:              @brand-primary-light;
@@ -88,7 +89,7 @@
 @article-list-quantity-background-color:      @article-list-background-color;
 @article-list-quantity-border:                2px solid @brand-secondary;
 @article-list-quantity-padding:               0px;
-@article-list-quantity-color:                 #000000;
+@article-list-quantity-color:                 @article-list-color;
 @article-list-quantity-font-size:             18px;
 @article-list-quantity-text-align:            center;
 @article-list-quantity-square:                40px;
@@ -176,7 +177,7 @@
 @checkout-steps-margin:                                 0 0 15px 0;
 @checkout-steps-height:                                 32px;
 @checkout-steps-li-float:                               left;
-@checkout-steps-li-color:                               #8b8b8b;
+@checkout-steps-li-color:                               @brand-secondary-dark;
 @checkout-steps-li-padding:                             0 15px 0 28px;
 @checkout-steps-li-before-content:                      " ";
 @checkout-steps-li-before-float:                        left;
@@ -187,11 +188,12 @@
 @checkout-steps-li-last-child-padding-right:            0;
 @checkout-steps-li-last-font-size:                      14px;
 @checkout-steps-li-last-font-weight:                    bold;
-@checkout-steps-li-last-color:                          #acacac;
+@checkout-steps-li-last-color:                          @brand-secondary-dark;
 @checkout-steps-li-active-color:                        #ffffff;
 @checkout-steps-li-active-before-background-position:   0 0;
 @checkout-steps-li-active-a-color:                      #ffffff;
 @checkout-steps-li-active-background:                   @brand-primary;
+@checkout-steps-li-passed-background:                   @brand-secondary-dark;
 @checkout-steps-step-id-border-right:                   1px solid @brand-primary-light;
 @checkout-steps-step-id-border-right-wider:             2px solid @brand-primary-light;
 @checkout-steps-li-a-color:                             @brand-primary;
