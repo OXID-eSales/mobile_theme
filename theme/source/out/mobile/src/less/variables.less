@@ -361,10 +361,10 @@
 
 @input-border-width: 2px;
 
-@radiocheckbox-padding:           0;
 @radiocheckbox-height:            30px;
-@radiocheckbox-width:             30px;
+@radiocheckbox-width:             @radiocheckbox-height;
 @radiocheckbox-margin:            0 0 0 10px;
+@radiocheckbox-first-child-margin: @radiocheckbox-margin;
 @radiocheckbox-input-margin:      0;
 @radiocheckbox-cursor:            pointer;
 @radiocheckbox-border:            2px solid @brand-primary;
@@ -372,12 +372,12 @@
 @radiocheckbox-font-size:         18px;
 @radiocheckbox-text-align:        center;
 @radiocheckbox-padding:           3px;
-@radiocheckbox-checked-color:     #fff;
 @radiocheckbox-label-margin-left: 5px;
 
 @radio-border-radius:      25px;
+@radio-color:              #ffffff;
 @radio-checked-background: @brand-primary;
-@radio-checked-color:      #fff;
+@radio-checked-color:      @radio-color;
 
 @checkbox-checked-color: @brand-primary;
 
