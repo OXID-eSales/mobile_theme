@@ -456,12 +456,13 @@
 @pagination-border:                      @pagination-link-border-color;
 @pagination-active-bg:                   @brand-primary;
 
+@product-details-font-size:                              18px;
 @product-details-margin-top:                             2px;
-@product-title-font-size:                                18px;
+@product-title-font-size:                                @product-details-font-size;
 @product-description-container-margin-top:               15px;
 @product-description-cursor:                             pointer;
 @product-description-glyphicon-chevron-down-color:       @brand-primary;
-@product-description-glyphicon-chevron-down-font-size:   18px;
+@product-description-glyphicon-chevron-down-font-size:   @product-details-font-size;
 @product-description-glyphicon-chevron-down-font-weight: bold;
 @product-header-alert-info-margin-bottom:                10px;
 @product-header-info-width:                              80%;
@@ -469,21 +470,21 @@
 @product-footer-margin:                                  0 10px 15px 10px;
 @product-attribute-margin-top:                           15px;
 @product-attributes-switch-color:                        @brand-primary;
-@product-attributes-switch-font-size:                    18px;
+@product-attributes-switch-font-size:                    @product-details-font-size;
 @product-attributes-switch-text-transform:               uppercase;
 @product-attributes-switch-font-weight:                  bold;
 @product-price-container-min-width:                      245px;
 @product-price-container-min-height:                     40px;
 @product-price-container-text-align:                     right;
 @product-price-color:                                    @brand-primary;
-@product-price-font-size:                                18px;
+@product-price-font-size:                                @product-details-font-size;
 @product-price-old-product-price-margin-left:            5px;
 @product-ratings-bottom:                                 0;
 @product-ratings-left:                                   0;
 @product-ratings-placeholder-background:                 url('../../img/stars.jpg') 0 -20px no-repeat;
 @product-ratings-placeholder-width:                      90px;
 @product-ratings-placeholder-height:                     17px;
-@product-variants-message-color:                         #b81c00;
+@product-variants-message-color:                         @brand-danger;
 
 @content-background: #ffffff;
 @content-padding:    15px;
