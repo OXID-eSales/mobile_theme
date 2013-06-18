@@ -16,6 +16,8 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     [{if $oView->noIndex() == 1 }]
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
     [{elseif $oView->noIndex() == 2 }]
