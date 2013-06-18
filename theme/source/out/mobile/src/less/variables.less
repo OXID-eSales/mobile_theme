@@ -536,14 +536,14 @@
 
 @oxvalidate-error-font-size:   14px;
 @oxvalidate-error-line-height: 18px;
-@oxvalidate-error-color:       #ff0000;
+@oxvalidate-error-color:       @brand-danger;
 @oxvalidate-error-margin:      0;
 @oxvalidate-error-padding:     5px 0px;
-@oxinvalid-color:              #b81c00;
-@oxinvalid-border-color:       #b81c00;
+@oxinvalid-color:              @oxvalidate-error-color;
+@oxinvalid-border-color:       @oxinvalid-color;
 @oxinvalid-input-background:   #ffffff;
-@oxinvalid-select-border:      1px solid #b81c00;
-@oxinvalid-select-background:  #ffffff;
+@oxinvalid-select-border:      1px solid @oxinvalid-color;
+@oxinvalid-select-background:  @oxinvalid-input-background;
 
 @wishlist-control-top:              0;
 @wishlist-control-right:            15px;
