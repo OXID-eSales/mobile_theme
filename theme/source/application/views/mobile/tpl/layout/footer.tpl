@@ -3,21 +3,17 @@
         <div class="container">
             <div id="panel">
 
-                [{if $oxcmp_user->oxuser__oxpassword->value}]
-                    <ul class="footer-nav nav nav-pills nav-justified">
+                <ul class="nav nav-pills nav-justified footer-nav">
+                    [{if $oxcmp_user->oxuser__oxpassword->value}]
                         <li><a href="[{ $oViewConf->getLogoutLink() }]">[{ oxmultilang ident="LOGOUT" }]</a></li>
-                        <li [{if $oView->getClassName() == "account"}]class="active"[{/if}]><a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" }]">[{ oxmultilang ident="MY_ACCOUNT" }]</a></li>
-                        <li><a href="[{ $oViewConf->getHomeLink() }]">[{ oxmultilang ident="HOME" }]</a></li>
-                    </ul>
-                [{else}]
-                    <ul class="footer-nav nav nav-pills nav-justified">
+                    [{else}]
                         <li><a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" }]">[{ oxmultilang ident="LOGIN" }]</a></li>
-                        <li [{if $oView->getClassName() == "account"}]class="active"[{/if}]><a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" }]">[{ oxmultilang ident="MY_ACCOUNT" }]</a></li>
-                        <li><a href="[{ $oViewConf->getHomeLink() }]">[{ oxmultilang ident="HOME" }]</a></li>
-                    </ul>
-                [{/if}]
+                    [{/if}]
+                    <li [{if $oView->getClassName() == "account"}]class="active"[{/if}]><a href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" }]">[{ oxmultilang ident="MY_ACCOUNT" }]</a></li>
+                    <li><a href="[{ $oViewConf->getHomeLink() }]">[{ oxmultilang ident="HOME" }]</a></li>
+                </ul>
 
-                <ul class="footer-nav nav nav-list">
+                <ul class="nav nav-list footer-nav">
                     <li><a href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"themeType=desktop"}]">[{oxmultilang ident="STANDARD_WEBSITE"}]</a></li>
                 </ul>
 
