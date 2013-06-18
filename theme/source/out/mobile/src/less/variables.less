@@ -503,9 +503,10 @@
 @oxslider-i-font-size:                  36px;
 @oxslider-i-margin-top:                 -(@oxslider-i-font-size/2);
 @oxslider-i-color:                      @brand-primary;
-@oxslider-i-text-shadow:                -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+@oxslider-i-text-shadow-color:          #000000;
+@oxslider-i-text-shadow:                -1px 0 @oxslider-i-text-shadow-color, 0 1px @oxslider-i-text-shadow-color, 1px 0 @oxslider-i-text-shadow-color, 0 -1px @oxslider-i-text-shadow-color;
 @oxslider-i-left:                       15px;
-@oxslider-i-right:                      15px;
+@oxslider-i-right:                      @oxslider-i-left;
 @oxslider-carousel-inner-img-margin:    0 auto;
 @oxslider-carousel-caption-height:      85%;
 @oxslider-carousel-caption-margin-left: 40px;
