@@ -21,22 +21,22 @@
 // ---- main nav list -----------------------------------
 .main-nav-list {
   li {
-    border-top: @main-nav-list-li-border-top;
+    border-top: @main-nav-list-border-top;
     a {
       background-color: @navbar-bg;
       color: @navbar-color;
       font-size: @font-size-large;
-      padding: @main-nav-list-li-a-padding;
-      text-transform: @main-nav-list-li-a-text-transform;
+      padding: @main-nav-list-link-padding;
+      text-transform: @main-nav-list-link-text-transform;
       span {
-        display: @main-nav-list-li-a-span;
+        display: @main-nav-list-link-span;
         padding: @padding-large-vertical @padding-large-horizontal;
       }
       [class^="glyphicon-"] {
         margin-top: -(@font-size-large/2);
         position: absolute;
-        right: @main-nav-list-li-a-glyphicon-right;
-        top: @main-nav-list-li-a-glyphicon-top;
+        right: @main-nav-list-link-icon-right;
+        top: @main-nav-list-link-icon-top;
       }
       &:hover, &:focus {
         background-color: @navbar-bg;
@@ -47,8 +47,8 @@
           border-left: @main-nav-list-back-span-border-left;
         }
         [class^="glyphicon-"] {
-          left: @main-nav-list-back-glyphicon-left;
-          right: @main-nav-list-back-glyphicon-right;
+          left: @main-nav-list-back-icon-left;
+          right: @main-nav-list-back-icon-right;
         }
       }
     }
