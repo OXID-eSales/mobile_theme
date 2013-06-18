@@ -150,7 +150,7 @@
                                     [{/if}]
 
                                     [{if !$basketitem->isBundle() || !$basketitem->isDiscountArticle()}]
-                                        <input class="quantity" id="am_[{$smarty.foreach.basketContents.iteration}]" type="textbox" name="aproducts[[{ $basketindex}]][am]" value="[{ $basketitem->getAmount()}]" size="2">
+                                        <input class="quantity" id="am_[{$smarty.foreach.basketContents.iteration}]" type="number" name="aproducts[[{ $basketindex}]][am]" value="[{ $basketitem->getAmount()}]" size="2">
                                     [{/if}]
                                 [{else}]
                                     <span>[{ $basketitem->getAmount()}]</span>

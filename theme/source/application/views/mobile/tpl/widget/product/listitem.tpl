@@ -129,7 +129,7 @@
             [{block name="widget_product_listitem_line_tobasket"}]
                 [{oxhasrights ident="TOBASKET"}]
                     <div class="add-to-basket">
-                        <input class="quantity" id="amountToBasket_[{$testid}]" type="textbox" name="am" value="1" size="2" autocomplete="off" />
+                        <input class="quantity" id="amountToBasket_[{$testid}]" type="number" name="am" value="1" size="2" autocomplete="off" />
                         <button id="toBasket_[{$testid}]" name="add_to_basket_button" class="btn">[{oxmultilang ident="DETAILS_ADDTOCART"}]</button>
                     </div>
                 [{/oxhasrights}]
