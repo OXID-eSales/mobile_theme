@@ -64,9 +64,23 @@
   .main-price {
     font-size: @article-list-price-main-price-font-size;
   }
+  .vat-percent {
+    color: @article-list-vat-percent-color;
+    margin: @article-list-vat-percent-margin;
+    display: block;
+    @media (min-width: @screen-tiny) {
+      display: inline;
+    }
+  }
 }
-.media:hover .article-list-price .old-price {
-  color: @article-list-price-old-price-on-color;
+
+.media:hover .article-list-price {
+  .old-price {
+    color: @article-list-price-old-price-on-color;
+  }
+  .vat-percent {
+    color: @article-list-vat-percent-hover-color;
+  }
 }
 
 .add-to-basket {
@@ -78,6 +92,7 @@
     top: @add-to-basket-quantity-top;
   }
 }
+
 .media:hover .add-to-basket .btn {
   outline: @add-to-basket-btn-on-outline;
 }
