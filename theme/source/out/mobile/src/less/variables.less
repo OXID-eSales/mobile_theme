@@ -31,6 +31,7 @@
 @brand-secondary-light:   #eeeeee;
 @brand-secondary:         #cccccc;
 @brand-secondary-dark:    #666666;
+@brand-secondary-darker:  #232323;
 
 @brand-danger:            #b81c00;
 @brand-note:              #eb6005;
@@ -38,11 +39,11 @@
 @order-padding:                        0 15px;
 @order-margin:                         0 0 2px 0;
 @order-list-style:                     none;
-@order-background:                     @brand-secondary-dark;
-@order-li-border:                      1px solid @brand-secondary;
+@order-background:                     @brand-secondary-darker;
+@order-li-border:                      1px solid @brand-secondary-dark;
 @order-li-padding:                     10px 0;
 @order-li-last-child-border-bottom:    none;
-@order-details-li-color:               @brand-secondary;
+@order-details-li-color:               @brand-secondary-dark;
 @order-details-li-text-transform:      uppercase;
 @order-details-orderDate-margin-right: 20px;
 @order-list-margin:                    0;
@@ -305,7 +306,7 @@
 @filter-box-opened-filter-title-padding-top:    10px;
 @filter-box-opened-filter-title-padding-left:   10px;
 
-@footer-background-color:                       #232323;
+@footer-background-color:                       @brand-secondary-darker;
 @footer-margin-top:                             40px;
 @footer-margin-bottom:                          20px;
 @footer-nav-background-color:                   @footer-background-color;
@@ -375,12 +376,12 @@
 @glyphicon-line-height: 1;
 
 @header-padding:                     0;
-@header-background:                  #232323;
+@header-background:                  @brand-secondary-darker;
 @header-border-radius:               0;
 @header-margin-bottom:               4px;
 @header-btn-padding:                 0 10px;
 @header-btn-float:                   right;
-@header-btn-background:              #232323;
+@header-btn-background:              @header-background;
 @header-btn-line-height:             50px;
 @header-btn-border-left:             1px solid #474747;
 @header-btn-font-size:               24px;
@@ -416,7 +417,7 @@
 
 @pagination-container-margin:            3px 0 0 0;
 @pagination-container-text-align:        center;
-@pagination-container-background-color:  #232323;
+@pagination-container-background-color:  @brand-secondary-darker;
 @pagination-container-line-height:       0;
 @pagination-margin:                      0;
 @pagination-padding:                     0;
@@ -614,7 +615,7 @@
 
 // Inverted navbar
 @navbar-inverse-color:        @brand-primary;
-@navbar-inverse-bg:           #232323;
+@navbar-inverse-bg:           @brand-secondary-darker;
 
 
 // Inverted navbar links
@@ -625,7 +626,7 @@
 
 // Inverted navbar search
 // Normal navbar needs no special styles or vars
-@navbar-inverse-search-bg:     #232323;
+@navbar-inverse-search-bg:     @brand-secondary-darker;
 @navbar-inverse-search-border: @input-border;
 
 // Form states and alerts
