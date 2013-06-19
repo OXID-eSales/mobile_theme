@@ -35,10 +35,10 @@
   list-style: @order-list-style;
   background: @order-background;
   li {
-    border-bottom: @order-li-border;
-    padding: @order-li-padding;
+    border-bottom: @order-row-border;
+    padding: @order-row-padding;
     &:last-child {
-      border-bottom: @order-li-last-child-border-bottom;
+      border-bottom: @order-row-last-border-bottom;
     }
   }
 }
@@ -46,8 +46,8 @@
 .order-history-details {
   li {
     strong {
-      color: @order-details-li-color;
-      text-transform: @order-details-li-text-transform;
+      color: @order-details-row-strong-color;
+      text-transform: @order-details-row-strong-text-transform;
     }
     span {
       color: @order-details-color;

@@ -33,19 +33,19 @@
     height: 61px;
   }
   li {
-    float: @checkout-steps-li-float;
-    color: @checkout-steps-li-color;
+    float: @checkout-step-float;
+    color: @checkout-step-color;
     position: relative;
-    padding: @checkout-steps-li-padding;
+    padding: @checkout-step-padding;
     @media screen and (min-width: 721px) {
       padding: 0 29px 0 57px;
     }
     &:before {
       display: block;
-      content: @checkout-steps-li-before-content;
-      float: @checkout-steps-li-before-float;
-      background: @checkout-steps-li-before-background;
-      margin-left: @checkout-steps-li-before-margin-left;
+      content: @checkout-step-before-content;
+      float: @checkout-step-before-float;
+      background: @checkout-step-before-background;
+      margin-left: @checkout-step-before-margin-left;
       .size(15px, 32px);
       @media screen and (min-width: 721px) {
         background: url("../../img/steps.png") -58px 0 no-repeat transparent;
@@ -54,43 +54,43 @@
       }
     }
     &:first-child {
-      margin-left: @checkout-steps-li-first-child-margin-left;
+      margin-left: @checkout-step-first-child-margin-left;
       &:before {
-        background-color: @checkout-steps-li-first-child-before-background-color;
+        background-color: @checkout-step-first-child-before-background-color;
       }
     }
     &:last-child {
-      padding-right: @checkout-steps-li-last-child-padding-right;
+      padding-right: @checkout-step-last-child-padding-right;
     }
     .last {
-      font-size: @checkout-steps-li-last-font-size;
-      font-weight: @checkout-steps-li-last-font-weight;
-      color: @checkout-steps-li-last-color;
+      font-size: @checkout-step-last-font-size;
+      font-weight: @checkout-step-last-font-weight;
+      color: @checkout-step-last-color;
     }
     &.active, &.passed {
-      color: @checkout-steps-li-active-color;
-      background: @checkout-steps-li-active-background;
+      color: @checkout-step-active-color;
+      background: @checkout-step-active-background;
       a {
-        color: @checkout-steps-li-active-link-color;
+        color: @checkout-step-active-link-color;
       }
     }
     &.active:before {
-      background-position: @checkout-steps-li-active-background-position;
+      background-position: @checkout-step-active-background-position;
       @media screen and (min-width: 721px) {
         background-position: -29px 0;
       }
     }
     &.passed:before {
-      background-position: @checkout-steps-li-passed-background-position;
+      background-position: @checkout-step-passed-background-position;
     }
     &.passed {
-      background: @checkout-steps-li-passed-background;
+      background: @checkout-step-passed-background;
     }
     &.active {
-      .step-id {
-        border-right: @checkout-steps-step-id-border-right;
+      .step-number {
+        border-right: @checkout-step-number-border-right;
         @media screen and (min-width: 721px) {
-          border-right: @checkout-steps-step-id-border-right-wider;
+          border-right: @checkout-step-number-border-right-wider;
         }
       }
       .step-name {
@@ -98,27 +98,27 @@
       }
     }
     a {
-      color: @checkout-steps-li-link-color;
+      color: @checkout-step-link-color;
       display: block;
     }
   }
   &:after {
     .clearfix();
-    content: @checkout-steps-li-after-content;
+    content: @checkout-steps-after-content;
     display: table;
   }
   &.last-step {
-    background: @checkout-steps-li-last-step-background;
+    background: @checkout-step-last-step-background;
   }
-  .step-id {
+  .step-number {
     display: block;
     position: absolute;
     left: 0;
     top: 0;
 
-    line-height: @checkout-steps-step-id-line-height;
-    font-size: @checkout-steps-step-id-font-size;
-    padding: @checkout-steps-step-id-padding;
+    line-height: @checkout-step-number-line-height;
+    font-size: @checkout-step-number-font-size;
+    padding: @checkout-step-number-padding;
 
     @media screen and (min-width: 721px) {
       line-height: 61px;
@@ -128,13 +128,13 @@
   }
   .step-name {
     display: none;
-    font-size: @checkout-steps-step-name-font-size;
-    white-space: @checkout-steps-step-name-white-space;
-    vertical-align: @checkout-steps-step-name-vertical-align;
-    padding: @checkout-steps-step-name-padding;
-    line-height: @checkout-steps-step-name-line-height;
-    height: @checkout-steps-step-name-height;
-    max-width: @checkout-steps-step-name-max-width;
+    font-size: @checkout-step-name-font-size;
+    white-space: @checkout-step-name-white-space;
+    vertical-align: @checkout-step-name-vertical-align;
+    padding: @checkout-step-name-padding;
+    line-height: @checkout-step-name-line-height;
+    height: @checkout-step-name-height;
+    max-width: @checkout-step-name-max-width;
 
     @media screen and (min-width: 721px) {
       padding: 0 5px;
@@ -144,8 +144,4 @@
       max-width: none;
     }
   }
-}
-
-.next-step {
-  margin-bottom: @checkout-steps-next-step-margin-bottom;
 }
