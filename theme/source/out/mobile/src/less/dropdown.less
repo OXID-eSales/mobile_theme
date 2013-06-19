@@ -31,18 +31,14 @@
 .dropdown-toggle {
   border: @dropdown-toggle-border;
   cursor: @dropdown-cursor;
-  padding: @dropdown-toggle-padding;
+  padding: @dropdown-toggle-padding-vertical @dropdown-toggle-padding-horizontal;
+  padding-right: @dropdown-toggle-padding-horizontal+@dropdown-toggle-arrow-width;
   color: @dropdown-toggle-color;
   background-color: @dropdown-toggle-background-color;
-  a {
-    position: relative;
-    display: block;
-    color: @dropdown-link-color;
-    padding-right: @dropdown-toggle-link-padding-right;
-  }
+  color: @dropdown-link-color;
   .glyphicon-chevron-down {
     position: absolute;
-    right: 0;
+    right: @dropdown-toggle-padding-horizontal;
     top: 50%;
     margin-top: @dropdown-toggle-icon-margin-top;
   }
