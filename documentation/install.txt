@@ -1,5 +1,11 @@
-1. copy files to shop directory
+Module installation:
+1. copy files from 'module/source' dir to shop directory
 2. activate module
+3. in module settings write themes name which to use for mobile devices(theme must be installed before)
 
+Theme installation:
+1. copy files from 'theme/source' dir to shop directory
+2. execute install.sql file(if using EE shop version execute install_ee.sql) to put themes settings to database
+3. activate theme, if you will use this theme only for mobile devices with 'theme switcher' module - no need to activate theme manually
 
 
