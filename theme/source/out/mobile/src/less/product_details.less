@@ -29,13 +29,7 @@
 .product-description-container {
   cursor: @product-description-cursor;
   margin-top: @product-description-container-margin-top;
-}
-
-.product-description {
-  overflow: hidden;
-}
-.product-description-container {
-  padding-bottom: 30px;
+  padding-bottom: @product-description-container-padding-bottom;
   position: relative;
   [class^="glyphicon-"] {
     position: absolute;
@@ -45,6 +39,10 @@
     font-size: @product-description-glyphicon-chevron-down-font-size;
     font-weight: @product-description-glyphicon-chevron-down-font-weight;
   }
+}
+
+.product-description {
+  overflow: hidden;
 }
 
 .product-header {
