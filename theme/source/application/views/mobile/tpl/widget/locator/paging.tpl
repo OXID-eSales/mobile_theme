@@ -1,6 +1,6 @@
 [{if $pages->changePage}]
     <div class="pagination-container">
-        <ul class="pagination [{if $place eq "bottom"}] lineBox[{/if}]" id="itemsPager[{$place}]">
+        <ul class="pagination" id="itemsPager[{$place}]">
             [{if $pages->previousPage }]
                 <li>
                     <a class="prev" href="[{$pages->previousPage}]"><i class="glyphicon-chevron-left"></i></a>

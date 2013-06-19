@@ -27,26 +27,21 @@
 
 .pagination {
   margin: @pagination-margin;
-  padding: @pagination-padding;
-  > li {
+  li {
     a {
-      background-color: @pagination-link-background-color;
       color: @pagination-link-color;
       font-size: @pagination-link-font-size;
       border: @pagination-link-border;
       border-left: @pagination-link-border-left;
-      margin: @pagination-link-margin;
-      display: block;
-      border-radius: @pagination-link-border-radius;
+      padding: @pagination-link-padding;
       &:hover {
         background-color: @pagination-link-hover-background-color;
-        color: @pagination-link-hover-color;
       }
     }
-    &:first-child > a {
+    &:first-child a {
       border: @pagination-link-first-child-border;
     }
-    > .pagination-separator {
+    .pagination-separator {
       padding: @pagination-separator-padding;
     }
   }
@@ -67,8 +62,8 @@
 
 @media screen and (min-width: 721px) {
   .pagination {
-    > li > a,
-    > li > .pagination-separator,
+    li a,
+    li .pagination-separator,
     .prev,
     .next {
       font-size: 25px;
