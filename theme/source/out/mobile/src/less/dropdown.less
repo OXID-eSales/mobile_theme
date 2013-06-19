@@ -35,10 +35,16 @@
   color: @dropdown-toggle-color;
   background-color: @dropdown-toggle-background-color;
   a {
+    position: relative;
+    display: block;
     color: @dropdown-link-color;
+    padding-right: @dropdown-toggle-link-padding-right;
   }
   .glyphicon-chevron-down {
-    float: @dropdown-toggle-icon-float;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: @dropdown-toggle-icon-margin-top;
   }
 }
 
