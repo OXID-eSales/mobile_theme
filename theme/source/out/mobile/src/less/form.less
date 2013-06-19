@@ -20,7 +20,6 @@
 
 /* ---- Form elements styles --------------------------- */
 
-
 .form {
   list-style: @form-list-style;
   padding: @form-padding;
@@ -28,14 +27,37 @@
   li {
     margin: @form-li-margin;
     .clearfix();
+    > .form {
+      /* padding/margin fix for nested forms */
+      margin: 0;
+      li {
+        &:first-child {
+          margin-top: 0px;
+        }
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
   }
 }
 
-input[type=text],
-input[type=password],
-input[type=number],
-input[type=email],
-textarea {
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
   border-width: @input-border-width;
 }
 
@@ -43,12 +65,12 @@ textarea {
 input[type=date] {
   display: -webkit-inline-flex;
 }
+
 input[type=date]::-webkit-inner-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: @form-webkit-inner-spin-button-margin;
 }
-
 
 .inline-elements {
   position: relative;

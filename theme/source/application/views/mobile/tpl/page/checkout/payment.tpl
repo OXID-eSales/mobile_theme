@@ -42,10 +42,10 @@
                                 </ul>
                             [{/block}]
                         </div>
-                        <ul class="form">
-                            <li>
-                                [{if $oxcmp_basket->getDeliveryCosts()}]
-                                    [{if $oxcmp_basket->getDelCostNet()}]
+                        [{if $oxcmp_basket->getDeliveryCosts()}]
+                            [{if $oxcmp_basket->getDelCostNet()}]
+                                <ul class="form">
+                                    <li>
                                         <div id="shipSetCost" class="payment-charge">
                                             [{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_CHARGE"}] [{$oxcmp_basket->getDelCostNet()}] [{$currency->sign}]
                                                 [{if $oxcmp_basket->getDelCostVat()}]
@@ -57,10 +57,10 @@
                                         <div id="shipSetCost" class="payment-charge">
                                             [{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_CHARGE"}] [{$oxcmp_basket->getFDeliveryCosts()}] [{$currency->sign}]
                                         </div>
-                                    [{/if}]
-                                [{/if}]
-                            </li>
-                        </ul>
+                                    </li>
+                                </ul>
+                            [{/if}]
+                        [{/if}]
                     </form>
                 [{/if}]
             </div>
