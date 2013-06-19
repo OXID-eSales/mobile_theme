@@ -29,7 +29,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Check does logo and alt  message exist in header
 
         // We do not check:that logo has a link to home page
-        $this->assertTrue($this->isElementPresent("//a[@id='logo']/img"));
+        // $this->assertTrue($this->isElementPresent("//a[@id='logo']/img"));
         $this->assertTrue($this->isElementPresent("//img[@alt='Shopping cart software by OXID eSales']"));
 
         // Check does header exist;
@@ -151,15 +151,15 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("css=h4.media-heading"));
 
         // Check does image near product exist;
-        $this->assertTrue($this->isElementPresent("css=img[alt=\"Kite FLYSURFER SPEED3 \"]"));
+        $this->assertTrue($this->isElementPresent("css=img[alt=\"Kite CORE GTS \"]"));
 
         // Check does product price exist;
         $this->assertTrue($this->isElementPresent("css=#productPrice_productList_1 > span"));
 
-        // Check does previous price, which is crossed out;
-        $this->assertTrue($this->isElementPresent("//ul[@id='productList']/li/div[2]/p/span/del"));
+        // Check does previous price, which is crossed out exist;
+        $this->assertTrue($this->isElementPresent("//ul[@id='productList']/li/form/div[2]/p/span/del"));
 
-        // Check does pages and button "next" exist ;
+        // Check does pages and button "next" exist;
         $this->assertTrue($this->isElementPresent("css=div.pagination-container"));
         $this->assertTrue($this->isElementPresent("link=1"));
         $this->assertTrue($this->isElementPresent("link=2"));
@@ -202,7 +202,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Search a product with ID 3572
         $this->click("css=i.glyphicon-search");
         $this->type("id=searchParam", "3572");
-        $this->click("css=button.btn.small");
+        $this->click("css=button.btn.search-btn");
         $this->waitForPageToLoad("30000");
 
         // Open a product with ID 3572
@@ -1654,7 +1654,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("//div[@id='paymentMethods']/div");
         $this->click("link=COD (Cash on Delivery)");
 
-        // Check does exist label "7,50 â‚¬ COD Charge "
+        // Check does exist label "7,50 ¤ COD Charge "
         $this->assertTrue($this->isElementPresent("css=div.payment-charge"));
 
         // Check does exist all basket button
