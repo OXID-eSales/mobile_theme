@@ -116,7 +116,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testCategoryList()
     {
-        $this->openShop("en/home/");
+        $this->openShop("en/Kiteboarding/");
 
         //check header and footer
         $this->testHeader();
