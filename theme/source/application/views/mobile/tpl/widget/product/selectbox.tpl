@@ -4,7 +4,7 @@
 [{if $oSelections}]
     <div class="dropdown">
         <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-            <a id="dLabel" role="button" href="#">
+            <a id="dLabelSelectBox" role="button" href="#">
                 [{if $oActiveSelection}]
                     <span>[{$oActiveSelection->getName()}]</span>
                 [{elseif !$blHideDefault}]
@@ -21,7 +21,7 @@
         </div>
         [{if $editable !== false}]
             <input type="hidden" name="[{$sFieldName|default:"varselid"}][[{$iKey}]]" value="[{if $oActiveSelection }][{$oActiveSelection->getValue()}][{/if}]">
-            <ul class="dropdown-menu [{$sSelType|default:"vardrop"}]" role="menu" aria-labelledby="dLabel">
+            <ul class="dropdown-menu [{$sSelType|default:"vardrop"}]" role="menu" aria-labelledby="dLabelSelectBox">
                 [{if $oActiveSelection && !$blHideDefault}]
                     <li class="dropdown-option"><a tabindex="-1" data-selection-id="" href="#">
                             [{$oSelectionList->getLabel()}] [{if $sFieldName == "sel"}][{oxmultilang ident="PLEASE_CHOOSE"}][{else}][{oxmultilang ident="CHOOSE_VARIANT"}][{/if}]

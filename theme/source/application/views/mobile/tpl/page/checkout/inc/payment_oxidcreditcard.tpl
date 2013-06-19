@@ -8,12 +8,12 @@
                 [{* only to track selection within DOM *}]
                 <input type="hidden" id="sCreditCardSelected" name="dynvalue[kktype]" value="mcd" />
                 <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-                    <a id="dLabel" role="button" href="#">
+                    <a id="dLabelCreditCardSelected" role="button" href="#">
                         <span id="creditCardSelected"></span>
                         <i class="glyphicon-chevron-down"></i>
                     </a>
                 </div>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelCreditCardSelected">
                     <li class="dropdown-option"><a tabindex="-1" data-selection-id="mcd">[{oxmultilang ident="CARD_MASTERCARD"}]</a></li>
                     <li class="dropdown-option"><a tabindex="-1" data-selection-id="vis">[{oxmultilang ident="CARD_VISA"}]</a></li>
                     <!--
@@ -53,12 +53,12 @@
                     <div class="dropdown">
                         <input type="hidden" id="sCardValidDateMonthSelected" name="dynvalue[kkmonth]" value="01" />
                         <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-                            <a id="dLabel" role="button" href="#">
+                            <a id="dLabelCardValidDateMonthSelected" role="button" href="#">
                                 <span id="cardValidDateMonthSelected">01</span>
                                 <i class="glyphicon-chevron-down"></i>
                             </a>
                         </div>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelCardValidDateMonthSelected">
                             [{section name="iMonth" start=1 loop=13}]
                                 [{assign var=sMonth value=$smarty.section.iMonth.index|string_format:"%02d"}]
                                 <li class="dropdown-option">
@@ -77,12 +77,12 @@
                         [{assign var=aYear value=$oView->getCreditYears()}]
                         <input type="hidden" id="sCardValidDateYearSelected" name="dynvalue[kkyear]" value="[{$aYear[0]}]" />
                         <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-                            <a id="dLabel" role="button" href="#">
+                            <a id="dLabelCardValidDateYearSelected" role="button" href="#">
                                 <span id="cardValidDateYearSelected"></span>
                                 <i class="glyphicon-chevron-down"></i>
                             </a>
                         </div>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelCardValidDateYearSelected">
                             [{foreach from=$aYear item=iYear}]
                                 <li class="dropdown-option">
                                     <a tabindex="-1" data-selection-id="[{$iYear}]">[{$iYear}]</a>

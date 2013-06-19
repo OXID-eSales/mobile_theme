@@ -35,7 +35,7 @@
                                 </span>
                                 <i class="glyphicon-chevron-down"></i>
                             </div>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <ul class="dropdown-menu" role="menu">
                                 [{if $oFilterAttr->getActiveValue() }]
                                     <li class="dropdown-option"><a tabindex="-1" data-selection-id="">[{oxmultilang ident="WIDGET_PRODUCT_ATTRIBUTES_PLEASECHOOSE" }]</a></li>
                                 [{/if}]

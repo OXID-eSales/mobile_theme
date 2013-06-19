@@ -23,14 +23,14 @@
                         <div id="shippingMethods" class="dropdown">
                             <input type="hidden" id="sShipSet" name="sShipSet" value="" />
                             <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-                                <a id="dLabel" role="button" href="#">
+                                <a id="dLabelShippingMethods" role="button" href="#">
                                     [{* only to track selection within DOM *}]
                                     <span id="shippingSelected">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_SELECTSHIPPING"}]</span>
                                     <i class="glyphicon-chevron-down"></i>
                                 </a>
                             </div>
                             [{block name="act_shipping"}]
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelShippingMethods">
                                     [{foreach key=sShipID from=$oView->getAllSets() item=oShippingSet name=ShipSetSelect}]
                                         [{assign var=sShippingName value=$oShippingSet->oxdeliveryset__oxtitle->value}]
                                         <li class="dropdown-option">
@@ -115,12 +115,12 @@
                                 [{* only to track selection within DOM *}]
                                 <input type="hidden" id="sPaymentSelected" value="" />
                                 <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-                                    <a id="dLabel" role="button" href="#">
+                                    <a id="dLabelPaymentSelected" role="button" href="#">
                                         <span id="paymentSelected">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_PAYMENT"}]</span>
                                         <i class="glyphicon-chevron-down"></i>
                                     </a>
                                 </div>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelPaymentSelected">
                                     [{foreach key=sPaymentID from=$oView->getPaymentList() item=paymentmethod name=PaymentSelect}]
                                         [{assign var=sPaymentName value=$paymentmethod->oxpayments__oxdesc->value}]
                                         <li class="dropdown-option">
