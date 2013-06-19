@@ -85,7 +85,12 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testStartPage()
     {
-        $this->openShop("en/home/");
+        $sTestStartPage = "en/home/";
+        $this->openShop($sTestStartPage);
+
+        //check header and footer
+        $this->testHeader($sTestStartPage);
+        $this->testFooter($sTestStartPage);
 
         // Need add cookie note checking
         // Check does banner element exist;
@@ -116,11 +121,14 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testCategoryList()
     {
-        $this->openShop("en/Kiteboarding/");
+        $sTestStartPage = "en/Kiteboarding/";
+        $this->openShop($sTestStartPage);
 
         //check header and footer
-        $this->testHeader();
-        $this->testFooter();
+        $this->testHeader($sTestStartPage);
+        $this->testFooter($sTestStartPage);
+
+        $this->openShop("en/home/");
 
         // Check does category tree exist;
         $this->assertTrue($this->isElementPresent("id=cat_list"));
