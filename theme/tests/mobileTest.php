@@ -64,6 +64,8 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->open($sURL);
 
         // Check does footer exist
+        $this->assertTrue($this->isElementPresent("id=footer"));
+        $this->assertTrue($this->isElementPresent("id=footerServices"));
         $this->assertTrue($this->isElementPresent("id=footerInformation"));
 
         // Check does footer navigation list elements exist
@@ -1650,7 +1652,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("//div[@id='paymentMethods']/div");
         $this->click("link=COD (Cash on Delivery)");
 
-        // Check does exist label "7,50 ¤ COD Charge "
+        // Check does exist label "7,50 ï¿½ COD Charge "
         $this->assertTrue($this->isElementPresent("css=div.payment-charge"));
 
         // Check does exist all basket button
