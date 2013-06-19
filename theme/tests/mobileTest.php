@@ -53,7 +53,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all footer elements;
      * @group mobile
      */
-    protected function testFooter()
+    public function testFooter()
     {
         $this->openShop("en/home/");
 
@@ -75,7 +75,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all start page elements;
      * @group mobile
      */
-    protected function testStartPage()
+    public function testStartPage()
     {
         $this->openShop("en/home/");
 
@@ -101,9 +101,13 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * @group mobile
      */
 
-    protected function testCategoryList()
+    public function testCategoryList()
     {
         $this->openShop("en/home/");
+
+        //check header and footer
+        $this->testHeader();
+        $this->testFooter();
 
         // Check does category tree exist;
         $this->assertTrue($this->isElementPresent("id=cat_list"));
@@ -191,7 +195,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * @group mobile
      */
 
-    protected function testDetailPage()
+    public function testDetailPage()
     {
         $this->openShop("en/home/");
 
@@ -201,11 +205,15 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("css=button.btn.small");
         $this->waitForPageToLoad("30000");
 
-        // Open a product wich ID 3572
+        // Open a product with ID 3572
         $this->click("css=a.media-heading-link > span");
         $this->waitForPageToLoad("30000");
 
         // User is in detail page
+
+        //Check header and footer
+        $this->testHeader();
+        $this->testFooter();
         // Check does previous button near back exist
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
 
@@ -261,7 +269,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * @group mobile
      */
 
-    protected function testContactPage()
+    public function testContactPage()
     {
         $this->openShop("en/contact/");
 
@@ -307,7 +315,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all billing and shipping settings page elements
      * @group mobile
      */
-    protected function testBillingAndShippingSettings()
+    public function testBillingAndShippingSettings()
     {
         $this->openShop("en/home/");
 
@@ -383,7 +391,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing user 2nd step when user is not logged in  page elements
      * @group mobile
      */
-    protected function testSecondStepNotLoginUser()
+    public function testSecondStepNotLoginUser()
     {
         $this->openShop("en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
 
@@ -421,7 +429,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all start page elements
      * @group mobile
      */
-    protected function testSecondStepLoginUser()
+    public function testSecondStepLoginUser()
     {
         $this->openShop("en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
 
@@ -480,7 +488,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing purchase without registration page all elements
      * @group mobile
      */
-    protected function testPurchaseWithoutRegistration()
+    public function testPurchaseWithoutRegistration()
     {
 
         $this->openShop("en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
@@ -572,7 +580,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all start page elements
      * @group mobile
      */
-    protected function testSearchList()
+    public function testSearchList()
     {
         $this->openShop("en/home/");
 
@@ -613,7 +621,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing user first step when user is not logged in  page elements
      * @group mobile
      */
-    protected function testFirstStepNotLogoutUser()
+    public function testFirstStepNotLogoutUser()
     {
         $this->openShop("en/home/");
         $this->click("//div[@id='header']/div/div/a");
@@ -758,7 +766,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing user first step when user is logged in  page elements
      * @group mobile
      */
-    protected function testFirstStepNotLoginUser()
+    public function testFirstStepNotLoginUser()
     {
         $this->openShop("en/home/");
         $this->click("link=Login");
@@ -901,7 +909,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing user 4 basket step when user is logged in page elements
      * @group mobile
      */
-    protected function test4BasketStep()
+    public function test4BasketStep()
     {
         $this->openShop("en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
         $this->click("id=toBasket");
@@ -1019,7 +1027,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing user 5 basket step when user is logged in page elements
      * @group mobile
      */
-    protected function test5BasketStep()
+    public function test5BasketStep()
     {
         $this->openShop("en/Special-Offers/Transport-container-BARREL.html");
 
@@ -1085,7 +1093,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all change password page elements
      * @group mobile
      */
-    protected function testChangePassword()
+    public function testChangePassword()
     {
         $this->openShop("en/home/");
         $this->click("link=Login");
@@ -1158,7 +1166,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all forgot password page elements
      * @group mobile
      */
-    protected function testForgotPassword()
+    public function testForgotPassword()
     {
         $this->openShop("en/home/");
 
@@ -1211,7 +1219,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all Login page elements
      * @group mobile
      */
-    protected function testLoginPage()
+    public function testLoginPage()
     {
         $this->openShop("en/home/");
 
@@ -1262,7 +1270,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all my account page elements
      * @group mobile
      */
-    protected function testMyAccount()
+    public function testMyAccount()
     {
         $this->openShop("en/home/");
         $this->click("link=Login");
@@ -1319,7 +1327,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all My Douwnload page elements
      * @group mobile
      */
-    protected function testMyDownload()
+    public function testMyDownload()
     {
         $this->openShop("en/home/");
         $this->click("link=Login");
@@ -1390,7 +1398,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all Newsletter Settings page elements
      * @group mobile
      */
-    protected function testNewsletterSettings()
+    public function testNewsletterSettings()
     {
         $this->openShop("en/home/");
         $this->click("link=Login");
@@ -1445,7 +1453,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all order history page elements
      * @group mobile
      */
-    protected function testOrderHistory()
+    public function testOrderHistory()
     {
         $this->openShop("en/home/");
         $this->click("link=Login");
@@ -1528,7 +1536,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all 3 basket step page elements
      * @group mobile
      */
-    protected function test3BasketStep()
+    public function test3BasketStep()
     {
         $this->openShop("en/Special-Offers/Transport-container-BARREL.html");
         // Add product to basket
@@ -1661,7 +1669,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all CMS page elements
      * @group mobile
      */
-    protected function testCmsPage()
+    public function testCmsPage()
     {
         $this->open("en/home/");
 
