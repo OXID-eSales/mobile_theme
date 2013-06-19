@@ -27,11 +27,18 @@
 class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
 {
     /**
-     * Active template theme type
+     * Bool variable true if mobile theme requested, otherwise false
      *
-     * @var string
+     * @var bool
      */
     protected $_blIsMobileThemeRequested = null;
+
+    /**
+     * Bool variable true if modules configs are loaded, otherwise false
+     *
+     * @var bool
+     */
+    protected $_blIsModuleConfigLoaded = false;
 
     /**
      * Returns config parameter value if such parameter exists
@@ -45,6 +52,13 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
         $sReturn = parent::getConfigParam( $sName );
 
         if ( $sName == "sCustomTheme" ) {
+
+            //load module configs
+            if ( !$this->_blIsModuleConfigLoaded ) {
+                $this->_loadVarsFromDb( $this->getShopId(), null, oxConfig::OXMODULE_MODULE_PREFIX );
+                $this->_blIsModuleConfigLoaded = true;
+            }
+
             // check for mobile devices
             if ( $this->isMobileThemeRequested() &&  !$this->isAdmin() ) {
                 return $this->_aConfigParams['sMobileTheme'];
