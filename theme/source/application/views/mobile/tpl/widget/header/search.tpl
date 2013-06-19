@@ -1,5 +1,7 @@
 [{oxscript include="js/widgets/oxsearch.js" priority=10 }]
 [{oxscript add="$( '#search' ).oxSearch();"}]
+[{oxscript include="js/widgets/oxplaceholderfallback.js" priority=10 }]
+[{oxscript add="$('form').oxPlaceholderFallback();"}]
 
 [{block name="widget_header_search_form"}]
 [{if $oView->showSearch() }]

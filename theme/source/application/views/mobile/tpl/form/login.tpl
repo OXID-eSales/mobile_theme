@@ -1,5 +1,7 @@
 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10 }]
 [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
+[{oxscript include="js/widgets/oxplaceholderfallback.js" priority=10 }]
+[{oxscript add="$('form').oxPlaceholderFallback();"}]
 <form class="js-oxValidate" name="login" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
     [{assign var="aErrors" value=$oView->getFieldValidationErrors()}]
     <div>
