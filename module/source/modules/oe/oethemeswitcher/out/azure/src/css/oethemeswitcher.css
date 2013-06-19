@@ -1,11 +1,20 @@
-#incBackLink{
-    position:fixed;
-    bottom:-3px;
-    right:149px;
-    font-size:11px;
-    padding:4px 20px 6px 17px;
-    background:url(../../img/vatmsg-bg.png) no-repeat 0 0;
-    opacity:0.6;
-    filter:alpha(opacity=60);
-    z-index:9999;
+#incBackLink {
+     position:absolute;
+     top:0px;
+     left:0px;
+     width:100%;
+     z-index:104;
+     font-weight:normal;
+     font-size:16px;
+     color: #fff;
+     background-color:#f77704;
+     padding:8px 0 8px 0;
+     text-align: center;
+     border-bottom: 1px solid #d36706;
+}
+#incBackLink a {
+    color: #fff;
+}
+#page {
+    padding-top: 35px;
 }
