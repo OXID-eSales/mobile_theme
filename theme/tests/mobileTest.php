@@ -23,9 +23,12 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all header elements;
      * @group mobile
      */
-    public function testHeader()
+    public function testHeader( $sURL = null )
     {
-        $this->openShop("en/contact/");
+        if (!$sURL) {
+            $sURL = shopURL."en/home/";
+        }
+        $this->open($sURL);
         // Check does logo and alt  message exist in header
 
         // We do not check:that logo has a link to home page
@@ -53,9 +56,12 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all footer elements;
      * @group mobile
      */
-    public function testFooter()
+    public function testFooter( $sURL = null )
     {
-        $this->openShop("en/home/");
+        if (!$sURL) {
+            $sURL = shopURL."en/home/";
+        }
+        $this->open($sURL);
 
         // Check does footer exist
         $this->assertTrue($this->isElementPresent("id=footerInformation"));
@@ -197,23 +203,13 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testDetailPage()
     {
-        $this->openShop("en/home/");
-
-        // Search a product with ID 3572
-        $this->click("css=i.glyphicon-search");
-        $this->type("id=searchParam", "3572");
-        $this->click("css=button.btn.search-btn");
-        $this->waitForPageToLoad("30000");
-
-        // Open a product with ID 3572
-        $this->click("css=a.media-heading-link > span");
-        $this->waitForPageToLoad("30000");
-
-        // User is in detail page
+        // Go to product detail page
+        $this->open(shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html");
 
         //Check header and footer
-        $this->testHeader();
-        $this->testFooter();
+        $this->testHeader(shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html");
+        $this->testFooter(shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html");
+
         // Check does previous button near back exist
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
 
@@ -236,7 +232,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("css=div.product-delivery-info > a"));
 
         // Check does size variant selection exist
-        $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
+        $this->assertTrue($this->isElementPresent("id=dLabel"));
 
         // Check does color variant selection exist
         $this->assertTrue($this->isElementPresent("//div[@id='variants']/div[2]/div"));
