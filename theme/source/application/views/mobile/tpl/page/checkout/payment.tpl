@@ -1,5 +1,6 @@
 [{capture append="oxidBlock_content"}]
 [{oxscript include="js/widgets/oxdropdown.js" priority=10}]
+[{oxscript include="js/widgets/oxpaymentmethods.js" priority=10}]
 <div id="paymentSelect" class="content payment-select">
 
     [{* ordering steps *}]
@@ -185,14 +186,7 @@
 </div>
 [{oxscript add="$('#shippingMethods').oxDropDown({form:'#shipping'});"}]
 [{oxscript add="$('#paymentMethods').oxDropDown();"}]
-[{oxscript add="
-    $('#paymentMethods').on('click', '.dropdown-option > a', function() {
-        var payment = $('#payment');
-        $('div.payment-option.active-payment', payment).removeClass('active-payment');
-        $('#paymentOption_'+$(this).data('selection-id'), payment).addClass('active-payment');
-        $('#payment_'+$(this).data('selection-id'), payment).prop('checked', true);
-    });
-"}]
+[{oxscript add="$('#paymentMethods').oxPaymentMethods();"}]
 [{/capture}]
 
 [{include file="layout/page.tpl"}]
