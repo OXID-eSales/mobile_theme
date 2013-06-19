@@ -22,6 +22,7 @@
     oxShowHide = {
         options: {
             content:          ".product-description",
+            moreBtn:          ".product-description-container > i",
             maxHeight:        80,
             hideSpeed:        350
         },
@@ -32,9 +33,10 @@
         _create: function() {
             var $this = this;
             var oBlock = $($this.options.content, $(this.element));
+            var moreBtn = $($this.options.moreBtn);
 
             $this.fullHeight = oBlock.outerHeight(true);
-            $this.truncatedHeight = $this.countFullHeight($("> *:first", oBlock), $this.options.maxHeight);
+            $this.truncatedHeight = ($this.options.maxHeight != 0)? $this.countFullHeight($("> *:first", oBlock), $this.options.maxHeight) : 0;
 
             oBlock.height($this.truncatedHeight);
             $this.truncated = true;
@@ -42,6 +44,11 @@
             $(this.element).on("click", function() {
                 var newHeight = $this.truncated? $this.fullHeight : $this.truncatedHeight;
                 oBlock.animate({height: newHeight}, $this.options.hideSpeed);
+                if ($this.truncated) {
+                    moreBtn.removeClass(moreBtn.data("toggle-down")).addClass(moreBtn.data("toggle-up"));
+                } else {
+                    moreBtn.removeClass(moreBtn.data("toggle-up")).addClass(moreBtn.data("toggle-down"));
+                }
                 $this.truncated = !$this.truncated;
             });
         },

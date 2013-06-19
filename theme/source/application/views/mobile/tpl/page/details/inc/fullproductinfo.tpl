@@ -1,5 +1,6 @@
 [{oxscript include="js/widgets/oxshowhide.js"}]
 [{oxscript add="$('.product-description-container').oxShowHide();"}]
+[{oxscript add="$('.product-attributes').oxShowHide({content:'.product-attributes-content',moreBtn:'.product-attributes > i', maxHeight: 0});"}]
 
 <div class="product-details">
     [{include file="page/details/inc/productmain.tpl"}]
@@ -13,22 +14,22 @@
             <div class="product-description">
                 [{oxeval var=$oLongdesc}]
             </div>
-            <i class="glyphicon-chevron-down" data-toggle="glyphicon-chevron-up"></i>
+            <i class="glyphicon-chevron-down" data-toggle-up="glyphicon-chevron-up" data-toggle-down="glyphicon-chevron-down"></i>
         [{/if}]
         [{/oxhasrights}]
     [{/block}]
 </div>
-<div class="product-attributes row">
+<div class="product-attributes">
     [{* Attributes *}]
     [{block name="details_attributes"}]
         [{if $oView->getAttributes()}]
-            <a class="product-attributes-switch" data-toggle="collapse" data-parent="#details_attributes" href="#attributes">
+            <span class="product-attributes-switch">
                 [{oxmultilang ident="SPECIFICATION"}]
-                <i class="glyphicon-chevron-down"></i>
-            </a>
-            <div id="attributes" class="collapse">
+            </span>
+            <div id="attributes">
                 [{include file="page/details/inc/attributes.tpl"}]
             </div>
+            <i class="glyphicon-chevron-down" data-toggle-up="glyphicon-chevron-up" data-toggle-down="glyphicon-chevron-down"></i>
         [{/if}]
     [{/block}]
 </div>
