@@ -89,11 +89,16 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         // Need add cookie note checking
         // Check does banner element exist;
-        $this->assertTrue($this->isElementPresent("css=img[alt=\"Banner 1\"]"));
-
+        $this->assertTrue($this->isElementPresent("class=carousel slide"));
+        $this->assertTrue($this->isVisible("css=img[alt=\"Banner 1\"]"));
         // Check does baner left button and right button exist;
         $this->assertTrue($this->isElementPresent("css=a.carousel-control.right"));
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
+        $this->click("css=a.carousel-control.right");
+        $this->assertFalse($this->isVisible("css=img[alt=\"Banner 1\"]"));
+        $this->assertTrue($this->isVisible("css=img[alt=\"Banner 2\"]"));
+
+        // Check category links.
         $this->assertTrue($this->isElementPresent("link=Kiteboarding"));
         $this->assertTrue($this->isElementPresent("link=Wakeboarding"));
         $this->assertTrue($this->isElementPresent("link=Gear"));
@@ -1652,7 +1657,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("//div[@id='paymentMethods']/div");
         $this->click("link=COD (Cash on Delivery)");
 
-        // Check does exist label "7,50 � COD Charge "
+        // Check does exist label "7,50 ? COD Charge "
         $this->assertTrue($this->isElementPresent("css=div.payment-charge"));
 
         // Check does exist all basket button
