@@ -1350,7 +1350,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     }
 
     /**
-     * testing all My Douwnload page elements
+     * testing all My Download page elements
      * @group mobile
      */
     public function testMyDownload()
