@@ -22,7 +22,7 @@
                             <ul class="form">
                                 <li>
                                     <h3>[{oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
-                                    <input class="btn" type="submit" id="userChangeAddress" name="changeBillAddress" value="[{oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]" />
+                                    <input class="btn" type="button" id="userChangeAddress" name="changeBillAddress" value="[{oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]" />
                                 </li>
                             </ul>
                             [{oxscript add="$('#userChangeAddress').click( function() { $('#addressForm').show();$('#addressText').hide();$('#userChangeAddress').hide();return false;});"}]
@@ -50,7 +50,7 @@
                             <ul class="form">
                                 <li>
                                     <h3>[{ oxmultilang ident="FORM_REGISTER_SHIPPINGADDRESS" }]</h3>
-                                    <input class="btn" type="submit" id="userChangeShippingAddress" name="changeShippingAddress" [{if !$oView->showShipAddress() or !$oxcmp_user->getSelectedAddress()}] [{/if}] value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]"/>
+                                    <input class="btn" type="button" id="userChangeShippingAddress" name="changeShippingAddress" [{if !$oView->showShipAddress() or !$oxcmp_user->getSelectedAddress()}] [{/if}] value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]"/>
                                 </li>
                             </ul>
                             [{oxscript add="$('#showShipAddress').change(function() { $('#userChangeShippingAddress').toggle($(this).is(':not(:checked)') && $('#addressId').val() != -1 ); }); "}]
