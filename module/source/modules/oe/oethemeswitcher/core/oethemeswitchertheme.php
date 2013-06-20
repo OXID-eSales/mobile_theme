@@ -25,7 +25,7 @@
 class oeThemeSwitcherTheme extends oeThemeSwitcherTheme_parent
 {
     /**
-     * get theme info item
+     * Get theme info item
      *
      * @param string $sName name of info item to retrieve
      *
@@ -33,13 +33,13 @@ class oeThemeSwitcherTheme extends oeThemeSwitcherTheme_parent
      */
     public function getInfo($sName)
     {
+        $sValue = parent::getInfo( $sName );
+
         if ( $sName == 'active' && $this->getId() == $this->getConfig()->getConfigParam('sMobileTheme') ) {
             return true;
         }
-        if (!isset($this->_aTheme[$sName])) {
-            return null;
-        }
-        return $this->_aTheme[$sName];
+
+        return $sValue;
     }
 
 }
