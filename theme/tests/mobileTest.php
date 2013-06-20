@@ -24,7 +24,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     protected function doLogin()
     {
         // Go to my account page and login to it
-        $this->click("link=My Account");
+        $this->click("link=Login");
         $this->waitForPageToLoad("30000");
         $this->type("id=loginUser", "admin");
         $this->type("id=loginPwd", "admin");
@@ -811,12 +811,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testFirstStepNotLoginUser()
     {
         $this->openShop("en/home/");
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $this->doLogin();
         $this->click("link=Logout");
         $this->waitForPageToLoad("30000");
         $this->click("//div[@id='header']/div/div/a");
@@ -908,12 +903,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         // Check does exist info message"Please login to access Wish List." border
         $this->assertTrue($this->isElementPresent("//div[@id='detailsMain']/div/div"));
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $this->doLogin();
         $this->click("css=i.glyphicon-star");
 
         // Check does exist border with text "Success"
@@ -1138,12 +1128,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testChangePassword()
     {
         $this->openShop("en/home/");
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $this->doLogin();
         $this->click("//a[@id='linkAccountPassword']/span");
         $this->waitForPageToLoad("30000");
 
@@ -1315,12 +1300,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testMyAccount()
     {
         $this->openShop("en/home/");
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $this->doLogin();
         $this->click("link=My Account");
         $this->waitForPageToLoad("30000");
 
@@ -1443,12 +1423,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testNewsletterSettings()
     {
         $this->openShop("en/home/");
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $this->doLogin();
 
         // Going to Newsletter settings page
         $this->click("//li[2]/a/span");
@@ -1498,14 +1473,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testOrderHistory()
     {
         $this->openShop("en/home/");
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("loginPwd", "admin");
-
-        // Click on the button login
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $this->doLogin();
 
         // Search for product (1402)
         $this->click("css=i.glyphicon-search");
