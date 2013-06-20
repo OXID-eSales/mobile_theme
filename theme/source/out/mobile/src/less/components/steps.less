@@ -19,13 +19,13 @@
 //
 
 /* ----- Basket Checkout Steps -------------------------- */
-.checkout-steps {
-  background: @checkout-steps-background;
-  list-style: @checkout-steps-list-style;
+.steps {
+  background: @steps-background;
+  list-style: @steps-list-style;
   overflow: hidden;
-  padding: @checkout-steps-padding;
-  margin: @checkout-steps-margin;
-  height: @checkout-steps-height;
+  padding: @steps-padding;
+  margin: @steps-margin;
+  height: @steps-height;
 
   @media screen and (min-width: 721px) {
     padding: 0 0 0 29px;
@@ -33,19 +33,19 @@
     height: 61px;
   }
   li {
-    float: @checkout-step-float;
-    color: @checkout-step-color;
+    float: @step-float;
+    color: @step-color;
     position: relative;
-    padding: @checkout-step-padding;
+    padding: @step-padding;
     @media screen and (min-width: 721px) {
       padding: 0 29px 0 57px;
     }
     &:before {
       display: block;
-      content: @checkout-step-before-content;
-      float: @checkout-step-before-float;
-      background: @checkout-step-before-background;
-      margin-left: @checkout-step-before-margin-left;
+      content: @step-before-content;
+      float: @step-before-float;
+      background: @step-before-background;
+      margin-left: @step-before-margin-left;
       .size(15px, 32px);
       @media screen and (min-width: 721px) {
         background: url("../../img/steps.png") -58px 0 no-repeat transparent;
@@ -54,43 +54,43 @@
       }
     }
     &:first-child {
-      margin-left: @checkout-step-first-child-margin-left;
+      margin-left: @step-first-child-margin-left;
       &:before {
-        background-color: @checkout-step-first-child-before-background-color;
+        background-color: @step-first-child-before-background-color;
       }
     }
     &:last-child {
-      padding-right: @checkout-step-last-child-padding-right;
+      padding-right: @step-last-child-padding-right;
     }
     .last {
-      font-size: @checkout-step-last-font-size;
-      font-weight: @checkout-step-last-font-weight;
-      color: @checkout-step-last-color;
+      font-size: @step-last-font-size;
+      font-weight: @step-last-font-weight;
+      color: @step-last-color;
     }
     &.active, &.passed {
-      color: @checkout-step-active-color;
-      background: @checkout-step-active-background;
+      color: @step-active-color;
+      background: @step-active-background;
       a {
-        color: @checkout-step-active-link-color;
+        color: @step-active-link-color;
       }
     }
     &.active:before {
-      background-position: @checkout-step-active-background-position;
+      background-position: @step-active-background-position;
       @media screen and (min-width: 721px) {
         background-position: -29px 0;
       }
     }
     &.passed:before {
-      background-position: @checkout-step-passed-background-position;
+      background-position: @step-passed-background-position;
     }
     &.passed {
-      background: @checkout-step-passed-background;
+      background: @step-passed-background;
     }
     &.active {
       .step-number {
-        border-right: @checkout-step-number-border-right;
+        border-right: @step-number-border-right;
         @media screen and (min-width: 721px) {
-          border-right: @checkout-step-number-border-right-wider;
+          border-right: @step-number-border-right-wider;
         }
       }
       .step-name {
@@ -98,17 +98,17 @@
       }
     }
     a {
-      color: @checkout-step-link-color;
+      color: @step-link-color;
       display: block;
     }
   }
   &:after {
     .clearfix();
-    content: @checkout-steps-after-content;
+    content: @steps-after-content;
     display: table;
   }
   &.last-step {
-    background: @checkout-step-last-step-background;
+    background: @step-last-step-background;
   }
   .step-number {
     display: block;
@@ -116,9 +116,9 @@
     left: 0;
     top: 0;
 
-    line-height: @checkout-step-number-line-height;
-    font-size: @checkout-step-number-font-size;
-    padding: @checkout-step-number-padding;
+    line-height: @step-number-line-height;
+    font-size: @step-number-font-size;
+    padding: @step-number-padding;
 
     @media screen and (min-width: 721px) {
       line-height: 61px;
@@ -128,13 +128,13 @@
   }
   .step-name {
     display: none;
-    font-size: @checkout-step-name-font-size;
-    white-space: @checkout-step-name-white-space;
-    vertical-align: @checkout-step-name-vertical-align;
-    padding: @checkout-step-name-padding;
-    line-height: @checkout-step-name-line-height;
-    height: @checkout-step-name-height;
-    max-width: @checkout-step-name-max-width;
+    font-size: @step-name-font-size;
+    white-space: @step-name-white-space;
+    vertical-align: @step-name-vertical-align;
+    padding: @step-name-padding;
+    line-height: @step-name-line-height;
+    height: @step-name-height;
+    max-width: @step-name-max-width;
 
     @media screen and (min-width: 721px) {
       padding: 0 5px;

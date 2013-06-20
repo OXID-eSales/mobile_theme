@@ -1,5 +1,5 @@
 [{block name="checkout_steps_main"}]
-    <ul class="checkout-steps [{ if $active == 5}] last-step[{/if}]">
+    <ul class="steps [{ if $active == 5}] last-step[{/if}]">
         [{if $oxcmp_basket->getProductsCount() }]
             [{assign var=showStepLinks value=true}]
         [{/if}]
