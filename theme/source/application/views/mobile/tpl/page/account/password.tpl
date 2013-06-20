@@ -21,7 +21,7 @@
     [{/foreach}]
 </div>
 [{/if}]
-<h1 id="personalSettingsHeader">[{ oxmultilang ident="CHANGE_PASSWORD_2" }]</h1>
+<h1 id="personalSettingsHeader" class="page-head">[{ oxmultilang ident="CHANGE_PASSWORD_2" }]</h1>
 <div class="content">
     [{include file="form/user_password.tpl"}]
     [{insert name="oxid_tracker" title=$template_title }]
