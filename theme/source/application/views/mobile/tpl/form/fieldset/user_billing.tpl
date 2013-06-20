@@ -209,7 +209,7 @@
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxbirthdate}]
                 </p>
             </div>
-            <input id="modernDate" type="date" value="[{if $iBirthdayDay > 0 }][{$iBirthdayYear }]-[{$iBirthdayMonth }]-[{$iBirthdayDay }][{/if}]"/>
+            <input id="modernDate" type="date" value="[{if $iBirthdayDay > 0 }][{$iBirthdayYear }]-[{if $iBirthdayMonth < 10 }]0[{/if}][{$iBirthdayMonth }]-[{$iBirthdayDay }][{/if}]"/>
         </li>
     [{/if}]
 
