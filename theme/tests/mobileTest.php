@@ -46,7 +46,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Check does logo and alt  message exist in header
 
         // We do not check:that logo has a link to home page
-        // $this->assertTrue($this->isElementPresent("//a[@id='logo']/img"));
+        $this->assertTrue($this->isElementPresent("//a[@id='logo']/img"));
         $this->assertTrue($this->isElementPresent("//img[@alt='Shopping cart software by OXID eSales']"));
 
         // Check does header exist;
@@ -318,7 +318,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->testHeader($sTestStartPage);
         $this->testFooter($sTestStartPage);
 
-        // Check  does label"you company name exist"
+        // Check  does label "you company name exist"
         $this->assertTrue($this->isElementPresent("//div[@id='page']/div/h1"));
 
         // Check does company info with all contacts exist
@@ -367,7 +367,13 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->testHeader($sTestStartPage);
         $this->testFooter($sTestStartPage);
 
-        $this->doLogin();
+        // Go to my account page and login to it
+        $this->click("link=My Account");
+        $this->waitForPageToLoad("30000");
+        $this->type("id=loginUser", "admin");
+        $this->type("id=loginPwd", "admin");
+        $this->click("id=loginButton");
+        $this->waitForPageToLoad("30000");
 
         // Go to billing and shipping settings
         $this->click("css=#linkAccountBillship > span");
@@ -389,7 +395,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("id=addShippingAddress"));
 
         // Check does "send to billing address" label exist
-        $this->assertTrue($this->isElementPresent("css=div.collumn > label"));
+        $this->assertTrue($this->isElementPresent("css=div.collumn > ul > li > label"));
 
         // Check does "send billing address" checkbox   exist
         $this->assertTrue($this->isElementPresent("id=showShipAddress"));
@@ -401,7 +407,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("id=userChangeAddress");
 
         // Check does "billing address" label exist
-        $this->assertTrue($this->isElementPresent("css=h3.blockHead"));
+        $this->assertTrue($this->isElementPresent("id=addressSettingsHeader"));
 
         // Check does "e-mail" address exist
         $this->assertTrue($this->isElementPresent("//ul[@id='addressForm']/li/label"));
