@@ -1591,14 +1591,14 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("link=Example Set1: UPS 48 hours");
         $this->waitForPageToLoad("30000");
 
-        // Check does exis Shipping cost
+        // Check does exist Shipping cost
         $this->assertTrue($this->isElementPresent("//div[@id='shipSetCost']"));
         $this->click("//div[@id='paymentMethods']/div");
 
-        // Select of drowdown payment methot "Credit Card"
+        // Select of dropdown payment methot "Credit Card"
         $this->click("//div[@id='paymentMethods']/ul/li/a");
 
-        // Check does exist mayment method label
+        // Check does exist payment method label
         $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li/label"));
 
         // Check does exist note "If different from Billing Address."
