@@ -85,8 +85,8 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testStartPage()
     {
-        $sTestStartPage = "en/home/";
-        $this->openShop($sTestStartPage);
+        $sTestStartPage = shopURL."en/home/";
+        $this->open($sTestStartPage);
 
         //check header and footer
         $this->testHeader($sTestStartPage);
@@ -121,14 +121,13 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testCategoryList()
     {
-        $sTestStartPage = "en/Kiteboarding/";
-        $this->openShop($sTestStartPage);
+        $sTestStartPage = shopURL."en/Kiteboarding/";
 
         //check header and footer
         $this->testHeader($sTestStartPage);
         $this->testFooter($sTestStartPage);
 
-        $this->openShop("en/home/");
+        $this->open(shopURL."en/home/");
 
         // Check does category tree exist;
         $this->assertTrue($this->isElementPresent("id=cat_list"));
@@ -218,12 +217,13 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testDetailPage()
     {
+        $sTestStartPage = shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html";
         // Go to product detail page
-        $this->open(shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html");
+        $this->open($sTestStartPage);
 
         //Check header and footer
-        $this->testHeader(shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html");
-        $this->testFooter(shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html");
+        $this->testHeader($sTestStartPage);
+        $this->testFooter($sTestStartPage);
 
         // Check does previous button near back exist
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
@@ -282,7 +282,12 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testContactPage()
     {
-        $this->openShop("en/contact/");
+
+
+        $sTestStartPage = shopURL."en/contact/";
+        //Check header and footer
+        $this->testHeader($sTestStartPage);
+        $this->testFooter($sTestStartPage);
 
         // Check  does label"you company name exist"
         $this->assertTrue($this->isElementPresent("//div[@id='page']/div/h1"));
@@ -328,7 +333,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testBillingAndShippingSettings()
     {
-        $this->openShop("en/home/");
+        $sTestStartPage = shopURL."en/my-account";
+        //Check header and footer
+        $this->testHeader($sTestStartPage);
+        $this->testFooter($sTestStartPage);
 
         // Go to my account page and login to it
         $this->click("link=My Account");
@@ -342,10 +350,11 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("css=#linkAccountBillship > span");
         $this->waitForPageToLoad("30000");
 
+
         // Check does  "billing and shipping settings" label exist
         $this->assertTrue($this->isElementPresent("id=addressSettingsHeader"));
 
-        // Check does  billing adres label exist
+        // Check does  billing address label exist
         $this->assertTrue($this->isElementPresent("css=h3.blockHead"));
 
         // Check does "change" button exist
@@ -360,7 +369,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Check does "send to billing address" label exist
         $this->assertTrue($this->isElementPresent("css=div.collumn > label"));
 
-        // Check does "send biling address" checkbox   exist
+        // Check does "send billing address" checkbox   exist
         $this->assertTrue($this->isElementPresent("id=showShipAddress"));
 
         // Check does "save" button exist
