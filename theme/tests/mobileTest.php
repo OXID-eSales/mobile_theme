@@ -1553,6 +1553,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function test3BasketStep()
     {
         $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html");
+
         // Add product to basket
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
@@ -1582,7 +1583,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         //check header and footer
         $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testFooter( false, true );
 
         // Check does exist "Standard" dropdown
         $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
