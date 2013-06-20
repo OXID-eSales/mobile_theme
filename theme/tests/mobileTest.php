@@ -1385,6 +1385,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("//a[@id='linkAccountDownloads']/span");
         $this->waitForPageToLoad("30000");
 
+        //check header and footer.
+        $this->testHeader( false );
+        $this->testFooter( false, true );
+
         // Check does exist header "My download"
         $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
 
@@ -1450,6 +1454,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Going to Newsletter settings page
         $this->click("id=linkAccountNewsletter");
         $this->waitForPageToLoad("30000");
+
+        //check header and footer.
+        $this->testHeader( false );
+        $this->testFooter( false, true );
 
         // Check header "newsletter settings"
         $this->assertTrue($this->isElementPresent("id=newsletterSettingsHeader"));
