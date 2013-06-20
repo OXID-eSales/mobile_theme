@@ -891,7 +891,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testWishList()
     {
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
+        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
 
         // Check does exist wish list element "Star"
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-star"));
@@ -1175,10 +1175,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testError404()
     {
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
+        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
 
         // Open product with uncorrect link
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIX.html");
+        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIX.html" );
 
         // Check does exist Error header
         $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
@@ -1199,7 +1199,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testForgotPassword()
     {
-        $this->open( shopURL . "en/home/");
+        $this->open( shopURL . "en/home/" );
 
         // Open Login page
         $this->click("link=Login");
@@ -1252,7 +1252,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testLoginPage()
     {
-        $this->open( shopURL . "en/home/");
+        $this->open( shopURL . "en/home/" );
 
         // Going to Login page by clicking Login link
         $this->click("//a[contains(text(),'Login')]");
@@ -1303,7 +1303,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testMyAccount()
     {
-        $this->open( shopURL . "en/home/");
+        $this->open( shopURL . "en/home/" );
         $this->doLogin();
         $this->click("link=My Account");
         $this->waitForPageToLoad("30000");
@@ -1355,7 +1355,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testMyDownload()
     {
-        $this->open( shopURL . "en/home/");
+        $this->open( shopURL . "en/home/" );
         $this->click("link=Login");
         $this->waitForPageToLoad("30000");
         $this->type("name=lgn_usr", "admin");
@@ -1375,14 +1375,14 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         // Check does exist My download content
         $this->assertTrue($this->isElementPresent("css=div.content"));
-        $this->open( shopURL . "en/Downloads/Online-shops-with-OXID-eShop.html");
+        $this->open( shopURL . "en/Downloads/Online-shops-with-OXID-eShop.html" );
 
         // Add product related with "download product" to basket
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
 
         // open second product and add to basket
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
+        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
         $this->click("id=minibasketIcon");
@@ -1426,7 +1426,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testNewsletterSettings()
     {
-        $this->open( shopURL . "en/home/");
+        $this->open( shopURL . "en/home/" );
         $this->doLogin();
 
         // Going to Newsletter settings page
@@ -1476,7 +1476,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testOrderHistory()
     {
-        $this->open( shopURL . "en/home/");
+        $this->open( shopURL . "en/home/" );
         $this->doLogin();
 
         // Search for product (1402)
@@ -1552,7 +1552,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function test3BasketStep()
     {
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html");
+        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
 
         // Add product to basket
         $this->click("id=toBasket");
@@ -1684,7 +1684,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testCmsPage()
     {
-        $this->open( shopURL . "en/home/");
+        $this->open( shopURL . "en/home/" );
 
         // Click on CMS page "About us"
         $this->click("//a[contains(text(),'About Us')]");
