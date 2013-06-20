@@ -18,6 +18,20 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         parent::setUp(false);
     }
 
+    /**
+     * Login to shop.
+     */
+    protected function doLogin()
+    {
+        // Go to my account page and login to it
+        $this->click("link=My Account");
+        $this->waitForPageToLoad("30000");
+        $this->type("id=loginUser", "admin");
+        $this->type("id=loginPwd", "admin");
+        $this->click("id=loginButton");
+        $this->waitForPageToLoad("30000");
+    }
+
     // ------------------------ Mobile  functionality ----------------------------------
     /**
      * testing all header elements;
@@ -56,7 +70,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all footer elements;
      * @group mobile
      */
-    public function testFooter( $sURL = null )
+    public function testFooter( $sURL = null, $blUserLogIn = false )
     {
         if (!$sURL) {
             $sURL = shopURL."en/home/";
@@ -71,12 +85,29 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Check does footer navigation list elements exist
         $this->assertTrue($this->isElementPresent("link=My Account"));
         $this->assertTrue($this->isElementPresent("link=Home"));
-        $this->assertTrue($this->isElementPresent("link=Login"));
+        if ( $blUserLogIn ) {
+            $this->assertTrue($this->isElementPresent("link=Logout"));
+        } else {
+            $this->assertTrue($this->isElementPresent("link=Login"));
+        }
         $this->assertTrue($this->isElementPresent("link=Regular display"));
         $this->assertTrue($this->isElementPresent("link=Contact"));
         $this->assertTrue($this->isElementPresent("link=About Us"));
         $this->assertTrue($this->isElementPresent("link=Privacy Policy"));
         $this->assertTrue($this->isElementPresent("link=Terms and Conditions"));
+    }
+
+    /**
+     * Test if footer looks ok when user is logged in.
+     * @param string $sURL shop url to test on.
+     */
+    public function testLoginUserFooter( $sURL = null )
+    {
+        if ( !$sURL ) {
+            $this->openShop();
+        }
+        $this->doLogin();
+        $this->testFooter( $sURL, true );
     }
 
     /**
@@ -336,13 +367,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->testHeader($sTestStartPage);
         $this->testFooter($sTestStartPage);
 
-        // Go to my account page and login to it
-        $this->click("link=My Account");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $this->doLogin();
 
         // Go to billing and shipping settings
         $this->click("css=#linkAccountBillship > span");
