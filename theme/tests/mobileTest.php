@@ -454,12 +454,12 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->testFooter( false );
 
         // Check does step line on top of the page exist
-        $this->assertTrue($this->isElementPresent("css=span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-id"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-number"));
         $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=span.step-id.last"));
+        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
 
         // Check does imput field for login name and password exists
         $this->assertTrue($this->isElementPresent("name=lgn_usr"));
