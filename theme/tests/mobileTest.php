@@ -39,10 +39,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testHeader( $sURL = null )
     {
-        if (!$sURL) {
-            $sURL = shopURL."en/home/";
+        if ( !$sURL ) {
+            $this->openShop();
         }
-        $this->open($sURL);
+
         // Check does logo and alt  message exist in header
 
         // We do not check:that logo has a link to home page
@@ -72,10 +72,9 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testFooter( $sURL = null, $blUserLogIn = false )
     {
-        if (!$sURL) {
-            $sURL = shopURL."en/home/";
+        if ( !$sURL ) {
+            $this->openShop();
         }
-        $this->open($sURL);
 
         // Check does footer exist
         $this->assertTrue($this->isElementPresent("id=footer"));
@@ -153,6 +152,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testCategoryList()
     {
         $sTestStartPage = shopURL."en/Kiteboarding/";
+        $this->open($sTestStartPage);
 
         //check header and footer
         $this->testHeader($sTestStartPage);
@@ -314,6 +314,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testContactPage()
     {
         $sTestStartPage = shopURL."en/contact/";
+        $this->open($sTestStartPage);
         //Check header and footer
         $this->testHeader($sTestStartPage);
         $this->testFooter($sTestStartPage);
@@ -363,17 +364,15 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testBillingAndShippingSettings()
     {
         $sTestStartPage = shopURL."en/my-account";
+        $this->open($sTestStartPage);
+
         //Check header and footer
         $this->testHeader($sTestStartPage);
         $this->testFooter($sTestStartPage);
 
         // Go to my account page and login to it
+        $this->doLogin();
         $this->click("link=My Account");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
 
         // Go to billing and shipping settings
         $this->click("css=#linkAccountBillship > span");
@@ -441,7 +440,8 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testSecondStepNotLoginUser()
     {
-        $this->openShop("en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
+        $sTestStartPage = shopURL."en/Kiteboarding/Harnesses/Harness-MADTRIXX.html";
+        $this->open(shopURL."en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
 
         // Add product to the basket
         $this->click("id=toBasket");
@@ -454,6 +454,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Go to 2nd step
         $this->click("css=#btnNextStepBottom > form.form > input.btn.nextStep");
         $this->waitForPageToLoad("30000");
+
+        //Check header and footer
+        $this->testHeader($sTestStartPage);
+        $this->testFooter($sTestStartPage);
 
         // Check does step line on top of the page exist
         $this->assertTrue($this->isElementPresent("css=span.step-id"));
