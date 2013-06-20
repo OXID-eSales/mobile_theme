@@ -67,7 +67,7 @@
     </li>
     <li class="inline-elements first-big [{if $aErrors.oxuser__oxstreet}]invalid-field[{/if}]">
         <input class="bigField [{if $oView->isFieldRequired(oxuser__oxstreet) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="STREET" }][{if $oView->isFieldRequired(oxuser__oxstreet) }]*[{/if}]" type="text" data-fieldsize="pair-xsmall" maxlength="255" name="invadr[oxuser__oxstreet]" value="[{if isset( $invadr.oxuser__oxstreet ) }][{ $invadr.oxuser__oxstreet }][{else }][{ $oxcmp_user->oxuser__oxstreet->value }][{/if}]">
-        <input class="small-field absoluteRight [{if $oView->isFieldRequired(oxuser__oxstreetnr) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="HOUSE_NO" }]*" type="number" data-fieldsize="xsmall" maxlength="16" name="invadr[oxuser__oxstreetnr]" value="[{if isset( $invadr.oxuser__oxstreetnr ) }][{ $invadr.oxuser__oxstreetnr }][{else }][{ $oxcmp_user->oxuser__oxstreetnr->value }][{/if}]">
+        <input class="small-field absoluteRight [{if $oView->isFieldRequired(oxuser__oxstreetnr) }]js-oxValidate js-oxValidate_notEmpty[{/if}]" placeholder="[{ oxmultilang ident="HOUSE_NO" }]*" type="text" data-fieldsize="xsmall" maxlength="16" name="invadr[oxuser__oxstreetnr]" value="[{if isset( $invadr.oxuser__oxstreetnr ) }][{ $invadr.oxuser__oxstreetnr }][{else }][{ $oxcmp_user->oxuser__oxstreetnr->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxstreet) || $oView->isFieldRequired(oxuser__oxstreetnr) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
