@@ -1430,7 +1430,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->doLogin();
 
         // Going to Newsletter settings page
-        $this->click("//li[2]/a/span");
+        $this->click("id=linkAccountNewsletter");
         $this->waitForPageToLoad("30000");
 
         // Check header "newsletter settings"
@@ -1440,7 +1440,8 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("css=div.content"));
 
         // Check label with name "Newsletter subscription:"
-        $this->assertTrue($this->isElementPresent("css=label"));
+        $sNewsletterHeader = $this->getText("//form[@name='newsletter']//ul/li/label");
+        $this->assertTrue("Newsletter subscription:" == $sNewsletterHeader);
 
         // Check does exist dropdown
         $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
@@ -1459,15 +1460,14 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("id=newsletterSettingsSave");
         $this->waitForPageToLoad("30000");
 
-        // Check text "It's possible to cancel newsletter at any time."
-        $this->assertTrue($this->isElementPresent("css=p"));
+        $sNewsletterCancelText = $this->getText("//form[@name='newsletter']//ul/li[3]/p");
+        $this->assertTrue("It's possible to cancel newsletter at any time." == $sNewsletterCancelText);
 
         // Check does exist message "You have just been sent a confirmation e-mail, with which you can activate your subscription."
         $this->click("css=div.dropdown-toggle");
         $this->click("link=Yes");
         $this->click("id=newsletterSettingsSave");
         $this->waitForPageToLoad("30000");
-        $this->assertTrue($this->isElementPresent("//form/div"));
     }
 
     /**
