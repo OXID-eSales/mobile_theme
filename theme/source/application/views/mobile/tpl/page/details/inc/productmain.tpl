@@ -145,7 +145,7 @@
         [{block name="details_productmain_persparams"}]
         [{if $oView->isPersParam()}]
             <div class="persparamBox clear">
-                <label for="persistentParam">[{ oxmultilang ident="LABEL"  }]</label><input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35">
+                <input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35" placeholder="[{ oxmultilang ident="LABEL" }]" />
             </div>
         [{/if}]
         [{/block}]

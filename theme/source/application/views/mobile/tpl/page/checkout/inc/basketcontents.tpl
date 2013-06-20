@@ -90,26 +90,22 @@
                                 </p>
                             [{else}]
                                 [{if $basketproduct->oxarticles__oxisconfigurable->value}]
+                                    <br />
                                     [{if $basketitem->getPersParams()}]
-                                        <br />
                                         [{foreach key=sVar from=$basketitem->getPersParams() item=aParam name=persparams}]
                                             <p>
-                                                <label class="persParamLabel">
+                                                <input class="textbox persParam" type="text" name="aproducts[[{ $basketindex}]][persparam][[{ $sVar}]]" value="[{ $aParam}]"
                                                     [{if $smarty.foreach.persparams.first && $smarty.foreach.persparams.last}]
-                                                        [{ oxmultilang ident="LABEL" }]
+                                                        placeholder="[{ oxmultilang ident="LABEL" }]"
                                                     [{else}]
-                                                        [{ $sVar}]:
+                                                        placeholder="[{ $sVar }]:"
                                                     [{/if}]
-                                                </label>
-                                                <input class="textbox persParam" type="text" name="aproducts[[{ $basketindex}]][persparam][[{ $sVar}]]" value="[{ $aParam}]">
+                                                />
                                             </p>
                                         [{/foreach}]
                                     [{else}]
                                          <p>
-                                             <label class="persParamLabel">
-                                                 [{ oxmultilang ident="LABEL" }]
-                                             </label>
-                                             <input class="textbox persParam" type="text" name="aproducts[[{ $basketindex}]][persparam][details]" value="">
+                                             <input class="textbox persParam" type="text" name="aproducts[[{ $basketindex}]][persparam][details]" value="" placeholder="[{ oxmultilang ident="LABEL" }]" />
                                          </p>
                                     [{/if}]
                                 [{/if}]
