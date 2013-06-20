@@ -491,21 +491,19 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("css=#btnNextStepBottom > form.form > input.btn.nextStep");
         $this->waitForPageToLoad("30000");
 
-        // Login to the system
-        $this->type("name=lgn_usr", "admin");
-        $this->type("name=lgn_pwd", "admin");
-        $this->click("css=input.btn");
-        $this->waitForPageToLoad("30000");
+        //Check header and footer
+        $this->testHeader( false );
+        $this->testFooter( false, true );
 
         // Check does  step line with all steps exist
-        $this->assertTrue($this->isElementPresent("css=span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-id"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-number"));
         $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=#paymentStep > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=span.step-id.last"));
+        $this->assertTrue($this->isElementPresent("css=li.step3"));
+        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
 
-        // Check does biling address label exist
+        // Check does billing address label exist
         $this->assertTrue($this->isElementPresent("css=h3"));
 
         // Check does "change address" button exist
@@ -514,10 +512,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Check does address exist
         $this->assertTrue($this->isElementPresent("css=#addressText > li"));
 
-        // Check does "send to biling address" label exist
+        // Check does "send to billing address" label exist
         $this->assertTrue($this->isElementPresent("css=div.form > label"));
 
-        // Check does "send to biling address"  checkbox exist
+        // Check does "send to billing address"  checkbox exist
         $this->assertTrue($this->isElementPresent("id=showShipAddress"));
 
         // Check does  remark field exist
@@ -539,7 +537,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
 
-        // Add product to the bascet
+        // Add product to the basket
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
 
@@ -555,17 +553,23 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("css=#optionNoRegistration > form.form > input.btn");
         $this->waitForPageToLoad("30000");
 
-        // check does step line exist with all steps;
-        $this->assertTrue($this->isElementPresent("css=span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=span.step-id.last"));
+        //Check header and footer
+        $this->testHeader( false );
+        $this->testFooter( false );
 
-        // Check does;
-        $this->assertTrue($this->isElementPresent("css=h3.blockHead"));
-        $this->assertTrue($this->isElementPresent("css=label.req"));
+        // Check does step line exist with all steps;
+        $this->assertTrue($this->isElementPresent("css=span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-name"));
+        $this->assertTrue($this->isElementPresent("css=li.step3"));
+        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+
+
+        // Check does Customer information label exist;
+        $this->assertTrue($this->isElementPresent("css=h3.block-head"));
+
+        // Check does label and imput field for email address exist;
         $this->assertTrue($this->isElementPresent("id=userLoginName"));
 
         // Check  does warning message "Specify a value for this required field" exist;
@@ -626,7 +630,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all start page elements
      * @group mobile
      */
-    public function testSearchList()
+    public function testSearchListMobile()
     {
         $this->open( shopURL . "en/home/" );
 
@@ -637,9 +641,13 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->type("id=searchParam", "kite");
 
         // Press search button
-        $this->click("css=button.btn.small");
+        $this->click("css=button.btn.search-btn");
         $this->waitForPageToLoad("30000");
         $this->click("css=i.glyphicon-search");
+
+        //Check header and footer
+        $this->testHeader( false );
+        $this->testFooter( false );
 
         // Check does "24 Hits for "kite" " exist
         $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
@@ -667,53 +675,34 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing user first step when user is not logged in  page elements
      * @group mobile
      */
-    public function testFirstStepNotLogoutUser()
+    public function testFirstStepNotLogInUser()
     {
-        $this->open( shopURL . "en/home/" );
-        $this->click("//div[@id='header']/div/div/a");
+ /*   //Commented because of bug #5227
+       // Go to product "3570" detail page
+        $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-ANNA.html" );
 
-        // Search a products with NO: 1205, 3570, 3788
-        $this->type("id=searchParam", "1205 3570 3788");
-        $this->click("css=button.btn.small");
-        $this->waitForPageToLoad("30000");
-
-        // Select size from dropdown
+        // Choose variants
         $this->click("css=div.dropdown-toggle");
-        $this->click("css=a.media-heading-link > span");
-        $this->waitForPageToLoad("30000");
-
-        // Choose variant W 31/L34
+        $this->click("link=W 30/L 30");
+        $this->click("css=div.dropdown.open");
         $this->click("css=div.dropdown-toggle");
-        $this->click("//ul[@id='variants']/li/div/ul/li[2]/a");
-
-        // Select color from dropdown, "Smoke Gray"
-        $this->click("css=div.dropdown.open > div.dropdown-toggle");
-        $this->click("//ul[@id='variants']/li[2]/div/ul/li[3]/a");
-        $this->click("//a[contains(text(),'Smoke Gray')]");
+        $this->click("link=Smoke Gray");
+        $this->waitForPageToLoad("30000");
 
         // Add product to basket
-        $this->waitForPageToLoad("30000");
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
-
-        // Click on "BACK" button
-        $this->click("css=a.back > span");
-        $this->waitForPageToLoad("30000");
-
-        // Go to product "3570" detail page
-        $this->click("//ul[@id='searchList']/li[2]/form/div[2]/h4/a/span");
-        $this->waitForPageToLoad("30000");
+*/
+        // Go to product "1205" detail page
+        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
-        $this->click("css=a.back > span");
-        $this->waitForPageToLoad("30000");
 
-        // Go to prodyct"Kite CORE GT" details page and add to basket
-        $this->click("//ul[@id='searchList']/li[3]/form/div[2]/h4/a/span");
-        $this->waitForPageToLoad("30000");
+        // Add 1205 product to cart
+        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
 
@@ -721,18 +710,21 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("id=minibasketIcon");
         $this->waitForPageToLoad("30000");
 
-        // Check does exist element 01 step
-        $this->assertTrue($this->isElementPresent("css=span.step-id"));
+        //Check header and footer
+        $this->testHeader( false );
+        $this->testFooter( false );
 
-        // Check does exist 1 basket steps name  element "Cart"
+        // Check does  step line with all steps exist
+        $this->assertTrue($this->isElementPresent("css=span.step-number"));
         $this->assertTrue($this->isElementPresent("css=span.step-name"));
+        $this->assertTrue($this->isElementPresent("css=li.step2 > a > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
 
         // Check does exist 01 CART content
         $this->assertTrue($this->isElementPresent("css=div.content"));
         $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th"));
-
-        // Check does exist 01 Cart step and it is marked as not active
-        $this->assertTrue($this->isElementPresent("css=li.step1.active"));
 
         // Check does exist button CONTINUE
         $this->assertTrue($this->isElementPresent("css=input.btn.nextStep"));
@@ -747,15 +739,15 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         // Check does exist element of variant
         $this->assertTrue($this->isElementPresent("css=p.attributes"));
 
-        // check does exist quantity input fields
+        // Check does exist quantity input fields
         $this->assertTrue($this->isElementPresent("id=am_1"));
         $this->assertTrue($this->isElementPresent("id=am_2"));
         $this->assertTrue($this->isElementPresent("//li[@id='cartItem_1']/div/div/input[4]"));
 
-        // check does exist element for VAT
+        // Check does exist element for VAT
         $this->assertTrue($this->isElementPresent("css=span.vat-percent"));
 
-        // check does exist element for main price
+        // Check does exist element for main price
         $this->assertTrue($this->isElementPresent("css=span.main-price"));
 
         // Check does exist  input field for persParam
@@ -763,13 +755,14 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         // Check does exist label element
         $this->assertTrue($this->isElementPresent("css=label.persParamLabel"));
-
-        // check does exist element of attribute
+/*
+ *  //Commented because of bug #5227
+        // Check does exist element of attribute
         $this->assertTrue($this->isElementPresent("css=#cartItem_3 > div.media-body > p.attributes"));
         $this->assertTrue($this->isElementPresent("//li[@id='cartItem_3']/div/p"));
         $this->assertTrue($this->isElementPresent("css=#cartItem_2 > div.media-body"));
-
-        // check does exist label Update
+*/
+        // Check does exist label Update
         $this->assertTrue($this->isElementPresent("//div[@id='basketFn']/label"));
 
         // Check does exist button Basket update
@@ -792,74 +785,44 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         // Check does exist all checkout steps at the top
         $this->assertTrue($this->isElementPresent("css=ul.checkout-steps."));
-
-        // Check does exist step 2 and it is marked as not active
-        $this->assertTrue($this->isElementPresent("css=li.step2"));
-
-        // Check does exist step 3 and it is marked as not active
-        $this->assertTrue($this->isElementPresent("css=li.step3"));
-
-        // Check does exist last steps as not active
-        $this->assertTrue($this->isElementPresent("css=span.step-id.last"));
-        $this->assertTrue($this->isElementPresent("css=form[name=\"basket\"]"));
-
-        // Check basket 1 step as user is login
-        $this->click("//div[@id='btnNextStepBottom']/form/input[4]");
-        $this->waitForPageToLoad("30000");
     }
 
     /**
      * testing user first step when user is logged in  page elements
      * @group mobile
      */
-    public function testFirstStepNotLoginUser()
+    public function testFirstStepLoginUser()
     {
-        $this->open(  shopURL."en/home/" );
+
+        $this->open( shopURL . "en/home/" );
         $this->doLogin();
-        $this->click("link=Logout");
-        $this->waitForPageToLoad("30000");
-        $this->click("//div[@id='header']/div/div/a");
 
-        // Search a products with NO: 1205, 3570, 3788
-        $this->type("id=searchParam", "1205 3570 3788");
-        $this->click("css=button.btn.small");
-        $this->waitForPageToLoad("30000");
+        /*   //Commented because of bug #5227
+         // Go to product "3570" detail page
+          $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-ANNA.html" );
 
-        // Select size from dropdown
-        $this->click("css=div.dropdown-toggle");
-        $this->click("css=a.media-heading-link > span");
-        $this->waitForPageToLoad("30000");
+          // Choose variants
+          $this->click("css=div.dropdown-toggle");
+          $this->click("link=W 30/L 30");
+          $this->click("css=div.dropdown.open");
+          $this->click("css=div.dropdown-toggle");
+          $this->click("link=Smoke Gray");
+          $this->waitForPageToLoad("30000");
 
-        // Choose variant W 31/L34
-        $this->click("//ul[@id='variants']/li/div/ul/li[2]/a");
-
-        // Select color from dropdown
-        // Choose variant "Smoke Gray"
-        $this->click("//ul[@id='variants']/li[2]/div/ul/li[2]/a");
-
-        // Add product to basket
-        $this->waitForPageToLoad("30000");
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
-
-        // Click on "BACK" button
-        $this->click("css=a.back > span");
-        $this->waitForPageToLoad("30000");
-
-        // Go to product "3570" detail page
-        $this->click("//ul[@id='searchList']/li[2]/form/div[2]/h4/a/span");
-        $this->waitForPageToLoad("30000");
+          // Add product to basket
+          $this->click("id=toBasket");
+          $this->waitForPageToLoad("30000");
+  */
+        // Go to product "1205" detail page
+        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
-        $this->click("css=a.back > span");
-        $this->waitForPageToLoad("30000");
 
-        // Go to prodyct"Kite CORE GT" details page and add to basket
-        $this->click("//ul[@id='searchList']/li[3]/form/div[2]/h4/a/span");
-        $this->waitForPageToLoad("30000");
+        // Add 1205 product to cart
+        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
 
@@ -867,22 +830,81 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("id=minibasketIcon");
         $this->waitForPageToLoad("30000");
 
-        // Check does exist Grand Total
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[4]/th"));
-        $this->assertTrue($this->isElementPresent("css=td > strong"));
-        $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th/strong"));
-
-        // Check does exist button "Continue"
-        $this->assertTrue($this->isElementPresent("css=#btnNextStepBottom > form.form > input.btn.nextStep"));
-        $this->assertTrue($this->isElementPresent("css=input.btn.nextStep"));
+        //Check header and footer
+        $this->testHeader( false );
+        $this->testFooter( false, true );
 
         // Check does  step line with all steps exist
-        $this->assertTrue($this->isElementPresent("css=span.step-id"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number"));
         $this->assertTrue($this->isElementPresent("css=span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step2 > a > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step5"));
+        $this->assertTrue($this->isElementPresent("css=li.step2 > a > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+
+        // Check does exist 01 CART content
+        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th"));
+
+        // Check does exist button CONTINUE
+        $this->assertTrue($this->isElementPresent("css=input.btn.nextStep"));
+        $this->assertTrue($this->isElementPresent("css=#btnNextStepBottom > form.form > input.btn.nextStep"));
+
+        // Check does exist remove button
+        $this->assertTrue($this->isElementPresent("name=removeBtn"));
+
+        // Check does exist element product title link
+        $this->assertTrue($this->isElementPresent("css=a.media-heading-link"));
+
+        // Check does exist element of variant
+        $this->assertTrue($this->isElementPresent("css=p.attributes"));
+
+        // Check does exist quantity input fields
+        $this->assertTrue($this->isElementPresent("id=am_1"));
+        $this->assertTrue($this->isElementPresent("id=am_2"));
+        $this->assertTrue($this->isElementPresent("//li[@id='cartItem_1']/div/div/input[4]"));
+
+        // Check does exist element for VAT
+        $this->assertTrue($this->isElementPresent("css=span.vat-percent"));
+
+        // Check does exist element for main price
+        $this->assertTrue($this->isElementPresent("css=span.main-price"));
+
+        // Check does exist  input field for persParam
+        $this->assertTrue($this->isElementPresent("//li[@id='cartItem_2']/div/p[2]/input"));
+
+        // Check does exist label element
+        $this->assertTrue($this->isElementPresent("css=label.persParamLabel"));
+        /*
+         *  //Commented because of bug #5227
+                // Check does exist element of attribute
+                $this->assertTrue($this->isElementPresent("css=#cartItem_3 > div.media-body > p.attributes"));
+                $this->assertTrue($this->isElementPresent("//li[@id='cartItem_3']/div/p"));
+                $this->assertTrue($this->isElementPresent("css=#cartItem_2 > div.media-body"));
+        */
+        // Check does exist label Update
+        $this->assertTrue($this->isElementPresent("//div[@id='basketFn']/label"));
+
+        // Check does exist button Basket update
+        $this->assertTrue($this->isElementPresent("id=basketFn"));
+        $this->assertTrue($this->isElementPresent("id=basketUpdate"));
+
+        // Check does exist label element Total Products (net)
+        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr/th"));
+
+        // Check does exist label plus var 19 Amount
+        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[2]/th"));
+
+        // Check does exist label "Total product (gross)
+        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[3]/th"));
+        $this->assertTrue($this->isElementPresent("id=basketTotalProductsNetto"));
+        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[2]/td"));
+        $this->assertTrue($this->isElementPresent("id=basketTotalProductsGross"));
+        $this->assertTrue($this->isElementPresent("css=#basketGrandTotal > td"));
+        $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th/strong"));
+
+        // Check does exist all checkout steps at the top
+        $this->assertTrue($this->isElementPresent("css=ul.checkout-steps."));
     }
 
     /**
