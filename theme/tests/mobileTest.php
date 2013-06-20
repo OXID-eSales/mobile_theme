@@ -1472,57 +1472,30 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     /**
      * testing all order history page elements
+     * @todo need to ensure that order exist in database.
      * @group mobile
      */
     public function testOrderHistory()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->open( shopURL . "en/order-history/" );
+        //check header and footer.
+        $this->testHeader( false );
+        $this->testFooter( false );
+
         $this->doLogin();
+        $this->open( shopURL . "en/order-history/" );
 
-        // Search for product (1402)
-        $this->click("css=i.glyphicon-search");
-        $this->type("id=searchParam", "1402");
-        $this->click("//div[@id='search']/form/button");
-        $this->waitForPageToLoad("30000");
-        $this->click("css=a.media-heading-link > span");
-        $this->waitForPageToLoad("30000");
-        $this->click("//button[@id='toBasket']");
-        $this->waitForPageToLoad("30000");
-
-        // Click on button mini basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
-
-        // Go to 2nd steps
-        $this->click("//div[@id='btnNextStepBottom']/form/input[4]");
-        $this->waitForPageToLoad("30000");
-
-        // Go to  3 basket steps
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
-
-        // Go to 4 basket step
-        $this->click("id=paymentNextStepBottom");
-        $this->waitForPageToLoad("30000");
-        $this->click("css=li > button.btn");
-        $this->waitForPageToLoad("30000");
-
-        // In the 5 basket steps click on link order history
-        $this->click("id=orderHistory");
-        $this->waitForPageToLoad("30000");
-
-        // Check does exist "ORDER HISTORY " header
+        // Check does exist "ORDER HISTORY " header.
         $this->assertTrue($this->isElementPresent("//div[@id='page']/div/h1"));
-
-        // Check does exist element order date
+        // Check does exist element order date.
         $this->assertTrue($this->isElementPresent("//span[@id='accOrderDate_2']"));
 
-        // Check does exist order no
+        // Check does exist order no.
         $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li/strong"));
         $this->assertTrue($this->isElementPresent("css=ul.order-history-details > li"));
         $this->assertTrue($this->isElementPresent("id=accOrderNo_2"));
 
-        // Check does exist Order status
+        // Check does exist Order status.
         $this->assertTrue($this->isElementPresent("//li[2]/strong"));
         $this->assertTrue($this->isElementPresent("//span[@id='accOrderStatus_2']/span"));
         $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li[2]"));
@@ -1532,17 +1505,15 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("//span[@id='accOrderName_2']"));
         $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li[3]"));
 
-        // Check does exist product in ORDER HISTORY list
+        // Check does exist product in ORDER HISTORY list.
         $this->assertTrue($this->isElementPresent("css=ul.order-history-articles"));
         $this->assertTrue($this->isElementPresent("css=ul.order-history-articles > li"));
         $this->assertTrue($this->isElementPresent("id=accOrderLink_2_1"));
 
-        // Check does exist (order history details) style
+        // Check does exist (order history details) style.
         $this->assertTrue($this->isElementPresent("css=ul.order-history-details"));
-        $this->click("css=span");
-        $this->waitForPageToLoad("30000");
-        $this->click("//a[@id='linkAccountOrder']/span");
-        $this->waitForPageToLoad("30000");
+        // Check if back button exist.
+        $this->isElementPresent("a[class=back]");
     }
 
 
