@@ -37,9 +37,9 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all header elements;
      * @group mobile
      */
-    public function testHeader( $sURL = null )
+    public function testHeader( $blOpenPage = true )
     {
-        if ( !$sURL ) {
+        if ( $blOpenPage ) {
             $this->openShop();
         }
 
@@ -70,9 +70,9 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all footer elements;
      * @group mobile
      */
-    public function testFooter( $sURL = null, $blUserLogIn = false )
+    public function testFooter( $blOpenPage = true, $blUserLogIn = false )
     {
-        if ( !$sURL ) {
+        if ( $blOpenPage ) {
             $this->openShop();
         }
 
@@ -115,12 +115,11 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testStartPage()
     {
-        $sTestStartPage = shopURL."en/home/";
-        $this->open($sTestStartPage);
+        $this->open( shopURL."en/home/" );
 
         //check header and footer
-        $this->testHeader($sTestStartPage);
-        $this->testFooter($sTestStartPage);
+        $this->testHeader( false );
+        $this->testFooter( false );
 
         // Need add cookie note checking
         // Check does banner element exist;
@@ -151,12 +150,11 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testCategoryList()
     {
-        $sTestStartPage = shopURL."en/Kiteboarding/";
-        $this->open($sTestStartPage);
+        $this->open( shopURL."en/Kiteboarding/" );
 
         //check header and footer
-        $this->testHeader($sTestStartPage);
-        $this->testFooter($sTestStartPage);
+        $this->testHeader( false );
+        $this->testFooter( false );
 
         $this->open(shopURL."en/home/");
 
@@ -248,13 +246,12 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testDetailPage()
     {
-        $sTestStartPage = shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html";
         // Go to product detail page
-        $this->open($sTestStartPage);
+        $this->open( shopURL."en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html" );
 
         //Check header and footer
-        $this->testHeader($sTestStartPage);
-        $this->testFooter($sTestStartPage);
+        $this->testHeader( false );
+        $this->testFooter( false );
 
         // Check does previous button near back exist
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
@@ -313,11 +310,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testContactPage()
     {
-        $sTestStartPage = shopURL."en/contact/";
-        $this->open($sTestStartPage);
+        $this->open( shopURL."en/contact/" );
         //Check header and footer
-        $this->testHeader($sTestStartPage);
-        $this->testFooter($sTestStartPage);
+        $this->testHeader( false );
+        $this->testFooter( false );
 
         // Check  does label "you company name exist"
         $this->assertTrue($this->isElementPresent("//div[@id='page']/div/h1"));
@@ -363,12 +359,11 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testBillingAndShippingSettings()
     {
-        $sTestStartPage = shopURL."en/my-account";
-        $this->open($sTestStartPage);
+        $this->open( shopURL."en/my-account" );
 
         //Check header and footer
-        $this->testHeader($sTestStartPage);
-        $this->testFooter($sTestStartPage);
+        $this->testHeader( false );
+        $this->testFooter( false );
 
         // Go to my account page and login to it
         $this->doLogin();
@@ -440,7 +435,6 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testSecondStepNotLoginUser()
     {
-        $sTestStartPage = shopURL."en/Kiteboarding/Harnesses/Harness-MADTRIXX.html";
         $this->open(shopURL."en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
 
         // Add product to the basket
@@ -456,8 +450,8 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->waitForPageToLoad("30000");
 
         //Check header and footer
-        $this->testHeader($sTestStartPage);
-        $this->testFooter($sTestStartPage);
+        $this->testHeader( false );
+        $this->testFooter( false );
 
         // Check does step line on top of the page exist
         $this->assertTrue($this->isElementPresent("css=span.step-id"));
@@ -1587,10 +1581,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->waitForPageToLoad("30000");
 
         //check header
-        $this->testHeader();
+        $this->testHeader( false );
 
         //check does exist footer
-        $this->testFooter();
+        $this->testFooter( false );
 
         // Check does exist "Standard" dropdown
         $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
@@ -1698,10 +1692,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         $this->waitForPageToLoad("30000");
         //check header
-        $this->testHeader();
+        $this->testHeader( false );
 
         //check does exist footer
-        $this->testFooter();
+        $this->testFooter( false );
 
         // Check does exist header ABOUT US
         $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
