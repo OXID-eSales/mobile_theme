@@ -1580,10 +1580,8 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("id=userNextStepBottom");
         $this->waitForPageToLoad("30000");
 
-        //check header
+        //check header and footer
         $this->testHeader( false );
-
-        //check does exist footer
         $this->testFooter( false );
 
         // Check does exist "Standard" dropdown
@@ -1691,10 +1689,9 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("//a[contains(text(),'About Us')]");
 
         $this->waitForPageToLoad("30000");
-        //check header
-        $this->testHeader( false );
 
-        //check does exist footer
+        //check header and footer
+        $this->testHeader( false );
         $this->testFooter( false );
 
         // Check does exist header ABOUT US
