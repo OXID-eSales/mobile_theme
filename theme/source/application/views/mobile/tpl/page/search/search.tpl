@@ -7,7 +7,7 @@
 [{assign var="search_head" value=$oView->getArticleCount()|cat:" "|cat:$search_head|cat:" &quot;"|cat:$oView->getSearchParamForHtml()|cat:"&quot;"}]
 [{assign var='rsslinks' value=$oView->getRssLinks() }]
 
-  <h1 class="pageHead">
+  <h1 class="page-head">
       [{$oView->getArticleCount()}] [{oxmultilang ident="HITS_FOR"}] &quot;[{$oView->getSearchParamForHtml()}]&quot;
   </h1>
   [{block name="search_results"}]

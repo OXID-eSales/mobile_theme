@@ -1,6 +1,6 @@
 [{capture append="oxidBlock_content"}]
     [{assign var="template_title" value="PAGE_INFO_SUGGEST_TITLE"|oxmultilangassign}]
-    <h1 class="pageHead">[{ oxmultilang ident="PAGE_INFO_SUGGEST_TITLE" }]</h1>
+    <h1 class="page-head">[{ oxmultilang ident="PAGE_INFO_SUGGEST_TITLE" }]</h1>
     <ul>
         <li>[{ oxmultilang ident="PAGE_INFO_SUGGEST_ENTERYOURADDRESSANDMESSAGE" }]</li>
         <li>[{ oxmultilang ident="PAGE_INFO_SUGGEST_CLICKONSEND" }]</li>

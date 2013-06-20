@@ -13,7 +13,7 @@
         [{assign var="template_title" value="PAGE_ACCOUNT_FORGOTPWD_TITLE"|oxmultilangassign}]
     [{/if}]
 
-    <h1 class="pageHead">[{$template_title}]</h1>
+    <h1 class="page-head">[{$template_title}]</h1>
 
     <div class="content">
         [{if $oView->isExpiredLink() }]

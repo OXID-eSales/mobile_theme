@@ -8,7 +8,7 @@
     [{if $oView->isActive('PsLogin') }]
         [{include file="message/errors.tpl" }]
     [{/if}]
-    <h1 id="openAccHeader" class="pageHead">[{ oxmultilang ident="OPEN_ACCOUNT" }]</h1>
+    <h1 id="openAccHeader" class="page-head">[{ oxmultilang ident="OPEN_ACCOUNT" }]</h1>
     [{include file="form/register.tpl"}]
     [{ insert name="oxid_tracker" title=$template_title }]
 [{/capture}]

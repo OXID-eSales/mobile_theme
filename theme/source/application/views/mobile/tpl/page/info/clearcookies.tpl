@@ -1,7 +1,7 @@
 [{capture append="oxidBlock_content"}]
     [{assign var="template_title" value="PAGE_INFO_CLEARCOOKIE_TITLE"|oxmultilangassign}]
-    <h1 class="pageHead">[{ oxmultilang ident="PAGE_INFO_CLEARCOOKIE_TITLE" }]</h1>
-    <div class="cms-content">
+    <h1 class="page-head">[{ oxmultilang ident="PAGE_INFO_CLEARCOOKIE_TITLE" }]</h1>
+    <div class="content">
         <p>
             [{oxifcontent ident="oxcookiesexplanation" object="oCont"}]
                 [{$oCont->oxcontents__oxcontent->value}]

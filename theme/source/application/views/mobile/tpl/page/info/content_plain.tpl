@@ -3,8 +3,8 @@
     [{assign var="template_title" value=$oView->getTitle()}]
     [{assign var="tpl" value=$oViewConf->getActTplName()}]
     [{assign var="oxloadid" value=$oViewConf->getActContentLoadId()}]
-    <h1 class="pageHead">[{$template_title}]</h1>
-    <div class="cms-content">
+    <h1 class="page-head">[{$template_title}]</h1>
+    <div class="content">
         [{$oView->getParsedContent()}]
     </div>
     [{ insert name="oxid_tracker" title=$template_title }]

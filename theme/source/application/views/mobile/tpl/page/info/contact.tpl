@@ -3,7 +3,7 @@
         [{assign var="_statusMessage" value="PAGE_INFO_CONTACT_THANKYOU1"|oxmultilangassign:$oxcmp_shop->oxshops__oxname->value}]
         [{include file="message/success.tpl" statusMessage=$_statusMessage}]
     [{/if }]
-    <h1 class="pageHead">[{ $oxcmp_shop->oxshops__oxcompany->value }]</h1>
+    <h1 class="page-head">[{ $oxcmp_shop->oxshops__oxcompany->value }]</h1>
     <div class="content" id="contacts">
         [{ $oxcmp_shop->oxshops__oxstreet->value }]</br>
         [{ $oxcmp_shop->oxshops__oxzip->value }]&nbsp;[{ $oxcmp_shop->oxshops__oxcity->value }]</br>

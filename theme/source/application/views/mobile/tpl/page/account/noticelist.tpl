@@ -8,7 +8,7 @@
         </li>
     </ul>
     [{assign var="template_title" value="PAGE_ACCOUNT_NOTICELIST_MYWISHLIST"|oxmultilangassign }]
-     <h1 class="pageHead">[{ oxmultilang ident="PAGE_ACCOUNT_NOTICELIST_MYWISHLIST" }]</h1>
+     <h1 class="page-head">[{ oxmultilang ident="PAGE_ACCOUNT_NOTICELIST_MYWISHLIST" }]</h1>
         [{if $oView->getNoticeProductList() }]
             [{include file="widget/product/list.tpl" type="line" listId="noticelistProductList" title="" products=$oView->getNoticeProductList() removeFunction="tonoticelist" owishid=$oxcmp_user->oxuser__oxid->value}]
         [{else}]

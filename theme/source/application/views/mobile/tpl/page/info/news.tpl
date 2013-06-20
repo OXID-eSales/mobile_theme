@@ -2,7 +2,7 @@
     [{assign var="template_title" value="PAGE_INFO_NEWS_LATESTNEWSBY"|oxmultilangassign}]
     <div>
     [{assign var="oNews" value=$oView->getNews() }]
-    <h1 class="pageHead">[{ oxmultilang ident="PAGE_INFO_NEWS_LATESTNEWSBY" }] [{ $oxcmp_shop->oxshops__oxname->value }]</h1>
+    <h1 class="page-head">[{ oxmultilang ident="PAGE_INFO_NEWS_LATESTNEWSBY" }] [{ $oxcmp_shop->oxshops__oxname->value }]</h1>
     <div class="listRefine clear bottomRound">
     </div>
         [{if !empty($oNews)}]

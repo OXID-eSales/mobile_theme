@@ -8,7 +8,7 @@
         </li>
     </ul>
     [{assign var="template_title" value="PAGE_ACCOUNT_NEWSLETTER_SETTINGS"|oxmultilangassign}]
-    <h1 id="newsletterSettingsHeader" class="pageHead">[{ oxmultilang ident="PAGE_ACCOUNT_NEWSLETTER_SETTINGS"}]</h1>
+    <h1 id="newsletterSettingsHeader" class="page-head">[{ oxmultilang ident="PAGE_ACCOUNT_NEWSLETTER_SETTINGS"}]</h1>
     <div class="content">
         [{if $oView->getSubscriptionStatus() != 0}]
             [{if $oView->getSubscriptionStatus() == 1}]

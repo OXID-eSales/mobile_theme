@@ -8,7 +8,7 @@
             </a>
         </li>
     </ul>
-    <h1 class="pageHead">[{ oxmultilang ident="MY_DOWNLOADS" }]</h1>
+    <h1 class="page-head">[{ oxmultilang ident="MY_DOWNLOADS" }]</h1>
     <div class="content">
         [{if $oView->getOrderFilesList()|count }]
         <ul class="downloadList">
