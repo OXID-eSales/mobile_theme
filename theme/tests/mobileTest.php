@@ -885,7 +885,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all wish list page elements
      * @group mobile
      */
-    protected function testWishList()
+    public function testWishList()
     {
         $this->openShop("en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
 
@@ -1169,7 +1169,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all Error404 page elements
      * @group mobile
      */
-    protected function testError404()
+    public function testError404()
     {
         $this->openShop("en/Kiteboarding/Harnesses/Harness-MADTRIXX.html");
 
