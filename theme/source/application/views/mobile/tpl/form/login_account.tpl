@@ -1,6 +1,7 @@
 <div class="col">
     [{oxscript include="js/widgets/oxinputvalidator.js" priority=10}]
     [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
+    [{oxscript include="js/libs/modernizr.custom.min.js" priority=10}]
     [{oxscript include="js/widgets/oxplaceholderfallback.js" priority=10 }]
     [{oxscript add="$('form').oxPlaceholderFallback();"}]
     <form name="login" class="js-oxValidate" action="[{ $oViewConf->getSslSelfLink() }]" method="post">

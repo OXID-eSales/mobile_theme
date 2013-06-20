@@ -1,5 +1,6 @@
 [{oxscript include="js/widgets/oxsearch.js" priority=10 }]
 [{oxscript add="$( '#search' ).oxSearch();"}]
+[{oxscript include="js/libs/modernizr.custom.min.js" priority=10}]
 [{oxscript include="js/widgets/oxplaceholderfallback.js" priority=10 }]
 [{oxscript add="$('form').oxPlaceholderFallback();"}]
 

@@ -181,16 +181,14 @@
                     </div>
 
                     [{block name="order_basket"}]
-                        <div class="lineBox">
+                        <div>
                             [{include file="page/checkout/inc/basketcontents.tpl" editable=false}]
                         </div>
                     [{/block}]
 
                     [{if $oView->isLowOrderPrice() }]
                         [{block name="checkout_order_loworderprice_bottom"}]
-                            <div class="lineBox clear">
-                                <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
-                            </div>
+                            <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
                         [{/block}]
                     [{else}]
                         [{block name="checkout_order_btn_confirm_bottom"}]

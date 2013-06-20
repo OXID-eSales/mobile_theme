@@ -1,6 +1,7 @@
 [{assign var="editval" value=$oView->getUserData() }]
 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10 }]
 [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
+[{oxscript include="js/libs/modernizr.custom.min.js" priority=10}]
 [{oxscript include="js/widgets/oxplaceholderfallback.js" priority=10 }]
 [{oxscript add="$('form.contact-form').oxPlaceholderFallback();"}]
 <form class="contact-form js-oxValidate" action="[{ $oViewConf->getSslSelfLink() }]" method="post">

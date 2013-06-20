@@ -48,7 +48,7 @@
             [{oxscript add="$('#addressId').change(function() { $('#userChangeShippingAddress').toggle($('#addressId').val() != -1 ); }); "}]
         </div>
     </div>
-    <div class="lineBox">
+    <div>
         <input id="accUserSaveTop" class="btn submitButton largeButton next-step" name="userform" type="submit" value="[{ oxmultilang ident="SAVE" }]"/>
     </div>
 </form>
