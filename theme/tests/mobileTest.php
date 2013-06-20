@@ -1451,7 +1451,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("id=newsletterSettingsSave");
         $this->waitForPageToLoad("30000");
 
-        // Check success message  "The Newsletter subscription has been canceled successfu"
+        // Check success message  "The Newsletter subscription has been canceled successful"
         $this->assertTrue($this->isElementPresent("css=div.alert.alert-success"));
 
         // Checking button "SAVE"
