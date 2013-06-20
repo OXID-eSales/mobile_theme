@@ -1356,12 +1356,8 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     public function testMyDownload()
     {
         $this->open( shopURL . "en/home/" );
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("name=lgn_usr", "admin");
-        $this->type("name=lgn_pwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+
+        $this->doLogin();
 
         // Go to My download page
         $this->click("//a[@id='linkAccountDownloads']/span");
