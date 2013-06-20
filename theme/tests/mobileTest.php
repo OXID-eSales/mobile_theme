@@ -282,8 +282,6 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
     public function testContactPage()
     {
-
-
         $sTestStartPage = shopURL."en/contact/";
         //Check header and footer
         $this->testHeader($sTestStartPage);
@@ -350,12 +348,11 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("css=#linkAccountBillship > span");
         $this->waitForPageToLoad("30000");
 
-
         // Check does  "billing and shipping settings" label exist
         $this->assertTrue($this->isElementPresent("id=addressSettingsHeader"));
 
         // Check does  billing address label exist
-        $this->assertTrue($this->isElementPresent("css=h3.blockHead"));
+        $this->assertTrue($this->isElementPresent("css=h3.block-head"));
 
         // Check does "change" button exist
         $this->assertTrue($this->isElementPresent("id=userChangeAddress"));
