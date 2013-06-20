@@ -9,7 +9,7 @@
         </a>
     </li>
 </ul>
-<h1>[{ oxmultilang ident="ORDER_HISTORY" }]</h1>
+<h1 class="page-head">[{ oxmultilang ident="ORDER_HISTORY" }]</h1>
 
 [{assign var=oOrders value=$oView->getOrderList()}]
 

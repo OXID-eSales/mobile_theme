@@ -1,6 +1,6 @@
 [{assign var="template_title" value="LOGIN"|oxmultilangassign }]
 [{capture append="oxidBlock_content"}]
-    <h1 class="title">[{ oxmultilang ident="PAGE_ACCOUNT_INC_LOGIN_LOGIN" }]</h1>
+    <h1 class="page-head">[{ oxmultilang ident="PAGE_ACCOUNT_INC_LOGIN_LOGIN" }]</h1>
     <div id="loginAccount" class="content clearfix">
         <p>[{ oxmultilang ident="PAGE_ACCOUNT_INC_LOGIN_ALREADYCUSTOMER" }]</p>
 

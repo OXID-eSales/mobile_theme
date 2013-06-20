@@ -31,7 +31,7 @@
     </div>
 
     [{if $actCategory}]
-        <h1>[{$actCategory->getTitle()}]</h1>
+        <h1 class="page-head">[{$actCategory->getTitle()}]</h1>
     [{/if}]
 
     [{if $oView->getArticleList()|@count > 0}]
