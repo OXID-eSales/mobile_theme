@@ -18,6 +18,20 @@
 // @copyright (C) OXID eSales AG 2003-2013
 //
 
+/* ----- Address step ---------------------- */
+.checkout-options .checkout-option + .checkout-option {
+  margin-top: @checkout-options-margin-top
+}
+
+/* ----- Order step -------------------------- */
+.order {
+  color: @checkout-order-color;
+  dd {
+    margin: 0;
+  }
+}
+
+/* ----- Payment step -------------------------- */
 .payment-select {
   .payment-option {
     display: none;
@@ -55,5 +69,17 @@
   }
   input[name="paymentid"] {
     display: none;
+  }
+}
+
+/* ----- Thank you page step -------------------------- */
+.checkout-thank-you {
+  color: @checkout-thank-you-color;
+  .block-head {
+    color: @checkout-thank-you-blockhead-color;
+    font-size: @checkout-thank-you-blockhead-font-size;
+    font-weight: @checkout-thank-you-blockhead-font-weight;
+    text-transform: @checkout-thank-you-blockhead-text-transform;
+    margin: @checkout-thank-you-blockhead-margin;
   }
 }
