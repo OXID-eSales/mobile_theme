@@ -158,7 +158,7 @@
             [{/if}]
         </li>
         <li [{if $aErrors.oxaddress__oxfax}]class="invalid-field"[{/if}]>
-            <input [{if $oView->isFieldRequired(oxaddress__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_FAX2" }][{if $oView->isFieldRequired(oxaddress__oxfax) }]*[{/if }]" type="number" size="37" maxlength="128" name="deladr[oxaddress__oxfax]" value="[{if isset( $deladr.oxaddress__oxfax ) }][{ $deladr.oxaddress__oxfax }][{else}][{ $delivadr->oxaddress__oxfax->value }][{/if}]">
+            <input [{if $oView->isFieldRequired(oxaddress__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_FAX2" }][{if $oView->isFieldRequired(oxaddress__oxfax) }]*[{/if }]" type="tel" size="37" maxlength="128" name="deladr[oxaddress__oxfax]" value="[{if isset( $deladr.oxaddress__oxfax ) }][{ $deladr.oxaddress__oxfax }][{else}][{ $delivadr->oxaddress__oxfax->value }][{/if}]">
             [{if $oView->isFieldRequired(oxaddress__oxfax) }]
                 <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
