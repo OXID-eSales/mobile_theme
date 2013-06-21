@@ -1683,7 +1683,7 @@ sleep(20);
         $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does exist about us content
-        $this->assertTrue($this->isElementPresent("css=div.cms-content"));
+        $this->assertTrue($this->isElementPresent("css=div.content"));
 
         // Check does exist element for text "Add provider identification here."
         $this->assertTrue($this->isElementPresent("css=p"));
@@ -1696,7 +1696,7 @@ sleep(20);
         $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does exist cms content
-        $this->assertTrue($this->isElementPresent("css=div.cms-content"));
+        $this->assertTrue($this->isElementPresent("css=div.content"));
 
         // check or works cms page "privacy policy" link
         $this->click("link=Privacy Policy");
