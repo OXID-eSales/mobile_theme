@@ -1187,7 +1187,7 @@ sleep(20);
 
         //Check header and footer
         $this->testHeader( false );
-        $this->testFooter( false, true );
+        $this->testFooter( false );
 
         // Check does exist Error header
         $this->assertTrue($this->isElementPresent("css=h1.page-head"));
