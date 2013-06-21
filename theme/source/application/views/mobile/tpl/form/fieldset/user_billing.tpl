@@ -97,7 +97,7 @@
     [{block name="form_user_billing_country"}]
         <li [{if $aErrors.oxuser__oxcountryid}]class="invalid-field"[{/if}]>
             <div id="invCountry" class="dropdown">
-                <input type="hidden" id="invCountrySelected" name="invadr[oxuser__oxcountryid]" value="" [{if $oView->isFieldRequired(oxuser__oxcountryid) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] />
+                <input type="hidden" id="invCountrySelected" name="invadr[oxuser__oxcountryid]" value="[{$oxcmp_user->oxuser__oxcountryid->value}]" [{if $oView->isFieldRequired(oxuser__oxcountryid) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] />
                 <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
                     <a id="invCountryLabel" role="button" href="#">
                         <span id="countrySelected">[{oxmultilang ident="COUNTRY"}][{if $oView->isFieldRequired(oxuser__oxcountryid) }]*[{/if}]</span>

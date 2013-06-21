@@ -37,7 +37,7 @@
 
 --></script>
 <div id="[{$stateDropDown}]" class="dropdown">
-    <input type="hidden" id="[{$stateSelected}]" name="[{$stateSelectName}]" value="" />
+    <input type="hidden" id="[{$stateSelected}]" name="[{$stateSelectName}]" value="[{$selectedStateId}]" />
     <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
         <a id="dLabel_[{$stateDropDown}]" role="button" href="#">
             <span id="stateSelected">[{oxmultilang ident="PLEASE_SELECT_STATE"}]</span>

@@ -107,7 +107,7 @@
         [{block name="form_user_shipping_country"}]
         <li [{if $aErrors.oxaddress__oxcountryid}]class="invalid-field"[{/if}]>
                 <div id="delCountry" class="dropdown">
-                    <input type="hidden" id="delCountrySelected" name="deladr[oxaddress__oxcountryid]" value="" [{if $oView->isFieldRequired(oxaddress__oxcountryid)}] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] />
+                    <input type="hidden" id="delCountrySelected" name="deladr[oxaddress__oxcountryid]" value="[{$delivadr->oxaddress__oxcountryid->value}]" [{if $oView->isFieldRequired(oxaddress__oxcountryid)}] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] />
                     <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
                         <a id="delCountryLabel" role="button" href="#">
                             <span id="countrySelected">[{oxmultilang ident="FORM_FIELDSET_USER_SHIPPING_COUNTRY2"}][{if $oView->isFieldRequired(oxaddress__oxcountryid) }]*[{/if }]</span>
