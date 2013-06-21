@@ -275,7 +275,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("css=div.product-delivery-info > a"));
 
         // Check does size variant selection exist
-        $this->assertTrue($this->isElementPresent("id=dLabel"));
+        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox"));
 
         // Check does color variant selection exist
         $this->assertTrue($this->isElementPresent("//div[@id='variants']/div[2]/div"));
@@ -290,7 +290,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("css=div.tobasketFunction.clear"));
 
         // Check does "more details" button exist
-        $this->assertTrue($this->isElementPresent("css=div.product-description-truncated > i.glyphicon-chevron-down"));
+        $this->assertTrue($this->isElementPresent("css=div.product-description-container > i.glyphicon-chevron-down"));
 
         // Open full description;
         $this->click("css=i.glyphicon-chevron-down");
@@ -307,7 +307,6 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      * testing all start page elements
      * @group mobile
      */
-
     public function testContactPage()
     {
         $this->open( shopURL . "en/contact/" );
