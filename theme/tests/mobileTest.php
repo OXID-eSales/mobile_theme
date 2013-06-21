@@ -649,7 +649,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->testFooter( false );
 
         // Check does "24 Hits for "kite" " exist
-        $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does sort by exist
         $this->assertTrue($this->isElementPresent("css=label.sort-title"));
@@ -942,7 +942,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->testFooter( false );
 
         // Check does exist header "MY WISH LIST"
-        $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does exist remove button
         $this->assertTrue($this->isElementPresent("name=wishlist_remove_button"));
@@ -1190,7 +1190,7 @@ sleep(20);
         $this->testFooter( false, true );
 
         // Check does exist Error header
-        $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does exist page content
         $this->assertTrue($this->isElementPresent("css=div.content"));
@@ -1219,7 +1219,7 @@ sleep(20);
         $this->waitForPageToLoad("30000");
 
         // Check does exist title"FORGOT PASSWORD"
-        $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does exist forgot password content
         $this->assertTrue($this->isElementPresent("css=div.content"));
@@ -1680,7 +1680,7 @@ sleep(20);
         $this->testFooter( false );
 
         // Check does exist header ABOUT US
-        $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does exist about us content
         $this->assertTrue($this->isElementPresent("css=div.cms-content"));
@@ -1693,7 +1693,7 @@ sleep(20);
         $this->waitForPageToLoad("30000");
 
         // Check does exist header name Term and conditions
-        $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does exist cms content
         $this->assertTrue($this->isElementPresent("css=div.cms-content"));
