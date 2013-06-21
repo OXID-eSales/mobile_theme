@@ -303,21 +303,20 @@
 @dropdown-option-title-padding:           @dropdown-link-padding;
 @dropdown-option-title-white-space:       @dropdown-link-white-space;
 
-@filter-box-padding:                            15px;
+@filter-box-padding:                            0 17px 17px;
 @filter-box-closed-cursor:                      pointer;
 @filter-box-closed-btn-text-align:              left;
 @filter-box-opened-text-transform:              uppercase;
-@filter-box-opened-filter-header-padding-right: 65px;
+@filter-box-opened-filter-header-padding-right: 45px;
 @filter-open-title-color:                       @body-background-color;
 @filter-open-title-font-size:                   1em;
 @filter-open-title-background-color:            @brand-secondary-light;
-@filter-open-title-padding:                     10px;
+@filter-open-title-padding:                     @padding-base-vertical @padding-base-horizontal;
 @filter-open-title-width:                       100%;
 @filter-close-color:                            @body-text-color;
 @filter-close-font-size:                        @filter-open-title-font-size;
 @filter-close-background-color:                 @brand-primary;
-@filter-close-padding:                          10px;
-@filter-close-margin-left:                      10px;
+@filter-close-padding:                          @padding-base-vertical @padding-base-horizontal;
 @filter-close-right:                            0;
 @filter-close-cursor:                           @filter-box-closed-cursor;
 @filter-box-opened-dropdown-margin:             0;
@@ -373,7 +372,7 @@
 
 @input-border:       @brand-primary;
 @input-border-width: 2px;
-@input-height-base:  46px;
+@input-height-base:  none;
 @input-color:        @brand-secondary-dark;
 
 @radiocheckbox-height:            30px;
@@ -422,7 +421,7 @@
 @mini-basket-padding:                0;
 @mini-basket-cursor:                 default;
 @mini-basket-count-top:              3px;
-@mini-basket-count-right:            28px;
+@mini-basket-count-right:            23px;
 @mini-basket-count-background:       @brand-note;
 @mini-basket-count-color:            @body-text-color;
 @mini-basket-count-z-index:          1;
@@ -513,7 +512,7 @@
 @oxslider-carousel-caption-bottom:      0;
 @oxslider-carousel-caption-left:        0;
 
-@sort-items-padding:                             15px;
+@sort-items-padding:                             0 17px 17px;
 @sort-items-text-transform:                      uppercase;
 @sort-items-sort-title-color:                    @brand-secondary-light;
 @sort-items-sort-title-font-size:                1em;
@@ -521,7 +520,7 @@
 @sort-items-sort-title-padding-left:             10px;
 @sort-items-sort-title-padding-bottom:           10px;
 @sort-items-label-margin:                        0;
-@sort-items-i-padding-left:                      15px;
+@sort-items-i-padding-left:                      17px;
 @sort-menu-padding:                              0;
 @sort-menu-option-border-bottom:                 2px solid @brand-secondary;
 @sort-menu-option-text-align:                    center;
@@ -569,7 +568,7 @@
 @font-family-serif:           "Montserrat", "Times New Roman", Times, serif;
 @font-family-monospace:       "Montserrat", Menlo, Consolas, "Courier New", monospace;
 
-@font-size-base:              18px;
+@font-size-base:              16px;
 @font-size-large:             ceil(@font-size-base / 0.75); // ~24px
 @font-size-small:             ceil(@font-size-base * 0.75); // ~14px
 @font-size-mini:              ceil(@font-size-base / 1.5);  // ~12px
@@ -581,6 +580,8 @@
 @headings-font-weight:           500;
 @headings-section-heading-color: @body-background-color;
 
+@padding-base-vertical:          8px;
+@padding-base-horizontal:        10px;
 @padding-large-vertical:         12px;
 @padding-large-horizontal:       18px;
 

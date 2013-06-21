@@ -1,7 +1,7 @@
 [{if $attributes}]
     [{oxscript include="js/widgets/oxdropdown.js" priority=10}]
     <div id="filterItems" class="filter-box">
-        <div class="form filter-box-closed" id="filterBoxClosed">
+        <div class="filter-box-closed" id="filterBoxClosed">
             <input class="btn" type="button" value="[{oxmultilang ident="FILTER_LIST"}]">
         </div>
         <div id="filterBoxOpened" class="filter-box-opened">
