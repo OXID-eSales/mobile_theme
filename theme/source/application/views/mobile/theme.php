@@ -24,8 +24,8 @@
  */
 $aTheme = array(
     'id'           => 'mobile',
-    'title'        => 'Azure Mobile',
-    'description'  => 'Azure theme by OXID eSales AG',
+    'title'        => 'OXID eShop mobile theme',
+    'description'  => 'Your OXID eShop on mobile devices',
     'thumbnail'    => 'theme.jpg',
     'version'      => '1.0',
     'author'       => 'OXID'

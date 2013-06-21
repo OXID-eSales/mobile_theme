@@ -29,8 +29,8 @@ $sMetadataVersion = '1.0';
  */
 $aModule = array(
     'id'           => 'oethemeswitcher',
-    'title'        => 'Mobile theme module',
-    'description'  => 'Module for mobile theme',
+    'title'        => 'OXID eShop theme switch',
+    'description'  => 'Siehe Anforderungen für die Langbeschreibung',
     'thumbnail'    => 'picture.png',
     'version'      => '1.0',
     'author'       => 'OXID eSales AG',
