@@ -677,9 +677,8 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testFirstStepNotLogInUser()
     {
- /*   //Commented because of bug #5227
-       // Go to product "3570" detail page
-        $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-ANNA.html" );
+        $this->open( shopURL . "en/home/" );
+        $this->click("//div[@id='header']/div/div/a");
 
         // Choose variants
         $this->click("css=div.dropdown-toggle");
@@ -1065,7 +1064,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/td/strong"));
 
         // Check does exist all (1,2,3,5) button
-        $this->assertTrue($this->isElementPresent("css=ul.checkout-steps."));
+        $this->assertTrue($this->isElementPresent("css=ul.steps."));
         $this->assertTrue($this->isElementPresent("css=span.step-id.last"));
         $this->assertTrue($this->isElementPresent("css=li.step3.passed  > a > span.step-id"));
         $this->assertTrue($this->isElementPresent("css=li.step3.passed"));

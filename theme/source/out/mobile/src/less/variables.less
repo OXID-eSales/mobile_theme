@@ -36,6 +36,20 @@
 @brand-danger:            #b81c00;
 @brand-note:              #eb6005;
 
+@h1-font-size:                         1.333em;
+@h1-line-height:                       @h1-font-size * @line-height-base;
+@h1-margin:                            0;
+
+@h2-font-size:                         1.222em;
+@h2-line-height:                       @h2-font-size * @line-height-base;
+
+@h3-font-size:                         1.111em;
+@h3-line-height:                       @h3-font-size * @line-height-base;
+
+@page-heading-padding:                 17px;
+@page-heading-text-transform:          uppercase;
+
+
 @order-padding:                        0 15px;
 @order-margin:                         0 0 2px 0;
 @order-list-style:                     none;
@@ -163,11 +177,11 @@
 @payment-select-card-valid-date-year-width:           95px;
 @payment-select-card-valid-date-divider-padding:      0px 5px;
 
-@steps-background:                             @brand-secondary-light;
-@steps-list-style:                             none;
-@steps-padding:                                0 0 0 15px;
-@steps-margin:                                 0 0 15px 0;
-@steps-height:                                 32px;
+@steps-background:                         @brand-secondary-light;
+@steps-list-style:                         none;
+@steps-padding:                            0 0 0 15px;
+@steps-margin:                             0 0 15px 0;
+@steps-height:                             32px;
 @steps-after-content:                      " ";
 @step-float:                               left;
 @step-color:                               @brand-secondary-dark;
@@ -192,15 +206,15 @@
 @step-link-color:                          @brand-primary;
 @step-number-border-right:                 1px solid @brand-primary-light;
 @step-number-border-right-wider:           2px solid @brand-primary-light;
-@step-number-line-height:                  32px;
 @step-number-font-size:                    1em;
+@step-number-line-height:                  @steps-height;
 @step-number-padding:                      0 1px;
 @step-name-font-size:                      0.778em;
 @step-name-white-space:                    normal;
 @step-name-vertical-align:                 middle;
 @step-name-padding:                        0;
 @step-name-line-height:                    16px;
-@step-name-height:                         32px;
+@step-name-height:                         @steps-height;
 @step-name-max-width:                      75px;
 
 @checkout-thank-you-color:                    @brand-secondary-dark;

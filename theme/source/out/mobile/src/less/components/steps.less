@@ -26,20 +26,11 @@
   padding: @steps-padding;
   margin: @steps-margin;
   height: @steps-height;
-
-  @media screen and (min-width: 721px) {
-    padding: 0 0 0 29px;
-    margin: 0 0 29px 0;
-    height: 61px;
-  }
   li {
     float: @step-float;
     color: @step-color;
     position: relative;
     padding: @step-padding;
-    @media screen and (min-width: 721px) {
-      padding: 0 29px 0 57px;
-    }
     &:before {
       display: block;
       content: @step-before-content;
@@ -47,11 +38,6 @@
       background: @step-before-background;
       margin-left: @step-before-margin-left;
       .size(15px, 32px);
-      @media screen and (min-width: 721px) {
-        background: url("../../img/steps.png") -58px 0 no-repeat transparent;
-        margin-left: -86px;
-        .size(29px, 61px);
-      }
     }
     &:first-child {
       margin-left: @step-first-child-margin-left;
@@ -76,9 +62,6 @@
     }
     &.active:before {
       background-position: @step-active-background-position;
-      @media screen and (min-width: 721px) {
-        background-position: -29px 0;
-      }
     }
     &.passed:before {
       background-position: @step-passed-background-position;
@@ -115,16 +98,9 @@
     position: absolute;
     left: 0;
     top: 0;
-
     line-height: @step-number-line-height;
     font-size: @step-number-font-size;
     padding: @step-number-padding;
-
-    @media screen and (min-width: 721px) {
-      line-height: 61px;
-      font-size: 32px;
-      padding: 0 5px;
-    }
   }
   .step-name {
     display: none;
@@ -135,13 +111,5 @@
     line-height: @step-name-line-height;
     height: @step-name-height;
     max-width: @step-name-max-width;
-
-    @media screen and (min-width: 721px) {
-      padding: 0 5px;
-      line-height: 32px;
-      height: 61px;
-      font-size: 22px;
-      max-width: none;
-    }
   }
 }
