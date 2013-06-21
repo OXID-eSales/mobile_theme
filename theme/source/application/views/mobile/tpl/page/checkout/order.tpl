@@ -214,8 +214,6 @@
                                     <li><input type="button" class="btn previous" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getPaymentLink() }]', '_self');" /></li>
                                 </ul>
                             </form>
-
-                            <div class="clearfix"></div>
                         [{/block}]
                     [{/if}]
                 [{/if}]

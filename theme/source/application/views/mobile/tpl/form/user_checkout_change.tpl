@@ -21,6 +21,9 @@
                         [{block name="user_checkout_billing_head"}]
                             <ul class="form">
                                 <li>
+                                    <input type="submit" class="btn" name="userform" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" />
+                                </li>
+                                <li>
                                     <h3>[{oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
                                     <input class="btn" type="button" id="userChangeAddress" name="changeBillAddress" value="[{oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]" />
                                 </li>
