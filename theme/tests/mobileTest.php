@@ -318,7 +318,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("//div[@id='page']/div/h1"));
 
         // Check does company info with all contacts exist
-        $this->assertTrue($this->isElementPresent("//div[@id='contacts']/ul/li"));
+        $this->assertTrue($this->isElementPresent("//div[@id='contacts']"));
 
         // Check does label Mr exist
         $this->assertTrue($this->isElementPresent("//div[@id='contacts']/form/ul/li/label"));
