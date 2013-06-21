@@ -1268,7 +1268,7 @@ sleep(20);
         $this->waitForPageToLoad("30000");
 
         // Check does exist Login title in the login page
-        $this->assertTrue($this->isElementPresent("css=h1.title"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Checking does exist Login  container
         $this->assertTrue($this->isElementPresent("id=loginAccount"));
