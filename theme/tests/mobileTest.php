@@ -1147,19 +1147,14 @@ sleep(20);
 
         // Check does exist content
         $this->assertTrue($this->isElementPresent("css=div.content"));
-        $this->assertTrue($this->isElementPresent("css=label"));
 
         // Check does exist input fields "Old password"
         $this->assertTrue($this->isElementPresent("id=passwordOld"));
-
-        // Check does exist label name "New password:"
-        $this->assertTrue($this->isElementPresent("//li[2]/label"));
 
         // heck does exist input field "New password"
         $this->assertTrue($this->isElementPresent("id=passwordNew"));
 
         // Check label"Confirm password"
-        $this->assertTrue($this->isElementPresent("//li[3]/label"));
         $this->click("id=passwordNewConfirm");
 
         // Check input field "password new confirm"
