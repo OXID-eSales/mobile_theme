@@ -20,47 +20,29 @@
 
 /* ----- Basket Checkout Steps -------------------------- */
 .steps {
-  @steps-arrow-width: @steps-height/2;
   background: @steps-background;
   list-style: @steps-list-style;
   overflow: hidden;
   padding: @steps-padding;
   margin: @steps-margin;
   height: @steps-height;
-
   li {
     float: @step-float;
     color: @step-color;
     position: relative;
     padding: @step-padding;
-    height: @steps-height;
     &:before {
       display: block;
-      content: " ";
-      border-color: #fff #fff #fff transparent;
-      border-style: solid solid solid inset;
-      border-width: @steps-arrow-width 5px @steps-arrow-width 10px;
-      position: absolute;
-      left: -15px;
-      top: 0;
-      .square(0);
-    }
-    &:after {
-      display: block;
-      content: " ";
-      border-color: @steps-background @steps-background @steps-background transparent ;
-      border-style: solid solid solid inset;
-      border-width: @steps-arrow-width 0px @steps-arrow-width 10px;
-      position: absolute;
-      left: -10px;
-      top: 0;
-      .square(0);
+      content: @step-before-content;
+      float: @step-before-float;
+      background: @step-before-background;
+      margin-left: @step-before-margin-left;
+      .size(15px, 32px);
     }
     &:first-child {
       margin-left: @step-first-child-margin-left;
       &:before {
-        border-color: #fff ;
-        border-style: solid;
+        background-color: @step-first-child-before-background-color;
       }
     }
     &:last-child {
@@ -77,15 +59,15 @@
       a {
         color: @step-active-link-color;
       }
-      &:after {
-        border-color: @step-active-background @step-active-background @step-active-background transparent ;
-      }
+    }
+    &.active:before {
+      background-position: @step-active-background-position;
+    }
+    &.passed:before {
+      background-position: @step-passed-background-position;
     }
     &.passed {
       background: @step-passed-background;
-      &:after {
-        border-color: @step-passed-background @step-passed-background @step-passed-background transparent ;
-      }
     }
     &.active {
       .step-number {
@@ -116,7 +98,6 @@
     position: absolute;
     left: 0;
     top: 0;
-
     line-height: @step-number-line-height;
     font-size: @step-number-font-size;
     padding: @step-number-padding;
@@ -132,4 +113,3 @@
     max-width: @step-name-max-width;
   }
 }
-
