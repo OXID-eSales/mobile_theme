@@ -278,10 +278,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("id=dLabelSelectBox"));
 
         // Check does color variant selection exist
-        $this->assertTrue($this->isElementPresent("//div[@id='variants']/div[2]/div"));
+        $this->assertTrue($this->isElementPresent("//ul[@id='variants']/li/div/div"));
 
         // Check does washing variant selection exist
-        $this->assertTrue($this->isElementPresent("//div[@id='variants']/div[3]/div"));
+        $this->assertTrue($this->isElementPresent("//ul[@id='variants']/li[2]/div/div"));
 
         // Check does "choose variant"message exist
         $this->assertTrue($this->isElementPresent("css=p.product-variants-message"));
@@ -296,10 +296,10 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->click("css=i.glyphicon-chevron-down");
 
         // Check does detail about product exist
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-up"));
+        $this->assertTrue($this->isElementPresent("css=div.product-description-container"));
 
         // check does full description close button exist
-        $this->assertTrue($this->isElementPresent("css=div.product-description-full > p > #goog-gtc-unit-12 > span.goog-gtc-translatable.goog-gtc-from-human"));
+        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-up"));
 
     }
 
