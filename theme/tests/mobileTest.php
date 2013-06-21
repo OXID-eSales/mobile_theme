@@ -938,7 +938,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         //Check header and footer
         $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testFooter( false, true );
 
         // Check does exist header "MY WISH LIST"
         $this->assertTrue($this->isElementPresent("css=h1.page-head"));
