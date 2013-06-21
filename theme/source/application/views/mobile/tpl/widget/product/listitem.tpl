@@ -49,7 +49,7 @@
 
     [{block name="widget_product_listitem_line_picturebox"}]
         <div class="pull-left">
-            <img src="[{$product->getThumbnailUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">
+            <img src="[{$product->getIconUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">
         </div>
     [{/block}]
     <div class="media-body">
