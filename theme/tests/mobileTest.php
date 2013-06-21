@@ -750,9 +750,6 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 
         // Check does exist  input field for persParam
         $this->assertTrue($this->isElementPresent("//li[@id='cartItem_2']/div/p[2]/input"));
-
-        // Check does exist label element
-        $this->assertTrue($this->isElementPresent("css=label.persParamLabel"));
 /*
  *  //Commented because of bug #5227
         // Check does exist element of attribute
@@ -782,7 +779,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th/strong"));
 
         // Check does exist all checkout steps at the top
-        $this->assertTrue($this->isElementPresent("css=ul.checkout-steps."));
+        $this->assertTrue($this->isElementPresent("css=ul.steps"));
     }
 
     /**
@@ -901,7 +898,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th/strong"));
 
         // Check does exist all checkout steps at the top
-        $this->assertTrue($this->isElementPresent("css=ul.checkout-steps."));
+        $this->assertTrue($this->isElementPresent("css=ul.steps"));
     }
 
     /**
