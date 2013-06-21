@@ -1377,7 +1377,7 @@ sleep(20);
         $this->testFooter( false, true );
 
         // Check does exist header "My download"
-        $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
 
         // Check does exist info message  "You have not ordered any files yet. "
         $this->assertTrue($this->isElementPresent("css=div.box.info"));
@@ -1426,7 +1426,7 @@ sleep(20);
         $this->assertTrue($this->isElementPresent("//div[@id='page']/div/div/ul/li/dl/dt/strong"));
 
         // Check does exist My download header
-        $this->assertTrue($this->isElementPresent("css=h1.pageHead"));
+        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
     }
 
     /**
