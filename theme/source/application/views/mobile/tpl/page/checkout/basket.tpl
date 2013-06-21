@@ -39,7 +39,7 @@
                                 [{ $oViewConf->getHiddenSid() }]
                                 <input type="hidden" name="cl" value="basket">
                                 <input type="hidden" name="fnc" value="backtoshop">
-                                <button type="submit" class="submitButton largeButton">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CONTINUESHOPPING" }]</button>
+                                <button type="submit" class="btn">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CONTINUESHOPPING" }]</button>
                             </div>
                         </form>
                     [{/block}]
