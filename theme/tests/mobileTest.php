@@ -476,6 +476,9 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
      */
     public function testSecondStepLoginUser()
     {
+        $this->open( shopURL . "en/home/" );
+        $this->doLogin();
+
         $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
 
         // Add product to the basket
