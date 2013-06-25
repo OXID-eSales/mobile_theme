@@ -52,7 +52,8 @@ $aModule = array(
         'oxlang'           => 'oe/oethemeswitcher/core/oethemeswitcherlang',
     ),
     'files' => array(
-        'oethemeswitcheruseragent' => 'oe/oethemeswitcher/core/oethemeswitcheruseragent.php'
+        'oethemeswitcheruseragent' => 'oe/oethemeswitcher/core/oethemeswitcheruseragent.php',
+        'oethemeswitcherthememanager' => 'oe/oethemeswitcher/core/oethemeswitcherthememanager.php'
     ),
 
     'blocks' => array(
