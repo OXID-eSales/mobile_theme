@@ -84,6 +84,7 @@
 @article-list-background-color:               @body-text-color;
 @article-list-color:                          @body-background-color;
 @article-list-padding:                        0;
+@article-list-margin:                         0 0 3px 0;
 @article-list-media-border-bottom:            1px solid @brand-secondary;
 @article-list-media-color:                    @brand-primary-dark;
 @article-list-media-margin:                   0;
@@ -140,8 +141,8 @@
 @btn-color:                           @body-text-color;
 @btn-lighter-color:                   @brand-primary;
 @btn-small-width:                     auto;
-@btn-padding-small-vertical:          @padding-small-vertical;
-@btn-padding-small-horizontal:        @padding-small-horizontal;
+@btn-small-padding:                   @padding-small-vertical @padding-small-horizontal;
+@btn-small-font-weigth:               normal;
 @btn-text-transform:                  uppercase;
 @btn-cursor:                          pointer;
 @btn-width:                           100%;
@@ -333,8 +334,7 @@
 @filter-box-opened-filter-title-padding-left:   10px;
 
 @footer-background-color:                       @brand-secondary-darker;
-@footer-margin-top:                             40px;
-@footer-margin-bottom:                          20px;
+@footer-margin:                                 25px 0 20px 0;
 @footer-nav-background-color:                   @footer-background-color;
 @footer-nav-hover-background-color:             @brand-primary;
 @footer-nav-active-background-color:            @footer-nav-hover-background-color;
@@ -434,7 +434,7 @@
 @mini-basket-new-item-max-width:     150px;
 @mini-basket-new-item-white-space:   normal;
 
-@pagination-container-margin:            3px 0 0 0;
+@pagination-container-margin:            0 0 3px 0;
 @pagination-container-text-align:        center;
 @pagination-container-background-color:  @brand-secondary-darker;
 @pagination-container-line-height:       0;
@@ -442,7 +442,9 @@
 @pagination-link-background-color:       @pagination-container-background-color;
 @pagination-link-color:                  @brand-secondary-light;
 @pagination-link-padding:                12px 14px;
-@pagination-link-font-size:              1em;
+@pagination-link-font-size:              1.333em;
+@pagination-link-width:                  50px;
+@pagination-link-padding:                12px;
 @pagination-link-border:                 none;
 @pagination-link-border-color:           @brand-secondary-dark;
 @pagination-link-border-left:            2px solid @pagination-link-border-color;
@@ -588,6 +590,8 @@
 
 @padding-base-vertical:          10px;
 @padding-base-horizontal:        12px;
+@padding-small-vertical:         3px;
+@padding-small-horizontal:       5px;
 @padding-large-vertical:         14px;
 @padding-large-horizontal:       18px;
 

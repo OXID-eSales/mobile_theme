@@ -33,7 +33,8 @@
       font-size: @pagination-link-font-size;
       border: @pagination-link-border;
       border-left: @pagination-link-border-left;
-      padding: @pagination-link-padding;
+      padding: @pagination-link-padding 0;
+      width: @pagination-link-width;
       &:hover {
         background-color: @pagination-link-hover-background-color;
       }
@@ -45,10 +46,6 @@
       padding: @pagination-separator-padding;
     }
   }
-  .prev,
-  .next {
-    padding: @pagination-prev-next-padding;
-  }
   .glyphicon-chevron-left:before,
   .glyphicon-chevron-right:before {
     font-size: @pagination-glyphicon-font-size;
@@ -58,17 +55,4 @@
 .pagination-page.active,
 .pagination-page.active:hover {
   background-color: @pagination-page-background-color;
-}
-
-@media screen and (min-width: 721px) {
-  .pagination {
-    li a,
-    li .pagination-separator,
-    .prev,
-    .next {
-      font-size: 25px;
-      line-height: 30px;
-      padding: 18px 24px 18px 24px;
-    }
-  }
 }
