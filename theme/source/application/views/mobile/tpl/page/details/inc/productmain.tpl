@@ -84,6 +84,14 @@
                     [{/if}]
                 [{/block}]
             </div>
+            [{* Additional info *}]
+            <div class="product-additional-info">
+                [{block name="details_productmain_priceperunit"}]
+                    [{if $oDetailsProduct->getPricePerUnit()}]
+                        <span class="product-price-per-unit">[{$oDetailsProduct->getPricePerUnit()}] [{$currency->sign}]/[{$oDetailsProduct->getUnitName()}]</span>
+                    [{/if}]
+                [{/block}]
+            </div>
             [{* Delivery info *}]
             <div class="product-delivery-info">
                 [{block name="details_productmain_deliveryinfo"}]

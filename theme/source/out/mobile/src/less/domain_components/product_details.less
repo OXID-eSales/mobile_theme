@@ -99,6 +99,15 @@
   margin-left: @product-price-old-product-price-margin-left;
 }
 
+.product-additional-info {
+  clear: both;
+  color: @product-additional-info-color;
+  font-size: @product-additional-info-font-size;
+  > span + span:before {
+    content: "|";
+  }
+}
+
 .product-delivery-info {
   clear: both;
 }

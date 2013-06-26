@@ -5265,6 +5265,14 @@ a:focus {
 .product-price-old + .product-price {
   margin-left: 5px;
 }
+.product-additional-info {
+  clear: both;
+  color: #1d7e96;
+  font-size: 0.8em;
+}
+.product-additional-info > span + span:before {
+  content: "|";
+}
 .product-delivery-info {
   clear: both;
 }
