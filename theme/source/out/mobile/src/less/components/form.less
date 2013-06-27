@@ -23,13 +23,13 @@
 .form {
   list-style: @form-list-style;
   .padding(@form-padding);
-  margin: @form-margin;
+  .margin(@form-margin);
   li {
-    margin: @form-row-margin;
+    .margin(@form-row-margin);
     .clearfix();
     > .form {
       /* padding/margin fix for nested forms */
-      margin: 0;
+      .margin(0);
       li {
         &:first-child {
           margin-top: 0px;
@@ -71,7 +71,7 @@ input[type=date] {
 input[type=date]::-webkit-inner-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: @form-webkit-inner-spin-button-margin;
+  .margin(@form-webkit-inner-spin-button-margin);
 }
 
 .placeholder {
@@ -115,17 +115,17 @@ input.placeholder {
   display: inline-block;
   position: relative;
   .padding(0);
-  margin: @radiocheckbox-margin;
+  .margin(@radiocheckbox-margin);
   cursor: @radiocheckbox-cursor;
   &:first-of-type {
-    margin: @radiocheckbox-first-margin;
+    .margin(@radiocheckbox-first-margin);
   }
   input {
     position: absolute;
     right: 0;
     top: 0;
     opacity: 0;
-    margin: @radiocheckbox-input-margin;
+    .margin(@radiocheckbox-input-margin);
     cursor: @radiocheckbox-cursor;
   }
   label {

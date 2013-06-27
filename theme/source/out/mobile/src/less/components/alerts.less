@@ -19,11 +19,11 @@
 //
 
 .alert {
-  margin: @alerts-margin;
+  .margin(@alerts-margin);
   .padding(@alerts-padding);
   word-wrap: break-word;
   p {
-    margin: @alerts-p-margin;
+    .margin(@alerts-p-margin);
   }
   &.alert-error {
     background: @alerts-error-background;

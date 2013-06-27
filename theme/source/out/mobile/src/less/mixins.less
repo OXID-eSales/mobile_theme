@@ -121,6 +121,10 @@
 
 
 .margin(@margin) {
+  padding: @margin;
+}
+
+.margin(@margin) when (isnumber(@margin)) and (@margin > 0) {
   margin: @margin;
   @media screen and (min-width:  @screen-small) {
     margin: @margin * @screen-small-margin-ratio;

@@ -22,16 +22,16 @@
 
 .order-history-list {
   list-style: @order-list-style;
-  margin: @order-list-margin;
+  .margin(@order-list-margin);
   > li {
-    margin: @order-list-margin-li;
+    .margin(@order-list-margin-li);
   }
 }
 
 .order-history-articles,
 .order-history-details {
   .padding(@order-padding);
-  margin: @order-margin;
+  .margin(@order-margin);
   list-style: @order-list-style;
   background: @order-background;
   li {
