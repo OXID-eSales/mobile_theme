@@ -27,20 +27,6 @@
 class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
 {
     /**
-     * Active device type
-     *
-     * @var null
-     */
-    protected $_sActiveDeviceType = null;
-
-    /**
-     * Active theme type
-     *
-     * @var null
-     */
-    protected $_sActiveThemeType = null;
-
-    /**
      * User Agent
      *
      * @var object
