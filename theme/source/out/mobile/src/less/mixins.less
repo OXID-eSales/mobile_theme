@@ -64,6 +64,19 @@
   }
 }
 
+.width(@width) {
+  width: @width;
+  @media screen and (min-width:  @screen-small) {
+    widtht: @width * @screen-small-width-ratio;
+  }
+  @media screen and (min-width:  @screen-medium) {
+    width: @width * @screen-medium-width-ratio;
+  }
+  @media screen and (min-width:  @screen-large) {
+    width: @width * @screen-large-width-ratio;
+  }
+}
+
 .padding(@padding) {
   padding: @padding;
 }

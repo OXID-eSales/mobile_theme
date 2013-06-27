@@ -29,10 +29,10 @@
   .padding(@header-btn-padding);
   float: @header-btn-float;
   background: @header-btn-background;
-  line-height: @header-btn-line-height;
+  .line-height(@header-btn-line-height);
   border-left: @header-btn-border-left;
   font-size: @header-btn-font-size;
-  width: @header-btn-width;
+  .width(@header-btn-width);
   &.header-btn-disabled {
     cursor: @header-btn-disabled-cursor;
   }
@@ -44,7 +44,7 @@
 .header-logo {
   float: @header-logo-float;
   max-width: @header-logo-max-width;
-  line-height: @header-logo-line-height;
+  .line-height(@header-logo-line-height);
   margin-left: @header-logo-margin-left;
 }
 
