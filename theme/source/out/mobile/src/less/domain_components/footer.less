@@ -34,6 +34,9 @@
       }
       + li {
         border-left-width: @footer-nav-pills-next-child-border-left-width;
+        > a {
+          margin-left: @footer-nav-pills-link-next-child-margin-left;
+        }
       }
     }
   }
@@ -56,6 +59,10 @@
         > a {
           background-color: @footer-nav-link-hover-background-color;
           color: @footer-nav-link-hover-color;
+          &:active {
+            background-color: @footer-nav-active-background-color;
+            color: @footer-nav-active-color;
+          }
         }
       }
       > a {
