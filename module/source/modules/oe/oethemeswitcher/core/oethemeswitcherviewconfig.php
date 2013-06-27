@@ -97,4 +97,27 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
         return $this->getConfig()->getEdition();
     }
 
+    /**
+     * Check if module is active.
+     *
+     * @param string $sModuleId module id.
+     *
+     * @return  bool
+     */
+    function isModuleActive( $sModuleId )
+    {
+        $blModuleIsActive = false;
+
+        $aModules = $this->getConfig()->getConfigParam( 'aModules' );
+        $aDisabledModules = $this->getConfig()->getConfigParam( 'aDisabledModules' );
+
+        $blModuleEnabled = ( is_array( $aModules ) && in_array( $sModuleId, $aModules ) );
+        $blModuleDisabled = ( is_array( $aDisabledModules ) && in_array( $sModuleId, $aDisabledModules ) );
+
+        if ( $blModuleEnabled && !$blModuleDisabled ) {
+            $blModuleIsActive = true;
+        }
+
+        return $blModuleIsActive;
+    }
 }

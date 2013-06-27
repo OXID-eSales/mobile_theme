@@ -33,4 +33,32 @@ class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
         $this->assertEquals( $this->getConfig()->getEdition(), $oViewConf->getEdition() );
     }
 
+    /**
+     * Module data provider.
+     */
+    public function _dpIsModuleActive()
+    {
+        return array(
+            array( array( 'oepaypal' ), null,                'oepaypal', true ),
+            array( array( 'oepaypal' ), array( 'oepaypal' ), 'oepaypal', false ),
+            array( null,                null,                'oepaypal', false ),
+            array( null,                array( 'oepaypal' ), 'oepaypal', false ),
+        );
+    }
+
+    /**
+     * oxViewConfig::isModuleActive()
+     * @dataProvider _dpIsModuleActive
+     */
+    public function testIsModuleActive( $aModules, $aDisabledModules, $sModuleId, $blModuleIsActive )
+    {
+        $this->setConfigParam( 'aModules', $aModules );
+        $this->setConfigParam( 'aDisabledModules', $aDisabledModules );
+
+        $oViewConf = new oeThemeSwitcherViewConfig();
+        $blIsModuleActive = $oViewConf->isModuleActive( $sModuleId );
+
+        $this->assertEquals( $blModuleIsActive, $blIsModuleActive, "Module state is not as expected." );
+    }
+
 }
