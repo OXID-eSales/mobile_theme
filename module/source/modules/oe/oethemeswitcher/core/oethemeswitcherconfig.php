@@ -60,7 +60,7 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
 
             // check for mobile devices
             if ( $this->getThemeManager()->isMobileThemeRequested() &&  !$this->isAdmin() ) {
-                return $this->_aConfigParams['sMobileTheme'];
+                return $this->_aConfigParams['sOEThemeSwitcherMobileTheme'];
             }
         }
         return $sReturn;

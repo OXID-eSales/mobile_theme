@@ -35,7 +35,7 @@ class oeThemeSwitcherTheme extends oeThemeSwitcherTheme_parent
     {
         $sValue = parent::getInfo( $sName );
 
-        if ( $sName == 'active' && $this->getId() == $this->getConfig()->getConfigParam('sMobileTheme') ) {
+        if ( $sName == 'active' && $this->getId() == $this->getConfig()->getConfigParam('sOEThemeSwitcherMobileTheme') ) {
             return true;
         }
 
