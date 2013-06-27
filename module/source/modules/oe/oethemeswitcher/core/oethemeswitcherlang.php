@@ -44,28 +44,28 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
         $sShopId        = $oConfig->getShopId();
         $aModuleInfo    = $this->_getActiveModuleInfo();
 
-        // get generic lang files
+        // Get generic lang files
         $sGenericPath = $sAppDir . 'translations/' . $sLang;
         if ( $sGenericPath ) {
             $aLangFiles[] = $sGenericPath . "/lang.php";
             $aLangFiles = $this->_appendLangFile( $aLangFiles, $sGenericPath );
         }
 
-        // get theme lang files
+        // Get theme lang files
         if ( $sTheme ) {
             $sThemePath = $sAppDir . 'views/' . $sTheme .'/' . $sLang;
             $aLangFiles[] = $sThemePath . "/lang.php";
             $aLangFiles = $this->_appendLangFile( $aLangFiles, $sThemePath );
         }
 
-        // get custom theme lang files
+        // Get custom theme lang files
         if ( $sCustomTheme && $sCustomTheme == $sActiveTheme ) {
             $sCustPath = $sAppDir . 'views/' . $sCustomTheme .'/' . $sLang;
             $aLangFiles[] = $sCustPath . "/lang.php";
             $aLangFiles = $this->_appendLangFile( $aLangFiles, $sCustPath );
         }
 
-        // custom theme shop languages
+        // Custom theme shop languages
         if ( $this->getConfig()->getEdition() == 'EE' ) {
             if ( $sCustomTheme && $sCustomTheme == $sActiveTheme) {
                     $sShopPath = $sAppDir . 'views/'. $sCustomTheme .'/' . $sShopId . '/' . $sLang;
@@ -81,7 +81,7 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
             }
         }
 
-        // modules language files
+        // Modules language files
         if ( is_array( $aModuleInfo ) ) {
             foreach ( $aModuleInfo as $sPath ) {
                 $sFullPath = $oConfig->getModulesDir() . $sPath . '/translations/' . $sLang;
