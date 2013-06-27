@@ -21,7 +21,7 @@
 /* --------------------Product, search lists (line)---------------------*/
 .media-list.article-list {
   background-color: @article-list-background-color;
-  padding: @article-list-padding;
+  .padding(@article-list-padding);
   margin: @article-list-margin;
   .media {
     border-bottom: @article-list-media-border-bottom;
@@ -36,7 +36,7 @@
     }
     .media-body {
       position: relative;
-      padding: @article-list-media-body-padding;
+      .padding(@article-list-media-body-padding);
     }
     .media-heading-link {
       color: @article-list-media-heading-link-color;
@@ -52,7 +52,7 @@
   }
   .quantity {
     text-align: @article-list-quantity-text-align;
-    padding: @article-list-quantity-padding;
+    .padding(@article-list-quantity-padding);
     .square(@article-list-quantity-square);
   }
 }

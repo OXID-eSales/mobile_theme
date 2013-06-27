@@ -30,13 +30,13 @@
 
 .order-history-articles,
 .order-history-details {
-  padding: @order-padding;
+  .padding(@order-padding);
   margin: @order-margin;
   list-style: @order-list-style;
   background: @order-background;
   li {
     border-bottom: @order-row-border;
-    padding: @order-row-padding;
+    .padding(@order-row-padding);
     &:last-child {
       border-bottom: @order-row-last-border-bottom;
     }

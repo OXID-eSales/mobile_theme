@@ -22,7 +22,7 @@
 
 .form {
   list-style: @form-list-style;
-  padding: @form-padding;
+  .padding(@form-padding);
   margin: @form-margin;
   li {
     margin: @form-row-margin;
@@ -88,7 +88,7 @@ input.placeholder {
     top: @inline-elements-small-field-top;
   }
   &.first-small {
-    padding: @inline-elements-first-small-padding;
+    .padding(@inline-elements-first-small-padding);
     padding-left: @inline-elements-small-field-width + @inline-elements-small-field-margin;
     .small-field {
       left: @inline-elements-small-field-left;
@@ -98,7 +98,7 @@ input.placeholder {
     }
   }
   &.first-big {
-    padding: @inline-elements-first-big-padding;
+    .padding(@inline-elements-first-big-padding);
     padding-right: @inline-elements-small-field-width + @inline-elements-small-field-margin;
     .small-field {
       right: @inline-elements-small-field-right;
@@ -114,7 +114,7 @@ input.placeholder {
 .radio {
   display: inline-block;
   position: relative;
-  padding: 0;
+  .padding(0);
   margin: @radiocheckbox-margin;
   cursor: @radiocheckbox-cursor;
   &:first-of-type {
@@ -135,7 +135,7 @@ input.placeholder {
     font-size: @radiocheckbox-font-size;
     overflow: hidden;
     text-align: @radiocheckbox-text-align;
-    padding: @radiocheckbox-padding;
+    .padding(@radiocheckbox-padding);
     height: @radiocheckbox-height;
     width: @radiocheckbox-width;
   }

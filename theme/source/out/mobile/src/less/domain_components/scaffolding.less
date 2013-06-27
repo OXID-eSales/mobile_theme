@@ -18,6 +18,10 @@
 // @copyright (C) OXID eSales AG 2003-2013
 //
 
+body {
+  .font-size(@font-size-base, @line-height-base);
+}
+
 a:hover,
 a:focus {
   text-decoration: @link-hover-text-decoration;
@@ -26,6 +30,6 @@ a:focus {
 /* used to separate content from background */
 .content {
   background: @content-background;
-  padding: @content-padding;
+  .padding(@content-padding);
   color: @color-color;
 }

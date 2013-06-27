@@ -31,7 +31,7 @@
 .dropdown-toggle {
   border: @dropdown-toggle-border;
   cursor: @dropdown-cursor;
-  padding: @dropdown-toggle-padding-vertical @dropdown-toggle-padding-horizontal;
+  .padding(@dropdown-toggle-padding-vertical, @dropdown-toggle-padding-horizontal);
   padding-right: @dropdown-toggle-padding-horizontal+@dropdown-toggle-arrow-width;
   color: @dropdown-toggle-color;
   background-color: @dropdown-toggle-background-color;
@@ -47,18 +47,18 @@
   min-width: @dropdown-menu-min-width;
   border: @dropdown-menu-border;
   border-radius: @dropdown-menu-border-radius;
-  padding: @dropdown-menu-padding;
+  .padding(@dropdown-menu-padding);
   margin: @dropdown-menu-margin;
   width: @dropdown-menu-width;
   overflow: auto;
   z-index: 9999;
   .dropdown-option {
-    padding: @dropdown-option-padding;
+    .padding(@dropdown-option-padding);
     margin: @dropdown-option-margin;
     a {
       color: @dropdown-link-color;
       background-color: @dropdown-link-background-color;
-      padding: @dropdown-link-padding;
+      .padding(@dropdown-link-padding);
       display: block;
       white-space: @dropdown-link-white-space;
       cursor: @dropdown-cursor;

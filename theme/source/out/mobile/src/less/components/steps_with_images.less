@@ -23,14 +23,14 @@
   background: @steps-background;
   list-style: @steps-list-style;
   overflow: hidden;
-  padding: @steps-padding;
+  .padding(@steps-padding);
   margin: @steps-margin;
   height: @steps-height;
   li {
     float: @step-float;
     color: @step-color;
     position: relative;
-    padding: @step-padding;
+    .padding(@step-padding);
     &:before {
       display: block;
       content: @step-before-content;
@@ -100,14 +100,14 @@
     top: 0;
     line-height: @step-number-line-height;
     font-size: @step-number-font-size;
-    padding: @step-number-padding;
+    .padding(@step-number-padding);
   }
   .step-name {
     display: none;
     font-size: @step-name-font-size;
     white-space: @step-name-white-space;
     vertical-align: @step-name-vertical-align;
-    padding: @step-name-padding;
+    .padding(@step-name-padding);
     line-height: @step-name-line-height;
     height: @step-name-height;
     max-width: @step-name-max-width;

@@ -20,18 +20,18 @@
 
 .alert {
   margin: @alerts-margin;
-  padding: @alerts-padding;
+  .padding(@alerts-padding);
   word-wrap: break-word;
   p {
     margin: @alerts-p-margin;
   }
   &.alert-error {
     background: @alerts-error-background;
-    padding: @alerts-padding-with-icon;
+    .padding(@alerts-padding-with-icon);
   }
   &.alert-success {
     background: @alerts-success-background;
-    padding: @alerts-padding-with-icon;
+    .padding(@alerts-padding-with-icon);
   }
   .close {
     right: 0;
@@ -39,5 +39,5 @@
 }
 
 .form .alert {
-  padding: @alerts-padding-in-form;
+  .padding(@alerts-padding-in-form);
 }
