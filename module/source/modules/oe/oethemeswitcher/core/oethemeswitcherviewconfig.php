@@ -27,13 +27,6 @@
 class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
 {
     /**
-     * Active theme name
-     *
-     * @var null
-     */
-    protected $_sActiveTheme = null;
-
-    /**
      * Active device type
      *
      * @var null
@@ -53,19 +46,6 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
      * @var object
      */
     protected $_oUserAgent = null;
-
-    /**
-     * Returns active theme name
-     *
-     * @return string
-     */
-    public function getActiveTheme()
-    {
-        if ( $this->_sActiveTheme === null ) {
-            $this->_sActiveTheme = $this->getConfig()->getActiveThemeId();
-        }
-        return $this->_sActiveTheme;
-    }
 
     /**
      * User Agent getter
