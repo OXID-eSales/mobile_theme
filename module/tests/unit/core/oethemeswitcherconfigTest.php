@@ -26,7 +26,7 @@ class Unit_Core_oeThemeSwitcherConfigTest extends OxidTestCase
 {
 
     /**
-     * Checks if method returns correct active theme id
+     * Checks if method oeThemeSwitcherConfig::getActiveThemeId returns correct active theme id
      */
     public function testGetActiveThemeId()
     {
