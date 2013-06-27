@@ -59,6 +59,10 @@
     background: @mini-basket-count-background;
     color: @mini-basket-count-color;
     z-index: @mini-basket-count-z-index;
+    @media screen and (min-width:  @screen-large) {
+      top: @mini-basket-count-top*@screen-large-height-ratio;
+      right: @mini-basket-count-right*@screen-large-width-ratio;
+    }
   }
 
   .mini-basket-new-item {

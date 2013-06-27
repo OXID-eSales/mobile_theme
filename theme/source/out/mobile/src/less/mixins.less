@@ -77,6 +77,19 @@
   }
 }
 
+.height(@height) {
+  height: @height;
+  @media screen and (min-width:  @screen-small) {
+    height: @height * @screen-small-height-ratio;
+  }
+  @media screen and (min-width:  @screen-medium) {
+    height: @height * @screen-medium-height-ratio;
+  }
+  @media screen and (min-width:  @screen-large) {
+    height: @height * @screen-large-height-ratio;
+  }
+}
+
 .padding(@padding) {
   padding: @padding;
 }
