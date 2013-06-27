@@ -4628,12 +4628,37 @@ input.placeholder {
   vertical-align: bottom;
   font-weight: normal;
 }
+@media screen and (min-width: 768px) {
+  .btn.update,
+  .btn.remove,
+  .btn.wishlist-btn,
+  .btn.small {
+    padding: 3.3px 5.5px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .btn.update,
+  .btn.remove,
+  .btn.wishlist-btn,
+  .btn.small {
+    padding: 3.6px 6px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .btn.update,
+  .btn.remove,
+  .btn.wishlist-btn,
+  .btn.small {
+    padding: 3.9px 6.5px;
+  }
+}
 .btn.update,
 .btn.remove,
 .btn.wishlist-btn {
   background: #eeeeee;
   border: 1px solid #cccccc;
   color: #50a9be;
+  line-height: 1.111em;
 }
 .btn.update.wishlisted,
 .btn.remove.wishlisted,
@@ -4712,6 +4737,22 @@ input.btn {
   background: none;
   z-index: 99;
   opacity: 1;
+  font-size: 1.222em;
+}
+@media screen and (min-width: 768px) {
+  .carousel .carousel-control {
+    font-size: 1.3442em;
+  }
+}
+@media screen and (min-width: 992px) {
+  .carousel .carousel-control {
+    font-size: 1.4664em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .carousel .carousel-control {
+    font-size: 1.5886em;
+  }
 }
 .carousel .carousel-control:focus {
   outline: medium none;
@@ -5169,8 +5210,8 @@ body {
 }
 @media screen and (min-width: 1200px) {
   body {
-    font-size: 19.6px;
-    line-height: 2.0000000006;
+    font-size: 18.2px;
+    line-height: 1.8571428577;
   }
 }
 a:hover,
@@ -5212,6 +5253,36 @@ a:focus {
   font-size: 1.333em;
   width: 50px;
 }
+@media screen and (min-width: 768px) {
+  .header-btn {
+    line-height: 55px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header-btn {
+    line-height: 60px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header-btn {
+    line-height: 65px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .header-btn {
+    widtht: 55px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header-btn {
+    width: 60px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header-btn {
+    width: 65px;
+  }
+}
 .header-btn.header-btn-disabled {
   cursor: default;
 }
@@ -5223,6 +5294,21 @@ a:focus {
   max-width: 60%;
   line-height: 50px;
   margin-left: 5px;
+}
+@media screen and (min-width: 768px) {
+  .header-logo {
+    line-height: 55px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header-logo {
+    line-height: 60px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header-logo {
+    line-height: 65px;
+  }
 }
 .mini-basket {
   position: relative;
@@ -5236,6 +5322,12 @@ a:focus {
   background: #eb6005;
   color: #ffffff;
   z-index: 1;
+}
+@media screen and (min-width: 1200px) {
+  .mini-basket .mini-basket-count {
+    top: 3.9px;
+    right: 29.9px;
+  }
 }
 .mini-basket .mini-basket-new-item {
   max-width: 150px;
@@ -5311,15 +5403,25 @@ a:focus {
 .article-list-price .vat-percent {
   color: #73bacb;
   margin: 0 5px;
-  display: block;
-}
-@media (min-width: 480px) {
-  .article-list-price .vat-percent {
-    display: inline;
-  }
+  display: inline;
 }
 .article-list-price .price-per-unit {
-  float: right;
+  font-size: 0.6em;
+}
+@media screen and (min-width: 768px) {
+  .article-list-price .price-per-unit {
+    font-size: 0.66em;
+  }
+}
+@media screen and (min-width: 992px) {
+  .article-list-price .price-per-unit {
+    font-size: 0.72em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .article-list-price .price-per-unit {
+    font-size: 0.78em;
+  }
 }
 .media:hover .article-list-price .old-price {
   color: inherit;
@@ -5441,7 +5543,7 @@ a:focus {
   background-position: 2px -45px;
 }
 .product-stock-flag.low-stock {
-  background-position: 2px 1px;
+  background-position: 2px 3px;
 }
 .product-stock-flag.no-stock {
   background-position: 2px -21px;

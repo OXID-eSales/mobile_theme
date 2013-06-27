@@ -89,7 +89,7 @@
         [{/block}]
         [{block name="widget_product_listitem_line_description"}]
         [{/block}]
-        <p class="article-list-price">
+        <div class="article-list-price">
             [{block name="widget_product_listitem_line_price"}]
                 [{oxhasrights ident="SHOWARTICLEPRICE"}]
                     [{assign var=tprice value=$product->getTPrice()}]
@@ -120,17 +120,17 @@
                             [{if $oView->isVatIncluded() }]
                                 [{if !($product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants())}]*[{/if}]
                             [{/if}]
-                            [{* weight and price/unit *}]
-                            [{if $product->getPricePerUnit()}]
-                                <span id="productPricePerUnit_[{$testid}]" class="price-per-unit">
-                                    [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{$product->getPricePerUnit()}] [{ $currency->sign}]/[{$product->getUnitName()}]
-                                </span>
-                            [{/if}]
                         </span>
+                        [{* weight and price/unit *}]
+                        [{if $product->getPricePerUnit()}]
+                            <span id="productPricePerUnit_[{$testid}]" class="price-per-unit">
+                                [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{$product->getPricePerUnit()}] [{ $currency->sign}]/[{$product->getUnitName()}]
+                            </span>
+                        [{/if}]
                     [{/block}]
                 [{/oxhasrights}]
             [{/block}]
-        </p>
+        </div>
         [{if $blShowToBasket}]
             [{block name="widget_product_listitem_line_tobasket"}]
                 [{oxhasrights ident="TOBASKET"}]
