@@ -52,7 +52,7 @@ class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
     }
 
     /**
-     * Checks if returns correct device type
+     * Checks if returns user agent instance
      */
     public function testGetUserAgent()
     {
