@@ -1,7 +1,7 @@
 [{$smarty.block.parent}]
 [{if $oViewConf->isModuleActive('oepaypal')}]
     [{if $oViewConf->isExpressCheckoutEnabled() }]
-        [{oxstyle include=$oViewConf->getModuleUrl('oepaypal','out/src/paypal_mobile.css')}]
+        [{oxstyle include=$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/css/paypal_mobile.css')}]
 
         <div class="paypalExpressCheckoutBox">
             <form action="[{ $oViewConf->getSslSelfLink() }]" method="post">

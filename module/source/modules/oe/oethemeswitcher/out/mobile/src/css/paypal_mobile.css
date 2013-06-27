@@ -1,0 +1,63 @@
+.paypalExpressCheckoutBox {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.paypalExpressCheckoutMsg {
+    position: relative;
+    margin: 0;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.paypalExpressCheckoutMsg input {
+    line-height: 20px;
+    margin: 0;
+}
+
+.payment .paypalDescBox {
+    position: relative;
+    margin: 10px 0;
+}
+
+.payment .paypalPaymentDesc {
+    margin: 12px 0 5px;
+}
+.paypalHelpIcon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    line-height: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: #777;
+}
+
+.paypalHelpIcon.small {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.paypalDescBox .helpIcon:hover {
+    color: #777;
+    border-color: #aaa;
+}
+
+.paypalHelpBox {
+    display: none;
+    position: absolute;
+    width: 190px;
+    white-space: normal;
+    color: #333;
+}
+.paypalCheckoutBtn {
+    height: 35px;
+}
+
+#paypalPartnerLogo {
+    margin-top: 15px;
+}
