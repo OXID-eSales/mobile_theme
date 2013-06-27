@@ -106,6 +106,9 @@
   > span + span:before {
     content: "|";
   }
+  .product-stock-flag {
+    padding-left: 20px;
+  }
 }
 
 .product-delivery-info {
@@ -128,3 +131,16 @@
 .product-variants-message {
   color: @product-variants-message-color;
 }
+
+.product-stock-flag {
+  background: url(../../img/stockstatus.png) no-repeat;
+  background-position: 7px -46px;
+  &.low-stock {
+    background-position: 7px 2px;
+  }
+  &.no-stock {
+    background-position: 7px -22px;
+  }
+}
+
+
