@@ -48,6 +48,13 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
     protected $_sActiveThemeType = null;
 
     /**
+     * User Agent
+     *
+     * @var object
+     */
+    protected $_oUserAgent = null;
+
+    /**
      * Returns active theme name
      *
      * @return string
@@ -61,30 +68,17 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
     }
 
     /**
-     * Return active device type (mobile|desktop)
+     * User Agent getter
      *
-     * @return string
+     * @return oeThemeSwitcherUserAgent
      */
-    public function getActiveDeviceType()
+    public function getUserAgent( )
     {
-        if ( $this->_sActiveDeviceType === null ) {
-            $oUserAgent = oxNew( 'oeThemeSwitcherUserAgent' );
-            $this->_sActiveDeviceType = $oUserAgent->getDeviceType();
+        if ( is_null( $this->_oUserAgent ) ){
+            $this->_oUserAgent = oxNew( 'oeThemeSwitcherUserAgent' );
         }
-        return $this->_sActiveDeviceType;
-    }
 
-    /**
-     * Return active theme type (mobile|desktop)
-     *
-     * @return string
-     */
-    public function getActiveThemeType()
-    {
-        if ( $this->_sActiveThemeType === null ) {
-            $this->_sActiveThemeType  = $this->getConfig()->isMobileThemeRequested() ? 'mobile' : 'desktop';
-        }
-        return $this->_sActiveThemeType;
+        return $this->_oUserAgent;
     }
 
     /**
