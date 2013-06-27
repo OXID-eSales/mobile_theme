@@ -24,6 +24,6 @@ $aLang = array(
     'charset'                                       => 'ISO-8859-15',
 
     'SHOP_MODULE_GROUP_main'                       => 'Allgemeine Parameter',
-    'SHOP_MODULE_sMobileTheme'                     => 'Name des Mobile Themes',
+    'SHOP_MODULE_sOEThemeSwitcherMobileTheme'      => 'Mobile Theme ID',
 
 );

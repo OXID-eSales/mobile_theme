@@ -35,7 +35,7 @@ class oeThemeSwitcherManufacturerList extends oeThemeSwitcherManufacturerList_pa
      */
     public function getViewId()
     {
-        $oUBase = oxNew( 'oxUBase' );
+        $oUBase = oxNew( 'aList' );
         $sViewId = $oUBase->getViewId();
         $sViewId .= $this->getConfig()->getActiveThemeId();
 

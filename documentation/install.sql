@@ -1,7 +1,7 @@
--- set shop id
+-- Set shop id (use 'oxbaseshop' for CE/PE, shop ID for EE
 SET @sShopId = 1;
 
--- data for new mobile theme
+-- Data for mobile theme
 INSERT INTO `oxconfig` (`OXID`, `OXSHOPID`, `OXMODULE`, `OXVARNAME`, `OXVARTYPE`, `OXVARVALUE`) VALUES
 ('1ec4235c2aee774aa45d772875435922', @sShopId, 'theme:mobile', 'sIconsize', 'str', 0x8064a213b1),
 ('12642dfaa1dee77488b1b22948593022', @sShopId, 'theme:mobile', 'sThumbnailsize', 'str', 0x170a3340d372be),

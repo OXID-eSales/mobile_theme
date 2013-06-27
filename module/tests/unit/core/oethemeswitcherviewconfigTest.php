@@ -29,8 +29,35 @@ class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
      */
     public function testGetEdition()
     {
-        $oViewConf = new oeThemeSwitcherViewConfig();
-        $this->assertEquals( $this->getConfig()->getEdition(), $oViewConf->getEdition() );
+        $oViewConfig = new oeThemeSwitcherViewConfig();
+        $this->assertEquals( $this->getConfig()->getEdition(), $oViewConfig->getEdition() );
+    }
+
+    /**
+     * Checks if returns correct active theme
+     */
+    public function testGetActiveTheme()
+    {
+        $sThemeName = 'test';
+
+        $oConfig = $this->getMock( 'oxConfig', array( 'getActiveThemeId' ) );
+        $oConfig->expects( $this->any() )->method( 'getActiveThemeId' )->will( $this->returnValue( $sThemeName ) );
+
+        $oViewConfig = $this->getMock( 'oeThemeSwitcherViewConfig', array( 'getConfig' ) );
+        $oViewConfig->expects( $this->any() )->method( 'getConfig' )->will( $this->returnValue( $oConfig ) );
+
+        $sActiveTheme = $oViewConfig->getActiveTheme();
+
+        $this->assertEquals( $sThemeName, $sActiveTheme );
+    }
+
+    /**
+     * Checks if returns user agent instance
+     */
+    public function testGetUserAgent()
+    {
+        $oViewConfig = new oeThemeSwitcherViewConfig();
+        $this->assertInstanceOf( 'oeThemeSwitcherUserAgent', $oViewConfig->getUserAgent() );
     }
 
     /**
