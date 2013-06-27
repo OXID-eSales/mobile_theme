@@ -30,16 +30,18 @@ class Unit_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
 
     /**
      * Tear down the fixture.
-     *
-     * @return null
      */
     protected function tearDown()
     {
+        //removing stored cookies
         oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', '');
 
         parent::tearDown();
     }
 
+    /**
+     * Data provider for testGetThemeType test case
+     */
     public function providerThemeType()
     {
         return array(
@@ -70,7 +72,7 @@ class Unit_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
     }
 
     /**
-     * Check if given device type is mobile
+     * test for theme type getter
      *
      * @dataProvider providerDeviceType
      */
@@ -95,9 +97,6 @@ class Unit_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
 
         $this->assertEquals( $sExpectation, $oThemeManager->getThemeType() );
     }
-
-
-
 
     /**
      * Tests getter if it is not null and if there is separators

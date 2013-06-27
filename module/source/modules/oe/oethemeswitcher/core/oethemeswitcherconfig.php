@@ -40,6 +40,8 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      */
     protected $_blIsModuleConfigLoaded = false;
 
+    protected $_oThemeManager = null;
+
     /**
      * Returns config parameter value if such parameter exists
      *
@@ -52,7 +54,6 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
         $sReturn = parent::getConfigParam( $sName );
 
         if ( $sName == "sCustomTheme" ) {
-
             //load module configs
             if ( !$this->_blIsModuleConfigLoaded ) {
                 $this->_loadVarsFromDb( $this->getShopId(), null, oxConfig::OXMODULE_MODULE_PREFIX );
@@ -60,7 +61,7 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
             }
 
             // check for mobile devices
-            if ( $this->isMobileThemeRequested() &&  !$this->isAdmin() ) {
+            if ( $this->getThemeManager()->isMobileThemeRequested() &&  !$this->isAdmin() ) {
                 return $this->_aConfigParams['sMobileTheme'];
             }
         }
@@ -85,27 +86,17 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
 
 
     /**
-     * Check if requested mobile theme
+     * Return theme manager
      *
-     * @return bool
+     * @return oeThemeSwitcherThemeManager
      */
-    public function isMobileThemeRequested()
+    public function getThemeManager()
     {
-        if( $this->_blIsMobileThemeRequested === null ) {
-
-            $sRequestedThemeType = $this->getRequestParameter('themeType');
-            if( !empty( $sRequestedThemeType ) ) {
-                oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sRequestedThemeType);
-            } else {
-                $sRequestedThemeType = oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
-                if ( empty( $sRequestedThemeType ) ) {
-                    $oUserAgent = oxNew( 'oeThemeSwitcherUserAgent' );
-                    $sRequestedThemeType = $oUserAgent->getDeviceType();
-                }
-            }
-            $this->_blIsMobileThemeRequested = ( $sRequestedThemeType == 'mobile' );
+        if ( $this->_oThemeManager == null ) {
+            $this->_oThemeManager = oxNew( 'oeThemeSwitcherThemeManager' );
         }
-
-        return $this->_blIsMobileThemeRequested;
+        return $this->_oThemeManager;
     }
+
+
 }
