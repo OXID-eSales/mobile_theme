@@ -4447,6 +4447,7 @@ input[type="tel"],
 input[type="color"] {
   border-width: 2px;
   color: #666666;
+  font-size: 1.111em;
 }
 input[type=date] {
   display: -webkit-inline-flex;
@@ -4575,11 +4576,17 @@ input.placeholder {
   vertical-align: bottom;
   font-weight: normal;
 }
+.btn.update,
+.btn.remove,
+.btn.wishlist-btn,
 .btn.wishlist-btn {
   background: #eeeeee;
   border: 1px solid #cccccc;
   color: #50a9be;
 }
+.btn.update.wishlisted,
+.btn.remove.wishlisted,
+.btn.wishlist-btn.wishlisted,
 .btn.wishlist-btn.wishlisted {
   color: #eb6005;
 }
