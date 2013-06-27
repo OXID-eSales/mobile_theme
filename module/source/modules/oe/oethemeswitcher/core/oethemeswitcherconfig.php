@@ -27,13 +27,6 @@
 class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
 {
     /**
-     * Bool variable true if mobile theme requested, otherwise false
-     *
-     * @var bool
-     */
-    protected $_blIsMobileThemeRequested = null;
-
-    /**
      * Bool variable true if modules configs are loaded, otherwise false
      *
      * @var bool
