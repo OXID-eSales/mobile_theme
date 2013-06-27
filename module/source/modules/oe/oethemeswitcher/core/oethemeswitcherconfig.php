@@ -40,6 +40,11 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      */
     protected $_blIsModuleConfigLoaded = false;
 
+    /**
+     * Theme manager object
+     *
+     * @var oeThemeSwitcherThemeManager
+     */
     protected $_oThemeManager = null;
 
     /**
@@ -65,9 +70,7 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
                 return $this->_aConfigParams['sMobileTheme'];
             }
         }
-
         return $sReturn;
-
     }
 
     /**
@@ -77,13 +80,12 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      */
     public function getActiveThemeId()
     {
-        $sCustomTheme = $this->getConfigParam('sCustomTheme');
-        if ($sCustomTheme) {
+        $sCustomTheme = $this->getConfigParam( 'sCustomTheme' );
+        if ( $sCustomTheme ) {
             return $sCustomTheme;
         }
-        return $this->getConfigParam('sTheme');
+        return $this->getConfigParam( 'sTheme' );
     }
-
 
     /**
      * Return theme manager
@@ -97,6 +99,5 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
         }
         return $this->_oThemeManager;
     }
-
 
 }

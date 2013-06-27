@@ -19,25 +19,14 @@
  * @copyright (C) OXID eSales AG 2003-2013
  */
 
-require_once realpath( "." ).'/unit/OxidTestCase.php';
-require_once realpath( "." ).'/unit/test_config.inc.php';
+require_once realpath( '.' ).'/unit/OxidTestCase.php';
+require_once realpath( '.' ).'/unit/test_config.inc.php';
 
 /**
  * Tests for oeThemeSwitcherUserAgent class
  */
 class Unit_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
 {
-
-    /**
-     * Tear down the fixture.
-     */
-    protected function tearDown()
-    {
-        //removing stored cookies
-        oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', '');
-
-        parent::tearDown();
-    }
 
     /**
      * Data provider for testGetThemeType test case
@@ -53,7 +42,7 @@ class Unit_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
             array( 'mobile', 'mobile', 'mobile', 'mobile' ),
             array( 'desktop', 'mobile', 'mobile', 'desktop' ),
 
-            array( '', 'desktop', 'mobile',  'desktop' ),
+            array( '', 'desktop', 'mobile', 'desktop' ),
             array( 'mobile', 'desktop', 'mobile', 'mobile' ),
             array( 'desktop', 'desktop', 'mobile', 'desktop' ),
 
@@ -74,25 +63,21 @@ class Unit_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
     /**
      * test for theme type getter
      *
-     * @dataProvider providerDeviceType
+     * @dataProvider providerThemeType
      */
     public function testGetThemeType( $sRequestValue, $sCookieValue, $sUserAgentValue, $sExpectation )
     {
         // set request parameter
-        if( !empty( $sRequestValue )){
-            $_GET['themeType'] = $sRequestValue;
+        if( !empty( $sRequestValue ) ){
+            $this->setRequestParam( 'themeType', $sRequestValue );
         }
 
-        //set cookie parameter
-        if( !empty( $sCookieValue )){
-            oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sCookieValue);
-        }
+        $oThemeManager = $this->getMock( 'oeThemeSwitcherThemeManager', array( '_getThemeTypeFromCookie' ) );
+        $oThemeManager->expects( $this->any() )->method( '_getThemeTypeFromCookie' )->will( $this->returnValue( $sCookieValue ) );
 
-        //mock user agent
-        $oUserAgent = $this->getMock('oeThemeSwitcherUserAgent', array('getDeviceType'));
-        $oUserAgent->expects($this->any())->method('getDeviceType')->will( $this->returnValue( $sUserAgentValue ) );
+        $oUserAgent = $this->getMock( 'oeThemeSwitcherUserAgent', array('getDeviceType' ) );
+        $oUserAgent->expects( $this->any() )->method( 'getDeviceType' )->will( $this->returnValue( $sUserAgentValue ) );
 
-        $oThemeManager = new oeThemeSwitcherThemeManager();
         $oThemeManager->setUserAgent( $oUserAgent );
 
         $this->assertEquals( $sExpectation, $oThemeManager->getThemeType() );
@@ -104,32 +89,38 @@ class Unit_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
     public function testGetConfig()
     {
         $oThemeManager = new oeThemeSwitcherThemeManager();
-        $this->assertInstanceOf('oxConfig', $oThemeManager->getConfig());
+        $this->assertInstanceOf( 'oxConfig', $oThemeManager->getConfig() );
     }
 
-
+    /**
+     * Tests if getter gets setted value
+     */
     public function testUserAgent_SetAndGet()
     {
         $oThemeManager = new oeThemeSwitcherThemeManager();
-        $oThemeManager->setUserAgent('testAgent');
-        $this->assertInstanceOf('testAgent', $oThemeManager->getUserAgent());
+        $oThemeManager->setUserAgent( 'testAgent' );
+        $sUserAgent = $oThemeManager->getUserAgent();
+        $this->assertEquals( 'testAgent', $sUserAgent );
     }
 
-
-
+    /**
+     * Tests if method isMobileThemeRequested returns false
+     */
     public function testIsMobileTheme_false()
     {
-        $oThemeManager = $this->getMock('oeThemeSwitcherThemeManager', array('getThemeType'));
-        $oThemeManager->expects($this->any())->method('getThemeType')->will( $this->returnValue( 'desktop' ) );
-        $this->assertFalse($oThemeManager->isMobileThemeRequested());
+        $oThemeManager = $this->getMock( 'oeThemeSwitcherThemeManager', array( 'getThemeType' ) );
+        $oThemeManager->expects( $this->any() )->method( 'getThemeType' )->will( $this->returnValue( 'desktop' ) );
+        $this->assertFalse( $oThemeManager->isMobileThemeRequested() );
     }
 
-
+    /**
+     * Tests if method isMobileThemeRequested returns true
+     */
     public function testIsMobileTheme_true()
     {
-        $oThemeManager = $this->getMock('oeThemeSwitcherThemeManager', array('getThemeType'));
-        $oThemeManager->expects($this->any())->method('getThemeType')->will( $this->returnValue( 'mobile' ) );
-        $this->assertTrue($oThemeManager->isMobileThemeRequested());
+        $oThemeManager = $this->getMock( 'oeThemeSwitcherThemeManager', array( 'getThemeType' ) );
+        $oThemeManager->expects( $this->any() )->method( 'getThemeType' )->will( $this->returnValue( 'mobile' ) );
+        $this->assertTrue( $oThemeManager->isMobileThemeRequested() );
     }
 
 }
