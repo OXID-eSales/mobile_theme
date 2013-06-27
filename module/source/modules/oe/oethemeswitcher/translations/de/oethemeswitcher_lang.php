@@ -36,7 +36,7 @@ $sLangName  = "Deutsch";
 // -------------------------------
 $aLang = array(
     'charset'                                    => "ISO-8859-15",
-    'MOBILE_DISPLAY'                             => "Zu Mobile wechseln",
+    'OETHEMESWITCHER_MOBILE_DISPLAY'             => "Zu Mobile wechseln",
     'OEPAYPAL_LOCALE'                            => 'de_DE',
     'OEPAYPAL_PARTNERBOX_LINK'                   => 'https://www.paypal.com/de/cgi-bin/webscr?cmd=xpt/cps/popup/OLCWhatIsPayPal-outside',
     'OEPAYPAL_ERROR_USER_ADDRESS'                => 'Ihre im Shop hinterlegten Adressinformationen stimmen nicht mit Ihrer PayPal-Lieferadresse überein. Bitte loggen Sie sich im Shop ein und führen Sie den PayPal Express Checkout noch einmal durch.',
