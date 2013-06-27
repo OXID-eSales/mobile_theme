@@ -5394,6 +5394,13 @@ a:focus {
 .order dd {
   margin: 0;
 }
+.order .agb .checkout-agb-label {
+  display: inline;
+  vertical-align: bottom;
+}
+.order .agb .checkout-agb-label a {
+  vertical-align: bottom;
+}
 .payment-select .payment-option {
   display: none;
 }

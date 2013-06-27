@@ -51,7 +51,7 @@
                                                     <input id="checkAgbTop" type="checkbox" name="ord_agb" value="1">
                                                     <label class="glyphicon-ok" for="checkAgbTop"></label>
                                                 </div>
-                                                <label for="checkAgbTop">
+                                                <label for="checkAgbTop" class="checkout-agb-label">
                                                     [{ $oContent->oxcontents__oxcontent->value }]
                                                 </label>
                                                 <div class="clearfix"></div>
