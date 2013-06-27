@@ -110,10 +110,22 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
 
         $aModules = $this->getConfig()->getConfigParam( 'aModules' );
 
-        if ( is_array( $aModules ) && in_array( $sModuleId, $aModules ) ) {
-            $aDisabledModules = $this->getConfig()->getConfigParam( 'aDisabledModules' );
-            if ( ! ( is_array( $aDisabledModules ) && in_array( $sModuleId, $aDisabledModules ) ) ) {
-                $blModuleIsActive = true;
+        if ( is_array( $aModules ) ) {
+            // Check if module was ever installed.
+            $blModuleExists = false;
+            foreach ( $aModules as $sClassName => $sExtendPath ) {
+                if ( false !== strpos( $sExtendPath, '/'. $sModuleId .'/' ) ) {
+                    $blModuleExists = true;
+                    break;
+                }
+            }
+
+            // If module exists, check if it is not disabled.
+            if ( $blModuleExists ) {
+                $aDisabledModules = $this->getConfig()->getConfigParam( 'aDisabledModules' );
+                if ( ! ( is_array( $aDisabledModules ) && in_array( $sModuleId, $aDisabledModules ) ) ) {
+                    $blModuleIsActive = true;
+                }
             }
         }
 

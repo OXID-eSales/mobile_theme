@@ -39,10 +39,10 @@ class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
     public function _dpIsModuleActive()
     {
         return array(
-            array( array( 'oepaypal' ), null,                'oepaypal', true ),
-            array( array( 'oepaypal' ), array( 'oepaypal' ), 'oepaypal', false ),
-            array( null,                null,                'oepaypal', false ),
-            array( null,                array( 'oepaypal' ), 'oepaypal', false ),
+            array( array( 'order' => 'oe/oepaypal/controllers/oepaypalorder' ), array(),                  'oepaypal', true ),
+            array( array( 'order' => 'oe/oepaypal/controllers/oepaypalorder' ), array( 0 => 'oepaypal' ), 'oepaypal', false ),
+            array( array(),                                                     array(),                  'oepaypal', false ),
+            array( array(),                                                     array( 0 => 'oepaypal' ), 'oepaypal', false ),
         );
     }
 
