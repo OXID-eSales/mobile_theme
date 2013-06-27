@@ -1,4 +1,4 @@
-[{if $sPaymentID == "oxidpaypal" && $oViewConf->isStandardCheckoutEnabled()}]
+[{if $oViewConf->isModuleActive('oepaypal') && $sPaymentID == "oxidpaypal" && $oViewConf->isStandardCheckoutEnabled()}]
     [{ assign var='sActiveThemeType' value=$oViewConf->getActiveThemeType() }]
 
     [{oxstyle include=$oViewConf->getModuleUrl('oepaypal','out/src/paypal_mobile.css')}]
@@ -22,6 +22,6 @@
             <input id="payment_[{$sPaymentID}]" type="radio" name="paymentid" value="[{$sPaymentID}]" [{if $oViewConf->sendOrderInfoToPayPalDefault() || $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]checked="checked"[{/if}] />
         [{/if}]
     </div>
-[{elseif $sPaymentID != "oxidpaypal" }]
+[{else}]
     [{ $smarty.block.parent }]
 [{/if}]
