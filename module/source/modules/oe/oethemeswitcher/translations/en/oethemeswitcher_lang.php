@@ -36,7 +36,7 @@ $sLangName  = "English";
 // -------------------------------
 $aLang = array(
     'charset'                                    => "ISO-8859-15",
-    'OETHEMESWITCHER_MOBILE_DISPLAY'              => "Switch to mobile",
+    'OETHEMESWITCHER_MOBILE_DISPLAY'             => "Switch to mobile",
     'OEPAYPAL_LOCALE'                            => 'en_US',
     'OEPAYPAL_PARTNERBOX_LINK'                   => 'https://www.paypal.com/en/cgi-bin/webscr?cmd=xpt/cps/popup/OLCWhatIsPayPal-outside',
     'OEPAYPAL_ERROR_USER_ADDRESS'                => 'The address data provided in your shop account does not match your PayPal shipping address. Please log on to your shop account and start the PayPal Express Checkout process again.',
