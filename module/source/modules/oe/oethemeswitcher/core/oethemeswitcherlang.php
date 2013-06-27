@@ -44,21 +44,21 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
         $sShopId        = $oConfig->getShopId();
         $aModuleInfo    = $this->_getActiveModuleInfo();
 
-        //get generic lang files
+        // get generic lang files
         $sGenericPath = $sAppDir . 'translations/' . $sLang;
         if ( $sGenericPath ) {
             $aLangFiles[] = $sGenericPath . "/lang.php";
             $aLangFiles = $this->_appendLangFile( $aLangFiles, $sGenericPath );
         }
 
-        //get theme lang files
+        // get theme lang files
         if ( $sTheme ) {
             $sThemePath = $sAppDir . 'views/' . $sTheme .'/' . $sLang;
             $aLangFiles[] = $sThemePath . "/lang.php";
             $aLangFiles = $this->_appendLangFile( $aLangFiles, $sThemePath );
         }
 
-        //get custom theme lang files
+        // get custom theme lang files
         if ( $sCustomTheme && $sCustomTheme == $sActiveTheme ) {
             $sCustPath = $sAppDir . 'views/' . $sCustomTheme .'/' . $sLang;
             $aLangFiles[] = $sCustPath . "/lang.php";
@@ -81,7 +81,7 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
             }
         }
 
-        //modules language files
+        // modules language files
         if ( is_array( $aModuleInfo ) ) {
             foreach ( $aModuleInfo as $sPath ) {
                 $sFullPath = $oConfig->getModulesDir() . $sPath . '/translations/' . $sLang;
