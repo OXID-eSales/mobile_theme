@@ -9,6 +9,17 @@
     [{block name="checkout_payment_main"}]
         [{assign var="currency" value=$oView->getActCurrency()}]
 
+        [{block name="checkout_payment_nextstep_top"}]
+            [{if $oView->getPaymentList() && !$oView->isLowOrderPrice()}]
+                <div class="payment-row">
+                    <ul class="form">
+                        <li><input type="button" id="paymentNextStepTop" name="userform" class="btn" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" /></li>
+                    </ul>
+                </div>
+                [{oxscript add="$('#paymentNextStepTop').click( function() { $('#paymentNextStepBottom').click();return false;});"}]
+            [{/if}]
+        [{/block}]
+
         [{block name="change_shipping"}]
             <div class="payment-row">
                 [{if $oView->getAllSets()}]

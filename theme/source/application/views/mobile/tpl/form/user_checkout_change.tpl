@@ -21,13 +21,14 @@
                         [{block name="user_checkout_billing_head"}]
                             <ul class="form">
                                 <li>
-                                    <input type="submit" class="btn" name="userform" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" />
+                                    <input type="button" id="userNextStepTop" name="userform" class="btn" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" />
                                 </li>
                                 <li>
                                     <h3>[{oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
                                     <input class="btn" type="button" id="userChangeAddress" name="changeBillAddress" value="[{oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]" />
                                 </li>
                             </ul>
+                            [{oxscript add="$('#userNextStepTop').click( function() { $('#userNextStepBottom').click();return false;});"}]
                             [{oxscript add="$('#userChangeAddress').click( function() { $('#addressForm').show();$('#addressText').hide();$('#userChangeAddress').hide();return false;});"}]
                             [{if $aErrors}]
                                 [{oxscript add="$(document).ready(function(){ $('#userChangeAddress').trigger('click');});"}]
