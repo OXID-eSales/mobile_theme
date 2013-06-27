@@ -8,7 +8,7 @@
                 [{ $oViewConf->getHiddenSid() }]
                 <input type="hidden" name="cl" value="oePayPalExpressCheckoutDispatcher">
                 <input type="hidden" name="fnc" value="setExpressCheckout">
-                <input class="paypalCheckoutBtn" type="image" name="paypalExpressCheckoutButton" src="[{$oViewConf->getModuleUrl('oepaypal','out/img/')}]checkout-paypal-medium-[{$oViewConf->getActLanguageAbbr()}].png" title="[{$oViewConf->getPayPalPaymentDescription()|strip_tags:false|trim|oxescape}]">
+                <input class="paypalCheckoutBtn" type="image" name="paypalExpressCheckoutButton" src="[{$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/img/')}]checkout-paypal-medium-[{$oViewConf->getActLanguageAbbr()}].png" title="[{$oViewConf->getPayPalPaymentDescription()|strip_tags:false|trim|oxescape}]">
 
                 [{if $oViewConf->sendOrderInfoToPayPal()}]
             <input id="displayCartInPayPal" type="hidden" name="displayCartInPayPal" value="[{if $oViewConf->sendOrderInfoToPayPalDefault()}]1[{else}]0[{/if}]"  />
