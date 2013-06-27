@@ -4312,13 +4312,28 @@ a.list-group-item.active > .badge,
 .main-nav-list li a {
   background-color: #50a9be;
   color: #ffffff;
-  font-size: 19px;
+  font-size: 1.333em;
   padding: 0 60px 0 0;
   text-transform: uppercase;
 }
 .main-nav-list li a span {
   display: block;
   padding: 14px 18px;
+}
+@media screen and (min-width: 768px) {
+  .main-nav-list li a span {
+    padding: 15.4px 19.8px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .main-nav-list li a span {
+    padding: 16.8px 21.6px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .main-nav-list li a span {
+    padding: 18.2px 23.4px;
+  }
 }
 .main-nav-list li a [class^="glyphicon-"] {
   margin-top: -0.6em;
@@ -4362,6 +4377,21 @@ a.list-group-item.active > .badge,
   padding-right: 32px;
   color: #50a9be;
   background-color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .dropdown-toggle {
+    padding: 11px 13.2px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .dropdown-toggle {
+    padding: 12px 14.4px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .dropdown-toggle {
+    padding: 13px 15.6px;
+  }
 }
 .dropdown-toggle .glyphicon-chevron-down {
   position: absolute;
@@ -4527,6 +4557,24 @@ input.placeholder {
   padding: 3px;
   height: 30px;
   width: 30px;
+}
+@media screen and (min-width: 768px) {
+  .checkbox label,
+  .radio label {
+    padding: 3.3px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .checkbox label,
+  .radio label {
+    padding: 3.6px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .checkbox label,
+  .radio label {
+    padding: 3.9px;
+  }
 }
 .checkbox + label,
 .radio + label {
@@ -4803,6 +4851,21 @@ input.btn {
   padding: 12px 0;
   width: 50px;
 }
+@media screen and (min-width: 768px) {
+  .pagination li a {
+    padding: 13.2px 0;
+  }
+}
+@media screen and (min-width: 992px) {
+  .pagination li a {
+    padding: 14.4px 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .pagination li a {
+    padding: 15.6px 0;
+  }
+}
 .pagination li a:hover {
   background-color: #232323;
 }
@@ -5048,6 +5111,21 @@ h4 {
   padding: 17px;
   text-transform: uppercase;
 }
+@media screen and (min-width: 768px) {
+  .page-head {
+    padding: 18.7px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .page-head {
+    padding: 20.4px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .page-head {
+    padding: 22.1px;
+  }
+}
 .heading {
   text-transform: uppercase;
   font-weight: bold;
@@ -5073,6 +5151,28 @@ h4 {
   color: #000000;
   border-bottom: 1px solid #cccccc;
 }
+body {
+  font-size: 14px;
+  line-height: 1.428571429;
+}
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 15.4px;
+    line-height: 1.5714285719;
+  }
+}
+@media screen and (min-width: 992px) {
+  body {
+    font-size: 16.8px;
+    line-height: 1.7142857148;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 19.6px;
+    line-height: 2.0000000006;
+  }
+}
 a:hover,
 a:focus {
   text-decoration: none;
@@ -5081,6 +5181,21 @@ a:focus {
   background: #ffffff;
   padding: 15px;
   color: #000000;
+}
+@media screen and (min-width: 768px) {
+  .content {
+    padding: 16.5px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .content {
+    padding: 18px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .content {
+    padding: 19.5px;
+  }
 }
 #header {
   padding: 0;
@@ -5148,6 +5263,21 @@ a:focus {
   position: relative;
   padding: 10px;
 }
+@media screen and (min-width: 768px) {
+  .media-list.article-list .media .media-body {
+    padding: 11px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .media-list.article-list .media .media-body {
+    padding: 12px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .media-list.article-list .media .media-body {
+    padding: 13px;
+  }
+}
 .media-list.article-list .media .media-heading-link {
   color: #000000;
 }
@@ -5187,6 +5317,9 @@ a:focus {
   .article-list-price .vat-percent {
     display: inline;
   }
+}
+.article-list-price .price-per-unit {
+  float: right;
 }
 .media:hover .article-list-price .old-price {
   color: inherit;
@@ -5280,11 +5413,11 @@ a:focus {
   color: #1d7e96;
   font-size: 0.8em;
 }
-.product-additional-info > span + span:before {
-  content: "|";
+.product-additional-info > span:after {
+  content: " | ";
 }
-.product-additional-info .product-stock-flag {
-  padding-left: 20px;
+.product-additional-info > span:last-of-type:after {
+  content: "";
 }
 .product-delivery-info {
   clear: both;
@@ -5303,14 +5436,15 @@ a:focus {
   color: #b81c00;
 }
 .product-stock-flag {
+  padding-left: 13px;
   background: url(../../img/stockstatus.png) no-repeat;
-  background-position: 7px -46px;
+  background-position: 2px -45px;
 }
 .product-stock-flag.low-stock {
-  background-position: 7px 2px;
+  background-position: 2px 1px;
 }
 .product-stock-flag.no-stock {
-  background-position: 7px -22px;
+  background-position: 2px -21px;
 }
 .order-history-list {
   list-style: none;
