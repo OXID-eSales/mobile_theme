@@ -120,6 +120,12 @@
                             [{if $oView->isVatIncluded() }]
                                 [{if !($product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants())}]*[{/if}]
                             [{/if}]
+                            [{* weight and price/unit *}]
+                            [{if $product->getPricePerUnit()}]
+                                <span id="productPricePerUnit_[{$testid}]" class="price-per-unit">
+                                    [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{$product->getPricePerUnit()}] [{ $currency->sign}]/[{$product->getUnitName()}]
+                                </span>
+                            [{/if}]
                         </span>
                     [{/block}]
                 [{/oxhasrights}]
