@@ -144,4 +144,8 @@ $aLang = array(
     'CONTINUE_TO_NEXT_STEP'                                       => "Continue", // make CONTINUE key, translate to Continue
     'OK'                                                          => "OK", // move to generic
     'ADDING_TO_WISHLIST'                                          => "Adding to wishlist!",
+    'CHANGE_PASSWORD_2'                                           => "My password",
+    'NEWSLETTER_SETTINGS'                                         => "My newsletter",
+    'BILLING_SHIPPING_SETTINGS'                                   => "My address",
+    'ORDER_HISTORY'                                               => "My orders",
 );
