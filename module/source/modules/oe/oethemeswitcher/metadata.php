@@ -64,6 +64,6 @@ $aModule = array(
     ),
 
     'settings' => array(
-        array('group' => 'main', 'name' => 'sMobileTheme', 'type' => 'str',  'value' => 'mobile'),
+        array('group' => 'main', 'name' => 'sOEThemeSwitcherMobileTheme', 'type' => 'str',  'value' => 'mobile'),
     )
 );
