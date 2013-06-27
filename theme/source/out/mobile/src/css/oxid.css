@@ -4330,6 +4330,10 @@ a.list-group-item.active > .badge,
 .main-nav-list li a:focus {
   background-color: #50a9be;
 }
+.main-nav-list li a:active {
+  background-color: #eb6005;
+  color: #ffffff;
+}
 .main-nav-list li a.back {
   padding: 0 0 0 60px;
 }
@@ -4578,7 +4582,6 @@ input.placeholder {
 }
 .btn.update,
 .btn.remove,
-.btn.wishlist-btn,
 .btn.wishlist-btn {
   background: #eeeeee;
   border: 1px solid #cccccc;
@@ -4586,7 +4589,6 @@ input.placeholder {
 }
 .btn.update.wishlisted,
 .btn.remove.wishlisted,
-.btn.wishlist-btn.wishlisted,
 .btn.wishlist-btn.wishlisted {
   color: #eb6005;
 }
@@ -4599,6 +4601,10 @@ input.placeholder {
   background: #eeeeee;
   border: 1px solid #cccccc;
   color: #50a9be;
+}
+.btn:active {
+  background-color: #eb6005;
+  color: #ffffff;
 }
 input.btn {
   width: 100%;
@@ -4667,7 +4673,6 @@ input.btn {
   position: absolute;
   top: 50%;
   margin-top: -0.6em;
-  font-size: 2em;
   color: #50a9be;
   text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
 }
@@ -4681,10 +4686,9 @@ input.btn {
   margin: 0 auto;
 }
 .carousel .carousel-caption {
-  height: 85%;
-  margin-left: 40px;
+  margin-left: 10px;
   padding: 0;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
 }
 .filter-box {
@@ -5091,7 +5095,7 @@ a:focus {
   line-height: 50px;
   border-left: 1px solid #666666;
   font-size: 1.333em;
-  width: auto;
+  width: 50px;
 }
 .header-btn.header-btn-disabled {
   cursor: default;
@@ -5279,6 +5283,9 @@ a:focus {
 .product-additional-info > span + span:before {
   content: "|";
 }
+.product-additional-info .product-stock-flag {
+  padding-left: 20px;
+}
 .product-delivery-info {
   clear: both;
 }
@@ -5294,6 +5301,16 @@ a:focus {
 }
 .product-variants-message {
   color: #b81c00;
+}
+.product-stock-flag {
+  background: url(../../img/stockstatus.png) no-repeat;
+  background-position: 7px -46px;
+}
+.product-stock-flag.low-stock {
+  background-position: 7px 2px;
+}
+.product-stock-flag.no-stock {
+  background-position: 7px -22px;
 }
 .order-history-list {
   list-style: none;
@@ -5469,6 +5486,9 @@ a:focus {
 #footer .nav-pills > li + li {
   border-left-width: 1px;
 }
+#footer .nav-pills > li + li > a {
+  margin-left: 0;
+}
 #footer .nav-list {
   padding-top: 30px;
 }
@@ -5493,6 +5513,11 @@ a:focus {
 #footer .footer-nav > li:hover > a {
   background-color: #50a9be;
   color: #232323;
+}
+#footer .footer-nav > li:focus > a:active,
+#footer .footer-nav > li:hover > a:active {
+  background-color: #eb6005;
+  color: #ffffff;
 }
 #footer .footer-nav > li > a {
   border-radius: 0;
