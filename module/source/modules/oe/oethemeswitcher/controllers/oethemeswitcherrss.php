@@ -32,7 +32,7 @@ class oeThemeSwitcherRss extends oeThemeSwitcherRss_parent
      */
     public function getViewId()
     {
-        $oUBase = oxNew( 'oxUBase' );
+        $oUBase = oxNew( 'aList' );
         $sViewId = $oUBase->getViewId();
         $sViewId .= $this->getConfig()->getActiveThemeId();
 
