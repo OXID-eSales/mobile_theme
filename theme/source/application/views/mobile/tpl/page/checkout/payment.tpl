@@ -109,7 +109,7 @@
                     </div>
 
                     [{if $oView->getPaymentList()}]
-                        [{block name="select_payment"}]
+                        [{block name="mb_select_payment"}]
                             [{* first loop is to render payment method selection *}]
                             <div id="paymentMethods" class="dropdown">
                                 [{* only to track selection within DOM *}]
@@ -134,7 +134,7 @@
                             </div>
                             [{* second loop is to render payment method details *}]
                             [{foreach key=sPaymentID from=$oView->getPaymentList() item=paymentmethod name=PaymentSelect}]
-                                [{block name="select_payment"}]
+                                [{block name="mb_select_payment"}]
                                     [{if $sPaymentID == "oxidcashondel"}]
                                         [{include file="page/checkout/inc/payment_oxidcashondel.tpl"}]
                                     [{elseif $sPaymentID == "oxidcreditcard"}]

@@ -14,7 +14,7 @@
                 [{* basket btn next *}]
                 [{if !$oView->isLowOrderPrice() }]
                     <div id="btnNextStepTop">
-                    [{block name="basket_btn_next_top"}]
+                    [{block name="mb_basket_btn_next_top"}]
                         <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
                             [{ $oViewConf->getHiddenSid() }]
                             <input type="hidden" name="cl" value="user">
@@ -52,7 +52,7 @@
                     [{/block}]
                 [{else}]
                     <div id="btnNextStepBottom">
-                    [{block name="basket_btn_next_bottom"}]
+                    [{block name="mb_basket_btn_next_bottom"}]
                         <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
                             [{ $oViewConf->getHiddenSid() }]
                             <input type="hidden" name="cl" value="user">
