@@ -31,11 +31,11 @@ class oeThemeSwitcherTheme extends oeThemeSwitcherTheme_parent
      *
      * @return mixed
      */
-    public function getInfo($sName)
+    public function getInfo( $sName )
     {
         $sValue = parent::getInfo( $sName );
 
-        if ( $sName == 'active' && $this->getId() == $this->getConfig()->getConfigParam('sMobileTheme') ) {
+        if ( $sName == 'active' && $this->getId() == $this->getConfig()->getConfigParam( 'sOEThemeSwitcherMobileTheme' ) ) {
             return true;
         }
 

@@ -19,7 +19,7 @@
 //
 
 .filter-box {
-  padding: @filter-box-padding;
+  .padding(@filter-box-padding);
 }
 
 .filter-box-closed {
@@ -40,21 +40,21 @@
   .filter-open-title {
     color: @filter-open-title-color;
     background-color: @filter-open-title-background-color;
-    padding: @filter-open-title-padding;
+    .padding(@filter-open-title-padding);
     width: @filter-open-title-width;
     display: inline-block;
   }
   .filter-close {
     color: @filter-close-color;
     background-color: @filter-close-background-color;
-    padding: @filter-close-padding;
+    .padding(@filter-close-padding);
     right: @filter-close-right;
     position: absolute;
     display: inline-block;
     cursor: @filter-close-cursor;
   }
   .dropdown {
-    margin: @filter-box-opened-dropdown-margin;
+    .margin(@filter-box-opened-dropdown-margin);
   }
   .filter-title {
     color: @filter-box-opened-filter-title-color;

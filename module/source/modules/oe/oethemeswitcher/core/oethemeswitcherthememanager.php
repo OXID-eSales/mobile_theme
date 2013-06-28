@@ -82,9 +82,9 @@ class oeThemeSwitcherThemeManager
      */
     protected function _getThemeTypeFromRequest()
     {
-        $sRequestedThemeType = $this->getConfig()->getRequestParameter('themeType');
-        if( !empty( $sRequestedThemeType ) ) {
-            oxRegistry::get("oxUtilsServer")->setOxCookie('sThemeType', $sRequestedThemeType);
+        $sRequestedThemeType = $this->getConfig()->getRequestParameter( 'themeType' );
+        if( $sRequestedThemeType ) {
+            oxRegistry::get('oxUtilsServer')->setOxCookie( 'sThemeType', $sRequestedThemeType );
         }
 
         return $sRequestedThemeType;
@@ -97,7 +97,7 @@ class oeThemeSwitcherThemeManager
      */
     protected function _getThemeTypeFromCookie()
     {
-        return oxRegistry::get("oxUtilsServer")->getOxCookie('sThemeType');
+        return oxRegistry::get( 'oxUtilsServer' )->getOxCookie( 'sThemeType' );
     }
 
 

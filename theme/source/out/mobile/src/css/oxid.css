@@ -4312,13 +4312,28 @@ a.list-group-item.active > .badge,
 .main-nav-list li a {
   background-color: #50a9be;
   color: #ffffff;
-  font-size: 19px;
+  font-size: 1.333em;
   padding: 0 60px 0 0;
   text-transform: uppercase;
 }
 .main-nav-list li a span {
   display: block;
   padding: 14px 18px;
+}
+@media screen and (min-width: 768px) {
+  .main-nav-list li a span {
+    padding: 15.4px 19.8px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .main-nav-list li a span {
+    padding: 16.8px 21.6px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .main-nav-list li a span {
+    padding: 18.2px 23.4px;
+  }
 }
 .main-nav-list li a [class^="glyphicon-"] {
   margin-top: -0.6em;
@@ -4329,6 +4344,10 @@ a.list-group-item.active > .badge,
 .main-nav-list li a:hover,
 .main-nav-list li a:focus {
   background-color: #50a9be;
+}
+.main-nav-list li a:active {
+  background-color: #eb6005;
+  color: #ffffff;
 }
 .main-nav-list li a.back {
   padding: 0 0 0 60px;
@@ -4358,6 +4377,21 @@ a.list-group-item.active > .badge,
   padding-right: 32px;
   color: #50a9be;
   background-color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .dropdown-toggle {
+    padding: 11px 13.2px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .dropdown-toggle {
+    padding: 12px 14.4px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .dropdown-toggle {
+    padding: 13px 15.6px;
+  }
 }
 .dropdown-toggle .glyphicon-chevron-down {
   position: absolute;
@@ -4524,6 +4558,24 @@ input.placeholder {
   height: 30px;
   width: 30px;
 }
+@media screen and (min-width: 768px) {
+  .checkbox label,
+  .radio label {
+    padding: 3.3px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .checkbox label,
+  .radio label {
+    padding: 3.6px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .checkbox label,
+  .radio label {
+    padding: 3.9px;
+  }
+}
 .checkbox + label,
 .radio + label {
   margin-left: 5px;
@@ -4576,17 +4628,40 @@ input.placeholder {
   vertical-align: bottom;
   font-weight: normal;
 }
+@media screen and (min-width: 768px) {
+  .btn.update,
+  .btn.remove,
+  .btn.wishlist-btn,
+  .btn.small {
+    padding: 3.3px 5.5px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .btn.update,
+  .btn.remove,
+  .btn.wishlist-btn,
+  .btn.small {
+    padding: 3.6px 6px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .btn.update,
+  .btn.remove,
+  .btn.wishlist-btn,
+  .btn.small {
+    padding: 3.9px 6.5px;
+  }
+}
 .btn.update,
 .btn.remove,
-.btn.wishlist-btn,
 .btn.wishlist-btn {
   background: #eeeeee;
   border: 1px solid #cccccc;
   color: #50a9be;
+  line-height: 1.111em;
 }
 .btn.update.wishlisted,
 .btn.remove.wishlisted,
-.btn.wishlist-btn.wishlisted,
 .btn.wishlist-btn.wishlisted {
   color: #eb6005;
 }
@@ -4599,6 +4674,10 @@ input.placeholder {
   background: #eeeeee;
   border: 1px solid #cccccc;
   color: #50a9be;
+}
+.btn:active {
+  background-color: #eb6005;
+  color: #ffffff;
 }
 input.btn {
   width: 100%;
@@ -4658,6 +4737,22 @@ input.btn {
   background: none;
   z-index: 99;
   opacity: 1;
+  font-size: 1.222em;
+}
+@media screen and (min-width: 768px) {
+  .carousel .carousel-control {
+    font-size: 1.3442em;
+  }
+}
+@media screen and (min-width: 992px) {
+  .carousel .carousel-control {
+    font-size: 1.4664em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .carousel .carousel-control {
+    font-size: 1.5886em;
+  }
 }
 .carousel .carousel-control:focus {
   outline: medium none;
@@ -4667,7 +4762,6 @@ input.btn {
   position: absolute;
   top: 50%;
   margin-top: -0.6em;
-  font-size: 2em;
   color: #50a9be;
   text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
 }
@@ -4681,10 +4775,9 @@ input.btn {
   margin: 0 auto;
 }
 .carousel .carousel-caption {
-  height: 85%;
-  margin-left: 40px;
+  margin-left: 10px;
   padding: 0;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
 }
 .filter-box {
@@ -4798,6 +4891,21 @@ input.btn {
   border-left: 2px solid #666666;
   padding: 12px 0;
   width: 50px;
+}
+@media screen and (min-width: 768px) {
+  .pagination li a {
+    padding: 13.2px 0;
+  }
+}
+@media screen and (min-width: 992px) {
+  .pagination li a {
+    padding: 14.4px 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .pagination li a {
+    padding: 15.6px 0;
+  }
 }
 .pagination li a:hover {
   background-color: #232323;
@@ -5044,6 +5152,21 @@ h4 {
   padding: 17px;
   text-transform: uppercase;
 }
+@media screen and (min-width: 768px) {
+  .page-head {
+    padding: 18.7px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .page-head {
+    padding: 20.4px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .page-head {
+    padding: 22.1px;
+  }
+}
 .heading {
   text-transform: uppercase;
   font-weight: bold;
@@ -5069,6 +5192,28 @@ h4 {
   color: #000000;
   border-bottom: 1px solid #cccccc;
 }
+body {
+  font-size: 14px;
+  line-height: 1.428571429;
+}
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 15.4px;
+    line-height: 1.5714285719;
+  }
+}
+@media screen and (min-width: 992px) {
+  body {
+    font-size: 16.8px;
+    line-height: 1.7142857148;
+  }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 18.2px;
+    line-height: 1.8571428577;
+  }
+}
 a:hover,
 a:focus {
   text-decoration: none;
@@ -5078,6 +5223,21 @@ a:focus {
   padding: 15px;
   color: #000000;
 }
+@media screen and (min-width: 768px) {
+  .content {
+    padding: 16.5px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .content {
+    padding: 18px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .content {
+    padding: 19.5px;
+  }
+}
 #header {
   padding: 0;
   background: #232323;
@@ -5085,13 +5245,44 @@ a:focus {
   margin-bottom: 4px;
 }
 .header-btn {
+  position: relative;
   padding: 0 10px;
   float: right;
   background: #232323;
   line-height: 50px;
   border-left: 1px solid #666666;
   font-size: 1.333em;
-  width: auto;
+  width: 50px;
+}
+@media screen and (min-width: 768px) {
+  .header-btn {
+    line-height: 55px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header-btn {
+    line-height: 60px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header-btn {
+    line-height: 65px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .header-btn {
+    widtht: 55px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header-btn {
+    width: 60px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header-btn {
+    width: 65px;
+  }
 }
 .header-btn.header-btn-disabled {
   cursor: default;
@@ -5105,10 +5296,26 @@ a:focus {
   line-height: 50px;
   margin-left: 5px;
 }
-.mini-basket {
-  position: relative;
-  padding: 0;
-  cursor: default;
+@media screen and (min-width: 768px) {
+  .header-logo {
+    line-height: 55px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header-logo {
+    line-height: 60px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header-logo {
+    line-height: 65px;
+  }
+}
+.mini-basket .mini-basket-icon {
+  display: block;
+  overflow: hidden;
+  background: url('../../img/basket.png') center center / 85% auto no-repeat;
+  text-indent: -9999px;
 }
 .mini-basket .mini-basket-count {
   position: absolute;
@@ -5118,8 +5325,14 @@ a:focus {
   color: #ffffff;
   z-index: 1;
 }
+@media screen and (min-width: 1200px) {
+  .mini-basket .mini-basket-count {
+    top: 3.9px;
+    right: 29.9px;
+  }
+}
 .mini-basket .mini-basket-new-item {
-  max-width: 150px;
+  width: 150px;
   display: block;
   white-space: normal;
 }
@@ -5143,6 +5356,21 @@ a:focus {
 .media-list.article-list .media .media-body {
   position: relative;
   padding: 10px;
+}
+@media screen and (min-width: 768px) {
+  .media-list.article-list .media .media-body {
+    padding: 11px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .media-list.article-list .media .media-body {
+    padding: 12px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .media-list.article-list .media .media-body {
+    padding: 13px;
+  }
 }
 .media-list.article-list .media .media-heading-link {
   color: #000000;
@@ -5177,11 +5405,24 @@ a:focus {
 .article-list-price .vat-percent {
   color: #73bacb;
   margin: 0 5px;
-  display: block;
+  display: inline;
 }
-@media (min-width: 480px) {
-  .article-list-price .vat-percent {
-    display: inline;
+.article-list-price .price-per-unit {
+  font-size: 0.6em;
+}
+@media screen and (min-width: 768px) {
+  .article-list-price .price-per-unit {
+    font-size: 0.66em;
+  }
+}
+@media screen and (min-width: 992px) {
+  .article-list-price .price-per-unit {
+    font-size: 0.72em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .article-list-price .price-per-unit {
+    font-size: 0.78em;
   }
 }
 .media:hover .article-list-price .old-price {
@@ -5206,7 +5447,7 @@ a:focus {
   margin-top: 2px;
 }
 .product-title {
-  font-size: 1em;
+  font-size: 1.333em;
 }
 .product-description-container {
   cursor: pointer;
@@ -5276,8 +5517,11 @@ a:focus {
   color: #1d7e96;
   font-size: 0.8em;
 }
-.product-additional-info > span + span:before {
-  content: "|";
+.product-additional-info > span:after {
+  content: " | ";
+}
+.product-additional-info > span:last-of-type:after {
+  content: "";
 }
 .product-delivery-info {
   clear: both;
@@ -5294,6 +5538,17 @@ a:focus {
 }
 .product-variants-message {
   color: #b81c00;
+}
+.product-stock-flag {
+  padding-left: 13px;
+  background: url(../../img/stockstatus.png) no-repeat;
+  background-position: 2px -45px;
+}
+.product-stock-flag.low-stock {
+  background-position: 2px 3px;
+}
+.product-stock-flag.no-stock {
+  background-position: 2px -21px;
 }
 .order-history-list {
   list-style: none;
@@ -5444,10 +5699,8 @@ a:focus {
 }
 .checkout-thank-you .block-head {
   color: #eb6005;
-  font-size: 0.889em;
-  font-weight: bold;
   text-transform: uppercase;
-  margin: 0;
+  border-bottom: 1px solid #cccccc;
 }
 #footer {
   background-color: #232323;
@@ -5468,6 +5721,9 @@ a:focus {
 }
 #footer .nav-pills > li + li {
   border-left-width: 1px;
+}
+#footer .nav-pills > li + li > a {
+  margin-left: 0;
 }
 #footer .nav-list {
   padding-top: 30px;
@@ -5493,6 +5749,11 @@ a:focus {
 #footer .footer-nav > li:hover > a {
   background-color: #50a9be;
   color: #232323;
+}
+#footer .footer-nav > li:focus > a:active,
+#footer .footer-nav > li:hover > a:active {
+  background-color: #eb6005;
+  color: #ffffff;
 }
 #footer .footer-nav > li > a {
   border-radius: 0;

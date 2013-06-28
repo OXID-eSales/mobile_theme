@@ -24,6 +24,7 @@
     background: @carousel-control-background;
     z-index: @carousel-control-z-index;
     opacity: @carousel-control-opacity;
+    .font-size(@carousel-control-font-size);
     &:focus {
       outline: @carousel-focus-outline;
     }
@@ -47,7 +48,7 @@
   }
   .carousel-caption {
     margin-left: @carousel-caption-margin-left;
-    padding: @carousel-caption-padding;
+    .padding(@carousel-caption-padding);
     bottom: @carousel-caption-bottom;
     left: @carousel-caption-left;
   }

@@ -20,7 +20,7 @@
 
 /*------------------------------sort------------------------------*/
 .sort-items {
-  padding: @sort-items-padding;
+  .padding(@sort-items-padding);
   text-transform: @sort-items-text-transform;
   .sort-title {
     color: @sort-items-sort-title-color;
@@ -30,7 +30,7 @@
     padding-bottom: @sort-items-sort-title-padding-bottom;
   }
   label {
-    margin: @sort-items-label-margin;
+    .margin(@sort-items-label-margin);
   }
   i {
     padding-left: @sort-items-i-padding-left;
@@ -38,11 +38,11 @@
 }
 
 .dropdown-menu.sort-menu {
-  padding: @sort-menu-padding;
+  .padding(@sort-menu-padding);
   .dropdown-option {
     border-bottom: @sort-menu-option-border-bottom;
     text-align: @sort-menu-option-text-align;
-    padding: @sort-menu-option-padding;
+    .padding(@sort-menu-option-padding);
     .sort-name {
       border-bottom: @sort-menu-sort-name-border-bottom;
       display: block;
@@ -50,7 +50,7 @@
     .sort-order {
       display: table;
       width: @sort-menu-sort-order-width;
-      padding: @sort-menu-sort-order-padding;
+      .padding(@sort-menu-sort-order-padding);
       a {
         display: table-cell;
         border-right: @sort-menu-sort-order-link-border-right;
@@ -64,7 +64,7 @@
     }
     span {
       background: @dropdown-option-title-background;
-      padding: @dropdown-option-title-padding;
+      .padding(@dropdown-option-title-padding);
       display: block;
       white-space: @dropdown-option-title-white-space;
       color: @dropdown-option-title-color;

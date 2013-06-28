@@ -22,14 +22,14 @@
 
 .form {
   list-style: @form-list-style;
-  padding: @form-padding;
-  margin: @form-margin;
+  .padding(@form-padding);
+  .margin(@form-margin);
   li {
-    margin: @form-row-margin;
+    .margin(@form-row-margin);
     .clearfix();
     > .form {
       /* padding/margin fix for nested forms */
-      margin: 0;
+      .margin(0);
       li {
         &:first-child {
           margin-top: 0px;
@@ -71,7 +71,7 @@ input[type=date] {
 input[type=date]::-webkit-inner-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: @form-webkit-inner-spin-button-margin;
+  .margin(@form-webkit-inner-spin-button-margin);
 }
 
 .placeholder {
@@ -88,7 +88,7 @@ input.placeholder {
     top: @inline-elements-small-field-top;
   }
   &.first-small {
-    padding: @inline-elements-first-small-padding;
+    .padding(@inline-elements-first-small-padding);
     padding-left: @inline-elements-small-field-width + @inline-elements-small-field-margin;
     .small-field {
       left: @inline-elements-small-field-left;
@@ -98,7 +98,7 @@ input.placeholder {
     }
   }
   &.first-big {
-    padding: @inline-elements-first-big-padding;
+    .padding(@inline-elements-first-big-padding);
     padding-right: @inline-elements-small-field-width + @inline-elements-small-field-margin;
     .small-field {
       right: @inline-elements-small-field-right;
@@ -114,18 +114,18 @@ input.placeholder {
 .radio {
   display: inline-block;
   position: relative;
-  padding: 0;
-  margin: @radiocheckbox-margin;
+  .padding(0);
+  .margin(@radiocheckbox-margin);
   cursor: @radiocheckbox-cursor;
   &:first-of-type {
-    margin: @radiocheckbox-first-margin;
+    .margin(@radiocheckbox-first-margin);
   }
   input {
     position: absolute;
     right: 0;
     top: 0;
     opacity: 0;
-    margin: @radiocheckbox-input-margin;
+    .margin(@radiocheckbox-input-margin);
     cursor: @radiocheckbox-cursor;
   }
   label {
@@ -135,7 +135,7 @@ input.placeholder {
     font-size: @radiocheckbox-font-size;
     overflow: hidden;
     text-align: @radiocheckbox-text-align;
-    padding: @radiocheckbox-padding;
+    .padding(@radiocheckbox-padding);
     height: @radiocheckbox-height;
     width: @radiocheckbox-width;
   }

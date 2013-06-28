@@ -91,11 +91,9 @@
                         <span class="product-price-per-unit">[{$oDetailsProduct->getPricePerUnit()}] [{$currency->sign}]/[{$oDetailsProduct->getUnitName()}]</span>
                     [{/if}]
                 [{/block}]
-            </div>
-            [{* Stock status *}]
-            <div class="product-additional-info">
-            [{block name="details_productmain_stockstatus"}]
-            [{if $oDetailsProduct->getStockStatus() == -1}]
+                [{* Stock status *}]
+                [{block name="details_productmain_stockstatus"}]
+                    [{if $oDetailsProduct->getStockStatus() == -1}]
                         <span class="product-stock-flag no-stock">
                             [{if $oDetailsProduct->oxarticles__oxnostocktext->value}]
                                 [{$oDetailsProduct->oxarticles__oxnostocktext->value}]
@@ -106,11 +104,11 @@
                                 [{oxmultilang ident="DETAILS_AVAILABLEON"}] [{$oDetailsProduct->getDeliveryDate()}]
                             [{/if}]
                         </span>
-            [{elseif $oDetailsProduct->getStockStatus() == 1}]
+                    [{elseif $oDetailsProduct->getStockStatus() == 1}]
                         <span class="product-stock-flag low-stock">
                             [{oxmultilang ident="DETAILS_LOWSTOCK"}]
                         </span>
-            [{elseif $oDetailsProduct->getStockStatus() == 0}]
+                    [{elseif $oDetailsProduct->getStockStatus() == 0}]
                         <span class="product-stock-flag">
                             [{if $oDetailsProduct->oxarticles__oxstocktext->value}]
                                 [{$oDetailsProduct->oxarticles__oxstocktext->value}]
@@ -118,18 +116,16 @@
                                 [{oxmultilang ident="DETAILS_READYFORSHIPPING"}]
                             [{/if}]
                         </span>
-            [{/if}]
-            [{/block}]
-            </div>
-            [{* Delivery time *}]
-            <div class="product-additional-info">
-            [{block name="details_productmain_deliverytime"}]
-            [{oxhasrights ident="TOBASKET"}]
-            [{if $oDetailsProduct->isBuyable() }]
-            [{include file="page/details/inc/deliverytime.tpl"}]
-            [{/if}]
-            [{/oxhasrights}]
-            [{/block}]
+                    [{/if}]
+                [{/block}]
+                [{* Delivery time *}]
+                [{block name="details_productmain_deliverytime"}]
+                    [{oxhasrights ident="TOBASKET"}]
+                        [{if $oDetailsProduct->isBuyable() }]
+                            [{include file="page/details/inc/deliverytime.tpl"}]
+                        [{/if}]
+                    [{/oxhasrights}]
+                [{/block}]
             </div>
 
             [{* Delivery info *}]
@@ -188,26 +184,26 @@
         [{/block}]
     </div>
     [{* Add to basket *}]
-    <div id="product-add-to-basket" class="row">
+    <ul id="productAddToBasket" class="form">
         [{* Persistent parameters *}]
         [{block name="details_productmain_persparams"}]
         [{if $oView->isPersParam()}]
-            <div class="persparamBox clear">
+            <li id="persparamBox">
                 <input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35" placeholder="[{ oxmultilang ident="LABEL" }]" />
-            </div>
+            </li>
         [{/if}]
         [{/block}]
-        <div class="tobasketFunction clear">
+        <li id="tobasketFunction">
             [{block name="details_productmain_tobasket"}]
                 [{oxhasrights ident="TOBASKET"}]
                 [{if !$oDetailsProduct->isNotBuyable()}]
-                    <input class="hidden" id="amountToBasket" type="number" name="am" value="1" size="3" autocomplete="off" class="textbox">
+                    <input id="amountToBasket" type="hidden" name="am" value="1" size="3" autocomplete="off" class="textbox">
                     <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="submitButton largeButton btn[{if !$blCanBuy}] disabled[{/if}]">[{oxmultilang ident="DETAILS_ADDTOCART"}]</button>
                 [{/if}]
                 [{/oxhasrights}]
             [{/block}]
-        </div>
-    </div>
+        </li>
+    </ul>
 </div>
 
 [{* To basket form end *}]

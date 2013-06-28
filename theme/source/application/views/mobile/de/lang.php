@@ -202,4 +202,8 @@ $aLang = array(
     'CONTINUE_TO_NEXT_STEP'                                       => "Weiter", // make CONTINUE key, translate to Weiter
     'OK'                                                          => "OK", // move to generic
     'ADDING_TO_WISHLIST'                                          => "Zum Wunschzettel hinzufügen!",
+    'CHANGE_PASSWORD_2'                                           => "Mein Passwort",
+    'NEWSLETTER_SETTINGS'                                         => "Mein Newsletter",
+    'BILLING_SHIPPING_SETTINGS'                                   => "Meine Adresse",
+    'ORDER_HISTORY'                                               => "Meine Bestellungen",
 );

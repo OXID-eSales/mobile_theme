@@ -20,21 +20,25 @@
 ( function( $ ) {
 
     oxMiniBasket = {
+        options: {
+            count:          "#countValue",
+            newItem:        "#newItemMsg"
+        },
 
         _create: function(){
 
             var self = this,
-                options = self.options,
-                el      = self.element;
+                count = $(self.options.count),
+                newItem = $(self.options.newItem);
 
             var timeout;
 
             // show / hide added article message
-            if($("#newItemMsg").length > 0){
-                $("#countValue").hide();
-                $("#newItemMsg").delay(3000).fadeTo("fast", 0, function(){
-                    $("#countValue").fadeTo("fast", 1);
-                    $("#newItemMsg").remove()
+            if(newItem.length > 0){
+                count.hide();
+                newItem.delay(3000).fadeTo("fast", 0, function(){
+                    count.fadeTo("fast", 1);
+                    newItem.remove()
                 });
             }
         }

@@ -21,7 +21,7 @@
 /* ---- FOOTER ------------------------------------------ */
 #footer {
   background-color: @footer-background-color;
-  margin: @footer-margin;
+  .margin(@footer-margin);
   .nav-pills {
     max-height: @footer-nav-pills-max-height;
     > li {
@@ -71,7 +71,7 @@
         background-color: @footer-nav-link-background-color;
         color: @footer-nav-link-color;
         font-size: @footer-nav-link-font-size;
-        padding: @footer-nav-link-padding;
+        .padding(@footer-nav-link-padding);
         text-align: @footer-nav-link-text-align;
         text-transform: @footer-nav-link-text-transform;
         &:focus, &:hover {

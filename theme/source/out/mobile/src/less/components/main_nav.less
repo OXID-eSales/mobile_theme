@@ -25,12 +25,12 @@
     a {
       background-color: @navbar-bg;
       color: @navbar-color;
-      font-size: @font-size-large;
-      padding: @main-nav-list-link-padding;
+      font-size: @main-nav-list-link-font-size;
+      .padding(@main-nav-list-link-padding);
       text-transform: @main-nav-list-link-text-transform;
       span {
         display: block;
-        padding: @padding-large-vertical @padding-large-horizontal;
+        .padding(@padding-large-vertical, @padding-large-horizontal);
       }
       [class^="glyphicon-"] {
         margin-top: -0.6em;
@@ -46,7 +46,7 @@
         color: @main-nav-list-link-active-color;
       }
       &.back {
-        padding: @main-nav-list-back-padding;
+        .padding(@main-nav-list-back-padding);
         span {
           border-left: @main-nav-list-back-text-border-left;
         }

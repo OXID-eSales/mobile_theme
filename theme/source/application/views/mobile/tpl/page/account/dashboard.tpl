@@ -5,32 +5,32 @@
         [{block name="account_dashboard_col1"}]
         <li>
             <a id="linkAccountPassword" href="[{ oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account_password" }]" rel="nofollow">
-                <span>[{ oxmultilang ident="CHANGE_PASSWORD" }]</span>
+                <span>[{ oxmultilang ident="PAGE_ACCOUNT_DASHBOARD_CHANGEPWD" }]</span>
                 <i class="glyphicon-chevron-right"></i>
             </a>
         </li>
         <li>
             <a id="linkAccountNewsletter" href="[{ oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account_newsletter" }]" rel="nofollow">
-                <span>[{ oxmultilang ident="NEWSLETTER_SETTINGS" }]</span>
+                <span>[{ oxmultilang ident="PAGE_ACCOUNT_DASHBOARD_NEWSLETTERSETTINGS" }]</span>
                 <i class="glyphicon-chevron-right"></i>
             </a>
         </li>
         <li>
             <a id="linkAccountBillship" href="[{ oxgetseourl ident=$oViewConf->getSslSelfLink()|cat:"cl=account_user" }]" rel="nofollow">
-                <span>[{ oxmultilang ident="BILLING_SHIPPING_SETTINGS" }]</span>
+                <span>[{ oxmultilang ident="PAGE_ACCOUNT_DASHBOARD_BILLINGSHIPPINGSET" }]</span>
                 <i class="glyphicon-chevron-right"></i>
             </a>
         </li>
         <li>
             <a id="linkAccountOrder" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_order" }]" rel="nofollow">
-                <span>[{ oxmultilang ident="ORDER_HISTORY" }]</span>
+                <span>[{ oxmultilang ident="PAGE_ACCOUNT_DASHBOARD_ORDERHISTORY" }]</span>
                 <i class="glyphicon-chevron-right"></i>
             </a>
         </li>
         [{if $oView->isEnabledDownloadableFiles()}]
         <li>
             <a id="linkAccountDownloads" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_downloads" }]" rel="nofollow">
-                <span>[{ oxmultilang ident="MY_DOWNLOADS" }]</span>
+                <span>[{ oxmultilang ident="PAGE_ACCOUNT_DASHBOARD_MYDOWNLOADS" }]</span>
                 <i class="glyphicon-chevron-right"></i>
             </a>
         </li>
@@ -39,7 +39,7 @@
         [{block name="account_dashboard_col2"}]
         <li>
             <a  id="linkAccountWishlist" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_noticelist" }]" rel="nofollow">
-                <span>[{ oxmultilang ident="MY_WISH_LIST" }]</span>
+                <span>[{ oxmultilang ident="PAGE_ACCOUNT_DASHBOARD_MYNOTICELIST" }]</span>
                 <i class="glyphicon-chevron-right"></i>
             </a>
         </li>

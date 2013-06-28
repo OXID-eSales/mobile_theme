@@ -19,21 +19,21 @@
 //
 
 .pagination-container {
-  margin: @pagination-container-margin;
+  .margin(@pagination-container-margin);
   text-align: @pagination-container-text-align;
   background-color: @pagination-container-background-color;
   line-height: @pagination-container-line-height;
 }
 
 .pagination {
-  margin: @pagination-margin;
+  .margin(@pagination-margin);
   li {
     a {
       color: @pagination-link-color;
       font-size: @pagination-link-font-size;
       border: @pagination-link-border;
       border-left: @pagination-link-border-left;
-      padding: @pagination-link-padding 0;
+      .padding(@pagination-link-padding, 0);
       width: @pagination-link-width;
       &:hover {
         background-color: @pagination-link-hover-background-color;
@@ -43,7 +43,7 @@
       border: @pagination-link-first-child-border;
     }
     .pagination-separator {
-      padding: @pagination-separator-padding;
+      .padding(@pagination-separator-padding);
     }
   }
   .glyphicon-chevron-left:before,
