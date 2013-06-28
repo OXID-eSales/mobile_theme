@@ -1,5 +1,8 @@
--- Set shop id (use 'oxbaseshop' for CE/PE, shop ID for EE
-SET @sShopId = 1;
+
+SET @sShopId = 'oxbaseshop';
+-- Uncomment the following line for the EE, set the appropriate shop ID
+SET @sShopId = '1';
+
 
 -- Data for mobile theme
 INSERT INTO `oxconfig` (`OXID`, `OXSHOPID`, `OXMODULE`, `OXVARNAME`, `OXVARTYPE`, `OXVARVALUE`) VALUES
