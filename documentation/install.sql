@@ -1,7 +1,7 @@
-
+-- Set the shop ID for OXID eShop CE/PE
 SET @sShopId = 'oxbaseshop';
 -- Uncomment the following line for the EE, set the appropriate shop ID
-SET @sShopId = '1';
+-- SET @sShopId = '1';
 
 
 -- Data for mobile theme
