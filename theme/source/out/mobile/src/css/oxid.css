@@ -5390,7 +5390,8 @@ a:focus {
 .mini-basket .mini-basket-icon {
   display: block;
   overflow: hidden;
-  background: url('../../img/basket.png') center center / 85% auto no-repeat;
+  background: url('../../img/basket.png') center center no-repeat;
+  background-size: 80% auto;
   text-indent: -9999px;
 }
 .mini-basket .mini-basket-count {
