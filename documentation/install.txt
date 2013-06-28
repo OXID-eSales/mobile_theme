@@ -6,7 +6,4 @@ Module installation:
 
 Theme installation:
 1. copy files from 'theme/source' dir to shop directory
-2. execute install.sql file(if using EE shop version execute install_ee.sql) to put themes settings to database
-3. activate theme, if you will use this theme only for mobile devices with 'theme switcher' module - no need to activate theme manually
-
-
+2. activate theme, if you will use this theme only for mobile devices with 'theme switcher' module - no need to activate theme manually
