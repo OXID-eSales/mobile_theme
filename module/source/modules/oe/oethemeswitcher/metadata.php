@@ -22,7 +22,7 @@
 /**
  * Metadata version
  */
-$sMetadataVersion = '1.0';
+$sMetadataVersion = '1.1';
 
 /**
  * Module information
@@ -65,5 +65,10 @@ $aModule = array(
 
     'settings' => array(
         array('group' => 'main', 'name' => 'sOEThemeSwitcherMobileTheme', 'type' => 'str',  'value' => 'mobile'),
-    )
+    ),
+
+    'events'       => array(
+        'onActivate'   => 'oeThemeSwitcherEvents::onActivate',
+        'onDeactivate' => 'oeThemeSwitcherEvents::onDeactivate'
+    ),
 );
