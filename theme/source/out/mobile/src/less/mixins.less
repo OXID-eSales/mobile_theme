@@ -106,7 +106,59 @@
   }
 }
 
-.padding(@vertical, @horizontal) {
+.padding-top(@padding) {
+  padding-top: @padding;
+  @media screen and (min-width:  @screen-small) {
+    padding-top: @padding * @screen-small-padding-ratio;
+  }
+  @media screen and (min-width:  @screen-medium) {
+    padding-top: @padding * @screen-medium-padding-ratio;
+  }
+  @media screen and (min-width:  @screen-large) {
+    padding-top: @padding * @screen-large-padding-ratio;
+  }
+}
+
+.padding-left(@padding) {
+  padding-left: @padding;
+  @media screen and (min-width:  @screen-small) {
+    padding-left: @padding * @screen-small-padding-ratio;
+  }
+  @media screen and (min-width:  @screen-medium) {
+    padding-left: @padding * @screen-medium-padding-ratio;
+  }
+  @media screen and (min-width:  @screen-large) {
+    padding-left: @padding * @screen-large-padding-ratio;
+  }
+}
+
+.padding-right(@padding) {
+  padding-right: @padding;
+  @media screen and (min-width:  @screen-small) {
+    padding-right: @padding * @screen-small-padding-ratio;
+  }
+  @media screen and (min-width:  @screen-medium) {
+    padding-right: @padding * @screen-medium-padding-ratio;
+  }
+  @media screen and (min-width:  @screen-large) {
+    padding-right: @padding * @screen-large-padding-ratio;
+  }
+}
+
+.padding-bottom(@padding) {
+  padding-bottom: @padding;
+  @media screen and (min-width:  @screen-small) {
+    padding-bottom: @padding * @screen-small-padding-ratio;
+  }
+  @media screen and (min-width:  @screen-medium) {
+    padding-bottom: @padding * @screen-medium-padding-ratio;
+  }
+  @media screen and (min-width:  @screen-large) {
+    padding-bottom: @padding * @screen-large-padding-ratio;
+  }
+}
+
+.padding(@vertical, @horizontal) when (isnumber(@horizontal)) {
   padding: @vertical @horizontal;
   @media screen and (min-width:  @screen-small) {
     padding: @vertical*@screen-small-padding-vertical-ratio @horizontal*@screen-small-padding-horizontal-ratio;
@@ -120,7 +172,7 @@
 }
 
 .padding(@top, @horizontal, @bottom) {
-  padding: @top, @horizontal, @bottom;
+  padding: @top @horizontal @bottom;
   @media screen and (min-width:  @screen-small) {
     padding: @top * @screen-small-padding-vertical-ratio @horizontal * @screen-small-padding-horizontal-ratio @bottom * @screen-small-padding-vertical-ratio;
   }
@@ -133,7 +185,7 @@
 }
 
 .padding(@top, @right, @bottom, @left) {
-  padding: @top, @right, @bottom, @left;
+  padding: @top @right @bottom @left;
   @media screen and (min-width:  @screen-small) {
     padding: @top * @screen-small-padding-vertical-ratio @right * @screen-small-padding-horizontal-ratio @bottom * @screen-small-padding-vertical-ratio @left * @screen-small-padding-horizontal-ratio;
   }
@@ -177,7 +229,7 @@
 }
 
 .margin(@top, @horizontal, @bottom) {
-  margin: @top, @horizontal, @bottom;
+  margin: @top @horizontal @bottom;
   @media screen and (min-width:  @screen-small) {
     margin: @top * @screen-small-margin-vertical-ratio @horizontal * @screen-small-margin-horizontal-ratio @bottom * @screen-small-margin-vertical-ratio;
   }
@@ -190,7 +242,7 @@
 }
 
 .margin(@top, @right, @bottom, @left) {
-  margin: @top, @right, @bottom, @left;
+  margin: @top @right @bottom @left;
   @media screen and (min-width:  @screen-small) {
     margin: @top * @screen-small-margin-vertical-ratio @right * @screen-small-margin-horizontal-ratio @bottom * @screen-small-margin-vertical-ratio @left * @screen-small-margin-horizontal-ratio;
   }

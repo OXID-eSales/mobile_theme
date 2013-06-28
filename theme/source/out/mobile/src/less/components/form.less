@@ -83,13 +83,15 @@ input.placeholder {
 .inline-elements {
   position: relative;
   .small-field {
-    width: @inline-elements-small-field-width;
+    .padding-left(@inline-elements-small-field-padding);
+    .padding-right(@inline-elements-small-field-padding);
+    line-height: inherit;
+    .width(@inline-elements-small-field-width);
     position: absolute;
     top: @inline-elements-small-field-top;
   }
   &.first-small {
-    .padding(@inline-elements-first-small-padding);
-    padding-left: @inline-elements-small-field-width + @inline-elements-small-field-margin;
+    .padding(0, 0, 0, @inline-elements-small-field-width + @inline-elements-small-field-margin);
     .small-field {
       left: @inline-elements-small-field-left;
     }
@@ -98,8 +100,7 @@ input.placeholder {
     }
   }
   &.first-big {
-    .padding(@inline-elements-first-big-padding);
-    padding-right: @inline-elements-small-field-width + @inline-elements-small-field-margin;
+    .padding(0, @inline-elements-small-field-width + @inline-elements-small-field-margin, 0, 0);
     .small-field {
       right: @inline-elements-small-field-right;
     }
