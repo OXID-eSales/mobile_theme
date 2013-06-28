@@ -5699,10 +5699,8 @@ a:focus {
 }
 .checkout-thank-you .block-head {
   color: #eb6005;
-  font-size: 0.889em;
-  font-weight: bold;
   text-transform: uppercase;
-  margin: 0;
+  border-bottom: 1px solid #cccccc;
 }
 #footer {
   background-color: #232323;
