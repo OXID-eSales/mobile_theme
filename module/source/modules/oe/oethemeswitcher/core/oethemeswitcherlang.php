@@ -110,7 +110,7 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
     {
         $myConfig = $this->getConfig();
         $sLangFilesIdent = '_default';
-        if (is_array($aLangFiles) && $aLangFiles) {
+        if ( is_array( $aLangFiles ) && $aLangFiles ) {
             $sLangFilesIdent = '_'.md5(implode('+', $aLangFiles));
         }
         return "langcache_" . ( (int) $blAdmin ) . "_{$iLang}_" . $myConfig->getShopId() . "_" . $myConfig->getActiveThemeId() . $sLangFilesIdent;
