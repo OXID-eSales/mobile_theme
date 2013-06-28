@@ -184,16 +184,16 @@
         [{/block}]
     </div>
     [{* Add to basket *}]
-    <div id="product-add-to-basket" class="row">
+    <ul id="productAddToBasket" class="form">
         [{* Persistent parameters *}]
         [{block name="details_productmain_persparams"}]
         [{if $oView->isPersParam()}]
-            <div class="persparamBox clear">
+            <li id="persparamBox">
                 <input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35" placeholder="[{ oxmultilang ident="LABEL" }]" />
-            </div>
+            </li>
         [{/if}]
         [{/block}]
-        <div class="tobasketFunction clear">
+        <li id="tobasketFunction">
             [{block name="details_productmain_tobasket"}]
                 [{oxhasrights ident="TOBASKET"}]
                 [{if !$oDetailsProduct->isNotBuyable()}]
@@ -202,8 +202,8 @@
                 [{/if}]
                 [{/oxhasrights}]
             [{/block}]
-        </div>
-    </div>
+        </li>
+    </ul>
 </div>
 
 [{* To basket form end *}]
