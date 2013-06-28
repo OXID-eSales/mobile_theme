@@ -26,6 +26,7 @@
 }
 
 .header-btn {
+  position: relative;
   .padding(@header-btn-padding);
   float: @header-btn-float;
   background: @header-btn-background;
@@ -49,9 +50,12 @@
 }
 
 .mini-basket {
-  position: relative;
-  .padding(@mini-basket-padding);
-  cursor: @mini-basket-cursor;
+  .mini-basket-icon {
+    display: block;
+    overflow: hidden;
+    background: @mini-basket-icon-background;
+    text-indent: -9999px;
+  }
   .mini-basket-count {
     position: absolute;
     top: @mini-basket-count-top;
@@ -64,9 +68,8 @@
       right: @mini-basket-count-right*@screen-large-width-ratio;
     }
   }
-
   .mini-basket-new-item {
-    max-width: @mini-basket-new-item-max-width;
+    width: @mini-basket-new-item-width;
     display: block;
     white-space: @mini-basket-new-item-white-space;
   }

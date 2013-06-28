@@ -287,7 +287,7 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
         $this->assertTrue($this->isElementPresent("css=p.product-variants-message"));
 
         // Check does "add to cart" button exist
-        $this->assertTrue($this->isElementPresent("css=div.tobasketFunction.clear"));
+        $this->assertTrue($this->isElementPresent("css=#tobasketFunction"));
 
         // Check does "more details" button exist
         $this->assertTrue($this->isElementPresent("css=div.product-description-container > i.glyphicon-chevron-down"));

@@ -5245,6 +5245,7 @@ a:focus {
   margin-bottom: 4px;
 }
 .header-btn {
+  position: relative;
   padding: 0 10px;
   float: right;
   background: #232323;
@@ -5310,10 +5311,11 @@ a:focus {
     line-height: 65px;
   }
 }
-.mini-basket {
-  position: relative;
-  padding: 0;
-  cursor: default;
+.mini-basket .mini-basket-icon {
+  display: block;
+  overflow: hidden;
+  background: url('../../img/basket.png') center center / 85% auto no-repeat;
+  text-indent: -9999px;
 }
 .mini-basket .mini-basket-count {
   position: absolute;
@@ -5330,7 +5332,7 @@ a:focus {
   }
 }
 .mini-basket .mini-basket-new-item {
-  max-width: 150px;
+  width: 150px;
   display: block;
   white-space: normal;
 }
