@@ -7,25 +7,33 @@ The extension OXID eShop Mobile Theme consists of a mobile theme and a module th
 
 ###Features
 
-* makes use of the bootstrap javascript framework
-* full legal compliency
-* Paypal is already build in
+* Checkout
+* Products filter
+* Products sorting
+* Search
+* Browse through categories and products
+* Login/Register
+* PayPal is already build in
+* CMS pages
+* Switch to standard website
+* Supporting OXID eShop Community Edition & Enterprise Edition
+* Full legal compliance
 
 ###Setup
 
-As this extension consists of two components, the theme switch module and the theme itself, two installation steps have to be done. 
-
-<b>Module installation:</b>
-
-1. copy files from 'module/source' to your shop directory<br>
-2. activate the module<br>
-3. in module settings, enter the name of the theme that shall be used with mobile devices (this theme must be installed before, for example "mobile"). The theme switch module allows you to switch to any theme you want.<br>
-4. if you are using varnish cache (EE only), please merge the file 'device.vcl' with your existing varnish configuration file. If you're not running an EE you can ditch this file.<br>
+As this extension consists of two components, the "theme switch" module and the theme itself, two installation steps have to be done.
 
 <b>Theme installation:</b>
 
-1. copy files from 'theme/source' to your shop directory<br>
-2. please do not activate OXID eShop mobile theme. Leave the theme you want to be displayed to non-mobile devices activated instead (for example "Azure"). The theme switch module will recognize a mobile device and switch automatically to the mobile theme.<br>
+1. copy files from "theme/source" to your shop directory.<br>
+2. please do not activate OXID eShop mobile theme. Leave the theme you want to be displayed, for non-mobile devices, activated (for example "Azure"). The "theme switch" module will recognize a mobile device and switch automatically to the mobile theme.<br>
+
+<b>"Theme switch" module installation:</b>
+
+1. copy files from "module/source" to your shop directory.<br>
+2. activate the module.<br>
+3. the "theme switch" module allows you to switch to any theme you want, so if there is need to use different theme, in module settings, enter the name of the theme that shall be used with mobile devices (this theme must be installed before).<br>
+4. if you are using varnish cache (EE only), please merge the file "device.vcl" with your existing varnish configuration file. If you"re not running an EE you can ditch this file.<br>
 
 ###How to Contribute
 
@@ -33,7 +41,7 @@ First off, you have to fork the repository OXIDprojects/mobile_theme to your lis
 
 <b>Best practice</b>: 
 * please leave the the branch names as they are
-* if you want to fix a bug or develop a new feature, define an own branch in your repository. Name it e.g. feature/foo or bug/bugname for better tracability
+* if you want to fix a bug or develop a new feature, define an own branch in your repository. Name it e.g. feature/foo or bug/bugname for better traceability
 * change whatever you want and send a pull request back to the original branch. 
 
 For more information about this, please see:<br>
