@@ -16,12 +16,14 @@ The extension OXID eShop Mobile Theme consists of a mobile theme and a module th
 As this extension consists of two components, the theme switch module and the theme itself, two installation steps have to be done. 
 
 <b>Module installation:</b>
+
 1. copy files from 'module/source' to your shop directory<br>
 2. activate the module<br>
 3. in module settings, enter the name of the theme that shall be used with mobile devices (this theme must be installed before, for example "mobile"). The theme switch module allows you to switch to any theme you want.<br>
 4. if you are using varnish cache (EE only), please merge the file 'device.vcl' with your existing varnish configuration file. If you're not running an EE you can ditch this file.<br>
 
 <b>Theme installation:</b>
+
 1. copy files from 'theme/source' to your shop directory<br>
 2. please do not activate OXID eShop mobile theme. Leave the theme you want to be displayed to non-mobile devices activated instead (for example "Azure"). The theme switch module will recognize a mobile device and switch automatically to the mobile theme.<br>
 
