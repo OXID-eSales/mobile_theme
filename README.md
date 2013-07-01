@@ -33,15 +33,15 @@ As this extension consists of two components, the "theme switch" module and the 
 1. copy files from "module/source" to your shop directory.<br>
 2. activate the module.<br>
 3. the "theme switch" module allows you to switch to any theme you want, so if there is need to use different theme, in module settings, enter the name of the theme that shall be used with mobile devices (this theme must be installed before).<br>
-4. if you are using varnish cache (EE only), please merge the file "device.vcl" with your existing varnish configuration file. If you"re not running an EE you can ditch this file.<br>
+4. if you are using varnish cache (EE only), please merge the file "device.vcl" with your existing varnish configuration file. If you're not running an EE you can ditch this file.<br>
 
 ###How to Contribute
 
-First off, you have to fork the repository OXIDprojects/mobile_theme to your list of repositories. 
+First off, you have to fork the repository "OXIDprojects/mobile_theme" to your list of repositories.
 
 <b>Best practice</b>: 
 * please leave the the branch names as they are
-* if you want to fix a bug or develop a new feature, define an own branch in your repository. Name it e.g. feature/foo or bug/bugname for better traceability
+* if you want to fix a bug or develop a new feature, define an own branch in your repository. Name it e.g. "feature/foo" or "bug/bugname" for better traceability
 * change whatever you want and send a pull request back to the original branch. 
 
 For more information about this, please see:<br>
