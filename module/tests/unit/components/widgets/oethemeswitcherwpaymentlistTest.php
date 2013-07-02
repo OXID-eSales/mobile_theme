@@ -23,10 +23,8 @@
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
-//require_once realpath( "." ).'/../source/modules/oe/oethemeswitcher/components/widgets/oethemeswitcherwpaymentlist.php';
-
 /**
- * Tests for PaymentImages widget
+ * Tests for PaymentList widget
  */
 class Unit_Components_Widgets_oeThemeSwitcherWPaymentListTest extends OxidTestCase
 {
