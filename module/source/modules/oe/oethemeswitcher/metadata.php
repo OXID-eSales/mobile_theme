@@ -54,7 +54,8 @@ $aModule = array(
     'files' => array(
         'oethemeswitcheruseragent'      => 'oe/oethemeswitcher/core/oethemeswitcheruseragent.php',
         'oethemeswitcherthememanager'   => 'oe/oethemeswitcher/core/oethemeswitcherthememanager.php',
-        'oethemeswitcherevents'         => 'oe/oethemeswitcher/core/oethemeswitcherevents.php'
+        'oethemeswitcherevents'         => 'oe/oethemeswitcher/core/oethemeswitcherevents.php',
+        'oethemeswitcherwpaymentlist'   => 'oe/oethemeswitcher/components/widgets/oethemeswitcherwpaymentlist.php'
     ),
 
     'blocks' => array(

@@ -25,6 +25,7 @@
             [{*<div id="copyright">
                 <img src="[{$oViewConf->getImageUrl('logo_small.png')}]" alt="[{oxmultilang ident="OXID_ESALES_URL_TITLE"}]">
             </div>*}]
+            [{oxid_include_widget cl="oeThemeSwitcherWPaymentList" noscript=1 nocookie=1}]
         </div>
     </div>
 [{/block}]

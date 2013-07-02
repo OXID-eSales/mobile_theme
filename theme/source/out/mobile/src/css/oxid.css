@@ -5847,6 +5847,15 @@ a:focus {
   background-color: #50a9be;
   color: #232323;
 }
+.payment-images {
+  list-style: none;
+  margin: 0;
+  text-align: center;
+}
+.payment-images li {
+  display: inline-block;
+  margin: 0 5px;
+}
 .contact-form-message {
   height: 150px;
 }
