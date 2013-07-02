@@ -44,7 +44,7 @@ OXID eShop theme switch is a module which switches between two eShop themes, dep
 *VendorList
 
 ==Installation==
-1. Copy the files from "module/source" to your shop directory.
+1. Copy the module source files to your shop directory.
 2. Activate the module.
 3. The "theme switch" module allows you to switch to any theme you want. To use a different theme then the default, enter the name of the theme that should be used with mobile devices in the module settings. This theme must be installed before configured in the theme switcher settings.
 4. If you are using the varnish cache (EE only), please merge the file "device.vcl" with your existing varnish configuration file. If you're not running an EE you can ditch this file.
