@@ -23,7 +23,7 @@
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
-//require_once realpath( "." ).'/../source/modules/oe/oethemeswitcher/components/widgets/oethemeswitcherwpaymentlist.php';
+require_once realpath( "." ).'/../source/modules/oe/oethemeswitcher/components/widgets/oethemeswitcherwpaymentlist.php';
 
 /**
  * Tests for PaymentImages widget
@@ -42,8 +42,6 @@ class Unit_Components_Widgets_oeThemeSwitcherWPaymentListTest extends OxidTestCa
         $oConfig->expects( $this->any() )
             ->method( 'getImageUrl')
             ->will( $this->returnValue( $sPaymentImageUrl ) );
-
-        $a = new oeThemeSwitcherWPaymentList();
 
         $oThemeSwitcherWPaymentList = $this->getMock( "oeThemeSwitcherWPaymentList", array( "getConfig" ) );
         $oThemeSwitcherWPaymentList->expects( $this->any() )->method( 'getConfig')->will( $this->returnValue( $oConfig ) );
