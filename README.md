@@ -25,24 +25,24 @@ As this extension consists of two components, the "theme switch" module and the 
 
 <b>Theme installation:</b>
 
-1. copy files from "theme/source" to your shop directory.<br>
-2. please do not activate OXID eShop mobile theme. Leave the theme you want to be displayed, for non-mobile devices, activated (for example "Azure"). The "theme switch" module will recognize a mobile device and switch automatically to the mobile theme.<br>
+1. Copy the files from "theme/source" to your shop directory.<br>
+2. Please do not activate the OXID eShop mobile theme. Leave the theme you want to be displayed, for non-mobile devices, activated (for example "Azure"). The "theme switch" module will recognize a mobile device and switch automatically to the mobile theme.<br>
 
 <b>"Theme switch" module installation:</b>
 
-1. copy files from "module/source" to your shop directory.<br>
-2. activate the module.<br>
-3. the "theme switch" module allows you to switch to any theme you want, so if there is need to use different theme, in module settings, enter the name of the theme that shall be used with mobile devices (this theme must be installed before).<br>
-4. if you are using varnish cache (EE only), please merge the file "device.vcl" with your existing varnish configuration file. If you're not running an EE you can ditch this file.<br>
+1. Copy files from "module/source" to your shop directory.<br>
+2. Activate the module.<br>
+3. The "theme switch" module allows you to switch to any theme you want. To use a different theme then the default enter the name of the theme that should be used with mobile devices in module settings. This theme must be installed before configured in the theme switcher settings.<br>
+4. If you are using varnish cache (EE only), please merge the file "device.vcl" with your existing varnish configuration file. If you're not running an EE you can ditch this file.<br>
 
 ###How to Contribute
 
 First off, you have to fork the repository "OXIDprojects/mobile_theme" to your list of repositories.
 
 <b>Best practice</b>: 
-* please leave the the branch names as they are
-* if you want to fix a bug or develop a new feature, define an own branch in your repository. Name it e.g. "feature/foo" or "bug/bugname" for better traceability
-* change whatever you want and send a pull request back to the original branch. 
+* Please leave the the branch names as they are.
+* If you want to fix a bug or develop a new feature, define an own branch in your repository. Name it e.g. "feature/foo" or "bug/bugname" for better traceability.
+* Change whatever you want and send a pull request back to the original branch.
 
 For more information about this, please see:<br>
 http://codeinthehole.com/writing/pull-requests-and-other-good-practices-for-teams-using-github/
