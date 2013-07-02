@@ -31,7 +31,7 @@ class oeThemeSwitcherWPaymentList extends oxWidget
      *
      * @var string
      */
-    protected $_sThisTemplate = 'widget/paymentimages.tpl';
+    protected $_sThisTemplate = 'widget/paymentlist.tpl';
 
     /**
      * Directory, where payment images are stored
