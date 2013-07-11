@@ -5720,6 +5720,10 @@ a:focus {
 .checkout-options .checkout-option + .checkout-option {
   margin-top: 15px;
 }
+.checkout-option-about {
+  color: #ccc;
+  text-align: center;
+}
 .order {
   color: #666666;
 }

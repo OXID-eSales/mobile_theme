@@ -148,4 +148,6 @@ $aLang = array(
     'NEWSLETTER_SETTINGS'                                         => "My newsletter",
     'BILLING_SHIPPING_SETTINGS'                                   => "My address",
     'ORDER_HISTORY'                                               => "My orders",
+    'PURCHASE_WITHOUT_REGISTRATION'                               => 'Without registration',
+    'PURCHASE_WITHOUT_REGISTRATION_EXPLANED'                      => 'I like to purchase without creating a customer account',
 );
