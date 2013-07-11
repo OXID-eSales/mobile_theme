@@ -3,7 +3,7 @@
 
     <div id="paymentOption_[{$sPaymentID}]" class="payment-option [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]active-payment[{/if}]">
         <div class="paypalDescBox">
-            <a href="#"><img class="paypalPaymentImg" src="[{$oViewConf->getModuleUrl('oepaypal','out/img/')}][{oxmultilang ident="OEPAYPAL_LOGO_IMG"}]" border="0" alt="[{oxmultilang ident="OEPAYPAL_PAYMENT_HELP_LINK_TEXT"}]"></a>
+            <a href="#"><img class="paypalPaymentImg" src="[{$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/img/')}]paypal-medium.png" border="0" alt="[{oxmultilang ident="OEPAYPAL_PAYMENT_HELP_LINK_TEXT"}]"></a>
             <a href="#" class="paypalHelpIcon">?</a>
 
             [{assign var="paypalHelpLink" value="OEPAYPAL_PAYMENT_HELP_LINK"|oxmultilangassign}]
