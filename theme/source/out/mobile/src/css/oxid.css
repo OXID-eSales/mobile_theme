@@ -5853,7 +5853,7 @@ a:focus {
 }
 .payment-images {
   list-style: none;
-  margin: 0;
+  margin-left: 0;
   text-align: center;
 }
 .payment-images li {
