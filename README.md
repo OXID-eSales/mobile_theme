@@ -37,6 +37,8 @@ As this extension consists of two components, the "theme switch" module and the 
 
 ###How to Contribute
 
+Before contributing for the first time, you must send the filled form "OXID eSales Contributor Agreement" (http://wiki.oxidforge.org/File:Oxid_esales_ca_v151.pdf) to community@oxid-esales.com. You can find more information about it on the FAQ page OXID Contribution and Contributor Agreement FAQ http://wiki.oxidforge.org/OXID_Contribution_and_Contributor_Agreement_FAQ.
+
 First off, you have to fork the repository "OXIDprojects/mobile_theme" to your list of repositories.
 
 <b>Best practice</b>:
