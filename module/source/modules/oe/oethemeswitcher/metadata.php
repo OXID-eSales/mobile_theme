@@ -30,7 +30,10 @@ $sMetadataVersion = '1.1';
 $aModule = array(
     'id'           => 'oethemeswitcher',
     'title'        => 'OXID eShop theme switch',
-    'description'  => 'Siehe Anforderungen für die Langbeschreibung',
+    'description'  => array(
+        'de' => 'Modul zum Wechsel der Anzeige zwischen normaler Ansicht und der Ansicht für mobile Endgeräte. Beim Aufruf des OXID eShop durch ein mobiles Endgerät wird ein installiertes Mobile Theme - standardmäßig OXID eShop Mobile Theme - zur Darstellung verwendet. Erfordert ein installiertes Mobile Theme.',
+        'en' => 'Module for switching the display between a regular view and a view for mobile devices. If OXID eShop is accessed by a mobile device, an installed mobile theme (OXID eShop mobile theme by default) will be used. An installed mobile theme is required.',
+    ),
     'thumbnail'    => 'picture.png',
     'version'      => '1.0.0',
     'author'       => 'OXID eSales AG',
