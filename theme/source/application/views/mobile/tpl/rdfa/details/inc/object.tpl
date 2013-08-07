@@ -70,4 +70,4 @@
             [{assign var="oBundleProduct" value=$oView->getBundleArticle()}]
             <div rel="gr:includes" resource="[{$oBundleProduct->getLink()}]#productdata"></div>
         [{/if}]
-        [{/if}][{* OXID_VERSION_PE *}]
+        [{/if}]

@@ -8,4 +8,4 @@
 [{/capture}]
 [{include file="layout/base.tpl"}]
 
-[{/if}][{* OXID_VERSION_EE *}]
+[{/if}]
