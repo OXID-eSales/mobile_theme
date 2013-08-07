@@ -12,4 +12,4 @@
 [{/capture}]
 [{include file="layout/base.tpl"}]
 
-[{/if}] [{* !OXID_VERSION_PE_CE *}]
+[{/if}]

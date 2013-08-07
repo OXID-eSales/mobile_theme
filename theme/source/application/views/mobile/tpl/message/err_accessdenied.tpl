@@ -6,4 +6,4 @@
     </div>
 [{/capture}]
 [{include file="layout/page.tpl"}]
-[{/if}][{* OXID_VERSION_EE *}]
+[{/if}]
