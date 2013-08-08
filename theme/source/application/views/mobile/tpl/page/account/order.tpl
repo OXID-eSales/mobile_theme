@@ -114,7 +114,7 @@
                                         [{/if}]
                                     </div>
                                 [{/if}]
-                            [{/if}][{* OXID_VERSION_EE *}]
+                            [{/if}]
                         </li>
                     [{/foreach}]
                 </ul>

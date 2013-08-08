@@ -24,13 +24,11 @@
     <div property="gr:description" content="[{$oLongdesc->value|strip_tags|strip}]" [{if $oView->getActiveLangAbbr()}] xml:lang="[{$oView->getActiveLangAbbr()}]"[{/if}]></div>
 [{/if}]
 [{if 'PE' == $oViewConf->getEdition() || 'CE' == $oViewConf->getEdition()}]
-[{if !$oProduct->oxarticles__oxbundleid->value}]
-[{/if}][{* OXID_VERSION_PE *}]
     <div property="gr:hasStockKeepingUnit" content="[{$oProduct->oxarticles__oxartnum->value}]" datatype="xsd:string"></div>
     [{if $oProduct->oxarticles__oxmpn->value}]
         <div property="gr:hasMPN" content="[{$oProduct->oxarticles__oxmpn->value}]" datatype="xsd:string"></div>
     [{/if}]
-[{/if}][{* OXID_VERSION_PE *}]
+[{/if}]
 [{/oxhasrights}]
 [{include file="rdfa/details/inc/object.tpl"}]
 [{if $oView->getRDFaNormalizedRating()}]
