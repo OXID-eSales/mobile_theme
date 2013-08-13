@@ -1038,7 +1038,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"] {
   display: block;
-  min-height: none;
+  min-height: 0;
   padding: 10px 12px;
   font-size: 14px;
   line-height: 1.428571429;
@@ -1105,8 +1105,8 @@ input[type="checkbox"] {
 }
 select,
 input[type="file"] {
-  height: none;
-  line-height: none;
+  height: 0;
+  line-height: 0;
 }
 select[multiple],
 select[size] {
@@ -2859,8 +2859,8 @@ button.close {
   margin-top: 4px;
 }
 .navbar-form {
-  margin-top: 50px - none / 2;
-  margin-bottom: 50px - none / 2;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 .navbar-form input,
 .navbar-form select,
@@ -3005,7 +3005,7 @@ button.close {
   }
 }
 .navbar-btn {
-  margin-top: 50px - none / 2;
+  margin-top: 25px;
 }
 .navbar-text {
   margin-top: 15px;
@@ -4489,7 +4489,7 @@ input[type=date] {
 input[type=date]::-webkit-inner-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: ;
+  margin: 0;
 }
 .placeholder {
   color: #cccccc;
@@ -5721,7 +5721,7 @@ a:focus {
   margin-top: 15px;
 }
 .checkout-option-about {
-  color: #ccc;
+  color: #cccccc;
   text-align: center;
 }
 .order {
