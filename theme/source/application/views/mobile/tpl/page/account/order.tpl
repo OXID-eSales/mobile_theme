@@ -21,32 +21,32 @@
             <li>
                 <ul class="order-history-details">
                     <li>
-                        <span id="accOrderDate_[{$order->oxorder__oxordernr->value}]" title="[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_DATE" }]" >[{ $order->oxorder__oxorderdate->value|date_format:"%d.%m.%Y" }]</span>
+                        <span id="accOrderDate_[{$order->oxorder__oxordernr->value}]" title="[{ oxmultilang ident="ORDER_DATE" }]" >[{ $order->oxorder__oxorderdate->value|date_format:"%d.%m.%Y" }]</span>
                         <strong>[{ oxmultilang ident="ORDER_NUMBER" }]:</strong>
                         <span id="accOrderNo_[{$order->oxorder__oxordernr->value}]">[{ $order->oxorder__oxordernr->value }]</span>
                     </li>
                     <li>
-                        <strong>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_STATUS" }]</strong>
+                        <strong>[{ oxmultilang ident="STATUS" }]</strong>
                         <span id="accOrderStatus_[{$order->oxorder__oxordernr->value}]">
                             [{if $order->oxorder__oxstorno->value}]
-                                <span class="note">[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_STORNO" }]</span>
+                                <span class="note">[{ oxmultilang ident="ORDER_IS_CANCELED" }]</span>
                             [{elseif $order->oxorder__oxsenddate->value !="-" }]
-                                <span>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_SHIPPED" }]</span>
+                                <span>[{ oxmultilang ident="SHIPPED" }]</span>
                             [{else}]
-                                <span class="note">[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_NOTSHIPPED" }]</span>
+                                <span class="note">[{ oxmultilang ident="NOT_SHIPPED_YET" }]</span>
                             [{/if}]
                         </span>
                     </li>
                     [{if $order->getShipmentTrackingUrl()}]
                         <li>
-                            <strong>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_TRACKINGID" }]</strong>
+                            <strong>[{ oxmultilang ident="TRACKING_ID" }]</strong>
                             <span id="accOrderTrack_[{$order->oxorder__oxordernr->value}]">
-                                <a href="[{$order->getShipmentTrackingUrl()}]">[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_TRACKSHIPMENT" }]</a>
+                                <a href="[{$order->getShipmentTrackingUrl()}]">[{ oxmultilang ident="TRACK_SHIPMENT" }]</a>
                             </span>
                         </li>
                     [{/if}]
                     <li>
-                        <strong>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_SHIPMENTTO" }]</strong>
+                        <strong>[{ oxmultilang ident="SHIPMENT_TO" }]</strong>
                         <span id="accOrderName_[{$order->oxorder__oxordernr->value}]">
                         [{if $order->oxorder__oxdellname->value }]
                             [{ $order->oxorder__oxdelfname->value }]
@@ -76,7 +76,7 @@
                                 [{*
                                 [{oxhasrights ident="TOBASKET"}]
                                 [{if $oArticle->oxarticles__oxid->value && $oArticle->isBuyable() }]
-                                    <a id="accOrderToBasket_[{$order->oxorder__oxordernr->value}]_[{$smarty.foreach.testOrderItem.iteration}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_order" params="fnc=tobasket&amp;aid=`$oArticle->oxarticles__oxid->value`&amp;am=1" }]" rel="nofollow">[{ oxmultilang ident="ADD_TO_CART" }]</a>
+                                    <a id="accOrderToBasket_[{$order->oxorder__oxordernr->value}]_[{$smarty.foreach.testOrderItem.iteration}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account_order" params="fnc=tobasket&amp;aid=`$oArticle->oxarticles__oxid->value`&amp;am=1" }]" rel="nofollow">[{ oxmultilang ident="TO_CART" }]</a>
                                 [{/if}]
                                 [{/oxhasrights}]
                                 *}]
@@ -109,7 +109,7 @@
                                             [{/foreach}]
                                         </ul>
                                         [{if $aStatus->trackingid }]
-                                            <strong>[{ oxmultilang ident="PAGE_ACCOUNT_ORDER_TRACKINGID" }]</strong>
+                                            <strong>[{ oxmultilang ident="TRACKING_ID" }]</strong>
                                             <span>[{ $aStatus->trackingid }]</span>
                                         [{/if}]
                                     </div>
@@ -124,7 +124,7 @@
     [{include file="widget/locator/listlocator.tpl" locator=$oView->getPageNavigation() place="bottom"}]
 [{else}]
     <div class="content">
-        [{ oxmultilang ident="PAGE_ACCOUNT_ORDER_EMPTYHISTORY" }]
+        [{ oxmultilang ident="ORDER_EMPTY_HISTORY" }]
     </div>
 [{/if}]
 [{/block}]

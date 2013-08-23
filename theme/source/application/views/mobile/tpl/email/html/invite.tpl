@@ -12,7 +12,7 @@
     <tr>
         <td width="10%" style="padding: 5px; border-bottom: 1px solid #ddd;">
             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                <b>[{ oxmultilang ident="EMAIL_INVITE_HTML_FROM" }]</b>
+                <b>[{ oxmultilang ident="FROM" }]</b>
             </p>
         </td>
         <td style="padding: 5px; border-bottom: 1px solid #ddd;">
@@ -24,7 +24,7 @@
     <tr>
         <td width="10%" style="padding: 5px; border-bottom: 1px solid #ddd;">
             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                <b>[{ oxmultilang ident="EMAIL_INVITE_HTML_EMAIL" }]</b>
+                <b>[{ oxmultilang ident="EMAIL" }]</b>
             </p>
         </td>
         <td style="padding: 5px; border-bottom: 1px solid #ddd;">
@@ -59,7 +59,7 @@
     <tr>
         <td colspan="2">
             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-                [{ oxmultilang ident="EMAIL_INVITE_HTML_MENYGREETINGS" }] [{$userinfo->send_name|oxescape}]
+                [{ oxmultilang ident="MANY_GREETINGS" }] [{$userinfo->send_name|oxescape}]
             </p>
         </td>
     </tr>

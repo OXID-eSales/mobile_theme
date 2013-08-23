@@ -11,7 +11,7 @@
 </ul>
 [{if $oView->isPasswordChanged() }]
      <div class="alert alert-success">
-      [{ oxmultilang ident="PAGE_ACCOUNT_PASSWORD_PASSWORDCHANGED" }]
+      [{ oxmultilang ident="MESSAGE_PASSWORD_CHANGED" }]
      </div>
 [{/if}]
 [{if count($Errors) > 0 && count($Errors.user) > 0}]
@@ -21,7 +21,7 @@
     [{/foreach}]
 </div>
 [{/if}]
-<h1 id="personalSettingsHeader" class="page-head">[{ oxmultilang ident="CHANGE_PASSWORD_2" }]</h1>
+<h1 id="personalSettingsHeader" class="page-head">[{ oxmultilang ident="CHANGE_PASSWORD" }]</h1>
 <div class="content">
     [{include file="form/user_password.tpl"}]
     [{insert name="oxid_tracker" title=$template_title }]

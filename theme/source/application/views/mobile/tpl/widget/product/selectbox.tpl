@@ -10,7 +10,7 @@
                 [{elseif !$blHideDefault}]
                     <span [{if $blInDetails}]class="selectMessage"[{/if}]>[{$oSelectionList->getLabel()}]
                     [{if $sFieldName == "sel" }]
-                        [{ oxmultilang ident="WIDGET_PRODUCT_ATTRIBUTES_PLEASECHOOSE" }]
+                        [{ oxmultilang ident="PLEASE_CHOOSE" }]
                     [{else}]
                         [{ oxmultilang ident="CHOOSE_VARIANT" }]
                     [{/if}]
@@ -39,7 +39,7 @@
 [{else}]
     <a href="[{$_productLink}]" class="product-variants-message">
         [{if $sFieldName == "sel" }]
-            [{oxmultilang ident="WIDGET_PRODUCT_ATTRIBUTES_PLEASECHOOSE"}]
+            [{oxmultilang ident="PLEASE_CHOOSE"}]
         [{else}]
             [{oxmultilang ident="CHOOSE_VARIANT"}]
         [{/if}]

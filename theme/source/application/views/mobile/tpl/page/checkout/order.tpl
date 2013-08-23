@@ -2,7 +2,7 @@
     <div class="content order">
         [{block name="checkout_order_errors"}]
             [{ if $oView->isConfirmAGBActive() && $oView->isConfirmAGBError() == 1 }]
-            [{include file="message/error.tpl" statusMessage="PAGE_CHECKOUT_ORDER_READANDCONFIRMTERMS"|oxmultilangassign }]
+            [{include file="message/error.tpl" statusMessage="READ_AND_CONFIRM_TERMS"|oxmultilangassign }]
             [{/if}]
             [{assign var="iError" value=$oView->getAddressError() }]
             [{ if $iError == 1}]
@@ -18,7 +18,7 @@
             [{block name="checkout_order_details"}]
                 [{ if !$oxcmp_basket->getProductsCount()  }]
                     [{block name="checkout_order_emptyshippingcart"}]
-                    <div class="alert alert-error">[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_BASKETEMPTY" }]</div>
+                    <div class="alert alert-error">[{ oxmultilang ident="BASKET_EMPTY" }]</div>
                     [{/block}]
                 [{else}]
                     [{assign var="currency" value=$oView->getActCurrency() }]
@@ -73,7 +73,7 @@
 
                                 [{if $oView->showOrderButtonOnTop()}]
                                     <ul class="form">
-                                        <li><button type="submit" class="btn">[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_SUBMITORDER" }]</button></li>
+                                        <li><button type="submit" class="btn">[{ oxmultilang ident="SUBMIT_ORDER" }]</button></li>
                                         <li><input type="button" class="btn previous" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getPaymentLink() }]', '_self');" /></li>
                                     </ul>
                                 [{/if}]
@@ -83,12 +83,12 @@
 
                     [{block name="checkout_order_vouchers"}]
                         [{ if $oViewConf->getShowVouchers() && $oxcmp_basket->getVouchers()}]
-                        [{ oxmultilang ident="PAGE_CHECKOUT_ORDER_USEDCOUPONS" }]
+                        [{ oxmultilang ident="USED_COUPONS" }]
                             <div>
                                 [{foreach from=$Errors.basket item=oEr key=key }]
                                     [{if $oEr->getErrorClassType() == 'oxVoucherException'}]
                                     [{ oxmultilang ident="PAGE_CHECKOUT_ORDER_COUPONNOTACCEPTED1" }] [{ $oEr->getValue('voucherNr') }] [{ oxmultilang ident="PAGE_CHECKOUT_ORDER_COUPONNOTACCEPTED2" }]<br>
-                                    [{ oxmultilang ident="PAGE_CHECKOUT_ORDER_REASON" }]
+                                    [{ oxmultilang ident="REASON" }]
                                         [{ $oEr->getOxMessage() }]<br>
                                     [{/if}]
                                 [{/foreach}]
@@ -103,7 +103,7 @@
                         <div id="orderAddress">
                             <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
                                 <h3 class="heading section-heading">
-                                    <span>[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_ADDRESSES" }]</span>
+                                    <span>[{ oxmultilang ident="ADDRESSES" }]</span>
                                     [{ $oViewConf->getHiddenSid() }]
                                     <input type="hidden" name="cl" value="user">
                                     <input type="hidden" name="fnc" value="">
@@ -128,7 +128,7 @@
 
                             [{if $oView->getOrderRemark() }]
                                 <dl class="orderRemarks">
-                                <dt> [{ oxmultilang ident="PAGE_CHECKOUT_ORDER_WHATIWANTEDTOSAY" }]</dt>
+                                <dt> [{ oxmultilang ident="WHAT_I_WANTED_TO_SAY" }]</dt>
                                     <dd>
                                         [{ $oView->getOrderRemark() }]
                                     </dd>
@@ -142,7 +142,7 @@
                         <div id="orderShipping">
                             <form action="[{ $oViewConf->getSslSelfLink() }]" class="form" method="post">
                                 <h3 class="heading section-heading">
-                            <strong>[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_SHIPPINGCARRIER" }]</strong>
+                            <strong>[{ oxmultilang ident="SHIPPING_CARRIER" }]</strong>
                                     [{ $oViewConf->getHiddenSid() }]
                                     <input type="hidden" name="cl" value="payment">
                                     <input type="hidden" name="fnc" value="">
@@ -156,7 +156,7 @@
                         <div id="orderPayment">
                             <form action="[{ $oViewConf->getSslSelfLink() }]" class="form" method="post">
                                 <h3 class="heading section-heading">
-                                <strong>[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_PAYMENTMETHOD" }]</strong>
+                                <strong>[{ oxmultilang ident="PAYMENT_METHOD" }]</strong>
                                     [{ $oViewConf->getHiddenSid() }]
                                     <input type="hidden" name="cl" value="payment">
                                     <input type="hidden" name="fnc" value="">
@@ -171,7 +171,7 @@
                     <div id="orderEditCart">
                         <form action="[{ $oViewConf->getSslSelfLink() }]" class="form" method="post">
                             <h3 class="heading section-heading">
-                                <span>[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_BASKET" }]</span>
+                                <span>[{ oxmultilang ident="CART" }]</span>
                                 [{ $oViewConf->getHiddenSid() }]
                                 <input type="hidden" name="cl" value="basket">
                                 <input type="hidden" name="fnc" value="">
@@ -223,5 +223,5 @@
     </div>
 [{/capture}]
 
-[{assign var="template_title" value="PAGE_CHECKOUT_ORDER_TITLE"|oxmultilangassign}]
+[{assign var="template_title" value="REVIEW_YOUR_ORDER"|oxmultilangassign}]
 [{include file="layout/page.tpl" title=$template_title location=$template_title}]

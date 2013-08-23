@@ -12,7 +12,7 @@
 
     [{block name="email_html_senddownloadlinks_oxordernr"}]
         <h3 style="font-weight: bold; margin: 20px 0 7px; padding: 0; line-height: 35px; font-size: 12px;font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; border-bottom: 4px solid #ddd;">
-            [{ oxmultilang ident="EMAIL_SENDEDNOW_HTML_ORDERNOMBER" }] [{ $order->oxorder__oxordernr->value }]
+            [{ oxmultilang ident="ORDER_NUMBER" }] [{ $order->oxorder__oxordernr->value }]
         </h3>
     [{/block}]
 
@@ -50,8 +50,8 @@
             </h3>
 
             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-                <a href="[{ $oViewConf->getTsRatingUrl() }]" target="_blank" title="[{ oxmultilang ident="TS_RATINGS_URL_TITLE" }]">
-                    <img src="[{$sTSRatingImg}]" border="0" alt="[{ oxmultilang ident="TS_RATINGS_BUTTON_ALT" }]" align="middle">
+                <a href="[{ $oViewConf->getTsRatingUrl() }]" target="_blank" title="[{ oxmultilang ident="TRUSTED_SHOPS_RATINGS" }]">
+                    <img src="[{$sTSRatingImg}]" border="0" alt="[{ oxmultilang ident="WRITE_REVIEW_2" }]" align="middle">
                 </a>
             </p>
         [{/if}]

@@ -9,13 +9,13 @@
         [{ $oxcmp_shop->oxshops__oxzip->value }]&nbsp;[{ $oxcmp_shop->oxshops__oxcity->value }]</br>
         [{ $oxcmp_shop->oxshops__oxcountry->value }]</br>
         [{ if $oxcmp_shop->oxshops__oxtelefon->value}]
-            [{ oxmultilang ident="PAGE_INFO_CONTACT_PHONE" }] [{ $oxcmp_shop->oxshops__oxtelefon->value }]</br>
+            [{ oxmultilang ident="PHONE" }] [{ $oxcmp_shop->oxshops__oxtelefon->value }]</br>
         [{/if}]
         [{ if $oxcmp_shop->oxshops__oxtelefax->value}]
-            [{ oxmultilang ident="PAGE_INFO_CONTACT_FAX" }] [{ $oxcmp_shop->oxshops__oxtelefax->value }]</br>
+            [{ oxmultilang ident="FAX" }] [{ $oxcmp_shop->oxshops__oxtelefax->value }]</br>
         [{/if}]
         [{ if $oxcmp_shop->oxshops__oxinfoemail->value}]
-            [{ oxmultilang ident="PAGE_INFO_CONTACT_EMAIL" }] [{oxmailto address=$oxcmp_shop->oxshops__oxinfoemail->value encode="javascript"}]</br>
+            [{ oxmultilang ident="EMAIL" }] [{oxmailto address=$oxcmp_shop->oxshops__oxinfoemail->value encode="javascript"}]</br>
         [{/if}]
         [{include file="form/contact.tpl"}]
         [{ insert name="oxid_tracker" title=$template_title }]

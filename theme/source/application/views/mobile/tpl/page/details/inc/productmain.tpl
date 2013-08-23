@@ -98,22 +98,22 @@
                             [{if $oDetailsProduct->oxarticles__oxnostocktext->value}]
                                 [{$oDetailsProduct->oxarticles__oxnostocktext->value}]
                             [{elseif $oViewConf->getStockOffDefaultMessage()}]
-                                [{oxmultilang ident="DETAILS_NOTONSTOCK"}]
+                                [{oxmultilang ident="MESSAGE_NOT_ON_STOCK"}]
                             [{/if}]
                             [{if $oDetailsProduct->getDeliveryDate()}]
-                                [{oxmultilang ident="DETAILS_AVAILABLEON"}] [{$oDetailsProduct->getDeliveryDate()}]
+                                [{oxmultilang ident="AVAILABLE_ON"}] [{$oDetailsProduct->getDeliveryDate()}]
                             [{/if}]
                         </span>
                     [{elseif $oDetailsProduct->getStockStatus() == 1}]
                         <span class="product-stock-flag low-stock">
-                            [{oxmultilang ident="DETAILS_LOWSTOCK"}]
+                            [{oxmultilang ident="LOW_STOCK"}]
                         </span>
                     [{elseif $oDetailsProduct->getStockStatus() == 0}]
                         <span class="product-stock-flag">
                             [{if $oDetailsProduct->oxarticles__oxstocktext->value}]
                                 [{$oDetailsProduct->oxarticles__oxstocktext->value}]
                             [{elseif $oViewConf->getStockOnDefaultMessage()}]
-                                [{oxmultilang ident="DETAILS_READYFORSHIPPING"}]
+                                [{oxmultilang ident="READY_FOR_SHIPPING"}]
                             [{/if}]
                         </span>
                     [{/if}]
@@ -198,7 +198,7 @@
                 [{oxhasrights ident="TOBASKET"}]
                 [{if !$oDetailsProduct->isNotBuyable()}]
                     <input id="amountToBasket" type="hidden" name="am" value="1" size="3" autocomplete="off" class="textbox">
-                    <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="submitButton largeButton btn[{if !$blCanBuy}] disabled[{/if}]">[{oxmultilang ident="DETAILS_ADDTOCART"}]</button>
+                    <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="submitButton largeButton btn[{if !$blCanBuy}] disabled[{/if}]">[{oxmultilang ident="TO_CART"}]</button>
                 [{/if}]
                 [{/oxhasrights}]
             [{/block}]

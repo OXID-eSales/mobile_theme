@@ -15,7 +15,7 @@
             <h3 class="block-head">
                 [{ oxmultilang ident="FORM_USER_BILLINGADDRESS" }]
             </h3>
-            <input id="userChangeAddress" class="btn submitButton largeButton" [{if !empty($aErrors)}]style="display: none;"[{/if}] name="changeBillAddress" type="submit" value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]"/>
+            <input id="userChangeAddress" class="btn submitButton largeButton" [{if !empty($aErrors)}]style="display: none;"[{/if}] name="changeBillAddress" type="submit" value="[{ oxmultilang ident="CHANGE" }]"/>
             <ul class="form" [{if empty($aErrors)}]style="display: none;"[{/if}] id="addressForm">
                 [{ include file="form/fieldset/user_email.tpl" }]
                 [{ include file="form/fieldset/user_billing.tpl" noFormSubmit=true }]
@@ -29,9 +29,9 @@
         </div>
         <div class="collumn">
             <h3 id="addShippingAddress" class="block-head">
-            [{ oxmultilang ident="FORM_USER_SHIPPINGADDRESSES" }]
+            [{ oxmultilang ident="SHIPPING_ADDRESSES" }]
             </h3>
-            <input id="userChangeShippingAddress" class="btn submitButton largeButton" name="changeShippingAddress" type="submit" [{if !$oView->showShipAddress() or !$oxcmp_user->getSelectedAddress()}] style="display: none;"[{/if}] value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]"/>
+            <input id="userChangeShippingAddress" class="btn submitButton largeButton" name="changeShippingAddress" type="submit" [{if !$oView->showShipAddress() or !$oxcmp_user->getSelectedAddress()}] style="display: none;"[{/if}] value="[{ oxmultilang ident="CHANGE" }]"/>
             <ul class="form">
                 <li>
                     <div class="checkbox">

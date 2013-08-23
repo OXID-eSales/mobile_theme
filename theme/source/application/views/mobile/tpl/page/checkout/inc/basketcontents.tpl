@@ -248,7 +248,7 @@
                     [{foreach from=$oxcmp_basket->getDiscounts() item=oDiscount name=test_Discounts}]
                         <tr>
                             <th>
-                                    <b>[{if $oDiscount->dDiscount < 0}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_CHARGE"}][{else}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNT2"}][{/if}]&nbsp;</b>
+                                    <b>[{if $oDiscount->dDiscount < 0}][{ oxmultilang ident="SURCHARGE"}][{else}][{ oxmultilang ident="DISCOUNT"}][{/if}]&nbsp;</b>
                                 [{ $oDiscount->sDiscount}]
                             </th>
                             <td>
@@ -292,7 +292,7 @@
             [{block name="checkout_basketcontents_delcosts"}]
                 [{if $oxcmp_basket->getDelCostNet() }]
                     <tr>
-                            <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_SHIPPINGNET" }]:</th>
+                            <th>[{ oxmultilang ident="SHIPPING_NET" }]:</th>
                         <td id="basketDeliveryNetto">[{ $oxcmp_basket->getDelCostNet() }]&nbsp;[{ $currency->sign }]</td>
                     </tr>
                     [{if $oxcmp_basket->getDelCostVat() }]
@@ -307,7 +307,7 @@
                     [{/if }]
                 [{elseif $oxcmp_basket->getFDeliveryCosts() }]
                     <tr>
-                            <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_SHIPPING" }]:</th>
+                            <th>[{ oxmultilang ident="SHIPPING_COST" }]:</th>
                         <td id="basketDeliveryGross">[{ $oxcmp_basket->getFDeliveryCosts() }]&nbsp;[{ $currency->sign }]</td>
                     </tr>
                 [{/if }]
@@ -316,7 +316,7 @@
             [{block name="checkout_basketcontents_paymentcosts"}]
                 [{if $oxcmp_basket->getPayCostNet() }]
                     <tr>
-                            <th>[{if $oxcmp_basket->getPaymentCosts() >= 0}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PAYMENT" }][{else}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_CHARGE2" }][{/if}] [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNT3" }]</th>
+                            <th>[{if $oxcmp_basket->getPaymentCosts() >= 0}][{ oxmultilang ident="SURCHARGE" }][{else}][{ oxmultilang ident="DEDUCTION" }][{/if}] [{ oxmultilang ident="PAYMENT_METHOD" }]</th>
                         <td id="basketPaymentNetto">[{ $oxcmp_basket->getPayCostNet() }]&nbsp;[{ $currency->sign }]</td>
                     </tr>
                     [{if $oxcmp_basket->getPayCostVat() }]
@@ -331,7 +331,7 @@
                     [{/if }]
                 [{elseif $oxcmp_basket->getFPaymentCosts() }]
                     <tr>
-                            <th>[{if $oxcmp_basket->getPaymentCosts() >= 0}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PAYMENT" }][{else}][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_CHARGE2" }][{/if}] [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNT3" }]</th>
+                            <th>[{if $oxcmp_basket->getPaymentCosts() >= 0}][{ oxmultilang ident="SURCHARGE" }][{else}][{ oxmultilang ident="DEDUCTION" }][{/if}] [{ oxmultilang ident="PAYMENT_METHOD" }]</th>
                         <td id="basketPaymentGross">[{ $oxcmp_basket->getFPaymentCosts() }]&nbsp;[{ $currency->sign }]</td>
                     </tr>
                 [{/if }]
@@ -352,7 +352,7 @@
 
             [{if $oxcmp_basket->hasSkipedDiscount()}]
                 <tr>
-                    <td class="note">**</span> [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNTS_NOT_APPLIED_FOR_ARTICLES" }]</td>
+                    <td class="note">**</span> [{ oxmultilang ident="MESSAGE_COUPON_NOT_APPLIED_FOR_ARTICLES" }]</td>
                 </tr>
             [{/if}]
         </table>
