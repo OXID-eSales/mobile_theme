@@ -4,7 +4,16 @@
 [{oxscript include="js/widgets/oxtriggerform.js" priority=10}]
 [{oxscript add="$('.wishlist-btn').oxFormTrigger();"}]
 [{block name="widget_product_listitem_line"}]
-    [{assign var="currency" value=$oView->getActCurrency()}]
+    [{assign var="product"          value=$oView->getBoxProduct()}]
+    [{assign var="owishid"          value=$oView->getWishId()}]
+    [{assign var="removeFunction"   value=$oView->getRemoveFunction()}]
+    [{assign var="recommid"         value=$oView->getRecommId()}]
+    [{assign var="testid"           value=$oView->getTestId()}]
+    [{assign var="showMainLink"     value=$oView->getShowMainLink()}]
+    [{assign var="blDisableToCart"  value=$oView->getDisableToCart()}]
+    [{assign var="toBasketFunction" value=$oView->getToBasketFunction()}]
+    [{assign var="altproduct"       value=$oView->getAltProduct()}]
+
     [{if $showMainLink}]
         [{assign var='_productLink' value=$product->getMainLink()}]
     [{else}]
@@ -25,7 +34,7 @@
         [{/if}]
         [{if $blShowToBasket}]
             [{oxhasrights ident="TOBASKET"}]
-                <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
+                <input type="hidden" name="cl" value="[{$oViewConf->getTopActiveClassName()}]">
             [{if $owishid}]
                 <input type="hidden" name="owishid" value="[{$owishid}]">
             [{/if}]
@@ -147,7 +156,7 @@
         <form action="[{$oViewConf->getSelfActionLink()}]" method="post" id="remove_[{$removeFunction}][{$testid}]">
             <div>
                 [{$oViewConf->getHiddenSid()}]
-                <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]"/>
+                <input type="hidden" name="cl" value="[{$oViewConf->getTopActiveClassName()}]"/>
                 <input type="hidden" name="fnc" value="[{$removeFunction}]"/>
                 <input type="hidden" name="aid" value="[{$product->oxarticles__oxid->value}]"/>
                 <input type="hidden" name="am" value="0"/>
@@ -159,3 +168,4 @@
         </form>
     [{/if}]
 [{/block}]
+[{oxscript widget=$oView->getClassName()}]
