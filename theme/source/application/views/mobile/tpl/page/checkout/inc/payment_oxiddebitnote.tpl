@@ -1,4 +1,5 @@
 [{assign var="dynvalue" value=$oView->getDynValue()}]
+[{assign var="iPayError" value=$oView->getPaymentError()}]
 <div id="paymentOption_[{$sPaymentID}]" class="payment-option [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]active-payment[{/if}]">
     <input id="payment_[{$sPaymentID}]" type="radio" name="paymentid" value="[{$sPaymentID}]" [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]checked="checked"[{/if}] />
     <ul class="form">
@@ -8,13 +9,13 @@
                 <span class="js-oxError_notEmpty">[{oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS"}]</span>
             </p>
         </li>
-        <li>
+        <li [{if $iPayError == -4}]class="invalid-field"[{/if}]>
             <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[lsblz]" autocomplete="off" value="[{$dynvalue.lsblz}]" placeholder="[{oxmultilang ident="BANK_CODE_3"}]" />
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS"}]</span>
             </p>
         </li>
-        <li>
+        <li [{if $iPayError == -5}]class="invalid-field"[{/if}]>
             <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[lsktonr]" autocomplete="off" value="[{$dynvalue.lsktonr}]" placeholder="[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_ACCOUNTNUMBER"}]" />
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS"}]</span>
