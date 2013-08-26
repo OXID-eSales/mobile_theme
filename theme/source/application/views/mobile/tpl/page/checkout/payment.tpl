@@ -61,7 +61,7 @@
                                         <div id="shipSetCost" class="payment-charge">
                                             [{oxmultilang ident="CHARGES"}] [{$oxcmp_basket->getDelCostNet()}] [{$currency->sign}]
                                                 [{if $oxcmp_basket->getDelCostVat()}]
-                                                ([{oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX1"}]
+                                                ([{oxmultilang ident="PLUS_VAT"}]
                                                 [{$oxcmp_basket->getDelCostVat()}] [{$currency->sign}])
                                                 [{/if}]
                                         </div>

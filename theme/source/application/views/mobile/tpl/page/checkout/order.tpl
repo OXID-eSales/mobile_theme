@@ -87,7 +87,7 @@
                             <div>
                                 [{foreach from=$Errors.basket item=oEr key=key }]
                                     [{if $oEr->getErrorClassType() == 'oxVoucherException'}]
-                                    [{ oxmultilang ident="PAGE_CHECKOUT_ORDER_COUPONNOTACCEPTED1" }] [{ $oEr->getValue('voucherNr') }] [{ oxmultilang ident="PAGE_CHECKOUT_ORDER_COUPONNOTACCEPTED2" }]<br>
+                                    [{ oxmultilang ident="COUPON_NOT_ACCEPTED1" }] [{ $oEr->getValue('voucherNr') }] [{ oxmultilang ident="COUPON_NOT_ACCEPTED2" }]<br>
                                     [{ oxmultilang ident="REASON" }]
                                         [{ $oEr->getOxMessage() }]<br>
                                     [{/if}]
@@ -111,7 +111,7 @@
                                 </h3>
                             </form>
                             <dl>
-                            <dt>[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_BILLINGADDRESS" }]</dt>
+                            <dt>[{ oxmultilang ident="BILLING_ADDRESS" }]</dt>
                                 <dd>
                                     [{include file="widget/address/billing_address.tpl"}]
                                 </dd>
@@ -119,7 +119,7 @@
                             [{assign var="oDelAdress" value=$oView->getDelAddress() }]
                             [{if $oDelAdress }]
                             <dl class="shippingAddress">
-                            <dt>[{ oxmultilang ident="PAGE_CHECKOUT_ORDER_SHIPPINGADDRESS" }]</dt>
+                            <dt>[{ oxmultilang ident="SHIPPING_ADDRESS" }]</dt>
                                 <dd>
                                     [{include file="widget/address/shipping_address.tpl" delivadr=$oDelAdress}]
                                 </dd>

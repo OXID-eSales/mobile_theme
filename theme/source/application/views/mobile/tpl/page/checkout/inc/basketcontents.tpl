@@ -215,7 +215,7 @@
                 [{block name="checkout_basketcontents_nodiscountproductvats"}]
                     [{foreach from=$oxcmp_basket->getProductVats() item=VATitem key=key}]
                         <tr>
-                                    <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX1" }]&nbsp;[{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]</th>
+                                    <th>[{ oxmultilang ident="PLUS_VAT" }]&nbsp;[{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]</th>
                             <td>[{ $VATitem}]&nbsp;[{ $currency->sign}]</td>
                         </tr>
                     [{/foreach}]
@@ -270,7 +270,7 @@
                 [{block name="checkout_basketcontents_productvats"}]
                     [{foreach from=$oxcmp_basket->getProductVats() item=VATitem key=key}]
                         <tr>
-                                    <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX1" }] [{ $key }][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_TAX2" }]</th>
+                                    <th>[{ oxmultilang ident="PLUS_VAT" }] [{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]</th>
                             <td>[{ $VATitem}]&nbsp;[{ $currency->sign}]</td>
                         </tr>
                     [{/foreach}]
@@ -300,7 +300,7 @@
                             [{if $oxcmp_basket->isProportionalCalculationOn() }]
                                 <th>[{ oxmultilang ident="BASKET_TOTAL_PLUS_PROPORTIONAL_VAT" }]:</th>
                             [{else}]
-                                        <th>[{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX1" }] [{ $oxcmp_basket->getDelCostVatPercent() }][{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_PLUSTAX2" }]</th>
+                                        <th>[{ oxmultilang ident="PLUS_VAT" }] [{ $oxcmp_basket->getDelCostVatPercent() }][{ oxmultilang ident="SHIPPING_VAT2" }]</th>
                                 [{/if}]
                                 <td id="basketDeliveryVat">[{ $oxcmp_basket->getDelCostVat() }]&nbsp;[{ $currency->sign }]</td>
                         </tr>

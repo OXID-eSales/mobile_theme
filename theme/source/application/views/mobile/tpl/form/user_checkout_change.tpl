@@ -24,7 +24,7 @@
                                     <input type="button" id="userNextStepTop" name="userform" class="btn" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" />
                                 </li>
                                 <li>
-                                    <h3>[{oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
+                                    <h3>[{oxmultilang ident="BILLING_ADDRESS" }]</h3>
                                     <input class="btn" type="button" id="userChangeAddress" name="changeBillAddress" value="[{oxmultilang ident="CHANGE" }]" />
                                 </li>
                             </ul>

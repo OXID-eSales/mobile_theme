@@ -13,7 +13,7 @@
                 <input type="hidden" name="blshowshipaddress" value="1">
             </div>
             <h3 class="block-head">
-                [{ oxmultilang ident="FORM_USER_BILLINGADDRESS" }]
+                [{ oxmultilang ident="BILLING_ADDRESS" }]
             </h3>
             <input id="userChangeAddress" class="btn submitButton largeButton" [{if !empty($aErrors)}]style="display: none;"[{/if}] name="changeBillAddress" type="submit" value="[{ oxmultilang ident="CHANGE" }]"/>
             <ul class="form" [{if empty($aErrors)}]style="display: none;"[{/if}] id="addressForm">

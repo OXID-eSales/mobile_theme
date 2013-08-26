@@ -67,7 +67,7 @@
     </table>
 
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
-        [{ oxmultilang ident="EMAIL_SUGGEST_HTML_MENYGREETINGS" }] [{$userInfo->send_name|oxescape}]
+        [{ oxmultilang ident="MANY_GREETINGS" }] [{$userInfo->send_name|oxescape}]
     </p>
 
     <br>

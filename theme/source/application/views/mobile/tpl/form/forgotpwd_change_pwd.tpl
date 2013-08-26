@@ -33,7 +33,7 @@
             </p>
         </li>
         <li>
-            <button class="btn" type="submit" name="save" value="[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_UPDATEPASSWORD" }]">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_UPDATEPASSWORD" }]</button>
+            <button class="btn" type="submit" name="save" value="[{ oxmultilang ident="CHANGE_PASSWORD" }]">[{ oxmultilang ident="CHANGE_PASSWORD" }]</button>
         </li>
     </ul>
 </form>

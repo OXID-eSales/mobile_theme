@@ -24,7 +24,7 @@
             </ul>
         </div>
         <div class="collumn">
-            <h3 class="block-head">[{ oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
+            <h3 class="block-head">[{ oxmultilang ident="BILLING_ADDRESS" }]</h3>
             <ul class="form">
             [{ include file="form/fieldset/user_billing.tpl" noFormSubmit=true blSubscribeNews=false blOrderRemark=true}]
             </ul>

@@ -27,7 +27,7 @@
             </p>
         </li>
         <li [{if $aErrors.oxuser__oxpassword}]class="invalid-field"[{/if}]>
-            <input type="password" id="passwordNewConfirm" name="password_new_confirm" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_length js-oxValidate_match textbox" placeholder="[{ oxmultilang ident="FORM_USER_PASSWORD_CONFIRMPASSWORD" }]" />
+            <input type="password" id="passwordNewConfirm" name="password_new_confirm" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_length js-oxValidate_match textbox" placeholder="[{ oxmultilang ident="CONFIRM_PASSWORD" }]" />
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                 <span class="js-oxError_length">[{ oxmultilang ident="ERROR_MESSAGE_PASSWORD_TOO_SHORT" }]</span>

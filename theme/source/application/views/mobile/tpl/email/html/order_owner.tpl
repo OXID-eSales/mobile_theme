@@ -69,7 +69,7 @@
                                     ,&nbsp;<em>[{$sVar}] : [{$aParam}]</em>
                                     [{/foreach}]
                                     [{/if}]
-                                    <br>[{ oxmultilang ident="EMAIL_ORDER_CUST_HTML_ARTNOMBER" }] [{ $basketproduct->oxarticles__oxartnum->value }]
+                                    <br>[{ oxmultilang ident="PRODUCT_NO" }] [{ $basketproduct->oxarticles__oxartnum->value }]
                                 </p>
                             </td>
                             <td style="padding: 5px; border-bottom: 4px solid #ddd;">
@@ -201,7 +201,7 @@
                                         <tr valign="top">
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;">
                                                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                                    [{ oxmultilang ident="EMAIL_ORDER_CUST_HTML_PLUSTAX1" }] [{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]
+                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]
                                                 </p>
                                             </td>
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;" align="right">
@@ -312,7 +312,7 @@
                                         <tr valign="top">
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;">
                                                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                                    [{ oxmultilang ident="EMAIL_ORDER_CUST_HTML_PLUSTAX1" }] [{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]
+                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]
                                                 </p>
                                             </td>
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;" align="right">
@@ -368,7 +368,7 @@
                                 <tr valign="top">
                                     <td style="padding: 5px; border-bottom: 1px solid #ccc;">
                                         <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                            [{ oxmultilang ident="EMAIL_ORDER_CUST_HTML_SHIPPINGNET" }]
+                                            [{ oxmultilang ident="SHIPPING_NET" }]
                                         </p>
                                     </td>
                                     <td style="padding: 5px; border-bottom: 1px solid #ccc;" align="right">
@@ -709,7 +709,7 @@
             [{block name="email_html_order_owner_deliveryinfo"}]
                 [{if $payment->oxuserpayments__oxpaymentsid->value != "oxempty"}]
                     <h3 style="font-weight: bold; margin: 20px 0 7px; padding: 0; line-height: 35px; font-size: 12px;font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; border-bottom: 4px solid #ddd;">
-                    [{ oxmultilang ident="EMAIL_ORDER_CUST_HTML_SHIPPINGCARRIER" }]
+                    [{ oxmultilang ident="SHIPPING_CARRIER" }]
                     </h3>
                     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
                         [{ $oDelSet->oxdeliveryset__oxtitle->value }]

@@ -14,7 +14,7 @@
             [{ include file="form/fieldset/salutation.tpl" name="editval[oxuser__oxsal]" value=$aRegParams.oxuser__oxsal }]
         </li>
         <li>
-            <label>[{ oxmultilang ident="FORM_NEWSLETTER_FIRSTNAME" }]</label>
+            <label>[{ oxmultilang ident="FIRST_NAME" }]</label>
             <input id="newsletterFname" type="text" name="editval[oxuser__oxfname]" size=40 maxlength=40 value="[{if $aRegParams.oxuser__oxfname}][{$aRegParams.oxuser__oxfname}][{/if}]">
         </li>
         <li>

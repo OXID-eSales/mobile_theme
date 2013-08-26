@@ -16,7 +16,7 @@
             </p>
         </li>
         <li [{if $iPayError == -5}]class="invalid-field"[{/if}]>
-            <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[lsktonr]" autocomplete="off" value="[{$dynvalue.lsktonr}]" placeholder="[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_ACCOUNTNUMBER"}]" />
+            <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[lsktonr]" autocomplete="off" value="[{$dynvalue.lsktonr}]" placeholder="[{oxmultilang ident="BANK_ACCOUNT_NUMBER_2"}]" />
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS"}]</span>
             </p>
