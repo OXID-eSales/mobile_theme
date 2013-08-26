@@ -251,9 +251,9 @@
 
 [{block name="email_plain_order_cust_paymentinfo"}]
 [{if $payment->oxuserpayments__oxpaymentsid->value == "oxidpayadvance"}]
-[{ oxmultilang ident="BANK_2" }] [{$shop->oxshops__oxbankname->getRawValue()}]<br>
-[{ oxmultilang ident="BANK_CODE_3" }] [{$shop->oxshops__oxbankcode->value}]<br>
-[{ oxmultilang ident="BANK_ACCOUNT_NUMBER_2" }] [{$shop->oxshops__oxbanknumber->value}]<br>
+[{ oxmultilang ident="BANK" }] [{$shop->oxshops__oxbankname->getRawValue()}]<br>
+[{ oxmultilang ident="BANK_CODE" }] [{$shop->oxshops__oxbankcode->value}]<br>
+[{ oxmultilang ident="BANK_ACCOUNT_NUMBER" }] [{$shop->oxshops__oxbanknumber->value}]<br>
 [{ oxmultilang ident="BIC" }] [{$shop->oxshops__oxbiccode->value}]<br>
 [{ oxmultilang ident="IBAN" }] [{$shop->oxshops__oxibannumber->value}]
 [{/if}]

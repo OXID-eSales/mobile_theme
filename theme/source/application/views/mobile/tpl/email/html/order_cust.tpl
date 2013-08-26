@@ -771,9 +771,9 @@
                 [{ oxmultilang ident="BANK_DETAILS" }]
             </h3>
             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 5px 0 10px;">
-                [{ oxmultilang ident="BANK_2" }] [{$shop->oxshops__oxbankname->value}]<br>
-                [{ oxmultilang ident="BANK_CODE_3" }] [{$shop->oxshops__oxbankcode->value}]<br>
-                [{ oxmultilang ident="BANK_ACCOUNT_NUMBER_2" }] [{$shop->oxshops__oxbanknumber->value}]<br>
+                [{ oxmultilang ident="BANK" }] [{$shop->oxshops__oxbankname->value}]<br>
+                [{ oxmultilang ident="BANK_CODE" }] [{$shop->oxshops__oxbankcode->value}]<br>
+                [{ oxmultilang ident="BANK_ACCOUNT_NUMBER" }] [{$shop->oxshops__oxbanknumber->value}]<br>
                 [{ oxmultilang ident="BIC" }] [{$shop->oxshops__oxbiccode->value}]<br>
                 [{ oxmultilang ident="IBAN" }] [{$shop->oxshops__oxibannumber->value}]
             </p>
