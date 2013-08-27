@@ -60,13 +60,6 @@
                 }
             );
             return false;
-        },
-
-        /**
-         * Resets all variant selections
-         */
-        resetVariantSelections: function() {
-            resetVariantSelections();
         }
     }
 
@@ -85,12 +78,20 @@
 
         // setting new selection
         if ( obj.parents('.js-fnSubmit').length > 0 ) {
-            $('input:hidden', obj.parents('div.dropdown')).val( obj.data("selection-id") );
 
-            var form = $("form.js-oxWidgetReload");
-            $('input[name=fnc]', form).val("");
-            form.submit();
+            var selection = $( 'input:hidden', obj.parents('div.dropdown') );
+            $(selection).val( obj.data('selection-id') );
+
+            var formProduct = $( 'form.js-oxProductForm' );
+            $( 'input[name="' + $(selection).attr('name') + '"]', formProduct ).val( obj.data('selection-id') );
+
+            var formWidget = $( 'form.js-oxWidgetReload' );
+            $( 'input[name="' + $(selection).attr('name') + '"]', formWidget ).val( obj.data('selection-id') );
+            $( 'input[name=fnc]', formWidget ).val( '' );
+
+            formWidget.submit();
         }
+
         return false;
     }
 
