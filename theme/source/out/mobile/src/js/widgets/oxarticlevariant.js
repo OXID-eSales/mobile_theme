@@ -50,7 +50,6 @@
                     'iconPosEl' : $("#variants .dropdown"),
                     'additionalData' : aOptions,
                     'onSuccess' : function(r) {
-                        console.log(r);
                         $( contentTarget ).html( r );
                         if ( typeof WidgetsHandler !== 'undefined') {
                             WidgetsHandler.reloadWidget('oxwarticledetails');
