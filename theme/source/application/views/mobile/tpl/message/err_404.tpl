@@ -5,7 +5,7 @@
             [{if $sUrl}]
                 [{assign var="sModifiedUrl" value=$sUrl|escape }]
                 [{assign var="sModifiedUrl" value="<i><strong>'"|cat:$sModifiedUrl|cat:"'</strong></i>"}]
-                [{ oxmultilang ident="ERROR_404_PREURL" }][{ $sModifiedUrl }]
+                [{ oxmultilang ident="ERROR_404" }][{ $sModifiedUrl }]
             [{else}]
                 [{ oxmultilang ident="ERROR_404"}]
             [{/if}]

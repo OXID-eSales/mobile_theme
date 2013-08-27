@@ -201,7 +201,7 @@
 [{/block}]
 
 [{block name="email_plain_order_owneraddress"}]
-[{ oxmultilang ident="BILLING_ADDRESS_2" }]
+[{ oxmultilang ident="BILLING_ADDRESS" }]
 [{ $order->oxorder__oxbillcompany->getRawValue() }]
 [{ $order->oxorder__oxbillsal->value|oxmultilangsal }] [{ $order->oxorder__oxbillfname->getRawValue() }] [{ $order->oxorder__oxbilllname->getRawValue() }]
 [{if $order->oxorder__oxbilladdinfo->value }][{ $order->oxorder__oxbilladdinfo->getRawValue() }][{/if}]

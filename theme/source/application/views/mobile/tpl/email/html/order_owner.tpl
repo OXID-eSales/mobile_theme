@@ -665,14 +665,14 @@
             [{block name="email_html_order_owner_address"}]
                 <!-- Address info -->
                 <h3 style="font-weight: bold; margin: 20px 0 7px; padding: 0; line-height: 35px; font-size: 12px;font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; border-bottom: 4px solid #ddd;">
-                    [{ oxmultilang ident="ADDRESS_2" }]
+                    [{ oxmultilang ident="ADDRESS" }]
                 </h3>
 
                 <table colspan="0" rowspan="0" border="0">
                     <tr valign="top">
                         <td style="padding-right: 30xp">
                             <h4 style="font-weight: bold; margin: 0; padding: 0 0 15px; line-height: 20px; font-size: 11px;font-family: Arial, Helvetica, sans-serif; text-transform: uppercase;">
-                                [{ oxmultilang ident="BILLING_ADDRESS_2" }]
+                                [{ oxmultilang ident="BILLING_ADDRESS" }]
                             </h4>
                             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
                                 [{ $order->oxorder__oxbillcompany->value }]<br>
