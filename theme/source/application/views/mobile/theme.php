@@ -29,4 +29,7 @@ $aTheme = array(
     'thumbnail'    => 'theme.jpg',
     'version'      => '1.0',
     'author'       => 'OXID'
+    //Define the following variables for the custom child themes:
+    //'parentTheme'    => 'azure',
+    //'parentVersions' => array('0.5','0.6'),
 );
