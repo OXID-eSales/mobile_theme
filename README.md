@@ -13,7 +13,7 @@ The extension OXID eShop Mobile Theme consists of a mobile theme and a module th
 * Search
 * Browse through categories and products
 * Login/Register
-* PayPal is already build in
+* PayPal is already built in
 * CMS pages
 * Switch to standard website
 * Supporting OXID eShop Community Edition & Enterprise Edition
