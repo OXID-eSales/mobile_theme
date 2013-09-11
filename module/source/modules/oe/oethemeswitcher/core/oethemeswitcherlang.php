@@ -93,6 +93,14 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
             }
         }
 
+        // custom language files
+        if ( $sTheme ) {
+            $aLangFiles[] = $sAppDir . 'views/' . $sTheme . '/' . $sLang . '/cust_lang.php';
+        }
+        if ( $sCustomTheme ) {
+            $aLangFiles[] = $sAppDir . 'views/' . $sCustomTheme . '/' . $sLang . '/cust_lang.php';
+        }
+
         return count( $aLangFiles ) ? $aLangFiles : false;
     }
 
