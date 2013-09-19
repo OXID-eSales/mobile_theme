@@ -194,7 +194,7 @@
         [{/if}]
         [{/block}]
         <li id="tobasketFunction">
-            [{block name="details_productmain_tobasket"}]
+            [{block name="mb_details_productmain_tobasket"}]
                 [{oxhasrights ident="TOBASKET"}]
                 [{if !$oDetailsProduct->isNotBuyable()}]
                     <input id="amountToBasket" type="hidden" name="am" value="1" size="3" autocomplete="off" class="textbox">
@@ -210,3 +210,7 @@
 [{oxhasrights ident="TOBASKET"}]
     </form>
 [{/oxhasrights}]
+
+[{* More pics block *}]
+[{block name="mb_details_productmain_morepics"}]
+[{/block}]
