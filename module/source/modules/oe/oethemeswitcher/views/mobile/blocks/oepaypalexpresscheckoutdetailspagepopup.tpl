@@ -55,8 +55,8 @@
             [{foreach from=$oView->getSelection() item=sSelection key=iKey}]
                 [{oxscript add='
                     $( "#productSelections input[name=\'sel['|cat:$iKey|cat:']\']" ).val( "'|cat:$sSelection|cat:'" );
-                    var sSelectionName'|cat:$iKey|cat:' = $( "#productSelections div:eq('|cat:$iKey|cat:') ul li a[data-seletion-id='|cat:$sSelection|cat:']" ).text();
-                    $( "#productSelections div:eq('|cat:$iKey|cat:') p span" ).text( sSelectionName'|cat:$iKey|cat:' );
+                    var sSelectionName'|cat:$iKey|cat:' = $( "#productSelections div.dropdown:eq('|cat:$iKey|cat:') ul li a[data-selection-id='|cat:$sSelection|cat:']" ).text();
+                    $( "#productSelections div.dropdown:eq('|cat:$iKey|cat:') a span" ).text( sSelectionName'|cat:$iKey|cat:' );
                 '}]
             [{/foreach}]
         [{/if}]
