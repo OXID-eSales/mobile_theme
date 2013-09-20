@@ -3,35 +3,49 @@
 [{if $oViewConf->isExpressCheckoutEnabledInDetails() && !$oDetailsProduct->isNotBuyable()}]
 
     [{if $oView->showECSPopup()}]
-        <div id="popupECS" class="popupBox corners FXgradGreyLight glowShadow">
-            <img src="[{$oViewConf->getImageUrl('x.png')}]" alt="" class="closePop">
-            <p>
-                [{if $oView->getArticleAmount() gt 1}]
+        <div id="ECConfirmation" class="container">
+            <ul class="nav nav-list main-nav-list">
+                <li>
+                    <a class="back hideECConfirmation" href="#">
+                        <span>[{oxmultilang ident="BACK"}]</span>
+                        <i class="glyphicon-chevron-left"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="content">
+                <p>
+                    [{if $oView->getArticleAmount() gt 1}]
                     [{oxmultilang ident="OEPAYPAL_SAME_ITEMS_QUESTION" args=$oView->getArticleAmount()}]
-                [{else}]
+                    [{else}]
                     [{oxmultilang ident="OEPAYPAL_SAME_ITEM_QUESTION" args=$oView->getArticleAmount()}]
-                [{/if}]
-            </p>
-            <div class="clear">
-                <button id="actionAddToBasketAndGoToCheckout" type="submit" class="submitButton largeButton">
-                    [{oxmultilang ident="OEPAYPAL_BUTTON_ADD_ITEM"}]
-                </button>
-                <button id="actionNotAddToBasketAndGoToCheckout" type="submit" class="submitButton largeButton">
-                    [{oxmultilang ident="OEPAYPAL_BUTTON_DO_NOT_ADD_ITEM"}]
-                </button>
-                <div class="oePayPalPopupNav">
-                    <a href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=basket"}]" class="textButton largeButton">[{oxmultilang ident="OEPAYPAL_MINIBASKET_DISPLAY_BASKET"}]</a>
-                    <button class="textButton largeButton closePop">[{oxmultilang ident="OEPAYPAL_CANCEL"}]</button>
-                </div>
+                    [{/if}]
+                </p>
+                <ul class="form">
+                    <li>
+                        <button id="actionAddToBasketAndGoToCheckout" type="submit" class="btn">
+                            [{oxmultilang ident="OEPAYPAL_BUTTON_ADD_ITEM"}]
+                        </button>
+                    </li>
+                    <li>
+                        <button id="actionNotAddToBasketAndGoToCheckout" type="submit" class="btn">
+                            [{oxmultilang ident="OEPAYPAL_BUTTON_DO_NOT_ADD_ITEM"}]
+                        </button>
+                    </li>
+                    <li>
+                        <a href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=basket"}]" class="btn">[{oxmultilang ident="OEPAYPAL_MINIBASKET_DISPLAY_BASKET"}]</a>
+                    </li>
+                    <li>
+                        <button class="btn hideECConfirmation">[{oxmultilang ident="OEPAYPAL_CANCEL"}]</button>
+                    </li>
+                </ul>
             </div>
         </div>
 
         [{oxscript include=$oViewConf->getModuleUrl('oepaypal','out/src/js/oepaypalonclickproceedaction.js') priority=10 }]
+        [{oxscript include=$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/js/ecconfirmation.js') priority=10 }]
         [{*Change actions on button click*}]
         [{oxscript add='$( "#actionNotAddToBasketAndGoToCheckout" ).oePayPalOnClickProceedAction( {sAction: "actionNotAddToBasketAndGoToCheckout", sFormContainer: "#productinfo"} );'}]
         [{oxscript add='$( "#actionAddToBasketAndGoToCheckout" ).oePayPalOnClickProceedAction( {sAction: "actionAddToBasketAndGoToCheckout", sFormContainer: "#productinfo"} );'}]
-        [{*Add same amount to #amountToBasket input*}]
-        [{oxscript add='$( "#amountToBasket" ).val( '|cat:$oView->getArticleAmount()|cat:' );'}]
         [{*Add same label to #persistentParam input*}]
         [{if $oView->getPersistentParam()}]
             [{oxscript add='$( "#persistentParam" ).val( "'|cat:$oView->getPersistentParam()|cat:'" );'}]
@@ -46,10 +60,8 @@
                 '}]
             [{/foreach}]
         [{/if}]
-        [{*Add same value to displayCartInPayPal checkbox*}]
-        [{if $oView->displayCartInPayPal() eq 0}]
-            [{oxscript add='$("input[name=displayCartInPayPal]").attr("checked", false);'}]
-        [{/if}]
+        [{*EC confirmation*}]
+        [{oxscript add='oECConfirmation.init()'}]
     [{/if}]
 
 [{/if}]
