@@ -4,7 +4,7 @@
     [{ $oViewConf->getHiddenSid() }]
     <div id="paypalExpressCheckoutDetailsBox" class="paypalExpressCheckoutBox paypalExpressCheckoutDetailsBox">
         <input type="hidden" name="oePayPalCancelURL" value="[{$oViewConf->getCurrentURL()}]"/>
-        <input id="paypalExpressCheckoutDetailsButton" class="paypalCheckoutBtn" type="image" name="paypalExpressCheckoutButton" src="[{$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/img/')}]checkout-paypal-medium-[{$oViewConf->getActLanguageAbbr()}].png" title="[{$oViewConf->getPayPalPaymentDescription()|strip_tags:false|trim|oxescape}]">
+        <input id="paypalExpressCheckoutDetailsButton" class="paypalCheckoutBtn" [{if !$blCanBuy}]disabled="disabled"[{/if}] type="image" name="paypalExpressCheckoutButton" src="[{$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/img/')}]checkout-paypal-medium-[{$oViewConf->getActLanguageAbbr()}].png" title="[{$oViewConf->getPayPalPaymentDescription()|strip_tags:false|trim|oxescape}]">
         [{if $oViewConf->sendOrderInfoToPayPal()}]
             <input id="displayCartInPayPal" type="hidden" name="displayCartInPayPal" value="[{if $oViewConf->sendOrderInfoToPayPalDefault()}]1[{else}]0[{/if}]"/>
         [{/if}]

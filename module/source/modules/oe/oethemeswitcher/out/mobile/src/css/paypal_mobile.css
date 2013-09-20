@@ -58,6 +58,10 @@
     height: 35px;
 }
 
+.paypalCheckoutBtn[disabled] {
+    opacity: 0.5;
+}
+
 #paypalPartnerLogo {
     margin-top: 15px;
 }
