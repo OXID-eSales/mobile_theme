@@ -22,6 +22,8 @@ var oECConfirmation = ( function() {
     function _displayContent() {
         _oConfirmation.hide();
         _oPageContainer.show();
+
+        return false;
     }
 
     return obj;
