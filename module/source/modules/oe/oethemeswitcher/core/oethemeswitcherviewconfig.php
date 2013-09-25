@@ -73,10 +73,10 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
         $aModules = $this->getConfig()->getConfigParam( 'aModules' );
 
         if ( is_array( $aModules ) ) {
-            $blModuleIsActive = $this->_moduleExists( $sModuleId, $aModules );
+            $blModuleIsActive = $this->_oeThemeSwitcherModuleExists( $sModuleId, $aModules );
 
             if ( $blModuleIsActive ) {
-                $blModuleIsActive = $this->_isModuleEnabled( $sModuleId ) && $this->_isModuleVersionCorrect( $sModuleId, $sVersionFrom, $sVersionTo );
+                $blModuleIsActive = $this->_oeThemeSwitcherIsModuleEnabled( $sModuleId ) && $this->_oeThemeSwitcherIsModuleVersionCorrect( $sModuleId, $sVersionFrom, $sVersionTo );
             }
 
         }
@@ -91,7 +91,7 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
      * @param $aModules
      * @return bool
      */
-    protected function _moduleExists( $sModuleId, $aModules )
+    protected function _oeThemeSwitcherModuleExists( $sModuleId, $aModules )
     {
         $blModuleExists = false;
         foreach ( $aModules as $sExtendPath ) {
@@ -109,7 +109,7 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
      * @param $sModuleId
      * @return bool
      */
-    protected function _isModuleEnabled( $sModuleId )
+    protected function _oeThemeSwitcherIsModuleEnabled( $sModuleId )
     {
         $blModuleIsActive = false;
 
@@ -128,7 +128,7 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
      * @param $sVersionTo
      * @return bool
      */
-    protected function _isModuleVersionCorrect( $sModuleId, $sVersionFrom, $sVersionTo )
+    protected function _oeThemeSwitcherIsModuleVersionCorrect( $sModuleId, $sVersionFrom, $sVersionTo )
     {
         $blModuleIsActive = true;
 
