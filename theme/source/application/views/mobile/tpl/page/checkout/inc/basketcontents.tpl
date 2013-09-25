@@ -161,7 +161,7 @@
             [{/block}]
 
             [{* packing unit *}]
-            [{if 'EE' == $oViewConf->getEdition()}]
+            [{if 'EE' == $oViewConf->oeThemeSwitcherGetEdition()}]
                 [{block name="checkout_basketcontents_itemvpe"}]
                 [{/block}]
             [{/if}]

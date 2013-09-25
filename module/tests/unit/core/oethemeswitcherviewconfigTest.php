@@ -25,12 +25,12 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
 class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
 {
     /**
-     * oxViewConfig::getEdition()
+     * oxViewConfig::oeThemeSwitcherGetEdition()
      */
     public function testGetEdition()
     {
         $oViewConfig = new oeThemeSwitcherViewConfig();
-        $this->assertEquals( $this->getConfig()->getEdition(), $oViewConfig->getEdition() );
+        $this->assertEquals( $this->getConfig()->getEdition(), $oViewConfig->oeThemeSwitcherGetEdition() );
     }
 
     /**
@@ -39,7 +39,7 @@ class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
     public function testGetUserAgent()
     {
         $oViewConfig = new oeThemeSwitcherViewConfig();
-        $this->assertInstanceOf( 'oeThemeSwitcherUserAgent', $oViewConfig->getUserAgent() );
+        $this->assertInstanceOf( 'oeThemeSwitcherUserAgent', $oViewConfig->oeThemeSwitcherGetUserAgent() );
     }
 
     /**
@@ -56,7 +56,7 @@ class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
     }
 
     /**
-     * oxViewConfig::isModuleActive()
+     * oxViewConfig::oeThemeSwitcherIsModuleActive()
      * @dataProvider _dpIsModuleActive
      */
     public function testIsModuleActive( $aModules, $aDisabledModules, $sModuleId, $blModuleIsActive )
@@ -65,7 +65,7 @@ class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
         $this->setConfigParam( 'aDisabledModules', $aDisabledModules );
 
         $oViewConf = new oeThemeSwitcherViewConfig();
-        $blIsModuleActive = $oViewConf->isModuleActive( $sModuleId );
+        $blIsModuleActive = $oViewConf->oeThemeSwitcherIsModuleActive( $sModuleId );
 
         $this->assertEquals( $blModuleIsActive, $blIsModuleActive, "Module state is not as expected." );
     }
@@ -112,7 +112,7 @@ class Unit_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
         $this->setConfigParam( 'aModuleVersions', $aModuleVersions );
 
         $oViewConf = new oeThemeSwitcherViewConfig();
-        $blIsModuleActive = $oViewConf->isModuleActive( 'oepaypal', $sFrom, $sTo );
+        $blIsModuleActive = $oViewConf->oeThemeSwitcherIsModuleActive( 'oepaypal', $sFrom, $sTo );
 
         $this->assertEquals( $blModuleStateExpected, $blIsModuleActive, "Module state is not from '$sFrom' to '$sTo'." );
     }

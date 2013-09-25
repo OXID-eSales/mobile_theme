@@ -1,4 +1,4 @@
-[{if 'CE' == $oViewConf->getEdition()}]
+[{if 'CE' == $oViewConf->oeThemeSwitcherGetEdition()}]
 
 [{capture append="oxidBlock_pageBody"}]
     <h4 class="page-head">[{ oxmultilang ident="MESSAGE_ERR_EXPIRED_DAYS_OXIDESHOPERROR" }]</h4>

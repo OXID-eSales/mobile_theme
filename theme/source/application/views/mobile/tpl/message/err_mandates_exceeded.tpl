@@ -1,4 +1,4 @@
-[{if 'EE' == $oViewConf->getEdition()}]
+[{if 'EE' == $oViewConf->oeThemeSwitcherGetEdition()}]
 
 [{capture append="oxidBlock_pageBody"}]
     <h4 class="page-head">[{ oxmultilang ident="MESSAGE_ERR_MANDATES_EXCEEDED_OXIDESHOPERROR" }]</h4>

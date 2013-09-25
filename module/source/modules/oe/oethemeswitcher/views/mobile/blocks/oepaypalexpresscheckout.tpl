@@ -1,4 +1,4 @@
-[{if $oViewConf->isModuleActive('oepaypal', false, '3.0') && $oViewConf->isExpressCheckoutEnabled()}]
+[{if $oViewConf->oeThemeSwitcherIsModuleActive('oepaypal', false, '3.0') && $oViewConf->isExpressCheckoutEnabled()}]
     [{oxstyle include=$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/css/paypal_mobile.css')}]
 
     <div class="paypalExpressCheckoutBox">

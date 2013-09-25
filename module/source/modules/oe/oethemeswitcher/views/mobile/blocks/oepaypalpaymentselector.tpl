@@ -1,4 +1,4 @@
-[{if $oViewConf->isModuleActive('oepaypal', false, '3.0') && $sPaymentID == "oxidpaypal" && $oViewConf->isStandardCheckoutEnabled()}]
+[{if $oViewConf->oeThemeSwitcherIsModuleActive('oepaypal', false, '3.0') && $sPaymentID == "oxidpaypal" && $oViewConf->isStandardCheckoutEnabled()}]
     [{oxstyle include=$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/css/paypal_mobile.css')}]
 
     <div id="paymentOption_[{$sPaymentID}]" class="payment-option [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]active-payment[{/if}]">

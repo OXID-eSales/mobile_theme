@@ -1,4 +1,4 @@
-[{if 'EE' == $oViewConf->getEdition()}]
+[{if 'EE' == $oViewConf->oeThemeSwitcherGetEdition()}]
 [{capture append="oxidBlock_content"}]
     <h4 class="page-head">[{ oxmultilang ident="MESSAGE_ERR_ACCESSDENIEDTITLE" }]</h4>
     <div class="content">

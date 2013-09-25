@@ -80,7 +80,7 @@
                                 [{/if}]
                                 [{/oxhasrights}]
                                 *}]
-                            [{if 'EE' == $oViewConf->getEdition()}]
+                            [{if 'EE' == $oViewConf->oeThemeSwitcherGetEdition()}]
                                 [{if $orderitem->getStatus()}]
                                     <div class="article-details">
                                         <strong>[{ oxmultilang ident="DELIVERY_STATUS" }]</strong>
