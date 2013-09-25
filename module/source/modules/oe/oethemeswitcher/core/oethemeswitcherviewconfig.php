@@ -27,14 +27,14 @@
 class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
 {
     /**
-     * User Agent
+     * User Agent.
      *
      * @var object
      */
     protected $_oUserAgent = null;
 
     /**
-     * User Agent getter
+     * User Agent getter.
      *
      * @return oeThemeSwitcherUserAgent
      */
@@ -61,34 +61,88 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
      * Check if module is active.
      *
      * @param string $sModuleId module id.
+     * @param string $sVersionFrom module from version.
+     * @param string $sVersionTo module to version.
      *
      * @return  bool
      */
-    function isModuleActive( $sModuleId )
+    public function isModuleActive( $sModuleId, $sVersionFrom = null, $sVersionTo = null )
     {
         $blModuleIsActive = false;
 
         $aModules = $this->getConfig()->getConfigParam( 'aModules' );
 
         if ( is_array( $aModules ) ) {
-            // Check if module was ever installed.
-            $blModuleExists = false;
-            foreach ( $aModules as $sClassName => $sExtendPath ) {
-                if ( false !== strpos( $sExtendPath, '/'. $sModuleId .'/' ) ) {
-                    $blModuleExists = true;
-                    break;
-                }
+            $blModuleIsActive = $this->_moduleExists( $sModuleId, $aModules );
+
+            if ( $blModuleIsActive ) {
+                $blModuleIsActive = $this->_isModuleEnabled( $sModuleId ) && $this->_isModuleVersionCorrect( $sModuleId, $sVersionFrom, $sVersionTo );
             }
 
-            // If module exists, check if it is not disabled.
-            if ( $blModuleExists ) {
-                $aDisabledModules = $this->getConfig()->getConfigParam( 'aDisabledModules' );
-                if ( ! ( is_array( $aDisabledModules ) && in_array( $sModuleId, $aDisabledModules ) ) ) {
-                    $blModuleIsActive = true;
-                }
-            }
         }
 
         return $blModuleIsActive;
     }
+
+    /**
+     * Checks if module exists.
+     *
+     * @param $sModuleId
+     * @param $aModules
+     * @return bool
+     */
+    protected function _moduleExists( $sModuleId, $aModules )
+    {
+        $blModuleExists = false;
+        foreach ( $aModules as $sExtendPath ) {
+            if ( false !== strpos( $sExtendPath, '/' . $sModuleId . '/' ) ) {
+                $blModuleExists = true;
+                break;
+            }
+        }
+        return $blModuleExists;
+    }
+
+    /**
+     * Checks whether module is enabled.
+     *
+     * @param $sModuleId
+     * @return bool
+     */
+    protected function _isModuleEnabled( $sModuleId )
+    {
+        $blModuleIsActive = false;
+
+        $aDisabledModules = $this->getConfig()->getConfigParam( 'aDisabledModules' );
+        if ( !( is_array( $aDisabledModules ) && in_array( $sModuleId, $aDisabledModules ) ) ) {
+            $blModuleIsActive = true;
+        }
+        return $blModuleIsActive;
+    }
+
+    /**
+     * Checks whether module version is between given range.
+     *
+     * @param $sModuleId
+     * @param $sVersionFrom
+     * @param $sVersionTo
+     * @return bool
+     */
+    protected function _isModuleVersionCorrect( $sModuleId, $sVersionFrom, $sVersionTo )
+    {
+        $blModuleIsActive = true;
+
+        $aModuleVersions = $this->getConfig()->getConfigParam( 'aModuleVersions' );
+
+        if ( $sVersionFrom && !version_compare( $aModuleVersions[$sModuleId], $sVersionFrom, '>=' ) ) {
+            $blModuleIsActive = false;
+        }
+
+        if ( $blModuleIsActive && $sVersionTo && !version_compare( $aModuleVersions[$sModuleId], $sVersionTo, '<' ) ) {
+            $blModuleIsActive = false;
+        }
+
+        return $blModuleIsActive;
+    }
+
 }

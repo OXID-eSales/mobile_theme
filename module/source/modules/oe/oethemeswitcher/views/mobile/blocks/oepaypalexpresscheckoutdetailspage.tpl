@@ -1,4 +1,4 @@
-[{if $oViewConf->isExpressCheckoutEnabledInDetails() && !$oDetailsProduct->isNotBuyable()}]
+[{if $oViewConf->isModuleActive('oepaypal', false, '3.0') && $oViewConf->isExpressCheckoutEnabledInDetails() && !$oDetailsProduct->isNotBuyable()}]
     [{oxstyle include=$oViewConf->getModuleUrl('oethemeswitcher','out/mobile/src/css/paypal_mobile.css')}]
 
     [{ $oViewConf->getHiddenSid() }]
