@@ -35,7 +35,7 @@ class oeThemeSwitcherStart extends oeThemeSwitcherStart_parent
     {
         $oUBase = oxNew( 'oxUBase' );
         $sViewId = $oUBase->getViewId();
-        $sViewId .= $this->getConfig()->getActiveThemeId();
+        $sViewId .= $this->getConfig()->oeThemeSwitcherGetActiveThemeId();
 
         return $sViewId;
     }

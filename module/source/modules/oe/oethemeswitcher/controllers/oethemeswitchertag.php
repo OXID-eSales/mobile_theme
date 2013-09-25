@@ -34,7 +34,7 @@ class oeThemeSwitcherTag extends oeThemeSwitcherTag_parent
     {
         $oUBase = oxNew( 'aList' );
         $sViewId = $oUBase->getViewId();
-        $sViewId .= $this->getConfig()->getActiveThemeId();
+        $sViewId .= $this->getConfig()->oeThemeSwitcherGetActiveThemeId();
 
         return $sViewId;
     }

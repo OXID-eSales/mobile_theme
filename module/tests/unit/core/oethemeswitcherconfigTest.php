@@ -26,25 +26,25 @@ class Unit_Core_oeThemeSwitcherConfigTest extends OxidTestCase
 {
 
     /**
-     * Checks if method oeThemeSwitcherConfig::getActiveThemeId returns correct active theme id
+     * Checks if method oeThemeSwitcherConfig::oeThemeSwitcherGetActiveThemeId returns correct active theme id
      */
     public function testGetActiveThemeId()
     {
         $sActiveThemeId = 'test';
         $oConfig = new oeThemeSwitcherConfig();
         $oConfig->setConfigParam( 'sCustomTheme', $sActiveThemeId );
-        $sGotActiveThemeId = $oConfig->getActiveThemeId();
+        $sGotActiveThemeId = $oConfig->oeThemeSwitcherGetActiveThemeId();
 
         $this->assertEquals( $sActiveThemeId, $sGotActiveThemeId );
     }
 
     /**
-     * Checks oeThemeSwitcherConfig::getThemeManager returned oeThemeSwitcherThemeManager object
+     * Checks oeThemeSwitcherConfig::oeThemeSwitcherGetThemeManager returned oeThemeSwitcherThemeManager object
      */
     public function testGetThemeManager()
     {
         $oConfig = new oeThemeSwitcherConfig();
-        $this->assertInstanceOf( 'oeThemeSwitcherThemeManager', $oConfig->getThemeManager() );
+        $this->assertInstanceOf( 'oeThemeSwitcherThemeManager', $oConfig->oeThemeSwitcherGetThemeManager() );
     }
 
 }

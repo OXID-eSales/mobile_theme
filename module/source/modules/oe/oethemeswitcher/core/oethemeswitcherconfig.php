@@ -59,7 +59,7 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
             }
 
             // check for mobile devices
-            if ( $this->getThemeManager()->isMobileThemeRequested() &&  !$this->isAdmin() ) {
+            if ( $this->oeThemeSwitcherGetThemeManager()->isMobileThemeRequested() &&  !$this->isAdmin() ) {
                 return $this->_aConfigParams['sOEThemeSwitcherMobileTheme'];
             }
         }
@@ -71,7 +71,7 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      *
      * @return string
      */
-    public function getActiveThemeId()
+    public function oeThemeSwitcherGetActiveThemeId()
     {
         $sCustomTheme = $this->getConfigParam( 'sCustomTheme' );
         if ( $sCustomTheme ) {
@@ -83,9 +83,9 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
     /**
      * Return theme manager
      *
-     * @return oeThemeSwitcherThemeManager
+     * @return oeThemeSwitcgetActiveThemeIdherThemeManager
      */
-    public function getThemeManager()
+    public function oeThemeSwitcherGetThemeManager()
     {
         if ( $this->_oThemeManager == null ) {
             $this->_oThemeManager = oxNew( 'oeThemeSwitcherThemeManager' );

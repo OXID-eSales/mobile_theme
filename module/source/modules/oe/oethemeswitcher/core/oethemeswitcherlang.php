@@ -40,7 +40,7 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
         $sLang          = oxRegistry::getLang()->getLanguageAbbr( $iLang );
         $sTheme         = $oConfig->getConfigParam( "sTheme" );
         $sCustomTheme   = $oConfig->getConfigParam( "sCustomTheme" );
-        $sActiveTheme   = $oConfig->getActiveThemeId();
+        $sActiveTheme   = $oConfig->oeThemeSwitcherGetActiveThemeId();
         $sShopId        = $oConfig->getShopId();
         $aModuleInfo    = $this->_getActiveModuleInfo();
 
@@ -121,7 +121,7 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
         if ( is_array( $aLangFiles ) && $aLangFiles ) {
             $sLangFilesIdent = '_'.md5(implode('+', $aLangFiles));
         }
-        return "langcache_" . ( (int) $blAdmin ) . "_{$iLang}_" . $myConfig->getShopId() . "_" . $myConfig->getActiveThemeId() . $sLangFilesIdent;
+        return "langcache_" . ( (int) $blAdmin ) . "_{$iLang}_" . $myConfig->getShopId() . "_" . $myConfig->oeThemeSwitcherGetActiveThemeId() . $sLangFilesIdent;
     }
 
 
@@ -141,7 +141,7 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
         if ( !isset( $this->_aLangMap[$sKey] ) ) {
             $this->_aLangMap[$sKey] = array();
             $myConfig = $this->getConfig();
-            $sMapFile = $myConfig->getAppDir() . '/views/' .  ( $blAdmin ? 'admin' : $myConfig->getActiveThemeId() ) .'/' . oxRegistry::getLang()->getLanguageAbbr( $iLang ) . '/map.php';
+            $sMapFile = $myConfig->getAppDir() . '/views/' .  ( $blAdmin ? 'admin' : $myConfig->oeThemeSwitcherGetActiveThemeId() ) .'/' . oxRegistry::getLang()->getLanguageAbbr( $iLang ) . '/map.php';
             if ( $sMapFile ) {
                 if ( file_exists( $sMapFile ) && is_readable( $sMapFile ) ) {
                     include $sMapFile;

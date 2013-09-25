@@ -33,7 +33,7 @@ class oeThemeSwitcherContent extends oeThemeSwitcherContent_parent
     public function getViewId()
     {
         $sViewId = parent::getViewId();
-        $sViewId .= $this->getConfig()->getActiveThemeId();
+        $sViewId .= $this->getConfig()->oeThemeSwitcherGetActiveThemeId();
 
         return $sViewId;
     }
