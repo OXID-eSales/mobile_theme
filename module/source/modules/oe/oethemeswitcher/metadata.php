@@ -66,8 +66,6 @@ $aModule = array(
         array('template' => 'page/checkout/basket.tpl',    'block'=>'mb_basket_btn_next_top',               'file'=>'views/mobile/blocks/oepaypalexpresscheckout.tpl'),
         array('template' => 'page/checkout/basket.tpl',    'block'=>'mb_basket_btn_next_bottom',            'file'=>'views/mobile/blocks/oepaypalexpresscheckout.tpl'),
         array('template' => 'page/checkout/payment.tpl',   'block'=>'mb_select_payment',                    'file'=>'views/mobile/blocks/oepaypalpaymentselector.tpl'),
-        array('template' => 'page/details/inc/productmain.tpl', 'block'=>'mb_details_productmain_tobasket', 'file'=>'views/mobile/blocks/oepaypalexpresscheckoutdetailspage.tpl'),
-        array('template' => 'page/details/inc/productmain.tpl', 'block'=>'mb_details_productmain_morepics', 'file'=>'views/mobile/blocks/oepaypalexpresscheckoutdetailspagepopup.tpl'),
     ),
 
     'settings' => array(
