@@ -29,38 +29,38 @@
         [{include file="form/fieldset/salutation.tpl" name="invadr[oxuser__oxsal]" value=$oxcmp_user->oxuser__oxsal->value }]
     </li>
     <li [{if $aErrors.oxuser__oxfname}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxfname) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_FIRSTNAME" }][{if $oView->isFieldRequired(oxuser__oxfname) }]*[{/if}]" type="text" size="37"  maxlength="255" name="invadr[oxuser__oxfname]" value="[{if isset( $invadr.oxuser__oxfname ) }][{ $invadr.oxuser__oxfname }][{else }][{ $oxcmp_user->oxuser__oxfname->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxfname) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FIRST_NAME" }][{if $oView->isFieldRequired(oxuser__oxfname) }]*[{/if}]" type="text" size="37"  maxlength="255" name="invadr[oxuser__oxfname]" value="[{if isset( $invadr.oxuser__oxfname ) }][{ $invadr.oxuser__oxfname }][{else }][{ $oxcmp_user->oxuser__oxfname->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxfname)}]
             <p class="validation-error">
-            <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
+            <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxfname}]
             </p>
           [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxlname}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxlname) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_LASTNAME" }][{if $oView->isFieldRequired(oxuser__oxlname) }]*[{/if}]" type="text" size="37" maxlength="255" name="invadr[oxuser__oxlname]" value="[{if isset( $invadr.oxuser__oxlname ) }][{ $invadr.oxuser__oxlname }][{else }][{ $oxcmp_user->oxuser__oxlname->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxlname) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="LAST_NAME" }][{if $oView->isFieldRequired(oxuser__oxlname) }]*[{/if}]" type="text" size="37" maxlength="255" name="invadr[oxuser__oxlname]" value="[{if isset( $invadr.oxuser__oxlname ) }][{ $invadr.oxuser__oxlname }][{else }][{ $oxcmp_user->oxuser__oxlname->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxlname)}]
             <p class="validation-error">
-            <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
+            <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxlname}]
             </p>
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxcompany}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxcompany) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_COMPANY" }][{if $oView->isFieldRequired(oxuser__oxcompany) }]*[{/if}]" type="text" size="37" maxlength="255" name="invadr[oxuser__oxcompany]" value="[{if isset( $invadr.oxuser__oxcompany ) }][{ $invadr.oxuser__oxcompany }][{else }][{ $oxcmp_user->oxuser__oxcompany->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxcompany) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="COMPANY" }][{if $oView->isFieldRequired(oxuser__oxcompany) }]*[{/if}]" type="text" size="37" maxlength="255" name="invadr[oxuser__oxcompany]" value="[{if isset( $invadr.oxuser__oxcompany ) }][{ $invadr.oxuser__oxcompany }][{else }][{ $oxcmp_user->oxuser__oxcompany->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxcompany) }]
             <p class="validation-error">
-            <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
+            <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxcompany}]
             </p>
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxaddinfo}]class="invalid-field"[{/if}]>
         [{assign var="_address_addinfo_tooltip" value="FORM_FIELDSET_USER_BILLING_ADDITIONALINFO_TOOLTIP"|oxmultilangassign }]
-        <input [{if $oView->isFieldRequired(oxuser__oxaddinfo) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_ADDITIONALINFO" }][{if $oView->isFieldRequired(oxuser__oxaddinfo) }]*[{/if}]" type="text" size="37" maxlength="255" name="invadr[oxuser__oxaddinfo]" value="[{if isset( $invadr.oxuser__oxaddinfo ) }][{ $invadr.oxuser__oxaddinfo }][{else }][{ $oxcmp_user->oxuser__oxaddinfo->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxaddinfo) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="ADDITIONAL_INFO" }][{if $oView->isFieldRequired(oxuser__oxaddinfo) }]*[{/if}]" type="text" size="37" maxlength="255" name="invadr[oxuser__oxaddinfo]" value="[{if isset( $invadr.oxuser__oxaddinfo ) }][{ $invadr.oxuser__oxaddinfo }][{else }][{ $oxcmp_user->oxuser__oxaddinfo->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxaddinfo) }]
             <p class="validation-error">
-            <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
+            <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxaddinfo}]
             </p>
         [{/if}]
@@ -86,7 +86,7 @@
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxustid}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxustid) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_VATIDNO" }][{if $oView->isFieldRequired(oxuser__oxustid) }]*[{/if}]" type="text" size="37" maxlength="255" name="invadr[oxuser__oxustid]" value="[{if isset( $invadr.oxuser__oxustid ) }][{ $invadr.oxuser__oxustid }][{else}][{ $oxcmp_user->oxuser__oxustid->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxustid) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="VAT_ID_NUMBER" }][{if $oView->isFieldRequired(oxuser__oxustid) }]*[{/if}]" type="text" size="37" maxlength="255" name="invadr[oxuser__oxustid]" value="[{if isset( $invadr.oxuser__oxustid ) }][{ $invadr.oxuser__oxustid }][{else}][{ $oxcmp_user->oxuser__oxustid->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxustid) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
@@ -120,7 +120,7 @@
             </div>
             [{if $oView->isFieldRequired(oxuser__oxcountryid) }]
                 <p class="validation-error">
-                    <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
+                    <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                     [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxcountryid}]
                 </p>
             [{/if}]
@@ -139,16 +139,16 @@
 
 
     <li [{if $aErrors.oxuser__oxfon}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxfon) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_PHONE" }]" type="tel" size="37" maxlength="128" name="invadr[oxuser__oxfon]" value="[{if isset( $invadr.oxuser__oxfon ) }][{ $invadr.oxuser__oxfon }][{else }][{ $oxcmp_user->oxuser__oxfon->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxfon) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="PHONE" }]" type="tel" size="37" maxlength="128" name="invadr[oxuser__oxfon]" value="[{if isset( $invadr.oxuser__oxfon ) }][{ $invadr.oxuser__oxfon }][{else }][{ $oxcmp_user->oxuser__oxfon->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxfon) }]
             <p class="validation-error">
-                <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
+                <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxfon}]
             </p>
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxfax}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_FAX" }][{if $oView->isFieldRequired(oxuser__oxfax) }]*[{/if}]" type="tel" size="37" maxlength="128" name="invadr[oxuser__oxfax]" value="[{if isset( $invadr.oxuser__oxfax ) }][{ $invadr.oxuser__oxfax }][{else }][{ $oxcmp_user->oxuser__oxfax->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxfax) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FAX" }][{if $oView->isFieldRequired(oxuser__oxfax) }]*[{/if}]" type="tel" size="37" maxlength="128" name="invadr[oxuser__oxfax]" value="[{if isset( $invadr.oxuser__oxfax ) }][{ $invadr.oxuser__oxfax }][{else }][{ $oxcmp_user->oxuser__oxfax->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxfax) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
@@ -157,7 +157,7 @@
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxmobfon}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxmobfon) }] class="js-oxValidate js-oxValidate_notEmpty"[{/if}]placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_CELLUARPHONE" }][{if $oView->isFieldRequired(oxuser__oxmobfon) }]*[{/if}]" type="tel" size="37" maxlength="64" name="invadr[oxuser__oxmobfon]" value="[{if isset( $invadr.oxuser__oxmobfon ) }][{$invadr.oxuser__oxmobfon }][{else}][{$oxcmp_user->oxuser__oxmobfon->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxmobfon) }] class="js-oxValidate js-oxValidate_notEmpty"[{/if}]placeholder="[{ oxmultilang ident="CELLUAR_PHONE" }][{if $oView->isFieldRequired(oxuser__oxmobfon) }]*[{/if}]" type="tel" size="37" maxlength="64" name="invadr[oxuser__oxmobfon]" value="[{if isset( $invadr.oxuser__oxmobfon ) }][{$invadr.oxuser__oxmobfon }][{else}][{$oxcmp_user->oxuser__oxmobfon->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxmobfon) }]
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
@@ -166,10 +166,10 @@
         [{/if}]
     </li>
     <li [{if $aErrors.oxuser__oxprivfon}]class="invalid-field"[{/if}]>
-        <input [{if $oView->isFieldRequired(oxuser__oxprivfon) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_EVENINGPHONE" }][{if $oView->isFieldRequired(oxuser__oxprivfon) }]*[{/if}]" type="tel" size="37" maxlength="64" name="invadr[oxuser__oxprivfon]" value="[{if isset( $invadr.oxuser__oxprivfon ) }][{$invadr.oxuser__oxprivfon }][{else}][{$oxcmp_user->oxuser__oxprivfon->value }][{/if}]">
+        <input [{if $oView->isFieldRequired(oxuser__oxprivfon) }] class="js-oxValidate js-oxValidate_notEmpty" [{/if}] placeholder="[{ oxmultilang ident="PERSONAL_PHONE" }][{if $oView->isFieldRequired(oxuser__oxprivfon) }]*[{/if}]" type="tel" size="37" maxlength="64" name="invadr[oxuser__oxprivfon]" value="[{if isset( $invadr.oxuser__oxprivfon ) }][{$invadr.oxuser__oxprivfon }][{else}][{$oxcmp_user->oxuser__oxprivfon->value }][{/if}]">
         [{if $oView->isFieldRequired(oxuser__oxprivfon) }]
             <p class="validation-error">
-                <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
+                <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxprivfon}]
             </p>
         [{/if}]
@@ -179,7 +179,7 @@
         [{oxscript include="js/widgets/oxdatepicker.js" priority=10}]
         [{oxscript add="$('#datePicker').oxDatePicker();"}]
         <li class="oxDate[{if $aErrors.oxuser__oxbirthdate}] invalid-field[{/if}]">
-        <label>[{ oxmultilang ident="FORM_FIELDSET_USER_BILLING_BIRTHDATE" }][{if $oView->isFieldRequired(oxuser__oxbirthdate) }]*[{/if}]</label>
+        <label>[{ oxmultilang ident="BIRTHDATE" }][{if $oView->isFieldRequired(oxuser__oxbirthdate) }]*[{/if}]</label>
             <div id="datePicker">
                 <ul class="nav nav-pills nav-justified datepicker-container">
                     <li id="month">
@@ -214,7 +214,7 @@
         </li>
     [{/if}]
 
-    <li class="alert alert-block">[{ oxmultilang ident="FORM_USER_COMPLETEMARKEDFIELDS" }]</li>
+    <li class="alert alert-block">[{ oxmultilang ident="COMPLETE_MARKED_FIELDS" }]</li>
     [{if !$noFormSubmit}]
     <li class="formSubmit">
         <input class="btn" id="accUserSaveTop" type="submit" name="save" value="[{ oxmultilang ident="SAVE" }]"/>

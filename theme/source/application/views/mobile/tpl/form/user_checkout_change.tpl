@@ -24,8 +24,8 @@
                                     <input type="button" id="userNextStepTop" name="userform" class="btn" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" />
                                 </li>
                                 <li>
-                                    <h3>[{oxmultilang ident="FORM_REGISTER_BILLINGADDRESS" }]</h3>
-                                    <input class="btn" type="button" id="userChangeAddress" name="changeBillAddress" value="[{oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]" />
+                                    <h3>[{oxmultilang ident="BILLING_ADDRESS" }]</h3>
+                                    <input class="btn" type="button" id="userChangeAddress" name="changeBillAddress" value="[{oxmultilang ident="CHANGE" }]" />
                                 </li>
                             </ul>
                             [{oxscript add="$('#userNextStepTop').click( function() { $('#userNextStepBottom').click();return false;});"}]
@@ -53,7 +53,7 @@
                         [{block name="user_checkout_shipping_head"}]
                             <ul class="form">
                                 <li>
-                                    <h3>[{ oxmultilang ident="FORM_REGISTER_SHIPPINGADDRESS" }]</h3>
+                                    <h3>[{ oxmultilang ident="SHIPPING_ADDRESS" }]</h3>
                                 </li>
                             </ul>
                         [{/block}]
@@ -68,7 +68,7 @@
                         [{block name="user_checkout_shipping_form"}]
                             <ul id="shippingAddress" class="form" [{if !$oView->showShipAddress()}]style="display: none;"[{/if}]>
                                 <li>
-                                    <input class="btn checkout-change-shipping-address" type="button" id="userChangeShippingAddress" name="changeShippingAddress" value="[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CHANGE" }]" />
+                                    <input class="btn checkout-change-shipping-address" type="button" id="userChangeShippingAddress" name="changeShippingAddress" value="[{ oxmultilang ident="CHANGE" }]" />
                                 </li>
                                 [{include file="form/fieldset/user_shipping.tpl" noFormSubmit=true onChangeClass='user'}]
                             </ul>

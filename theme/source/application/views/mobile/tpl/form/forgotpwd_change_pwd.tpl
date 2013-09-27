@@ -15,25 +15,25 @@
     </div>
     <ul class="form clear">
         <li [{if $aErrors.oxuser__oxpassword}]class="invalid-field"[{/if}]>
-            <input type="password" name="password_new" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_length js-oxValidate_match textbox" placeholder="[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_NEWPASSWORD" }]">
+            <input type="password" name="password_new" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_length js-oxValidate_match textbox" placeholder="[{ oxmultilang ident="NEW_PASSWORD" }]">
             <p class="validation-error">
-                <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
-                <span class="js-oxError_length">[{ oxmultilang ident="EXCEPTION_INPUT_PASSTOOSHORT" }]</span>
-                <span class="js-oxError_match">[{ oxmultilang ident="EXCEPTION_USER_PWDDONTMATCH" }]</span>
+                <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
+                <span class="js-oxError_length">[{ oxmultilang ident="ERROR_MESSAGE_PASSWORD_TOO_SHORT" }]</span>
+                <span class="js-oxError_match">[{ oxmultilang ident="ERROR_MESSAGE_USER_PWDDONTMATCH" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxpassword}]
             </p>
         </li>
         <li [{if $aErrors.oxuser__oxpassword}]class="invalid-field"[{/if}]>
-            <input type="password" name="password_new_confirm" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_length js-oxValidate_match textbox" placeholder="[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_CONFIRMPASSWORD" }]">
+            <input type="password" name="password_new_confirm" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_length js-oxValidate_match textbox" placeholder="[{ oxmultilang ident="CONFIRM_PASSWORD" }]">
             <p class="validation-error">
-                <span class="js-oxError_notEmpty">[{ oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS" }]</span>
-                <span class="js-oxError_length">[{ oxmultilang ident="EXCEPTION_INPUT_PASSTOOSHORT" }]</span>
-                <span class="js-oxError_match">[{ oxmultilang ident="EXCEPTION_USER_PWDDONTMATCH" }]</span>
+                <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
+                <span class="js-oxError_length">[{ oxmultilang ident="ERROR_MESSAGE_PASSWORD_TOO_SHORT" }]</span>
+                <span class="js-oxError_match">[{ oxmultilang ident="ERROR_MESSAGE_USER_PWDDONTMATCH" }]</span>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxpassword}]
             </p>
         </li>
         <li>
-            <button class="btn" type="submit" name="save" value="[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_UPDATEPASSWORD" }]">[{ oxmultilang ident="PAGE_ACCOUNT_FORGOTPWD_UPDATEPASSWORD" }]</button>
+            <button class="btn" type="submit" name="save" value="[{ oxmultilang ident="CHANGE_PASSWORD" }]">[{ oxmultilang ident="CHANGE_PASSWORD" }]</button>
         </li>
     </ul>
 </form>

@@ -20,11 +20,11 @@
     </div>
     [{* Add to wishlist *}]
     [{if $oxcmp_user }]
-        <a class="btn wishlist-btn pull-right" data-action="add" data-anid="[{"`$oDetailsProduct->oxarticles__oxnid->value`"}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl="|cat:$oViewConf->getActiveClassName() params="aid=`$oDetailsProduct->oxarticles__oxnid->value`&amp;anid=`$oDetailsProduct->oxarticles__oxnid->value`&amp;fnc=tonoticelist&amp;am=1"|cat:$oViewConf->getNavUrlParams() }]" rel="nofollow">
+        <a class="btn wishlist-btn pull-right" data-action="add" data-anid="[{"`$oDetailsProduct->oxarticles__oxnid->value`"}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl="|cat:$oViewConf->getTopActiveClassName() params="aid=`$oDetailsProduct->oxarticles__oxnid->value`&amp;anid=`$oDetailsProduct->oxarticles__oxnid->value`&amp;fnc=tonoticelist&amp;am=1"|cat:$oViewConf->getNavUrlParams() }]" rel="nofollow">
             <i class="glyphicon-star" data-title="[{ oxmultilang ident='ADD_TO_WISH_LIST' }]"></i>
         </a>
     [{else}]
-        <a class="btn wishlist-btn pull-right" data-action="login" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" params="anid=`$oDetailsProduct->oxarticles__oxnid->value`"|cat:"&amp;sourcecl="|cat:$oViewConf->getActiveClassName()|cat:$oViewConf->getNavUrlParams() }]" rel="nofollow">
+        <a class="btn wishlist-btn pull-right" data-action="login" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" params="anid=`$oDetailsProduct->oxarticles__oxnid->value`"|cat:"&amp;sourcecl="|cat:$oViewConf->getTopActiveClassName()|cat:$oViewConf->getNavUrlParams() }]" rel="nofollow">
             <i class="glyphicon-star" data-title="[{ oxmultilang ident='LOGIN_TO_ACCESS_WISH_LIST' }]"></i>
         </a>
     [{/if}]

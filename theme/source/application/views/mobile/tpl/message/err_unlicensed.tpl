@@ -2,10 +2,10 @@
 
 [{capture append="oxidBlock_pageBody"}]
 
-<h1 class="page-head">[{ oxmultilang ident="MESSAGE_ERR_UNLICENSED_OXIDESHOPERROR" }]</h1>
+<h1 class="page-head">[{ oxmultilang ident="ERROR_MESSAGE_OXID_SHOP_ERROR" }]</h1>
 <div class="content">
     <div class="alert alert-error">
-        [{ oxmultilang ident="MESSAGE_ERR_UNLICENSED_VERSIONEXPIRED1" }] <a href="[{ oxmultilang ident="OXID_ESALES_URL" }]" title="[{ oxmultilang ident="OXID_ESALES_URL_TITLE" }]">[{ oxmultilang ident="MESSAGE_ERR_UNLICENSED_VERSIONEXPIRED2" }]</a> [{ oxmultilang ident="MESSAGE_ERR_UNLICENSED_VERSIONEXPIRED3" }]
+        [{ oxmultilang ident="ERROR_MESSAGE_UNLICENSED1" }] <a href="[{ oxmultilang ident="OXID_ESALES_URL" }]" title="[{ oxmultilang ident="OXID_ESALES_URL_TITLE" }]">[{ oxmultilang ident="FOR_MORE_INFORMATION" }]</a> [{ oxmultilang ident="ERROR_MESSAGE_VERSION_EXPIRED1" }]
     </div>
 </div>
 

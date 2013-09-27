@@ -26,7 +26,7 @@
 [{/block}]
 
 [{block name="email_plain_sendednow_oxordernr"}]
-[{ oxmultilang ident="EMAIL_SENDEDNOW_HTML_ORDERNOMBER" }] [{ $order->oxorder__oxordernr->value }]
+[{ oxmultilang ident="ORDER_NUMBER" }] [{ $order->oxorder__oxordernr->value }]
 [{/block}]
 
 [{block name="email_plain_sendednow_orderarticles"}]

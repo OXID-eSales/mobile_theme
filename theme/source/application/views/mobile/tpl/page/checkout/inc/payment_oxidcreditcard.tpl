@@ -8,7 +8,7 @@
                 <input type="hidden" id="sCreditCardSelected" name="dynvalue[kktype]" value="mcd" />
                 <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
                     <a id="dLabelCreditCardSelected" role="button" href="#">
-                        <span id="creditCardSelected">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_CREDITCARD"}]</span>
+                        <span id="creditCardSelected">[{oxmultilang ident="CREDITCARD"}]</span>
                         <i class="glyphicon-chevron-down"></i>
                     </a>
                 </div>
@@ -31,20 +31,20 @@
             </div>
         </li>
         <li>
-            <input type="number" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[kknumber]" autocomplete="off" value="[{$dynvalue.kknumber}]" placeholder="[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_NUMBER"}]" />
+            <input type="number" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[kknumber]" autocomplete="off" value="[{$dynvalue.kknumber}]" placeholder="[{oxmultilang ident="NUMBER"}]" />
             <p class="validation-error">
-                <span class="js-oxError_notEmpty">[{oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS"}]</span>
+                <span class="js-oxError_notEmpty">[{oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS"}]</span>
             </p>
         </li>
         <li>
-            <input type="text" size="20" class="js-oxValidate js-oxValidate_notEmpty" maxlength="64" name="dynvalue[kkname]" value="[{if $dynvalue.kkname}][{$dynvalue.kkname}][{else}][{$oxcmp_user->oxuser__oxfname->value}] [{$oxcmp_user->oxuser__oxlname->value}][{/if}]" placeholder="[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_ACCOUNTHOLDER"}]" />
+            <input type="text" size="20" class="js-oxValidate js-oxValidate_notEmpty" maxlength="64" name="dynvalue[kkname]" value="[{if $dynvalue.kkname}][{$dynvalue.kkname}][{else}][{$oxcmp_user->oxuser__oxfname->value}] [{$oxcmp_user->oxuser__oxlname->value}][{/if}]" placeholder="[{oxmultilang ident="BANK_ACCOUNT_HOLDER"}]" />
             <p class="validation-error">
-                <span class="js-oxError_notEmpty">[{oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS"}]</span>
+                <span class="js-oxError_notEmpty">[{oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS"}]</span>
             </p>
-            <div class="note">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_DIFFERENTBILLINGADDRESS"}]</div>
+            <div class="note">[{oxmultilang ident="IF_DIFFERENT_FROM_BILLING_ADDRESS"}]</div>
         </li>
         <li>
-            <label>[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_VALIDUNTIL"}]</label>
+            <label>[{oxmultilang ident="VALID_UNTIL"}]</label>
             <div class="cardValidDateWrapper">
                 <div class="card-valid-date-field card-valid-date-month">
                     <div class="dropdown">
@@ -94,11 +94,11 @@
             </div>
         </li>
         <li>
-            <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[kkpruef]" autocomplete="off" value="[{$dynvalue.kkpruef}]" placeholder="[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_SECURITYCODE"}]" />
+            <input type="text" class="js-oxValidate js-oxValidate_notEmpty" size="20" maxlength="64" name="dynvalue[kkpruef]" autocomplete="off" value="[{$dynvalue.kkpruef}]" placeholder="[{oxmultilang ident="CARD_SECURITY_CODE"}]" />
             <p class="validation-error">
-                <span class="js-oxError_notEmpty">[{oxmultilang ident="EXCEPTION_INPUT_NOTALLFIELDS"}]</span>
+                <span class="js-oxError_notEmpty">[{oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS"}]</span>
             </p>
-            <div class="note">[{oxmultilang ident="PAGE_CHECKOUT_PAYMENT_SECURITYCODEDESCRIPTION"}]</div>
+            <div class="note">[{oxmultilang ident="CARD_SECURITY_CODE_DESCRIPTION"}]</div>
         </li>
 
         [{block name="checkout_payment_longdesc"}]

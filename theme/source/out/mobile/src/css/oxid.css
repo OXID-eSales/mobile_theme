@@ -5462,6 +5462,7 @@ a:focus {
 }
 .media-list.article-list .quantity {
   text-align: center;
+  float: left;
   padding: 0;
   width: 40px;
   height: 40px;
@@ -5686,6 +5687,9 @@ a:focus {
 .basket-articles {
   border-top: 1px solid #cccccc;
   margin-bottom: 10px;
+}
+.basket-articles .dropdown-menu {
+  position: relative;
 }
 .basket-functions {
   margin-bottom: 15px;
