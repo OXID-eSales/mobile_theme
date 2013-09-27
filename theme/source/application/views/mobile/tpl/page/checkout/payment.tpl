@@ -159,10 +159,6 @@
                             [{/foreach}]
                         [{/block}]
 
-                        [{* TRUSTED SHOPS BEGIN *}]
-                        [{include file="page/checkout/inc/trustedshops.tpl"}]
-                        [{* TRUSTED SHOPS END *}]
-
                         [{block name="checkout_payment_nextstep"}]
                             <ul class="form">
                                 [{if $oView->isLowOrderPrice()}]
