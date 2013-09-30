@@ -120,7 +120,7 @@
                     </div>
 
                     [{if $oView->getPaymentList()}]
-                        [{block name="mb_select_payment"}]
+                        [{block name="mb_select_payment_list"}]
                             [{* first loop is to render payment method selection *}]
                             <div id="paymentMethods" class="dropdown">
                                 [{* only to track selection within DOM *}]
@@ -133,6 +133,7 @@
                                 </div>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabelPaymentSelected">
                                     [{foreach key=sPaymentID from=$oView->getPaymentList() item=paymentmethod name=PaymentSelect}]
+                                        [{block name="mb_select_payment_dropdown"}]
                                         [{assign var=sPaymentName value=$paymentmethod->oxpayments__oxdesc->value}]
                                         <li class="dropdown-option">
                                             <a tabindex="-1" data-selection-id="[{$sPaymentID}]">[{$sPaymentName}]</a>
@@ -140,6 +141,7 @@
                                         [{if $oView->getCheckedPaymentId() == $paymentmethod->oxpayments__oxid->value}]
                                             [{oxscript add="$('#sPaymentSelected').val('$sPaymentID');"}]
                                         [{/if}]
+                                        [{/block}]
                                     [{/foreach}]
                                 </ul>
                             </div>
