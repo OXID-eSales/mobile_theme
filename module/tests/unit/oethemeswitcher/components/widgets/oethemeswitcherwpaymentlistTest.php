@@ -26,7 +26,7 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
 /**
  * Tests for PaymentList widget
  */
-class Unit_Components_Widgets_oeThemeSwitcherWPaymentListTest extends OxidTestCase
+class Unit_oeThemeSwitcher_Components_Widgets_oeThemeSwitcherWPaymentListTest extends OxidTestCase
 {
 
     /**
