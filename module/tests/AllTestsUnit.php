@@ -82,8 +82,7 @@ class AllTestsUnit extends PHPUnit_Framework_TestCase
         $sFilter = getenv("PREG_FILTER");
 
         $aTestGroups = array(
-            'unit' => array( 'components', 'components/widgets', 'controllers', 'core' ),
-            'integration' => array( '', 'checkoutrequest' )
+            'unit/oethemeswitcher' => array( 'components', 'components/widgets', 'controllers', 'core' )
         );
         if (getenv('TEST_DIRS')) {
             $sTestDir['unit'] = explode('%', getenv('TEST_DIRS'));
