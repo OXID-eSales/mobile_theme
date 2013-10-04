@@ -1707,4 +1707,235 @@ sleep(20);
         $this->click("link=Privacy Policy");
         $this->waitForPageToLoad("30000");
     }
+    /**
+     * login customer by using login fly out form.
+     *
+     * @param string $userName user name (email).
+     * @param string $userPass user password.
+     * @param boolean $waitForLogin if needed to wait until user get logged in.
+     */
+    public function loginInFrontendMobile($userName, $userPass, $waitForLogin = true)
+    {
+        $this->selectWindow(null);
+        $this->clickAndWait("//a[text()='Login']");
+        $this->type("//input[@id='loginUser']", $userName);
+        $this->type("//input[@id='loginPwd']", $userPass);
+        if ($waitForLogin) {
+            $this->clickAndWait("//form[@name='login']//input[@type='submit']", "//a[text()='Logout']");
+        } else {
+            $this->clickAndWait("//form[@name='login']//input[@type='submit']");
+        }
+    }
+    /**
+     * PersParam functionality in frontend
+     * PersParam functionality in admin
+     * testing option 'Product can be customized' from Administer products -> Extend tab
+     * @group navigation
+     * @group order
+     * @group main
+     * @group basketfrontend
+     */
+    public function testFrontendPersParamSaveBasketMobile()
+    {
+        // Active option (Product can be customized) for product with ID 1000
+        $aArticleParams = array("oxisconfigurable" => 1);
+        $this->callShopSC("oxArticle", "save", "1000", $aArticleParams, 1);
+
+        // Active config option (Don't save Shopping Carts of registered Users)
+        $this->callShopSC("oxConfig", "saveShopConfVar", null, array("blPerfNoBasketSaving" => array("type" => "bool", "value" => '')));
+
+        // Go to shop and add to basket products with ID 1000 and 1001
+        $this->openShop();
+        $this->loginInFrontendMobile("birute_test@nfq.lt", "useruser");
+        $this->searchFor("1001");
+        $this->clickAndWait("id=selectlistsselector_searchList_1");
+        $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßüл");
+        $this->clickAndWait("toBasket");
+        $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßüл +2%");
+        $this->clickAndWait("toBasket");
+        $this->searchFor("1000");
+        $this->clickAndWait("id=productPrice_searchList_1");
+        $this->assertTrue($this->isElementPresent("persparam[details]"),"persparam field should be visible");
+        $this->clickAndWait("toBasket");
+        $this->type("persparam[details]", "test label šÄßüл");
+        $this->clickAndWait("toBasket");
+
+        // Go to basket:check basket info; update product PersParam info and quantity;
+        $this->openBasket();
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("selvar2 [EN] šÄßüл", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
+        $this->selectVariantMobile("cartItemSelections_1", 3, "selvar3 [EN] šÄßüл -2,00 €");
+        $this->type("am_3", "2");
+        $this->type("//li[@id='cartItem_4']/div/p[2]/input", "test label šÄßüл 1");
+        $this->clickAndWait("basketUpdate");
+
+        // Check basket info after update
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
+        $this->assertEquals("2", $this->getValue("am_3"));
+        $this->assertEquals("test label šÄßüл 1", $this->getValue("//li[@id='cartItem_4']/div/p[2]/input"));
+        $this->assertEquals("1", $this->getValue("am_4"));
+
+        // Checking if modified basket was saved
+        $this->openShop();
+        $this->assertFalse($this->isElementPresent("//div[@id='miniBasket']/span"));
+        $this->loginInFrontendMobile("birute_test@nfq.lt", "useruser");
+        $this->assertEquals("5 Basket", $this->getText("id=miniBasket"));
+
+        // Open basket and modify it once again
+        $this->openBasket();
+        $this->type("am_2", "2");
+        $this->clickAndWait("basketUpdate");
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("", $this->getValue("//li[@id='cartItem_1']/div/p[2]/input"));
+        $this->assertEquals("2", $this->getValue("am_1"));
+        $this->assertEquals("test label šÄßüл 1", $this->getValue("//li[@id='cartItem_2']/div/p[2]/input"));
+        $this->assertEquals("1", $this->getValue("am_4"));
+        $this->assertFalse($this->isElementPresent("cartItem_5"));
+
+        // Submitting order
+        $this->clickAndWait("//input[@value='Continue']");
+        $this->clickAndWait("//input[@value='Continue']");
+        $this->clickAndWait("//input[@value='Continue']");
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertFalse($this->isElementPresent("cartItem_5"));
+        $this->assertEquals("Label: test label šÄßüл 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
+        $this->assertEquals("Grand Total: 379,40 €", $this->getText("basketGrandTotal"),"Grand total price changed or did't displayed");
+        $this->check("//form[@id='orderConfirmAgbTop']//input[@name='ord_agb' and @value='1']");
+        $this->clickAndWait("//form[@id='orderConfirmAgbTop']//button");
+
+        //checking in Admin
+        $this->loginAdmin("Administer Orders", "Orders");
+        $this->openTab("link=12", "save");
+        $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
+        $this->assertEquals("2 *", $this->getText("//table[2]/tbody/tr/td[1]"));
+        $this->assertEquals("Test product 0 [EN]", $this->getText("//td[3]"));
+        $this->assertEquals("90,00 EUR", $this->getText("//td[5]"));
+        $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
+        $this->frame("list");
+        $this->openTab("link=Products", "//input[@value='Update']");
+        $this->assertEquals("2", $this->getValue("//tr[@id='art.2']/td[1]/input"));
+        $this->assertEquals("Label: test label šÄßüл 1", $this->getText("//tr[@id='art.2']/td[5]"));
+        $this->assertEquals("45,00 EUR", $this->getText("//tr[@id='art.2']/td[7]"));
+        $this->assertEquals("90,00 EUR", $this->getText("//tr[@id='art.2']/td[8]"));
+
+        //Disabling option (Product can be customized) where product ID is `OXID` = '1000
+        $aArticleParams = array("oxisconfigurable" => 0);
+        $this->callShopSC("oxArticle", "save", "1000", $aArticleParams, 1);
+
+        //Check if persparam field is not available in shop after it was disabled
+        $this->openShop();
+        $this->searchFor("1000");
+        $this->clickAndWait("//ul[@id='searchList']/li//a");
+        $this->assertFalse($this->isElementPresent("persparam[details]"),"persparam field should not be visible");
+    }
+    /**
+     * simple user account opening
+     * @group user
+     * @group main
+     * @group registration
+     */
+    public function testStandardUserRegistrationMobile()
+    {
+        //creating user
+        $this->openShop();
+        $this->clickAndWait("link=My Account");
+        $this->clickAndWait("id=openAccountLink");
+        $this->assertEquals("Open account", $this->getText("id=openAccHeader"));
+        $this->type("userLoginName", "birute01@nfq.lt");
+        $this->type("userPassword", "user11");
+        $this->type("userPasswordConfirm", "user11");
+        //$this->assertEquals("off", $this->getValue("//input[@name='blnewssubscribed' and @value='1']"));
+       // $this->uncheck("//input[@name='blnewssubscribed' and @value='1']");
+        $this->type("invadr[oxuser__oxfname]", "user1 name_šÄßüл");
+        $this->type("invadr[oxuser__oxlname]", "user1 last name_šÄßüл");
+        $this->type("invadr[oxuser__oxcompany]", "user1 company_šÄßüл");
+        $this->type("invadr[oxuser__oxstreet]", "user1 street_šÄßüл");
+        $this->type("invadr[oxuser__oxstreetnr]", "1");
+        $this->type("invadr[oxuser__oxzip]", "11");
+        $this->type("invadr[oxuser__oxcity]", "user1 city_šÄßüл");
+        $this->type("invadr[oxuser__oxustid]", "");
+        $this->type("invadr[oxuser__oxaddinfo]", "user1 additional info_šÄßüл");
+        $this->assertFalse($this->isVisible("id=stateSelected"));
+        $this->click("//a[@id='invCountryLabel']/i");
+        $this->waitForItemAppear("//a[contains(text(),'Germany')]");
+        $this->click("link=Germany");
+        $this->click("//a[@id='dLabel_oxSelect_invCountry']/i");
+        $this->waitForItemAppear("//a[contains(text(),'Berlin')]");
+        $this->click("link=Berlin");
+        $this->type("invadr[oxuser__oxfon]", "111-111");
+        $this->type("invadr[oxuser__oxfax]", "111-111-111");
+        $this->type("invadr[oxuser__oxmobfon]", "111-111111");
+        $this->type("invadr[oxuser__oxprivfon]", "111111111");
+        $this->click("xpath=(//button[@type='button'])[2]");
+        $this->click("xpath=(//button[@type='button'])[4]");
+        $this->click("xpath=(//button[@type='button'])[6]");
+        $this->clickAndWait("accUserSaveTop");
+        $this->assertTrue($this->isTextPresent("We welcome you as registered user!"));
+        $this->loginAdmin("Administer Users", "Users");
+        $this->type("where[oxuser][oxlname]", "user1");
+        $this->clickAndWait("submitit");
+        $this->assertEquals("user1 last name_šÄßüл user1 name_šÄßüл", $this->getText("//tr[@id='row.1']/td[1]"));
+        $this->openTab("link=user1 last name_šÄßüл user1 name_šÄßüл");
+        $this->assertEquals("on", $this->getValue("editval[oxuser__oxactive]"));
+        $this->assertEquals("birute01@nfq.lt", $this->getValue("editval[oxuser__oxusername]"));
+        $this->assertEquals("user1 name_šÄßüл", $this->getValue("editval[oxuser__oxfname]"));
+        $this->assertEquals("user1 last name_šÄßüл", $this->getValue("editval[oxuser__oxlname]"));
+        $this->assertEquals("user1 company_šÄßüл", $this->getValue("editval[oxuser__oxcompany]"));
+        $this->assertEquals("user1 street_šÄßüл", $this->getValue("editval[oxuser__oxstreet]"));
+        $this->assertEquals("1", $this->getValue("editval[oxuser__oxstreetnr]"));
+        $this->assertEquals("11", $this->getValue("editval[oxuser__oxzip]"));
+        $this->assertEquals("user1 city_šÄßüл", $this->getValue("editval[oxuser__oxcity]"));
+        $this->assertEquals("", $this->getValue("editval[oxuser__oxustid]"));
+        $this->assertEquals("user1 additional info_šÄßüл", $this->getValue("editval[oxuser__oxaddinfo]"));
+        $this->assertEquals("Germany", $this->getSelectedLabel("editval[oxuser__oxcountryid]"));
+        $this->assertEquals("BE", $this->getValue("editval[oxuser__oxstateid]"));
+        $this->assertEquals("111-111", $this->getValue("editval[oxuser__oxfon]"));
+        $this->assertEquals("111-111-111", $this->getValue("editval[oxuser__oxfax]"));
+        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][day]")> 0);
+        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][month]")> 0);
+        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][year]") > 0);
+        $this->assertTrue($this->isTextPresent("Yes"));
+        $this->frame("list");
+        $this->openTab("link=Extended");
+        $this->assertEquals("111111111", $this->getValue("editval[oxuser__oxprivfon]"));
+        $this->assertEquals("111-111111", $this->getValue("editval[oxuser__oxmobfon]"));
+    }
+
+    /**
+     * selects specified value from dropdown (for multidimensional variants).
+     *
+     * @param string $elementId  container id.
+     * @param int    $elementNr  select list number (e.g. 1, 2).
+     */
+    public function selectVariantMobile($elementId, $elementNr)
+    {
+        $this->assertTrue($this->isElementPresent($elementId));
+        $this->assertFalse($this->isVisible("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]"));
+        $this->click("//div[@id='".$elementId."']/div/div");
+        $this->waitForItemAppear("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
+        $this->click("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
+
+    }
+    /**
+     * opens basket.
+     */
+    public function openBasket()
+    {
+        $this->click("id=minibasketIcon");
+        $this->waitForItemAppear("id=basketGrandTotal");
+    }
+
 }
