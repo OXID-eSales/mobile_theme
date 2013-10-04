@@ -22,7 +22,7 @@
 require_once realpath( '.' ).'/unit/OxidTestCase.php';
 require_once realpath( '.' ).'/unit/test_config.inc.php';
 
-class Unit_Core_oeThemeSwitcherConfigTest extends OxidTestCase
+class Unit_oeThemeSwitcher_Core_oeThemeSwitcherConfigTest extends OxidTestCase
 {
 
     /**
