@@ -25,7 +25,7 @@ require_once realpath( '.' ).'/unit/test_config.inc.php';
 /**
  * Tests for oeThemeSwitcherUserAgent class
  */
-class Unit_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
+class Unit_oeThemeSwitcher_Core_oeThemeSwitcherThemeManagerTest extends OxidTestCase
 {
 
     /**

@@ -26,7 +26,7 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
 /**
  * Tests for  class
  */
-class Unit_Controllers_oeThemeSwitcherDetailsTest extends OxidTestCase
+class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherDetailsTest extends OxidTestCase
 {
 
     /**
