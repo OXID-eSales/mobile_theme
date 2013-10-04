@@ -82,11 +82,11 @@ class AllTestsUnit extends PHPUnit_Framework_TestCase
         $sFilter = getenv("PREG_FILTER");
 
         $aTestGroups = array(
-            'unit/oepaypal' => array( 'components', 'components/widgets', 'controllers', 'core' ),
-            'integration/oepaypal' => array( '', 'checkoutrequest' )
+            'unit' => array( 'components', 'components/widgets', 'controllers', 'core' ),
+            'integration' => array( '', 'checkoutrequest' )
         );
         if (getenv('TEST_DIRS')) {
-            $sTestDir['unit/oepaypal'] = explode('%', getenv('TEST_DIRS'));
+            $sTestDir['unit'] = explode('%', getenv('TEST_DIRS'));
         }
         foreach ( $aTestGroups as $sGroupDir => $aTestDirs ) {
             foreach ($aTestDirs as $sTestDir ) {
