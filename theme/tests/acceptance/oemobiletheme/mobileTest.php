@@ -30,6 +30,21 @@ class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
     }
 
     /**
+     * test for activating MobileTheme
+     * @group mobile
+     */
+    public function testActivatePayPal()
+    {
+        $this->open( shopURL . "admin" );
+        $this->loginAdminForModule( "Extensions", "Themes" );
+        $this->openTab( "link=OXID eShop mobile theme" );
+        $this->clickAndWait( "//input[@value='Activate']" );
+        $this->selectMenu( "Extensions", "Modules" );
+        $this->openTab( "link=PayPal" );
+        $this->click( "module_activate" );
+    }
+
+    /**
      * Login to shop.
      */
     protected function doLogin()
