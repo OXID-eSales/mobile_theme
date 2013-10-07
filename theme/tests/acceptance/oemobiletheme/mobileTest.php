@@ -21,7 +21,7 @@
 
 require_once realpath( "." ) . '/acceptance/oxidAdditionalSeleniumFunctions.php';
 
-class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
+class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunctions
 {
 
     protected function setUp($skipDemoData=false)
