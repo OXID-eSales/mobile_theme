@@ -19,7 +19,7 @@
  * @copyright (C) OXID eSales AG 2003-2013
  */
 
-require_once 'oxidAdditionalSeleniumFunctions.php';
+require_once realpath( "." ) . '/acceptance/oemobiletheme/oxidAdditionalSeleniumFunctions.php';
 
 class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
 {
