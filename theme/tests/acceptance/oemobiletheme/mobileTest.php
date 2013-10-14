@@ -704,22 +704,22 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testFirstStepNotLogInUser()
     {
- /*   //Commented because of bug #5227
-       // Go to product "3570" detail page
-        $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-ANNA.html" );
+        /*   //Commented because of bug #5227
+              // Go to product "3570" detail page
+               $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-ANNA.html" );
 
-        // Choose variants
-        $this->click("css=div.dropdown-toggle");
-        $this->click("link=W 30/L 30");
-        $this->click("css=div.dropdown.open");
-        $this->click("css=div.dropdown-toggle");
-        $this->click("link=Smoke Gray");
-        $this->waitForPageToLoad("30000");
+               // Choose variants
+               $this->click("css=div.dropdown-toggle");
+               $this->click("link=W 30/L 30");
+               $this->click("css=div.dropdown.open");
+               $this->click("css=div.dropdown-toggle");
+               $this->click("link=Smoke Gray");
+               $this->waitForPageToLoad("30000");
 
-        // Add product to basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
-*/
+               // Add product to basket
+               $this->click("id=toBasket");
+               $this->waitForPageToLoad("30000");
+       */
         // Go to product "1205" detail page
         $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
         $this->type("id=persistentParam", "TEST");
@@ -779,13 +779,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Check does exist  input field for persParam
         $this->assertTrue($this->isElementPresent("//li[@id='cartItem_2']/div/p[2]/input"));
-/*
- *  //Commented because of bug #5227
-        // Check does exist element of attribute
-        $this->assertTrue($this->isElementPresent("css=#cartItem_3 > div.media-body > p.attributes"));
-        $this->assertTrue($this->isElementPresent("//li[@id='cartItem_3']/div/p"));
-        $this->assertTrue($this->isElementPresent("css=#cartItem_2 > div.media-body"));
-*/
+        /*
+         *  //Commented because of bug #5227
+                // Check does exist element of attribute
+                $this->assertTrue($this->isElementPresent("css=#cartItem_3 > div.media-body > p.attributes"));
+                $this->assertTrue($this->isElementPresent("//li[@id='cartItem_3']/div/p"));
+                $this->assertTrue($this->isElementPresent("css=#cartItem_2 > div.media-body"));
+        */
         // Check does exist label Update
         $this->assertTrue($this->isElementPresent("//div[@id='basketFn']/label"));
 
@@ -978,14 +978,14 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Remove product from wish list
         $this->click("name=wishlist_remove_button");
         $this->waitForPageToLoad("30000");
-/*
- *  //Commented because of bug #5227
-        // Check does exist error message "Your Wish List is empty. "
-      //  $this->assertTrue($this->isElementPresent("css=div.alert.alert-error"));
+        /*
+         *  //Commented because of bug #5227
+                // Check does exist error message "Your Wish List is empty. "
+              //  $this->assertTrue($this->isElementPresent("css=div.alert.alert-error"));
 
-        // Check does exist error message content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
-*/
+                // Check does exist error message content
+                $this->assertTrue($this->isElementPresent("css=div.content"));
+        */
     }
 
     /**
@@ -1012,7 +1012,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Go to 3 basket step
         $this->click("id=userNextStepBottom");
         $this->waitForPageToLoad("30000");
-sleep(20);
+        sleep(20);
         // Go to 4 basket step
         $this->click("id=paymentNextStepBottom");
         $this->waitForPageToLoad("30000");
@@ -1764,29 +1764,29 @@ sleep(20);
         $this->loginInFrontendMobile("birute_test@nfq.lt", "useruser");
         $this->searchFor("1001");
         $this->clickAndWait("id=selectlistsselector_searchList_1");
-        $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßüл");
+        $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßü?");
         $this->clickAndWait("toBasket");
-        $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßüл +2%");
+        $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßü? +2%");
         $this->clickAndWait("toBasket");
         $this->searchFor("1000");
         $this->clickAndWait("id=productPrice_searchList_1");
         $this->assertTrue($this->isElementPresent("persparam[details]"),"persparam field should be visible");
         $this->clickAndWait("toBasket");
-        $this->type("persparam[details]", "test label šÄßüл");
+        $this->type("persparam[details]", "test label šÄßü?");
         $this->clickAndWait("toBasket");
 
         // Go to basket:check basket info; update product PersParam info and quantity;
         $this->openBasket();
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
-        $this->assertEquals("selvar2 [EN] šÄßüл", $this->getText("//div[@id='cartItemSelections_1']//span"));
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
-        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("selvar2 [EN] šÄßü?", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
         $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
-        $this->selectVariantMobile("cartItemSelections_1", 3, "selvar3 [EN] šÄßüл -2,00 €");
+        $this->selectVariantMobile("cartItemSelections_1", 3, "selvar3 [EN] šÄßü? -2,00 €");
         $this->type("am_3", "2");
-        $this->type("//li[@id='cartItem_4']/div/p[2]/input", "test label šÄßüл 1");
+        $this->type("//li[@id='cartItem_4']/div/p[2]/input", "test label šÄßü? 1");
         $this->clickAndWait("basketUpdate");
 
         // Check basket info after update
@@ -1819,14 +1819,14 @@ sleep(20);
         $this->clickAndWait("//input[@value='Continue']");
         $this->clickAndWait("//input[@value='Continue']");
         $this->clickAndWait("//input[@value='Continue']");
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
-        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
-        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("selvar3 [EN] šÄßü? -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
         $this->assertFalse($this->isElementPresent("cartItem_5"));
-        $this->assertEquals("Label: test label šÄßüл 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
+        $this->assertEquals("Label: test label šÄßü? 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
         $this->assertEquals("Grand Total: 379,40 €", $this->getText("basketGrandTotal"),"Grand total price changed or did't displayed");
         $this->check("//form[@id='orderConfirmAgbTop']//input[@name='ord_agb' and @value='1']");
         $this->clickAndWait("//form[@id='orderConfirmAgbTop']//button");
@@ -1834,15 +1834,15 @@ sleep(20);
         //checking in Admin
         $this->loginAdmin("Administer Orders", "Orders");
         $this->openTab("link=12", "save");
-        $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
+        $this->assertTrue($this->isTextPresent("Label: test label šÄßü? 1"));
         $this->assertEquals("2 *", $this->getText("//table[2]/tbody/tr/td[1]"));
         $this->assertEquals("Test product 0 [EN]", $this->getText("//td[3]"));
         $this->assertEquals("90,00 EUR", $this->getText("//td[5]"));
-        $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
+        $this->assertTrue($this->isTextPresent("Label: test label šÄßü? 1"));
         $this->frame("list");
         $this->openTab("link=Products", "//input[@value='Update']");
         $this->assertEquals("2", $this->getValue("//tr[@id='art.2']/td[1]/input"));
-        $this->assertEquals("Label: test label šÄßüл 1", $this->getText("//tr[@id='art.2']/td[5]"));
+        $this->assertEquals("Label: test label šÄßü? 1", $this->getText("//tr[@id='art.2']/td[5]"));
         $this->assertEquals("45,00 EUR", $this->getText("//tr[@id='art.2']/td[7]"));
         $this->assertEquals("90,00 EUR", $this->getText("//tr[@id='art.2']/td[8]"));
 
@@ -1872,17 +1872,15 @@ sleep(20);
         $this->type("userLoginName", "birute01@nfq.lt");
         $this->type("userPassword", "user11");
         $this->type("userPasswordConfirm", "user11");
-        //$this->assertEquals("off", $this->getValue("//input[@name='blnewssubscribed' and @value='1']"));
-       // $this->uncheck("//input[@name='blnewssubscribed' and @value='1']");
-        $this->type("invadr[oxuser__oxfname]", "user1 name_šÄßüл");
-        $this->type("invadr[oxuser__oxlname]", "user1 last name_šÄßüл");
-        $this->type("invadr[oxuser__oxcompany]", "user1 company_šÄßüл");
-        $this->type("invadr[oxuser__oxstreet]", "user1 street_šÄßüл");
+        $this->type("invadr[oxuser__oxfname]", "user1 name_šÄßü?");
+        $this->type("invadr[oxuser__oxlname]", "user1 last name_šÄßü?");
+        $this->type("invadr[oxuser__oxcompany]", "user1 company_šÄßü?");
+        $this->type("invadr[oxuser__oxstreet]", "user1 street_šÄßü?");
         $this->type("invadr[oxuser__oxstreetnr]", "1");
         $this->type("invadr[oxuser__oxzip]", "11");
-        $this->type("invadr[oxuser__oxcity]", "user1 city_šÄßüл");
+        $this->type("invadr[oxuser__oxcity]", "user1 city_šÄßü?");
         $this->type("invadr[oxuser__oxustid]", "");
-        $this->type("invadr[oxuser__oxaddinfo]", "user1 additional info_šÄßüл");
+        $this->type("invadr[oxuser__oxaddinfo]", "user1 additional info_šÄßü?");
         $this->assertFalse($this->isVisible("id=stateSelected"));
         $this->click("//a[@id='invCountryLabel']/i");
         $this->waitForItemAppear("//a[contains(text(),'Germany')]");
@@ -1902,19 +1900,19 @@ sleep(20);
         $this->loginAdmin("Administer Users", "Users");
         $this->type("where[oxuser][oxlname]", "user1");
         $this->clickAndWait("submitit");
-        $this->assertEquals("user1 last name_šÄßüл user1 name_šÄßüл", $this->getText("//tr[@id='row.1']/td[1]"));
-        $this->openTab("link=user1 last name_šÄßüл user1 name_šÄßüл");
+        $this->assertEquals("user1 last name_šÄßü? user1 name_šÄßü?", $this->getText("//tr[@id='row.1']/td[1]"));
+        $this->openTab("link=user1 last name_šÄßü? user1 name_šÄßü?");
         $this->assertEquals("on", $this->getValue("editval[oxuser__oxactive]"));
         $this->assertEquals("birute01@nfq.lt", $this->getValue("editval[oxuser__oxusername]"));
-        $this->assertEquals("user1 name_šÄßüл", $this->getValue("editval[oxuser__oxfname]"));
-        $this->assertEquals("user1 last name_šÄßüл", $this->getValue("editval[oxuser__oxlname]"));
-        $this->assertEquals("user1 company_šÄßüл", $this->getValue("editval[oxuser__oxcompany]"));
-        $this->assertEquals("user1 street_šÄßüл", $this->getValue("editval[oxuser__oxstreet]"));
+        $this->assertEquals("user1 name_šÄßü?", $this->getValue("editval[oxuser__oxfname]"));
+        $this->assertEquals("user1 last name_šÄßü?", $this->getValue("editval[oxuser__oxlname]"));
+        $this->assertEquals("user1 company_šÄßü?", $this->getValue("editval[oxuser__oxcompany]"));
+        $this->assertEquals("user1 street_šÄßü?", $this->getValue("editval[oxuser__oxstreet]"));
         $this->assertEquals("1", $this->getValue("editval[oxuser__oxstreetnr]"));
         $this->assertEquals("11", $this->getValue("editval[oxuser__oxzip]"));
-        $this->assertEquals("user1 city_šÄßüл", $this->getValue("editval[oxuser__oxcity]"));
+        $this->assertEquals("user1 city_šÄßü?", $this->getValue("editval[oxuser__oxcity]"));
         $this->assertEquals("", $this->getValue("editval[oxuser__oxustid]"));
-        $this->assertEquals("user1 additional info_šÄßüл", $this->getValue("editval[oxuser__oxaddinfo]"));
+        $this->assertEquals("user1 additional info_šÄßü?", $this->getValue("editval[oxuser__oxaddinfo]"));
         $this->assertEquals("Germany", $this->getSelectedLabel("editval[oxuser__oxcountryid]"));
         $this->assertEquals("BE", $this->getValue("editval[oxuser__oxstateid]"));
         $this->assertEquals("111-111", $this->getValue("editval[oxuser__oxfon]"));
@@ -1927,6 +1925,159 @@ sleep(20);
         $this->openTab("link=Extended");
         $this->assertEquals("111111111", $this->getValue("editval[oxuser__oxprivfon]"));
         $this->assertEquals("111-111111", $this->getValue("editval[oxuser__oxmobfon]"));
+    }
+    /**
+     * Administer Products -> Products (variants should inherit parents selection lists)
+     * @group admin
+     * @group adminFunctionality
+     * @group main
+     */
+    public function testVariantsInheritsSelectionListsMobile()
+    {
+        /* if ( OXID_VERSION_EE ) : */
+        if (isSUBSHOP) {
+            $this->executeSql( "UPDATE `oxarticles` SET `OXSHOPID` = ".oxSHOPID.", `OXSHOPINCL` = ".oxSHOPID." WHERE 1" );
+            $this->executeSql( "UPDATE `oxselectlist` SET `OXSHOPID` = ".oxSHOPID.", `OXSHOPINCL` = ".oxSHOPID."  WHERE 1" );
+        }
+        /* endif; */
+        //assigning selection list to parent product
+        $this->loginAdmin("Administer Products", "Products");
+        $this->selectAndWaitFrame("changelang", "label=Deutsch", "edit");
+        $this->type("where[oxarticles][oxartnum]", "1002");
+        $this->clickAndWait("submitit", "link=1002");
+        $this->openTab("link=1002", "editval[oxarticles__oxtitle]");
+        $this->assertEquals("[DE 2] Test product 2 šÄßü?", $this->getValue("editval[oxarticles__oxtitle]"));
+        $this->Frame("list");
+        $this->openTab("link=Selection");
+        $this->click("//input[@value='Assign Selection Lists']");
+        $this->usePopUp();
+        $this->type("_0", "*test");
+        $this->keyUp("_0", "t");
+        $this->waitForAjax("test selection list [DE] šÄßü?", "//div[@id='container1_c']/table/tbody[2]/tr[1]/td[1]");
+        $this->dragAndDrop("//div[@id='container1_c']/table/tbody[2]/tr[1]/td[1]", "container2");
+        $this->waitForAjax("test selection list [DE] šÄßü?", "//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]");
+        $this->close();
+        $this->selectWindow(null);
+        $this->windowMaximize(null);
+        $this->frame("list");
+        $this->openTab("link=Main");
+
+        //checking if selection list is assigned to variant also
+        $this->selectAndWaitFrame( "art_variants", "label=- var1 [DE]", "list");
+        $this->assertEquals("1002-1", $this->getValue("editval[oxarticles__oxartnum]"));
+        $this->Frame("list");
+        $this->openTab("link=Selection");
+        $this->click("//input[@value='Assign Selection Lists']");
+        $this->usePopUp();
+        $this->assertEquals("test selection list [DE] šÄßü?", $this->getText("//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]"));
+        $this->close();
+
+        //checking if in frontend it is displayed correctly
+        $this->openShop();
+        $this->searchFor("1002");
+        $this->clickAndWait("id=productPrice_searchList_1");
+        $this->assertEquals("selvar1 [EN] šÄßü? +1,00 € selvar2 [EN] šÄßü? selvar3 [EN] šÄßü? -2,00 € selvar4 [EN] šÄßü? +2%", $this->clearString($this->getText("//div[@id='productSelections']//ul")));
+        $this->assertEquals("Test product 2 [EN] šÄßü?", $this->getText("//div[@id='detailsMain']/div/div[2]/div"));
+        $this->click("//ul[@id='variants']/li/div/div");
+        $this->waitForItemAppear("//ul[@id='variants']/li/div/ul/li");
+        $this->clickAndWait("//ul[@id='variants']/li/div/ul/li");
+        $this->selectVariantMobile("productSelections", 3);
+        $this->clickAndWait("toBasket");
+        $this->selectVariantMobile("productSelections", "1");
+        $this->clickAndWait("toBasket");
+        $this->openBasket();
+        $this->assertEquals("Test product 2 [EN] šÄßüл, var1 [EN] šÄßüл", $this->clearString($this->getText("//tr[@id='cartItem_1']/td[3]/div")));
+        $this->assertTrue($this->isElementPresent("cartItemSelections_1"));
+        $this->assertEquals("test selection list [EN] šÄßüл: selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_1']//p"));
+        $this->assertEquals("Test product 2 [EN] šÄßüл, var1 [EN] šÄßüл", $this->clearString($this->getText("//tr[@id='cartItem_2']/td[3]/div")));
+        $this->assertTrue($this->isElementPresent("cartItemSelections_2"));
+        $this->assertEquals("test selection list [EN] šÄßüл: selvar2 [EN] šÄßüл", $this->getText("//div[@id='cartItemSelections_2']//p"));
+    }
+    /**
+     * Checking Multidimensional variants functionality
+     * @group navigation
+     * @group product
+     * @group main
+     */
+    public function testFrontendMultidimensionalVariantsOnDetailsPageMobile()
+    {
+        //multidimensional variants on
+        //active product WHERE `OXID`='10014'
+        $aArticleParams = array("oxactive" => 1);
+        $this->callShopSC("oxArticle", "save", "10014", $aArticleParams, 1);
+        $this->openShop();
+        $this->searchFor("10014");
+
+        $this->clickAndWait("id=productPrice_searchList_1");
+        $this->assertEquals("13 EN description šÄßüл", $this->getText("//div[@id='detailsMain']/div/div[2]/div[2]"));
+        $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertFalse($this->isEditable("toBasket"));
+
+        $this->assertEquals("size[EN] Choose variant", $this->getText("//a[@id='dLabelSelectBox_varselid_0']/span"));
+        $this->assertEquals("S M L", $this->getText("//ul[@id='variants']/li/div//ul"));
+        $this->assertEquals("color Choose variant", $this->getText("//ul[@id='variants']/li[2]/div/div"));
+        $this->assertEquals("black white red", $this->getText("//ul[@id='variants']/li[2]/div/ul"));
+        $this->assertEquals("type Choose variant", $this->getText("//ul[@id='variants']/li[3]/div/div"));
+        $this->assertEquals("lether material", $this->getText("//ul[@id='variants']/li[3]/div/ul/"));
+        $this->selectMultiMobile("variants", 1, 1);
+        $this->assertFalse($this->isEditable("toBasket"));
+        $this->selectMultiMobile("variants", 2, 1);
+        $this->assertFalse($this->isEditable("toBasket"));
+        $this->selectMultiMobile("variants", 3, 1);
+        $this->assertEquals("25,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertTrue($this->isEditable("toBasket"));
+        //Select  white
+        $this->selectMultiMobile("variants", 2, 3);
+
+        //Select S
+        $this->selectMultiMobile("variants", 1, 2);
+        $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertFalse($this->isEditable("toBasket"));
+
+        // selects black
+        $this->selectMultiMobile("variants", 2, 2);
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        // selects material
+        $this->selectMultiMobile("variants", 3, 3);
+        $this->assertTrue($this->isEditable("toBasket"));
+        $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+
+        //Selected combination: S, black, leather
+        $this->selectMultiMobile("variants", 3, 3);
+        $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        //Selected combination: M
+        $this->selectMultiMobile("variants", 1, 2);
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        //Selected combination: M, red
+        $this->selectMultiMobile("variants", 2, 4);
+        $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        //Selected combination: S, red"
+        $this->selectMultiMobile("variants", 1, 2);
+        $this->assertFalse($this->isEditable("toBasket"));
+
+        //Selected combination: S, black
+        $this->selectMultiMobile("variants", 2, 2);
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        //Selected combination: S, black, leather"
+        $this->selectMultiMobile("variants", 3, 2);
+        $this->assertEquals("25,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertTrue($this->isEditable("toBasket"));
+        $this->type("amountToBasket", "2");
+        $this->clickAndWait("toBasket");
+
+        //Go to basket
+        $this->openBasket();
+        $this->assertEquals("14 EN product šÄßüл, S | black | lether", $this->clearString($this->getText("//li[@id='cartItem_1']/div/h4/a")));
+        $this->assertEquals("2", $this->getValue("am_1"));
+        $this->assertFalse($this->isElementPresent("cartItem_2"));
+        $this->assertEquals("50,00 €", $this->getText("//tr[@id='basketGrandTotal']/td/strong"));
     }
 
     /**
@@ -1942,7 +2093,24 @@ sleep(20);
         $this->click("//div[@id='".$elementId."']/div/div");
         $this->waitForItemAppear("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
         $this->click("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
+    }
 
+
+    /**
+     * selects specified value from dropdown (for multidimensional variants).
+     *
+     * @param string $elementId  container id.
+     * @param int    $elementRow  select list number (e.g. 1, 2).
+     * * @param int    $elementNr  select list number (e.g. 1, 2).
+     */
+    public function selectMultiMobile($elementId, $elementRow, $elementNr)
+    {
+        $this->assertTrue($this->isElementPresent($elementId));
+        $this->assertFalse($this->isVisible("//ul[@id='".$elementId."']/li[".$elementRow."]/div/ul/li[".$elementNr."]"));
+        $this->click("//ul[@id='".$elementId."']/li[".$elementRow."]/div/div");
+        $this->waitForItemAppear("//ul[@id='".$elementId."']/li[".$elementRow."]/div//ul/li[".$elementNr."]");
+        $this->click("//ul[@id='".$elementId."']/li[".$elementRow."]/div/ul/li[".$elementNr."]/a");
+        $this->waitForItemDisappear("//ul[@id='".$elementId."']/li[".$elementRow."]/div//ul/li[".$elementNr."]");
     }
     /**
      * opens basket.
