@@ -19,14 +19,29 @@
  * @copyright (C) OXID eSales AG 2003-2013
  */
 
-require_once 'oxidAdditionalSeleniumFunctions.php';
+require_once realpath( "." ) . '/acceptance/oxidAdditionalSeleniumFunctions.php';
 
-class Acceptance_mobileTest extends oxidAdditionalSeleniumFunctions
+class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunctions
 {
 
     protected function setUp($skipDemoData=false)
     {
         parent::setUp(false);
+    }
+
+    /**
+     * test for activating MobileTheme
+     * @group mobile
+     */
+    public function testActivatePayPal()
+    {
+        $this->open( shopURL . "admin" );
+        $this->loginAdminForModule( "Extensions", "Themes" );
+        $this->openTab( "link=OXID eShop mobile theme" );
+        $this->clickAndWait( "//input[@value='Activate']" );
+        $this->selectMenu( "Extensions", "Modules" );
+        $this->openTab( "link=PayPal" );
+        $this->click( "module_activate" );
     }
 
     /**
