@@ -208,5 +208,4 @@ $aLang = array(
     'ORDER_HISTORY'                                               => "Meine Bestellungen",
     'PURCHASE_WITHOUT_REGISTRATION'                               => 'Ohne Registrierung',
     'PURCHASE_WITHOUT_REGISTRATION_EXPLANED'                      => 'Ich möchte bestellen, ohne ein Kundenkonto zu eröffnen',
-    'DAYS_2'                                                      => "Tage",
 );
