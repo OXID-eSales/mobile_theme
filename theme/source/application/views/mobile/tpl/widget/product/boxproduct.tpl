@@ -1,4 +1,4 @@
-[{assign var="_oBoxProduct" value=$oView->getBoxProduct()}]
+[{assign var="_oBoxProduct" value=$oView->getProduct()}]
 [{assign var="_sTitle" value="`$_oBoxProduct->oxarticles__oxtitle->value` `$_oBoxProduct->oxarticles__oxvarselect->value`"|strip_tags}]
 [{block name="widget_product_boxproduct_image"}]
     <li class="articleImage" [{if !$iProdCount}] style="display:none;" [{/if}]>

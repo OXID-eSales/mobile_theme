@@ -4,7 +4,7 @@
 [{oxscript include="js/widgets/oxtriggerform.js" priority=10}]
 [{oxscript add="$('.wishlist-btn').oxFormTrigger();"}]
 [{block name="widget_product_listitem_line"}]
-    [{assign var="product"          value=$oView->getBoxProduct()}]
+    [{assign var="product"          value=$oView->getProduct()}]
     [{assign var="owishid"          value=$oView->getWishId()}]
     [{assign var="removeFunction"   value=$oView->getRemoveFunction()}]
     [{assign var="recommid"         value=$oView->getRecommId()}]
