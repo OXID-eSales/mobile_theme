@@ -8,7 +8,7 @@
     [{assign var="owishid"          value=$oView->getWishId()}]
     [{assign var="removeFunction"   value=$oView->getRemoveFunction()}]
     [{assign var="recommid"         value=$oView->getRecommId()}]
-    [{assign var="testid"           value=$oView->getTestId()}]
+    [{assign var="iIndex"           value=$oView->getIndex()}]
     [{assign var="showMainLink"     value=$oView->getShowMainLink()}]
     [{assign var="blDisableToCart"  value=$oView->getDisableToCart()}]
     [{assign var="toBasketFunction" value=$oView->getToBasketFunction()}]
@@ -25,7 +25,7 @@
         [{assign var="blShowToBasket" value=false}]
     [{/if}]
 
-    <form name="tobasket.[{$testid}]" [{if $blShowToBasket}]action="[{$oViewConf->getSelfActionLink()}]" method="post"[{else}]action="[{$_productLink}]" method="get"[{/if}]>
+    <form name="tobasket.[{$iIndex}]" [{if $blShowToBasket}]action="[{$oViewConf->getSelfActionLink()}]" method="post"[{else}]action="[{$_productLink}]" method="get"[{/if}]>
         [{$oViewConf->getNavFormParams()}]
         [{$oViewConf->getHiddenSid()}]
         <input type="hidden" name="pgNr" value="[{$oView->getActPage()}]">
@@ -49,7 +49,7 @@
             [{else}]
                 <input type="hidden" name="anid" value="[{$product->oxarticles__oxnid->value}]">
             [{/if}]
-                <input id="am_[{$testid}]" type="hidden" name="am" value="1">
+                <input id="am_[{$iIndex}]" type="hidden" name="am" value="1">
             [{/oxhasrights}]
         [{else}]
             <input type="hidden" name="cl" value="details">
@@ -68,7 +68,7 @@
                     [{if $removeFunction && (($owishid && ($owishid==$oxcmp_user->oxuser__oxid->value)) || (($wishid==$oxcmp_user->oxuser__oxid->value)) || $recommid)}]
                         [{block name="widget_product_listitem_line_removefromwishlist"}]
                             <div class="article-list-remove">
-                                <button data-form="remove_[{$removeFunction}][{$testid}]" class="btn remove wishlist-btn" data-action="remove" data-anid="[{$product->oxarticles__oxnid->value}]" name="wishlist_remove_button"><i class="glyphicon-remove"></i></button>
+                                <button data-form="remove_[{$removeFunction}][{$iIndex}]" class="btn remove wishlist-btn" data-action="remove" data-anid="[{$product->oxarticles__oxnid->value}]" name="wishlist_remove_button"><i class="glyphicon-remove"></i></button>
                             </div>
                         [{/block}]
                     [{/if}]
@@ -78,7 +78,7 @@
                 </h4>
                 <div class="variants">
                     [{if $aVariantSelections && $aVariantSelections.selections}]
-                        <p id="variantselector_[{$testid}]" class="js-fnSubmit clear">
+                        <p id="variantselector_[{$iIndex}]" class="js-fnSubmit clear">
                             [{foreach from=$aVariantSelections.selections item=oSelectionList key=iKey name=variantSelection}]
                                 [{$oSelectionList->getLabel()}][{if !$smarty.foreach.variantSelection.first}], [{/if}]
                             [{/foreach}]
@@ -87,7 +87,7 @@
                     [{elseif $oViewConf->showSelectListsInList()}]
                         [{assign var="oSelections" value=$product->getSelections(1)}]
                         [{if $oSelections}]
-                            <div id="selectlistsselector_[{$testid}]" class="js-fnSubmit clear">
+                            <div id="selectlistsselector_[{$iIndex}]" class="js-fnSubmit clear">
                                 [{foreach from=$oSelections item=oList name=selections}]
                                     <label>[{$oList->getLabel()}] [{oxmultilang ident="SELECT"}]</label>
                                 [{/foreach}]
@@ -109,7 +109,7 @@
                         </span>
                     [{/if}]
                     [{block name="widget_product_listitem_line_price_value"}]
-                        <span id="productPrice_[{$testid}]" class="main-price">
+                        <span id="productPrice_[{$iIndex}]" class="main-price">
                             <span>
                                 [{if $product->isRangePrice()}]
                                     [{oxmultilang ident="PRICE_FROM"}]
@@ -132,7 +132,7 @@
                         </span>
                         [{* weight and price/unit *}]
                         [{if $product->getPricePerUnit()}]
-                            <span id="productPricePerUnit_[{$testid}]" class="price-per-unit">
+                            <span id="productPricePerUnit_[{$iIndex}]" class="price-per-unit">
                                 [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{$product->getPricePerUnit()}] [{$currency->sign}]/[{$product->getUnitName()}]
                             </span>
                         [{/if}]
@@ -144,8 +144,8 @@
                 [{block name="widget_product_listitem_line_tobasket"}]
                     [{oxhasrights ident="TOBASKET"}]
                         <div class="add-to-basket">
-                            <input class="quantity" id="amountToBasket_[{$testid}]" type="number" name="am" value="1" size="2" autocomplete="off"/>
-                            <button id="toBasket_[{$testid}]" name="add_to_basket_button" class="btn">[{oxmultilang ident="TO_CART"}]</button>
+                            <input class="quantity" id="amountToBasket_[{$iIndex}]" type="number" name="am" value="1" size="2" autocomplete="off"/>
+                            <button id="toBasket_[{$iIndex}]" name="add_to_basket_button" class="btn">[{oxmultilang ident="TO_CART"}]</button>
                         </div>
                     [{/oxhasrights}]
                 [{/block}]
@@ -153,7 +153,7 @@
         </div>
     </form>
     [{if $removeFunction && (($owishid && ($owishid==$oxcmp_user->oxuser__oxid->value)) || (($wishid==$oxcmp_user->oxuser__oxid->value)) || $recommid)}]
-        <form action="[{$oViewConf->getSelfActionLink()}]" method="post" id="remove_[{$removeFunction}][{$testid}]">
+        <form action="[{$oViewConf->getSelfActionLink()}]" method="post" id="remove_[{$removeFunction}][{$iIndex}]">
             <div>
                 [{$oViewConf->getHiddenSid()}]
                 <input type="hidden" name="cl" value="[{$oViewConf->getTopActiveClassName()}]"/>
