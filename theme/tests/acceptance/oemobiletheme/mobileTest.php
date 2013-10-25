@@ -381,7 +381,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/my-account" );
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false );
 
         // Go to my account page and login to it
@@ -990,16 +990,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->waitForPageToLoad("30000");
 
         // Go to 2nd basket step
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Go to 3 basket step
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
-        sleep(20);
+        $this->clickAndWait("//input[@value='Continue']");
+
         // Go to 4 basket step
-        $this->click("id=paymentNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Check there are 4 basket steps marked as active
         $this->assertTrue($this->isElementPresent("css=li.step4.active  > span.step-name"));
@@ -1009,12 +1006,12 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=h3.heading.section-heading > span"));
 
         // Check does exist link "right of withdrawal"
-        $this->assertTrue($this->isElementPresent("link=right of withdrawal"));
+        $this->assertTrue($this->isElementPresent("link=Right of Withdrawal"));
         $this->assertTrue($this->isElementPresent("css=#test_OrderOpenWithdrawalBottom"));
 
         // Check does exist link to "terms and conditions" page
         $this->assertTrue($this->isElementPresent("css=a.fontunderline"));
-        $this->assertTrue($this->isElementPresent("link=terms and conditions"));
+        $this->assertTrue($this->isElementPresent("link=Terms and Conditions"));
 
         // Check does exist heading section
         $this->assertTrue($this->isElementPresent("css=form.form > h3.heading.section-heading > span"));
@@ -1063,7 +1060,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("id=basketSummary"));
         $this->assertTrue($this->isElementPresent("id=basketTotalProductsGross"));
         $this->assertTrue($this->isElementPresent("id=basketDeliveryGross"));
-        $this->assertTrue($this->isElementPresent("id=basketPaymentNetto"));
+        $this->assertTrue($this->isElementPresent("id=basketPaymentGross"));
 
         // Check does exist all (1,2,3,4, ok) steps exist
         $this->assertTrue($this->isElementPresent("css=span.step-number"));
@@ -1074,7 +1071,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false);
         $this->testFooter( false, true );
     }
 
@@ -1087,7 +1084,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
         $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html");
+        $this->open( shopURL . "en/Test-category-0-EN-AEssue/Test-product-1-EN-AEssue.html");
 
         // Add product to basket
         $this->click("id=toBasket");
@@ -1098,24 +1095,20 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->waitForPageToLoad("30000");
 
         // Go to 2nd basket step
-        $this->click("//div[@id='btnNextStepBottom']/form/input[4]");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Go to 03 basket step
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
-        sleep(20);
         // Go to 04 basket step
-        $this->click("id=paymentNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Click button Continue
         $this->click("//form[@id='orderConfirmAgbBottom']/ul/li/button");
         $this->waitForPageToLoad("30000");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false, true );
 
         // Check does link back to Start page exist;
