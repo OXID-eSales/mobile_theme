@@ -1,19 +1,25 @@
 #incBackLink {
-     position:absolute;
-     top:0px;
-     left:0px;
-     width:100%;
-     z-index:104;
-     font-weight:normal;
-     font-size:16px;
-     color: #fff;
-     background-color:#f77704;
-     padding:8px 0 8px 0;
-     text-align: center;
-     border-bottom: 1px solid #d36706;
-}
-#incBackLink a {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    z-index:104;
+    font-weight:normal;
+    font-size:16px;
     color: #fff;
+    background-color:#f77704;
+    padding:8px 0 8px 0;
+    text-align: center;
+    border-bottom: 1px solid #d36706;
+}
+#incBackLink button {
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+}
+#incBackLink button:hover {
+    text-decoration: underline;
 }
 #page {
     padding-top: 35px;
