@@ -35,7 +35,7 @@ $aModule = array(
         'en' => 'Module for switching the display between a regular view and a view for mobile devices. If OXID eShop is accessed by a mobile device, an installed mobile theme (OXID eShop mobile theme by default) will be used. An installed mobile theme is required.',
     ),
     'thumbnail'    => 'picture.png',
-    'version'      => '1.2.0-rc',
+    'version'      => '1.2.0',
     'author'       => 'OXID eSales AG',
     'url'          => 'http://www.oxid-esales.com',
     'email'        => 'info@oxid-esales.com',
