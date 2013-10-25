@@ -14,7 +14,12 @@
                 </ul>
 
                 <ul class="nav nav-list footer-nav">
-                    <li><a href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"themeType=desktop"}]">[{oxmultilang ident="STANDARD_WEBSITE"}]</a></li>
+                    <li>
+                        <form action="[{oxgetseourl ident=$oViewConf->getSelfLink()}]" method="post">
+                            <input type="hidden" name="themeType" value="desktop" />
+                            <button class="btn">[{oxmultilang ident="STANDARD_WEBSITE"}]</button>
+                        </form>
+                    </li>
                 </ul>
 
                 [{oxid_include_widget cl="oxwServiceList" noscript=1 nocookie=1}]
