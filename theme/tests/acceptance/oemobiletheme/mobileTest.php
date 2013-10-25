@@ -1104,8 +1104,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->clickAndWait("//input[@value='Continue']");
 
         // Click button Continue
-        $this->click("//form[@id='orderConfirmAgbBottom']/ul/li/button");
-        $this->waitForPageToLoad("30000");
+        $this->click("id=checkAgbTop");
+        $this->click("//button[@type='submit']");
 
         //Check header and footer
         $this->testHeader( false, false );
@@ -1235,7 +1235,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Check element is present for text"When you click on 'Request Password', you'll be sent an e-mail with instructions how to set up a new password. "
         $this->assertTrue($this->isElementPresent("css=div.content > p"));
-        $this->type("id=forgotPasswordUserLoginName", "birute_test@nfq.lt");
+        $this->type("id=forgotPasswordUserLoginName", "birute_test_@nfq.lt");
         $this->click("css=input.btn");
         $this->waitForPageToLoad("30000");
 
@@ -1277,15 +1277,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         $this->assertTrue($this->isElementPresent("id=loginUser"));
 
-        // Check does exist input field Login Pasword
+        // Check does exist input field Login Password
         $this->assertTrue($this->isElementPresent("id=loginPwd"));
 
         // Check does exist checkbox label name "Keep me logged-in"
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/div/form/ul/li[3]/label"));
+        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/form/ul/li[3]/label"));
 
-        // Check or checkbox elemment is pressent
+
+        // Check or checkbox element is present
         $this->assertTrue($this->isElementPresent("css=label.glyphicon-ok"));
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/div/form/ul/li[3]"));
 
         // Checking Login button is present
         $this->assertTrue($this->isElementPresent("id=loginButton"));
@@ -1293,14 +1293,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check does exist Open account  and Forgot password links
         $this->assertTrue($this->isElementPresent("id=openAccountLink"));
         $this->assertTrue($this->isElementPresent("id=forgotPasswordLink"));
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/div[2]"));
 
         // Click on checkbox "Keep me logged-in"
         $this->click("id=loginCookie");
+        $this->click("id=loginButton");
 
         // Check does exist message "Specify a value for this required field"
         $this->assertTrue($this->isElementPresent("css=span.js-oxError_notEmpty"));
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/div/form/ul/li[2]/p/span"));
     }
 
     /**
