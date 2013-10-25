@@ -24,38 +24,32 @@ require_once realpath( "." ) . '/acceptance/oxidAdditionalSeleniumFunctions.php'
 class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunctions
 {
 
-    protected function setUp($skipDemoData=false)
+    protected function setUp( $skipDemoData=false )
     {
-        parent::setUp(false);
+        parent::setUp( true );
     }
 
     /**
      * test for activating MobileTheme
      * @group mobile
      */
-    public function testActivatePayPal()
+    public function testActivateExtension()
     {
+        $this->skipDbRestore = true;
         $this->open( shopURL . "admin" );
-        $this->loginAdminForModule( "Extensions", "Themes" );
+        $this->loginAdminForModule( "Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303" );
         $this->openTab( "link=OXID eShop mobile theme" );
         $this->clickAndWait( "//input[@value='Activate']" );
         $this->selectMenu( "Extensions", "Modules" );
-        $this->openTab( "link=PayPal" );
+        $this->openTab( "link=OXID eShop theme switch" );
         $this->click( "module_activate" );
-    }
-
-    /**
-     * Login to shop.
-     */
-    protected function doLogin()
-    {
-        // Go to my account page and login to it
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $oAdditionalFunctions = new oxidAdditionalSeleniumFunctions();
+        // dumping original database
+        try {
+            $oAdditionalFunctions->dumpDB();
+        } catch (Exception $e) {
+            $oAdditionalFunctions->stopTesting("Failed dumping original db");
+        }
     }
 
     // ------------------------ Mobile  functionality ----------------------------------
@@ -63,12 +57,12 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      * testing all header elements;
      * @group mobile
      */
-    public function testHeader( $blOpenPage = true )
+    public function testHeader( $blOpenPage = true, $blCheckSearch = true )
     {
         if ( $blOpenPage ) {
             $this->openShop();
         }
-
+        $this->skipDbRestore = true;
         // Check does logo and alt  message exist in header
 
         // We do not check:that logo has a link to home page
@@ -81,13 +75,14 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Search field  and search button should be visible after clicking on it
         // We do not check: that search field is only visible after clicking on search button
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
-        $this->click("css=i.glyphicon-search");
-
-        // Search field and search button
-        $this->assertTrue($this->isElementPresent("id=searchParam"));
-        $this->assertTrue($this->isElementPresent("//div[@id='search']/form/button"));
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
+        if ( $blCheckSearch ) {
+            $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
+            $this->click("css=i.glyphicon-search");
+            // Search field and search button
+            $this->assertTrue($this->isElementPresent("id=searchParam"));
+            $this->assertTrue($this->isElementPresent("//div[@id='search']/form/button"));
+            $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
+        }
 
         // Check does minibasket element exist
         $this->assertTrue($this->isElementPresent("id=minibasketIcon"));
@@ -131,7 +126,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         if ( !$sURL ) {
             $this->openShop();
         }
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->testFooter( $sURL, true );
     }
 
@@ -187,28 +182,26 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check does category tree exist;
         $this->assertTrue($this->isElementPresent("id=cat_list"));
 
-        // Go to subcategory;
-        $this->click("css=span");
-        $this->waitForPageToLoad("30000");
+        // Go to subcategory;//form[@id='filterList']/label[1]
+        $this->clickAndWait("//div[@id='cat_list']/ul/li/a");
 
         // Check does back button exist;
-        $this->assertTrue($this->isElementPresent("css=span"));
+        $this->assertTrue($this->isElementPresent("class=back"));
 
         // Check does left button near back button exist;
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
 
         // Check does all category in category tree exist;
-        $this->assertTrue($this->isElementPresent("css=#moreSubCat_1 > span"));
-        $this->assertTrue($this->isElementPresent("css=#moreSubCat_2 > span"));
-        $this->assertTrue($this->isElementPresent("css=#moreSubCat_3 > span"));
-        $this->assertTrue($this->isElementPresent("css=#moreSubCat_4 > span"));
+        $this->assertTrue($this->isElementPresent("id=moreSubCat_1"));
+        $this->assertTrue($this->isElementPresent("id=moreSubCat_2"));
+        $this->assertTrue($this->isElementPresent("id=moreSubCat_3"));
+        $this->assertTrue($this->isElementPresent("id=moreSubCat_4"));
 
         // Go to subcategory "kites";
-        $this->click("css=#moreSubCat_1 > span");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//a[@id='moreSubCat_1']");
 
         // Check does back button exist;
-        $this->assertTrue($this->isElementPresent("css=span"));
+        $this->assertTrue($this->isElementPresent("class=back"));
 
         // Check does left button near back button exist;
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
@@ -232,7 +225,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=#productPrice_productList_1 > span"));
 
         // Check does previous price, which is crossed out exist;
-        $this->assertTrue($this->isElementPresent("//ul[@id='productList']/li/form/div[2]/p/span/del"));
+        $this->assertTrue($this->isElementPresent("//ul[@id='productList']/li/form/div[2]/div[2]/span/del"));
 
         // Check does pages and button "next" exist;
         $this->assertTrue($this->isElementPresent("css=div.pagination-container"));
@@ -273,8 +266,9 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testDetailPage()
     {
         // Go to product detail page
-        $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html" );
-
+        //$this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html" );
+        $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/" );
+        $this->clickAndWait( 'link=Kuyichi Jeans SUGAR' );
         //Check header and footer
         $this->testHeader( false );
         $this->testFooter( false );
@@ -301,13 +295,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=div.product-delivery-info > a"));
 
         // Check does size variant selection exist
-        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox"));
+        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_0"));
 
         // Check does color variant selection exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='variants']/li/div/div"));
+        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_1"));
 
         // Check does washing variant selection exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='variants']/li[2]/div/div"));
+        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_2"));
 
         // Check does "choose variant"message exist
         $this->assertTrue($this->isElementPresent("css=p.product-variants-message"));
@@ -319,7 +313,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=div.product-description-container > i.glyphicon-chevron-down"));
 
         // Open full description;
-        $this->click("css=i.glyphicon-chevron-down");
+        $this->click("class=product-description-container");
 
         // Check does detail about product exist
         $this->assertTrue($this->isElementPresent("css=div.product-description-container"));
@@ -391,7 +385,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->testFooter( false );
 
         // Go to my account page and login to it
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->click("link=My Account");
 
         // Go to billing and shipping settings
@@ -460,7 +454,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testSecondStepNotLoginUser()
     {
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Add product to the basket
         $this->click("id=toBasket");
@@ -475,7 +470,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->waitForPageToLoad("30000");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false );
 
         // Check does step line on top of the page exist
@@ -493,7 +488,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("//input[@value='Open account']"));
         $this->assertTrue($this->isElementPresent("//input[@value='Login']"));
         $this->assertTrue($this->isElementPresent("link=exact:Forgot password?"));
-        $this->assertTrue($this->isElementPresent("//input[@value='Purchase without Registration']"));
+        $this->assertTrue($this->isElementPresent("//input[@value='Without registration']"));
     }
 
     /**
@@ -503,24 +498,22 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testSecondStepLoginUser()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Add product to the basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2nd step
-        $this->click("css=#btnNextStepBottom > form.form > input.btn.nextStep");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false, true );
 
         // Check does  step line with all steps exist
@@ -562,26 +555,23 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testPurchaseWithoutRegistration()
     {
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Add product to the basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2nd step;
-        $this->click("css=#btnNextStepBottom > form.form > input.btn.nextStep");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         // Go to "purchase without registration" page;
-        $this->click("css=#optionNoRegistration > form.form > input.btn");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=#optionNoRegistration > form.form > input.btn");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false );
 
         // Check does step line exist with all steps;
@@ -662,14 +652,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
 
         // Open search field
-        $this->click("//div[@id='header']/div/div/a");
+        $this->click("css=i.glyphicon-search");
 
         // Add search keyword
         $this->type("id=searchParam", "kite");
 
         // Press search button
-        $this->click("css=button.btn.search-btn");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=button.btn.search-btn");
         $this->click("css=i.glyphicon-search");
 
         //Check header and footer
@@ -686,12 +675,12 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("//div[@id='sortItems']/div/div/span"));
 
         // Check does 1st product exist
-        $this->assertTrue($this->isElementPresent("css=p.article-list-price"));
+        $this->assertTrue($this->isElementPresent("css=div.article-list-price"));
 
         // Check does last product in the list exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='searchList']/li[10]/form/div[2]/p"));
+        $this->assertTrue($this->isElementPresent("//ul[@id='searchList']/li[10]/form/div[2]"));
 
-        // Ckeck does  page number 1 exist
+        // Check does  page number 1 exist
         $this->assertTrue($this->isElementPresent("link=1"));
 
         // Check does next page  button exist
@@ -721,24 +710,22 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
                $this->waitForPageToLoad("30000");
        */
         // Go to product "1205" detail page
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
+        $this->open( shopURL . 'en/Special-Offers/' );
+        $this->clickAndWait( 'link=Transport container BARREL' );
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Add 1205 product to cart
         $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false );
 
         // Check does  step line with all steps exist
@@ -818,7 +805,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testFirstStepLoginUser()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         /*   //Commented because of bug #5227
          // Go to product "3570" detail page
@@ -841,20 +828,17 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Add 1205 product to cart
         $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false, true );
 
         // Check does  step line with all steps exist
@@ -897,7 +881,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("//li[@id='cartItem_2']/div/p[2]/input"));
 
         // Check does exist label element
-        $this->assertTrue($this->isElementPresent("css=label.persParamLabel"));
+        $this->assertTrue($this->isElementPresent("css=input.persParam"));
         /*
          *  //Commented because of bug #5227
                 // Check does exist element of attribute
@@ -937,7 +921,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testWishList()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
 
@@ -995,7 +979,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function test4BasketStep()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
         $this->click("id=toBasket");
@@ -1101,7 +1085,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function test5BasketStep()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html");
 
@@ -1160,7 +1144,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testChangePassword()
     {
         $this->open( shopURL . "en/home/");
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->click("//a[@id='linkAccountPassword']/span");
         $this->waitForPageToLoad("30000");
 
@@ -1333,7 +1317,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testMyAccount()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->click("link=My Account");
         $this->waitForPageToLoad("30000");
 
@@ -1386,7 +1370,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     {
         $this->open( shopURL . "en/home/" );
 
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         // Go to My download page
         $this->click("//a[@id='linkAccountDownloads']/span");
@@ -1456,7 +1440,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testNewsletterSettings()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         // Going to Newsletter settings page
         $this->click("id=linkAccountNewsletter");
@@ -1515,7 +1499,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->testHeader( false );
         $this->testFooter( false );
 
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->open( shopURL . "en/order-history/" );
 
         // Check does exist "ORDER HISTORY " header.
@@ -1729,7 +1713,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      * @param string $userPass user password.
      * @param boolean $waitForLogin if needed to wait until user get logged in.
      */
-    public function loginInFrontendMobile($userName, $userPass, $waitForLogin = true)
+    public function loginInFrontendMobile($userName = "birute_test@nfq.lt", $userPass = "useruser", $waitForLogin = true)
     {
         $this->selectWindow(null);
         $this->clickAndWait("//a[text()='Login']");
@@ -2147,7 +2131,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     /**
      * opens basket.
      */
-    public function openBasket()
+    public function openBasket( $language = "English" )
     {
         $this->click("id=minibasketIcon");
         $this->waitForItemAppear("id=basketGrandTotal");
