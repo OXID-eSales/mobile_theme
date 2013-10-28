@@ -1590,7 +1590,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check does exist "Account Holder"input name
         $this->assertTrue($this->isElementPresent("css=input[name=\"dynvalue[kkname]\"]"));
 
-        // Check does exist "Valid intil" label
+        // Check does exist "Valid until" label
         $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[4]/label"));
 
         // Check does exist Valid date month dropdown
@@ -1598,18 +1598,18 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("id=cardValidDateMonthSelected"));
 
         // Check does exist dropdown icon
-        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-month > div.dropdown > div.dropdown-toggle > #dLabel > i.glyphicon-chevron-down"));
+        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-month > div.dropdown > div.dropdown-toggle > #dLabelCardValidDateMonthSelected > i.glyphicon-chevron-down"));
 
         // Check does exist valid date for year
         $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-year > div.dropdown > div.dropdown-toggle"));
-        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-year > div.dropdown > div.dropdown-toggle > #dLabel > i.glyphicon-chevron-down"));
+        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-year > div.dropdown > div.dropdown-toggle > #dLabelCardValidDateYearSelected > i.glyphicon-chevron-down"));
         $this->assertTrue($this->isElementPresent("id=cardValidDateYearSelected"));
 
         // Check does exist "/ "element
         $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-divider"));
 
         // Check does exist label element for   " CVV2 or CVC2 security code:"
-        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/label"));
+        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/input[@placeholder='CVV2 or CVC2 security code:']"));
 
         // Check does exist valid note ""The CVV2/CVC2 three-digit value is printed just above the ..."
         $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/div"));
