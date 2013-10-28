@@ -36,7 +36,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->clickAndWait( "//input[@value='Activate']" );
         $this->selectMenu( "Extensions", "Modules" );
         $this->openTab( "link=OXID eShop theme switch" );
-        $this->click( "module_activate" );
+        $this->clickAndWait( "module_activate" );
         // dumping database
         try {
             $this->dumpDB();
