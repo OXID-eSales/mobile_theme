@@ -115,7 +115,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         } else {
             $this->assertTrue($this->isElementPresent("link=Login"));
         }
-        $this->assertTrue($this->isElementPresent("link=Regular display"));
+        $this->assertTrue($this->isElementPresent("//button[contains(text(),'Regular display')]"));
         $this->assertTrue($this->isElementPresent("link=Contact"));
         $this->assertTrue($this->isElementPresent("link=About Us"));
         $this->assertTrue($this->isElementPresent("link=Privacy Policy"));
