@@ -261,7 +261,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     {
         // Go to product detail page
         //$this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html" );
-        $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/" );
+        $this->open( shopURL . "en/Gear/" );
+        $this->clickAndWait( 'link=Fashion' );
+        $this->clickAndWait( 'link=For Her' );
+        $this->clickAndWait( 'link=Jeans' );
         $this->clickAndWait( 'link=Kuyichi Jeans SUGAR' );
         //Check header and footer
         $this->testHeader( false );
@@ -917,7 +920,9 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
         $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . "en/Kiteboarding/" );
+        $this->clickAndWait( 'link=Harnesses' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Click on the button "Start"
         $this->click("css=i.glyphicon-star");
@@ -975,7 +980,9 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
         $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . "en/Kiteboarding/" );
+        $this->clickAndWait( 'link=Harnesses' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
 
@@ -1374,14 +1381,17 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Check does exist My download content
         $this->assertTrue($this->isElementPresent("css=div.content"));
-        $this->open( shopURL . "en/Downloads/Online-shops-with-OXID-eShop.html" );
+        $this->open( shopURL . "en/Downloads/" );
+        $this->clickAndWait( 'link=Online shops with OXID eShop' );
 
         // Add product related with "download product" to basket
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
 
         // open second product and add to basket
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . "en/Kiteboarding/" );
+        $this->clickAndWait( 'link=Harnesses' );
+        $this->clickAndWait( 'link=Harness MADTRIXX ' );
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
         $this->click("id=minibasketIcon");
@@ -1970,7 +1980,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->openShop();
         $this->searchFor("10014");
 
-        $this->clickAndWait("id=productPrice_searchList_1");
+        $this->clickAndWait("link=14 EN product šÄßüл");
         $this->assertEquals("13 EN description šÄßüл", $this->getText("//div[@id='detailsMain']/div/div[2]/div[2]"));
         $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertFalse($this->isEditable("toBasket"));
