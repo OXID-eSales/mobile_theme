@@ -24,51 +24,38 @@ require_once realpath( "." ) . '/acceptance/oxidAdditionalSeleniumFunctions.php'
 class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunctions
 {
 
-    protected function setUp($skipDemoData=false)
-    {
-        parent::setUp(false);
-    }
-
     /**
      * test for activating MobileTheme
      * @group mobile
      */
-    public function testActivatePayPal()
+    public function testActivateExtension()
     {
         $this->open( shopURL . "admin" );
-        $this->loginAdminForModule( "Extensions", "Themes" );
+        $this->loginAdminForModule( "Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303" );
         $this->openTab( "link=OXID eShop mobile theme" );
         $this->clickAndWait( "//input[@value='Activate']" );
         $this->selectMenu( "Extensions", "Modules" );
-        $this->openTab( "link=PayPal" );
-        $this->click( "module_activate" );
-    }
-
-    /**
-     * Login to shop.
-     */
-    protected function doLogin()
-    {
-        // Go to my account page and login to it
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
-        $this->type("id=loginUser", "admin");
-        $this->type("id=loginPwd", "admin");
-        $this->click("id=loginButton");
-        $this->waitForPageToLoad("30000");
+        $this->openTab( "link=OXID eShop theme switch" );
+        $this->clickAndWait( "module_activate" );
+        // dumping database
+        try {
+            $this->dumpDB();
+        } catch (Exception $e) {
+            $this->stopTesting("Failed dumping original db");
+        }
     }
 
     // ------------------------ Mobile  functionality ----------------------------------
+
     /**
      * testing all header elements;
      * @group mobile
      */
-    public function testHeader( $blOpenPage = true )
+    public function testHeader( $blOpenPage = true, $blCheckSearch = true )
     {
         if ( $blOpenPage ) {
             $this->openShop();
         }
-
         // Check does logo and alt  message exist in header
 
         // We do not check:that logo has a link to home page
@@ -81,17 +68,19 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Search field  and search button should be visible after clicking on it
         // We do not check: that search field is only visible after clicking on search button
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
-        $this->click("css=i.glyphicon-search");
-
-        // Search field and search button
-        $this->assertTrue($this->isElementPresent("id=searchParam"));
-        $this->assertTrue($this->isElementPresent("//div[@id='search']/form/button"));
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
+        if ( $blCheckSearch ) {
+            $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
+            $this->click("css=i.glyphicon-search");
+            // Search field and search button
+            $this->assertTrue($this->isElementPresent("id=searchParam"));
+            $this->assertTrue($this->isElementPresent("//div[@id='search']/form/button"));
+            $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
+        }
 
         // Check does minibasket element exist
         $this->assertTrue($this->isElementPresent("id=minibasketIcon"));
     }
+
     /**
      * testing all footer elements;
      * @group mobile
@@ -131,7 +120,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         if ( !$sURL ) {
             $this->openShop();
         }
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->testFooter( $sURL, true );
     }
 
@@ -187,28 +176,26 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check does category tree exist;
         $this->assertTrue($this->isElementPresent("id=cat_list"));
 
-        // Go to subcategory;
-        $this->click("css=span");
-        $this->waitForPageToLoad("30000");
+        // Go to subcategory;//form[@id='filterList']/label[1]
+        $this->clickAndWait("//div[@id='cat_list']/ul/li/a");
 
         // Check does back button exist;
-        $this->assertTrue($this->isElementPresent("css=span"));
+        $this->assertTrue($this->isElementPresent("class=back"));
 
         // Check does left button near back button exist;
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
 
         // Check does all category in category tree exist;
-        $this->assertTrue($this->isElementPresent("css=#moreSubCat_1 > span"));
-        $this->assertTrue($this->isElementPresent("css=#moreSubCat_2 > span"));
-        $this->assertTrue($this->isElementPresent("css=#moreSubCat_3 > span"));
-        $this->assertTrue($this->isElementPresent("css=#moreSubCat_4 > span"));
+        $this->assertTrue($this->isElementPresent("id=moreSubCat_1"));
+        $this->assertTrue($this->isElementPresent("id=moreSubCat_2"));
+        $this->assertTrue($this->isElementPresent("id=moreSubCat_3"));
+        $this->assertTrue($this->isElementPresent("id=moreSubCat_4"));
 
         // Go to subcategory "kites";
-        $this->click("css=#moreSubCat_1 > span");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//a[@id='moreSubCat_1']");
 
         // Check does back button exist;
-        $this->assertTrue($this->isElementPresent("css=span"));
+        $this->assertTrue($this->isElementPresent("class=back"));
 
         // Check does left button near back button exist;
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
@@ -232,7 +219,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=#productPrice_productList_1 > span"));
 
         // Check does previous price, which is crossed out exist;
-        $this->assertTrue($this->isElementPresent("//ul[@id='productList']/li/form/div[2]/p/span/del"));
+        $this->assertTrue($this->isElementPresent("//ul[@id='productList']/li/form/div[2]/div[2]/span/del"));
 
         // Check does pages and button "next" exist;
         $this->assertTrue($this->isElementPresent("css=div.pagination-container"));
@@ -273,8 +260,12 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testDetailPage()
     {
         // Go to product detail page
-        $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html" );
-
+        //$this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html" );
+        $this->open( shopURL . "en/Gear/" );
+        $this->clickAndWait( 'link=Fashion' );
+        $this->clickAndWait( 'link=For Her' );
+        $this->clickAndWait( 'link=Jeans' );
+        $this->clickAndWait( 'link=Kuyichi Jeans SUGAR' );
         //Check header and footer
         $this->testHeader( false );
         $this->testFooter( false );
@@ -301,13 +292,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=div.product-delivery-info > a"));
 
         // Check does size variant selection exist
-        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox"));
+        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_0"));
 
         // Check does color variant selection exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='variants']/li/div/div"));
+        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_1"));
 
         // Check does washing variant selection exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='variants']/li[2]/div/div"));
+        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_2"));
 
         // Check does "choose variant"message exist
         $this->assertTrue($this->isElementPresent("css=p.product-variants-message"));
@@ -319,7 +310,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=div.product-description-container > i.glyphicon-chevron-down"));
 
         // Open full description;
-        $this->click("css=i.glyphicon-chevron-down");
+        $this->click("class=product-description-container");
 
         // Check does detail about product exist
         $this->assertTrue($this->isElementPresent("css=div.product-description-container"));
@@ -387,11 +378,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/my-account" );
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false );
 
         // Go to my account page and login to it
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->click("link=My Account");
 
         // Go to billing and shipping settings
@@ -460,7 +451,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testSecondStepNotLoginUser()
     {
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Add product to the basket
         $this->click("id=toBasket");
@@ -475,7 +467,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->waitForPageToLoad("30000");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false );
 
         // Check does step line on top of the page exist
@@ -493,7 +485,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("//input[@value='Open account']"));
         $this->assertTrue($this->isElementPresent("//input[@value='Login']"));
         $this->assertTrue($this->isElementPresent("link=exact:Forgot password?"));
-        $this->assertTrue($this->isElementPresent("//input[@value='Purchase without Registration']"));
+        $this->assertTrue($this->isElementPresent("//input[@value='Without registration']"));
     }
 
     /**
@@ -503,24 +495,22 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testSecondStepLoginUser()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Add product to the basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2nd step
-        $this->click("css=#btnNextStepBottom > form.form > input.btn.nextStep");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false, true );
 
         // Check does  step line with all steps exist
@@ -562,26 +552,23 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testPurchaseWithoutRegistration()
     {
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Add product to the basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2nd step;
-        $this->click("css=#btnNextStepBottom > form.form > input.btn.nextStep");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         // Go to "purchase without registration" page;
-        $this->click("css=#optionNoRegistration > form.form > input.btn");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=#optionNoRegistration > form.form > input.btn");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false );
 
         // Check does step line exist with all steps;
@@ -662,14 +649,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
 
         // Open search field
-        $this->click("//div[@id='header']/div/div/a");
+        $this->click("css=i.glyphicon-search");
 
         // Add search keyword
         $this->type("id=searchParam", "kite");
 
         // Press search button
-        $this->click("css=button.btn.search-btn");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=button.btn.search-btn");
         $this->click("css=i.glyphicon-search");
 
         //Check header and footer
@@ -686,12 +672,12 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("//div[@id='sortItems']/div/div/span"));
 
         // Check does 1st product exist
-        $this->assertTrue($this->isElementPresent("css=p.article-list-price"));
+        $this->assertTrue($this->isElementPresent("css=div.article-list-price"));
 
         // Check does last product in the list exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='searchList']/li[10]/form/div[2]/p"));
+        $this->assertTrue($this->isElementPresent("//ul[@id='searchList']/li[10]/form/div[2]"));
 
-        // Ckeck does  page number 1 exist
+        // Check does  page number 1 exist
         $this->assertTrue($this->isElementPresent("link=1"));
 
         // Check does next page  button exist
@@ -704,41 +690,39 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testFirstStepNotLogInUser()
     {
- /*   //Commented because of bug #5227
-       // Go to product "3570" detail page
-        $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-ANNA.html" );
+        /*   //Commented because of bug #5227
+              // Go to product "3570" detail page
+               $this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-ANNA.html" );
 
-        // Choose variants
-        $this->click("css=div.dropdown-toggle");
-        $this->click("link=W 30/L 30");
-        $this->click("css=div.dropdown.open");
-        $this->click("css=div.dropdown-toggle");
-        $this->click("link=Smoke Gray");
-        $this->waitForPageToLoad("30000");
+               // Choose variants
+               $this->click("css=div.dropdown-toggle");
+               $this->click("link=W 30/L 30");
+               $this->click("css=div.dropdown.open");
+               $this->click("css=div.dropdown-toggle");
+               $this->click("link=Smoke Gray");
+               $this->waitForPageToLoad("30000");
 
-        // Add product to basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
-*/
+               // Add product to basket
+               $this->click("id=toBasket");
+               $this->waitForPageToLoad("30000");
+       */
         // Go to product "1205" detail page
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
+        $this->open( shopURL . 'en/Special-Offers/' );
+        $this->clickAndWait( 'link=Transport container BARREL' );
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Add 1205 product to cart
         $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false );
 
         // Check does  step line with all steps exist
@@ -779,13 +763,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Check does exist  input field for persParam
         $this->assertTrue($this->isElementPresent("//li[@id='cartItem_2']/div/p[2]/input"));
-/*
- *  //Commented because of bug #5227
-        // Check does exist element of attribute
-        $this->assertTrue($this->isElementPresent("css=#cartItem_3 > div.media-body > p.attributes"));
-        $this->assertTrue($this->isElementPresent("//li[@id='cartItem_3']/div/p"));
-        $this->assertTrue($this->isElementPresent("css=#cartItem_2 > div.media-body"));
-*/
+        /*
+         *  //Commented because of bug #5227
+                // Check does exist element of attribute
+                $this->assertTrue($this->isElementPresent("css=#cartItem_3 > div.media-body > p.attributes"));
+                $this->assertTrue($this->isElementPresent("//li[@id='cartItem_3']/div/p"));
+                $this->assertTrue($this->isElementPresent("css=#cartItem_2 > div.media-body"));
+        */
         // Check does exist label Update
         $this->assertTrue($this->isElementPresent("//div[@id='basketFn']/label"));
 
@@ -818,7 +802,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testFirstStepLoginUser()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         /*   //Commented because of bug #5227
          // Go to product "3570" detail page
@@ -841,20 +825,17 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Add 1205 product to cart
         $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false, true );
 
         // Check does  step line with all steps exist
@@ -897,7 +878,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("//li[@id='cartItem_2']/div/p[2]/input"));
 
         // Check does exist label element
-        $this->assertTrue($this->isElementPresent("css=label.persParamLabel"));
+        $this->assertTrue($this->isElementPresent("css=input.persParam"));
         /*
          *  //Commented because of bug #5227
                 // Check does exist element of attribute
@@ -937,9 +918,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function testWishList()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . "en/Kiteboarding/" );
+        $this->clickAndWait( 'link=Harnesses' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Click on the button "Start"
         $this->click("css=i.glyphicon-star");
@@ -978,14 +961,14 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Remove product from wish list
         $this->click("name=wishlist_remove_button");
         $this->waitForPageToLoad("30000");
-/*
- *  //Commented because of bug #5227
-        // Check does exist error message "Your Wish List is empty. "
-      //  $this->assertTrue($this->isElementPresent("css=div.alert.alert-error"));
+        /*
+         *  //Commented because of bug #5227
+                // Check does exist error message "Your Wish List is empty. "
+              //  $this->assertTrue($this->isElementPresent("css=div.alert.alert-error"));
 
-        // Check does exist error message content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
-*/
+                // Check does exist error message content
+                $this->assertTrue($this->isElementPresent("css=div.content"));
+        */
     }
 
     /**
@@ -995,9 +978,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function test4BasketStep()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . "en/Kiteboarding/" );
+        $this->clickAndWait( 'link=Harnesses' );
+        $this->clickAndWait( 'link=Harness MADTRIXX' );
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
 
@@ -1006,16 +991,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->waitForPageToLoad("30000");
 
         // Go to 2nd basket step
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Go to 3 basket step
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
-sleep(20);
+        $this->clickAndWait("//input[@value='Continue']");
+
         // Go to 4 basket step
-        $this->click("id=paymentNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Check there are 4 basket steps marked as active
         $this->assertTrue($this->isElementPresent("css=li.step4.active  > span.step-name"));
@@ -1025,12 +1007,12 @@ sleep(20);
         $this->assertTrue($this->isElementPresent("css=h3.heading.section-heading > span"));
 
         // Check does exist link "right of withdrawal"
-        $this->assertTrue($this->isElementPresent("link=right of withdrawal"));
+        $this->assertTrue($this->isElementPresent("link=Right of Withdrawal"));
         $this->assertTrue($this->isElementPresent("css=#test_OrderOpenWithdrawalBottom"));
 
         // Check does exist link to "terms and conditions" page
         $this->assertTrue($this->isElementPresent("css=a.fontunderline"));
-        $this->assertTrue($this->isElementPresent("link=terms and conditions"));
+        $this->assertTrue($this->isElementPresent("link=Terms and Conditions"));
 
         // Check does exist heading section
         $this->assertTrue($this->isElementPresent("css=form.form > h3.heading.section-heading > span"));
@@ -1079,7 +1061,7 @@ sleep(20);
         $this->assertTrue($this->isElementPresent("id=basketSummary"));
         $this->assertTrue($this->isElementPresent("id=basketTotalProductsGross"));
         $this->assertTrue($this->isElementPresent("id=basketDeliveryGross"));
-        $this->assertTrue($this->isElementPresent("id=basketPaymentNetto"));
+        $this->assertTrue($this->isElementPresent("id=basketPaymentGross"));
 
         // Check does exist all (1,2,3,4, ok) steps exist
         $this->assertTrue($this->isElementPresent("css=span.step-number"));
@@ -1090,7 +1072,7 @@ sleep(20);
         $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false);
         $this->testFooter( false, true );
     }
 
@@ -1101,9 +1083,9 @@ sleep(20);
     public function test5BasketStep()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html");
+        $this->open( shopURL . "en/Test-category-0-EN-AEssue/Test-product-1-EN-AEssue.html");
 
         // Add product to basket
         $this->click("id=toBasket");
@@ -1114,24 +1096,20 @@ sleep(20);
         $this->waitForPageToLoad("30000");
 
         // Go to 2nd basket step
-        $this->click("//div[@id='btnNextStepBottom']/form/input[4]");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Go to 03 basket step
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
-        sleep(20);
         // Go to 04 basket step
-        $this->click("id=paymentNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Click button Continue
-        $this->click("//form[@id='orderConfirmAgbBottom']/ul/li/button");
-        $this->waitForPageToLoad("30000");
+        $this->click("id=checkAgbTop");
+        $this->click("//button[@type='submit']");
 
         //Check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false, true );
 
         // Check does link back to Start page exist;
@@ -1160,7 +1138,7 @@ sleep(20);
     public function testChangePassword()
     {
         $this->open( shopURL . "en/home/");
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->click("//a[@id='linkAccountPassword']/span");
         $this->waitForPageToLoad("30000");
 
@@ -1258,7 +1236,7 @@ sleep(20);
 
         // Check element is present for text"When you click on 'Request Password', you'll be sent an e-mail with instructions how to set up a new password. "
         $this->assertTrue($this->isElementPresent("css=div.content > p"));
-        $this->type("id=forgotPasswordUserLoginName", "birute_test@nfq.lt");
+        $this->type("id=forgotPasswordUserLoginName", "birute_test_@nfq.lt");
         $this->click("css=input.btn");
         $this->waitForPageToLoad("30000");
 
@@ -1300,15 +1278,15 @@ sleep(20);
 
         $this->assertTrue($this->isElementPresent("id=loginUser"));
 
-        // Check does exist input field Login Pasword
+        // Check does exist input field Login Password
         $this->assertTrue($this->isElementPresent("id=loginPwd"));
 
         // Check does exist checkbox label name "Keep me logged-in"
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/div/form/ul/li[3]/label"));
+        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/form/ul/li[3]/label"));
 
-        // Check or checkbox elemment is pressent
+
+        // Check or checkbox element is present
         $this->assertTrue($this->isElementPresent("css=label.glyphicon-ok"));
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/div/form/ul/li[3]"));
 
         // Checking Login button is present
         $this->assertTrue($this->isElementPresent("id=loginButton"));
@@ -1316,14 +1294,13 @@ sleep(20);
         // Check does exist Open account  and Forgot password links
         $this->assertTrue($this->isElementPresent("id=openAccountLink"));
         $this->assertTrue($this->isElementPresent("id=forgotPasswordLink"));
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/div[2]"));
 
         // Click on checkbox "Keep me logged-in"
         $this->click("id=loginCookie");
+        $this->click("id=loginButton");
 
         // Check does exist message "Specify a value for this required field"
         $this->assertTrue($this->isElementPresent("css=span.js-oxError_notEmpty"));
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/div/form/ul/li[2]/p/span"));
     }
 
     /**
@@ -1333,7 +1310,7 @@ sleep(20);
     public function testMyAccount()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->click("link=My Account");
         $this->waitForPageToLoad("30000");
 
@@ -1386,7 +1363,7 @@ sleep(20);
     {
         $this->open( shopURL . "en/home/" );
 
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         // Go to My download page
         $this->click("//a[@id='linkAccountDownloads']/span");
@@ -1404,14 +1381,17 @@ sleep(20);
 
         // Check does exist My download content
         $this->assertTrue($this->isElementPresent("css=div.content"));
-        $this->open( shopURL . "en/Downloads/Online-shops-with-OXID-eShop.html" );
+        $this->open( shopURL . "en/Downloads/" );
+        $this->clickAndWait( 'link=Online shops with OXID eShop' );
 
         // Add product related with "download product" to basket
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
 
         // open second product and add to basket
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIXX.html" );
+        $this->open( shopURL . "en/Kiteboarding/" );
+        $this->clickAndWait( 'link=Harnesses' );
+        $this->clickAndWait( 'link=Harness MADTRIXX ' );
         $this->click("id=toBasket");
         $this->waitForPageToLoad("30000");
         $this->click("id=minibasketIcon");
@@ -1456,7 +1436,7 @@ sleep(20);
     public function testNewsletterSettings()
     {
         $this->open( shopURL . "en/home/" );
-        $this->doLogin();
+        $this->loginInFrontendMobile();
 
         // Going to Newsletter settings page
         $this->click("id=linkAccountNewsletter");
@@ -1515,7 +1495,7 @@ sleep(20);
         $this->testHeader( false );
         $this->testFooter( false );
 
-        $this->doLogin();
+        $this->loginInFrontendMobile();
         $this->open( shopURL . "en/order-history/" );
 
         // Check does exist "ORDER HISTORY " header.
@@ -1722,4 +1702,435 @@ sleep(20);
         $this->click("link=Privacy Policy");
         $this->waitForPageToLoad("30000");
     }
+    /**
+     * login customer by using login fly out form.
+     *
+     * @param string $userName user name (email).
+     * @param string $userPass user password.
+     * @param boolean $waitForLogin if needed to wait until user get logged in.
+     */
+    public function loginInFrontendMobile($userName = "birute_test@nfq.lt", $userPass = "useruser", $waitForLogin = true)
+    {
+        $this->selectWindow(null);
+        $this->clickAndWait("//a[text()='Login']");
+        $this->type("//input[@id='loginUser']", $userName);
+        $this->type("//input[@id='loginPwd']", $userPass);
+        if ($waitForLogin) {
+            $this->clickAndWait("//form[@name='login']//input[@type='submit']", "//a[text()='Logout']");
+        } else {
+            $this->clickAndWait("//form[@name='login']//input[@type='submit']");
+        }
+    }
+    /**
+     * PersParam functionality in frontend
+     * PersParam functionality in admin
+     * testing option 'Product can be customized' from Administer products -> Extend tab
+     * @group navigation
+     * @group order
+     * @group basketfrontend
+     */
+    public function testFrontendPersParamSaveBasketMobile()
+    {
+        // Active option (Product can be customized) for product with ID 1000
+        $aArticleParams = array("oxisconfigurable" => 1);
+        $this->callShopSC("oxArticle", "save", "1000", $aArticleParams, 1);
+
+        // Active config option (Don't save Shopping Carts of registered Users)
+        $this->callShopSC("oxConfig", "saveShopConfVar", null, array("blPerfNoBasketSaving" => array("type" => "bool", "value" => '')));
+
+        // Go to shop and add to basket products with ID 1000 and 1001
+        $this->openShop();
+        $this->loginInFrontendMobile("birute_test@nfq.lt", "useruser");
+        $this->searchFor("1001");
+        $this->clickAndWait("id=selectlistsselector_searchList_1");
+        $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßüл");
+        $this->clickAndWait("toBasket");
+        $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßüл +2%");
+        $this->clickAndWait("toBasket");
+        $this->searchFor("1000");
+        $this->clickAndWait("id=productPrice_searchList_1");
+        $this->assertTrue($this->isElementPresent("persparam[details]"),"persparam field should be visible");
+        $this->clickAndWait("toBasket");
+        $this->type("persparam[details]", "test label šÄßüл");
+        $this->clickAndWait("toBasket");
+
+        // Go to basket:check basket info; update product PersParam info and quantity;
+        $this->openBasket();
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("selvar2 [EN] šÄßüл", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
+        $this->selectVariantMobile("cartItemSelections_1", 3, "selvar3 [EN] šÄßüл -2,00 €");
+        $this->type("am_3", "2");
+        $this->type("//li[@id='cartItem_4']/div/p[2]/input", "test label šÄßüл 1");
+        $this->clickAndWait("basketUpdate");
+
+        // Check basket info after update
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
+        $this->assertEquals("2", $this->getValue("am_3"));
+        $this->assertEquals("test label šÄßüл 1", $this->getValue("//li[@id='cartItem_4']/div/p[2]/input"));
+        $this->assertEquals("1", $this->getValue("am_4"));
+
+        // Checking if modified basket was saved
+        $this->openShop();
+        $this->assertFalse($this->isElementPresent("//div[@id='miniBasket']/span"));
+        $this->loginInFrontendMobile("birute_test@nfq.lt", "useruser");
+        $this->assertEquals("5 Basket", $this->getText("id=miniBasket"));
+
+        // Open basket and modify it once again
+        $this->openBasket();
+        $this->type("am_2", "2");
+        $this->clickAndWait("basketUpdate");
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("", $this->getValue("//li[@id='cartItem_1']/div/p[2]/input"));
+        $this->assertEquals("2", $this->getValue("am_1"));
+        $this->assertEquals("test label šÄßüл 1", $this->getValue("//li[@id='cartItem_2']/div/p[2]/input"));
+        $this->assertEquals("1", $this->getValue("am_4"));
+        $this->assertFalse($this->isElementPresent("cartItem_5"));
+
+        // Submitting order
+        $this->clickAndWait("//input[@value='Continue']");
+        $this->clickAndWait("//input[@value='Continue']");
+        $this->clickAndWait("//input[@value='Continue']");
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertFalse($this->isElementPresent("cartItem_5"));
+        $this->assertEquals("Label: test label šÄßüл 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
+        $this->assertEquals("Grand Total: 379,40 €", $this->getText("basketGrandTotal"),"Grand total price changed or did't displayed");
+        $this->check("//form[@id='orderConfirmAgbTop']//input[@name='ord_agb' and @value='1']");
+        $this->clickAndWait("//form[@id='orderConfirmAgbTop']//button");
+
+        //checking in Admin
+        $this->loginAdmin("Administer Orders", "Orders");
+        $this->openTab("link=12", "save");
+        $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
+        $this->assertEquals("2 *", $this->getText("//table[2]/tbody/tr/td[1]"));
+        $this->assertEquals("Test product 0 [EN]", $this->getText("//td[3]"));
+        $this->assertEquals("90,00 EUR", $this->getText("//td[5]"));
+        $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
+        $this->frame("list");
+        $this->openTab("link=Products", "//input[@value='Update']");
+        $this->assertEquals("2", $this->getValue("//tr[@id='art.2']/td[1]/input"));
+        $this->assertEquals("Label: test label šÄßüл 1", $this->getText("//tr[@id='art.2']/td[5]"));
+        $this->assertEquals("45,00 EUR", $this->getText("//tr[@id='art.2']/td[7]"));
+        $this->assertEquals("90,00 EUR", $this->getText("//tr[@id='art.2']/td[8]"));
+
+        //Disabling option (Product can be customized) where product ID is `OXID` = '1000
+        $aArticleParams = array("oxisconfigurable" => 0);
+        $this->callShopSC("oxArticle", "save", "1000", $aArticleParams, 1);
+
+        //Check if persparam field is not available in shop after it was disabled
+        $this->openShop();
+        $this->searchFor("1000");
+        $this->clickAndWait("//ul[@id='searchList']/li//a");
+        $this->assertFalse($this->isElementPresent("persparam[details]"),"persparam field should not be visible");
+    }
+    /**
+     * simple user account opening
+     * @group user
+     * @group registration
+     */
+    public function testStandardUserRegistrationMobile()
+    {
+        //creating user
+        $this->openShop();
+        $this->clickAndWait("link=My Account");
+        $this->clickAndWait("id=openAccountLink");
+        $this->assertEquals("Open account", $this->getText("id=openAccHeader"));
+        $this->type("userLoginName", "birute01@nfq.lt");
+        $this->type("userPassword", "user11");
+        $this->type("userPasswordConfirm", "user11");
+        $this->type("invadr[oxuser__oxfname]", "user1 name_šÄßüл");
+        $this->type("invadr[oxuser__oxlname]", "user1 last name_šÄßüл");
+        $this->type("invadr[oxuser__oxcompany]", "user1 company_šÄßüл");
+        $this->type("invadr[oxuser__oxstreet]", "user1 street_šÄßüл");
+        $this->type("invadr[oxuser__oxstreetnr]", "1");
+        $this->type("invadr[oxuser__oxzip]", "11");
+        $this->type("invadr[oxuser__oxcity]", "user1 city_šÄßüл");
+        $this->type("invadr[oxuser__oxustid]", "");
+        $this->type("invadr[oxuser__oxaddinfo]", "user1 additional info_šÄßüл");
+        $this->assertFalse($this->isVisible("id=stateSelected"));
+        $this->click("//a[@id='invCountryLabel']/i");
+        $this->waitForItemAppear("//a[contains(text(),'Germany')]");
+        $this->click("link=Germany");
+        $this->click("//a[@id='dLabel_oxSelect_invCountry']/i");
+        $this->waitForItemAppear("//a[contains(text(),'Berlin')]");
+        $this->click("link=Berlin");
+        $this->type("invadr[oxuser__oxfon]", "111-111");
+        $this->type("invadr[oxuser__oxfax]", "111-111-111");
+        $this->type("invadr[oxuser__oxmobfon]", "111-111111");
+        $this->type("invadr[oxuser__oxprivfon]", "111111111");
+        $this->click("xpath=(//button[@type='button'])[2]");
+        $this->click("xpath=(//button[@type='button'])[4]");
+        $this->click("xpath=(//button[@type='button'])[6]");
+        $this->clickAndWait("accUserSaveTop");
+        $this->assertTrue($this->isTextPresent("We welcome you as registered user!"));
+        $this->loginAdmin("Administer Users", "Users");
+        $this->type("where[oxuser][oxlname]", "user1");
+        $this->clickAndWait("submitit");
+        $this->assertEquals("user1 last name_šÄßüл user1 name_šÄßüл", $this->getText("//tr[@id='row.1']/td[1]"));
+        $this->openTab("link=user1 last name_šÄßüл user1 name_šÄßüл");
+        $this->assertEquals("on", $this->getValue("editval[oxuser__oxactive]"));
+        $this->assertEquals("birute01@nfq.lt", $this->getValue("editval[oxuser__oxusername]"));
+        $this->assertEquals("user1 name_šÄßüл", $this->getValue("editval[oxuser__oxfname]"));
+        $this->assertEquals("user1 last name_šÄßüл", $this->getValue("editval[oxuser__oxlname]"));
+        $this->assertEquals("user1 company_šÄßüл", $this->getValue("editval[oxuser__oxcompany]"));
+        $this->assertEquals("user1 street_šÄßüл", $this->getValue("editval[oxuser__oxstreet]"));
+        $this->assertEquals("1", $this->getValue("editval[oxuser__oxstreetnr]"));
+        $this->assertEquals("11", $this->getValue("editval[oxuser__oxzip]"));
+        $this->assertEquals("user1 city_šÄßüл", $this->getValue("editval[oxuser__oxcity]"));
+        $this->assertEquals("", $this->getValue("editval[oxuser__oxustid]"));
+        $this->assertEquals("user1 additional info_šÄßüл", $this->getValue("editval[oxuser__oxaddinfo]"));
+        $this->assertEquals("Germany", $this->getSelectedLabel("editval[oxuser__oxcountryid]"));
+        $this->assertEquals("BE", $this->getValue("editval[oxuser__oxstateid]"));
+        $this->assertEquals("111-111", $this->getValue("editval[oxuser__oxfon]"));
+        $this->assertEquals("111-111-111", $this->getValue("editval[oxuser__oxfax]"));
+        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][day]")> 0);
+        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][month]")> 0);
+        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][year]") > 0);
+        $this->assertTrue($this->isTextPresent("Yes"));
+        $this->frame("list");
+        $this->openTab("link=Extended");
+        $this->assertEquals("111111111", $this->getValue("editval[oxuser__oxprivfon]"));
+        $this->assertEquals("111-111111", $this->getValue("editval[oxuser__oxmobfon]"));
+    }
+    /**
+     * Administer Products -> Products (variants should inherit parents selection lists)
+     * @group admin
+     * @group adminFunctionality
+     */
+    public function testVariantsInheritsSelectionListsMobile()
+    {
+        /* if ( OXID_VERSION_EE ) : */
+        if (isSUBSHOP) {
+            $this->executeSql( "UPDATE `oxarticles` SET `OXSHOPID` = ".oxSHOPID.", `OXSHOPINCL` = ".oxSHOPID." WHERE 1" );
+            $this->executeSql( "UPDATE `oxselectlist` SET `OXSHOPID` = ".oxSHOPID.", `OXSHOPINCL` = ".oxSHOPID."  WHERE 1" );
+        }
+        /* endif; */
+        //assigning selection list to parent product
+        $this->loginAdmin("Administer Products", "Products");
+        $this->selectAndWaitFrame("changelang", "label=Deutsch", "edit");
+        $this->type("where[oxarticles][oxartnum]", "1002");
+        $this->clickAndWait("submitit", "link=1002");
+        $this->openTab("link=1002", "editval[oxarticles__oxtitle]");
+        $this->assertEquals("[DE 2] Test product 2 šÄßüл", $this->getValue("editval[oxarticles__oxtitle]"));
+        $this->Frame("list");
+        $this->openTab("link=Selection");
+        $this->click("//input[@value='Assign Selection Lists']");
+        $this->usePopUp();
+        $this->type("_0", "*test");
+        $this->keyUp("_0", "t");
+        $this->waitForAjax("test selection list [DE] šÄßüл", "//div[@id='container1_c']/table/tbody[2]/tr[1]/td[1]");
+        $this->dragAndDrop("//div[@id='container1_c']/table/tbody[2]/tr[1]/td[1]", "container2");
+        $this->waitForAjax("test selection list [DE] šÄßüл", "//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]");
+        $this->close();
+        $this->selectWindow(null);
+        $this->windowMaximize(null);
+        $this->frame("list");
+        $this->openTab("link=Main");
+
+        //checking if selection list is assigned to variant also
+        $this->selectAndWaitFrame( "art_variants", "label=- var1 [DE]", "list");
+        $this->assertEquals("1002-1", $this->getValue("editval[oxarticles__oxartnum]"));
+        $this->Frame("list");
+        $this->openTab("link=Selection");
+        $this->click("//input[@value='Assign Selection Lists']");
+        $this->usePopUp();
+        $this->assertEquals("test selection list [DE] šÄßüл", $this->getText("//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]"));
+        $this->close();
+
+        //checking if in frontend it is displayed correctly
+        $this->openShop();
+        $this->searchFor("1002");
+        $this->clickAndWait("id=productPrice_searchList_1");
+        $this->assertEquals("selvar1 [EN] šÄßüл +1,00 € selvar2 [EN] šÄßüл selvar3 [EN] šÄßüл -2,00 € selvar4 [EN] šÄßüл +2%", $this->clearString($this->getText("//div[@id='productSelections']//ul")));
+        $this->assertEquals("Test product 2 [EN] šÄßüл", $this->getText("//div[@id='detailsMain']/div/div[2]/div"));
+
+        $this->selectMultiMobile("variants", 1, 1);
+        $this->selectMultiMobile("variants", 1, 3);
+        $this->clickAndWait("toBasket");
+        $this->selectMultiMobile("variants", 1, 2);
+
+        $this->clickAndWait("toBasket");
+        $this->openBasket();
+        $this->assertEquals("Test product 2 [EN] šÄßüл, var2 [EN] šÄßüл", $this->clearString($this->getText("//li[@id='cartItem_1']/div/h4/a")));
+
+    }
+    /**
+     * Checking Multidimensional variants functionality
+     * @group navigation
+     * @group product
+     */
+    public function testFrontendMultidimensionalVariantsOnDetailsPageMobile()
+    {
+        //multidimensional variants on
+        //active product WHERE `OXID`='10014'
+        $aArticleParams = array("oxactive" => 1);
+        $this->callShopSC("oxArticle", "save", "10014", $aArticleParams, 1);
+        $this->openShop();
+        $this->searchFor("10014");
+
+        $this->clickAndWait("link=14 EN product šÄßüл");
+        $this->assertEquals("13 EN description šÄßüл", $this->getText("//div[@id='detailsMain']/div/div[2]/div[2]"));
+        $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertFalse($this->isEditable("toBasket"));
+
+        $this->assertEquals("size[EN] Choose variant", $this->getText("//a[@id='dLabelSelectBox_varselid_0']/span"));
+        $this->assertEquals("S M L", $this->getText("//ul[@id='variants']/li/div//ul"));
+        $this->assertEquals("color Choose variant", $this->getText("//ul[@id='variants']/li[2]/div/div"));
+        $this->assertEquals("black white red", $this->getText("//ul[@id='variants']/li[2]/div/ul"));
+        $this->assertEquals("type Choose variant", $this->getText("//ul[@id='variants']/li[3]/div/div"));
+        $this->assertEquals("lether material", $this->getText("//ul[@id='variants']/li[3]/div/ul/"));
+        $this->selectMultiMobile("variants", 1, 1);
+        $this->assertFalse($this->isEditable("toBasket"));
+        $this->selectMultiMobile("variants", 2, 1);
+        $this->assertFalse($this->isEditable("toBasket"));
+        $this->selectMultiMobile("variants", 3, 1);
+        $this->assertEquals("25,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertTrue($this->isEditable("toBasket"));
+        //Select  white
+        $this->selectMultiMobile("variants", 2, 3);
+
+        //Select S
+        $this->selectMultiMobile("variants", 1, 2);
+        $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertFalse($this->isEditable("toBasket"));
+
+        // selects black
+        $this->selectMultiMobile("variants", 2, 2);
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        // selects material
+        $this->selectMultiMobile("variants", 3, 3);
+        $this->assertTrue($this->isEditable("toBasket"));
+        $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+
+        //Selected combination: S, black, leather
+        $this->selectMultiMobile("variants", 3, 3);
+        $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        //Selected combination: M
+        $this->selectMultiMobile("variants", 1, 2);
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        //Selected combination: M, red
+        $this->selectMultiMobile("variants", 2, 4);
+        $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        //Selected combination: S, red"
+        $this->selectMultiMobile("variants", 1, 2);
+        $this->assertFalse($this->isEditable("toBasket"));
+
+        //Selected combination: S, black
+        $this->selectMultiMobile("variants", 2, 2);
+        $this->assertTrue($this->isEditable("toBasket"));
+
+        //Selected combination: S, black, leather"
+        $this->selectMultiMobile("variants", 3, 2);
+        $this->assertEquals("25,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertTrue($this->isEditable("toBasket"));
+        $this->type("amountToBasket", "2");
+        $this->clickAndWait("toBasket");
+
+        //Go to basket
+        $this->openBasket();
+        $this->assertEquals("14 EN product šÄßüл, S | black | lether", $this->clearString($this->getText("//li[@id='cartItem_1']/div/h4/a")));
+        $this->assertEquals("2", $this->getValue("am_1"));
+        $this->assertFalse($this->isElementPresent("cartItem_2"));
+        $this->assertEquals("50,00 €", $this->getText("//tr[@id='basketGrandTotal']/td/strong"));
+    }
+    /**
+     * Checking search and sorting in frontend
+     * @group navigation
+     * @group product
+     */
+    public function testSearchAndSortingMobile()
+    {
+
+        $this->openShop();
+
+        $this->searchFor("100");
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+       //soring by title
+        $this->click("css=i.glyphicon-chevron-down");
+        $this->click("css=i.glyphicon-arrow-down");
+        $this->waitForPageToLoad("30000");
+
+        $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+
+        $this->click("css=i.glyphicon-chevron-down");
+        $this->click("css=i.glyphicon-arrow-up");
+        $this->waitForPageToLoad("30000");
+
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+
+        $this->click("css=i.glyphicon-chevron-down");
+        $this->click("//div[@id='sortItems']/div/ul/li[2]/span[2]/a/i");
+        $this->waitForPageToLoad("30000");
+
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+
+        $this->click("css=i.glyphicon-chevron-down");
+        $this->click("//div[@id='sortItems']/div/ul/li[2]/span[2]/a[2]/i");
+        $this->waitForPageToLoad("30000");
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+}
+    /**
+     * selects specified value from dropdown (for multidimensional variants).
+     *
+     * @param string $elementId  container id.
+     * @param int    $elementNr  select list number (e.g. 1, 2).
+     */
+    public function selectVariantMobile($elementId, $elementNr)
+    {
+        $this->assertTrue($this->isElementPresent($elementId));
+        $this->assertFalse($this->isVisible("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]"));
+        $this->click("//div[@id='".$elementId."']/div/div");
+        $this->waitForItemAppear("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
+        $this->click("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
+    }
+
+
+    /**
+     * selects specified value from dropdown (for multidimensional variants).
+     *
+     * @param string $elementId  container id.
+     * @param int    $elementRow  select list number (e.g. 1, 2).
+     * * @param int    $elementNr  select list number (e.g. 1, 2).
+     */
+    public function selectMultiMobile($elementId, $elementRow, $elementNr)
+    {
+        $this->assertTrue($this->isElementPresent($elementId));
+        $this->assertFalse($this->isVisible("//ul[@id='".$elementId."']/li[".$elementRow."]/div/ul/li[".$elementNr."]"));
+        $this->click("//ul[@id='".$elementId."']/li[".$elementRow."]/div/div");
+        $this->waitForItemAppear("//ul[@id='".$elementId."']/li[".$elementRow."]/div//ul/li[".$elementNr."]");
+        $this->click("//ul[@id='".$elementId."']/li[".$elementRow."]/div/ul/li[".$elementNr."]/a");
+        $this->waitForItemDisappear("//ul[@id='".$elementId."']/li[".$elementRow."]/div//ul/li[".$elementNr."]");
+    }
+    /**
+     * opens basket.
+     */
+    public function openBasket( $language = "English" )
+    {
+        $this->click("id=minibasketIcon");
+        $this->waitForItemAppear("id=basketGrandTotal");
+    }
+
 }
