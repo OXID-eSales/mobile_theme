@@ -125,7 +125,7 @@
                 </p>
             [{/if}]
         </li>
-        <li class="stateBox">
+        <li class="stateBox hide">
             [{include file="form/fieldset/state.tpl"
             countryDropDown="invCountry"
             countrySelected="invCountrySelected"

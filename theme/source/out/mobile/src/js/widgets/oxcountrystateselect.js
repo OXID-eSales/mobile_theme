@@ -63,9 +63,9 @@
 
             if (aStates != null && aStates.length > 0) {
                 this.addSelectOptions(aStatesValues, aStates, sSelectedStateId);
-                this.getStateDropDown().parent().show();
+                this.getStateDropDown().parent().removeClass('hide');
             } else {
-                this.getStateDropDown().parent().hide();
+                this.getStateDropDown().parent().addClass('hide');
             }
         },
 
