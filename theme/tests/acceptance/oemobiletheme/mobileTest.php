@@ -1411,6 +1411,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Go to 4 basket step
         $this->click("id=paymentNextStepBottom");
         $this->waitForPageToLoad("30000");
+        $this->click( "id=checkAgbTop" );
         $this->click("css=li > button.btn");
         $this->waitForPageToLoad("30000");
         $this->click("link=My Account");
