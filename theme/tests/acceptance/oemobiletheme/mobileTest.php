@@ -1701,7 +1701,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->openShop();
         $this->loginInFrontendMobile();
         $this->searchFor("1001");
-        $this->clickAndWait("id=selectlistsselector_searchList_1");
+        $this->clickAndWait("link=Test product 1 [EN] šÄßüл");
         $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßüл");
         $this->clickAndWait("toBasket");
         $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßüл +2%");
