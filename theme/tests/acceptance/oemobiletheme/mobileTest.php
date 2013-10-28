@@ -30,7 +30,6 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testActivateExtension()
     {
-        $this->skipDbRestore = true;
         $this->open( shopURL . "admin" );
         $this->loginAdminForModule( "Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303" );
         $this->openTab( "link=OXID eShop mobile theme" );
@@ -47,6 +46,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     }
 
     // ------------------------ Mobile  functionality ----------------------------------
+
     /**
      * testing all header elements;
      * @group mobile
@@ -56,7 +56,6 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         if ( $blOpenPage ) {
             $this->openShop();
         }
-        $this->skipDbRestore = true;
         // Check does logo and alt  message exist in header
 
         // We do not check:that logo has a link to home page
@@ -81,6 +80,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check does minibasket element exist
         $this->assertTrue($this->isElementPresent("id=minibasketIcon"));
     }
+
     /**
      * testing all footer elements;
      * @group mobile
