@@ -997,7 +997,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->clickAndWait("//input[@value='Continue']");
 
         // Go to 3 basket step
-        $this->clickAndWait("//input[@value='Continue']");
+        $this->clickAndWait("//input[@id='userNextStepTop']");
 
         // Go to 4 basket step
         $this->clickAndWait("//input[@value='Continue']");
@@ -1790,7 +1790,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Submitting order
         $this->clickAndWait("//input[@value='Continue']");
-        $this->clickAndWait("//input[@value='Continue']");
+        $this->clickAndWait("//input[@id='userNextStepTop']");
         $this->clickAndWait("//input[@value='Continue']");
         $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
         $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
