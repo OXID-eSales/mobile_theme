@@ -1806,8 +1806,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->clickAndWait("link=My Account");
         $this->clickAndWait("id=openAccountLink");
         $this->assertEquals("Open account", $this->getText("id=openAccHeader"));
-        $this->type("userLoginName", "birute01@nfq.lt");
-        $this->type("userPassword", "user11");
+        $this->type("userLoginName", self::TEST_USER_NAME);
+        $this->type("userPassword", self::TEST_USER_PASSWORD);
         $this->type("userPasswordConfirm", "user11");
         $this->type("invadr[oxuser__oxfname]", "user1 name_šÄßüл");
         $this->type("invadr[oxuser__oxlname]", "user1 last name_šÄßüл");
