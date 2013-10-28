@@ -24,6 +24,9 @@ require_once realpath( "." ) . '/acceptance/oxidAdditionalSeleniumFunctions.php'
 class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunctions
 {
 
+    const TEST_USER_NAME = 'birute_test@nfq.lt';
+    const TEST_USER_PASSWORD = 'useruser';
+
     /**
      * test for activating MobileTheme
      * @group mobile
@@ -1539,41 +1542,34 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
 
         // Add product to basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
         $this->type("id=am_1", "2");
-        $this->click("id=basketUpdate");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=basketUpdate");
 
         // Go to 2nd basket step
-        $this->click("//div[@id='btnNextStepBottom']/form/input[4]");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//div[@id='btnNextStepBottom']/form/input[4]");
 
         // Login to shop
-        $this->type("name=lgn_usr", "admin");
-        $this->type("name=lgn_pwd", "admin");
+        $this->type("name=lgn_usr", self::TEST_USER_NAME);
+        $this->type("name=lgn_pwd", self::TEST_USER_PASSWORD);
 
         // Click login button
-        $this->click("css=input.btn");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=input.btn");
 
         // Go to 03 basket step
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=userNextStepBottom");
 
         //check header and footer
-        $this->testHeader( false );
+        $this->testHeader( false, false );
         $this->testFooter( false, true );
 
         // Check does exist "Standard" dropdown
         $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
         $this->click("css=div.dropdown-toggle");
-        $this->click("link=Example Set1: UPS 48 hours");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("link=Example Set1: UPS 48 hours");
 
         // Check does exist Shipping cost
         $this->assertTrue($this->isElementPresent("//div[@id='shipSetCost']"));
@@ -1589,7 +1585,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=div.note"));
 
         // Check does exist label"Account Holder:"
-        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[3]/label"));
+        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[3]/input[@placeholder='Account Holder:']"));
 
         // Check does exist "Account Holder"input name
         $this->assertTrue($this->isElementPresent("css=input[name=\"dynvalue[kkname]\"]"));
@@ -1623,8 +1619,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->click("css=div.dropdown-toggle");
 
         // Choose shipping method "Standart"
-        $this->click("css=li.dropdown-option.selected > a");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=li.dropdown-option.selected > a");
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-down"));
 
         // Check does exist button "CONTINUE"
@@ -1635,8 +1630,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Choose payment method Invoice
         $this->click("id=shippingSelected");
-        $this->click("link=Standard");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("link=Standard");
         $this->click("//div[2]/form/div[2]/div/a/i");
         $this->click("link=Invoice");
         $this->click("//div[@id='paymentMethods']/div");
@@ -1709,7 +1703,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      * @param string $userPass user password.
      * @param boolean $waitForLogin if needed to wait until user get logged in.
      */
-    public function loginInFrontendMobile($userName = "birute_test@nfq.lt", $userPass = "useruser", $waitForLogin = true)
+    public function loginInFrontendMobile($userName = self::TEST_USER_NAME, $userPass = self::TEST_USER_PASSWORD, $waitForLogin = true)
     {
         $this->selectWindow(null);
         $this->clickAndWait("//a[text()='Login']");
@@ -1740,7 +1734,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Go to shop and add to basket products with ID 1000 and 1001
         $this->openShop();
-        $this->loginInFrontendMobile("birute_test@nfq.lt", "useruser");
+        $this->loginInFrontendMobile();
         $this->searchFor("1001");
         $this->clickAndWait("id=selectlistsselector_searchList_1");
         $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßüл");
@@ -1779,7 +1773,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Checking if modified basket was saved
         $this->openShop();
         $this->assertFalse($this->isElementPresent("//div[@id='miniBasket']/span"));
-        $this->loginInFrontendMobile("birute_test@nfq.lt", "useruser");
+        $this->loginInFrontendMobile();
         $this->assertEquals("5 Basket", $this->getText("id=miniBasket"));
 
         // Open basket and modify it once again
