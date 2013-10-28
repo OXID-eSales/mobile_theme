@@ -389,8 +389,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->click("link=My Account");
 
         // Go to billing and shipping settings
-        $this->click("css=#linkAccountBillship > span");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=#linkAccountBillship > span");
 
         // Check does  "billing and shipping settings" label exist
         $this->assertTrue($this->isElementPresent("id=addressSettingsHeader"));
@@ -458,16 +457,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->clickAndWait( 'link=Harness MADTRIXX' );
 
         // Add product to the basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2nd step
-        $this->click("css=#btnNextStepBottom > form.form > input.btn.nextStep");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         //Check header and footer
         $this->testHeader( false, false );
@@ -941,12 +937,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("//div[@id='detailsMain']/div/div/span"));
 
         // Go to My account page
-        $this->click("link=My Account");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("link=My Account");
 
         // Go to " My wish list" page
-        $this->click("//div[@id='cat_list']/ul/li[6]/a/span");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//div[@id='cat_list']/ul/li[6]/a/span");
 
         //Check header and footer
         $this->testHeader( false );
@@ -962,8 +956,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("//ul[@id='noticelistProductList']/li/form/div[2]"));
 
         // Remove product from wish list
-        $this->click("name=wishlist_remove_button");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("name=wishlist_remove_button");
         /*
          *  //Commented because of bug #5227
                 // Check does exist error message "Your Wish List is empty. "
@@ -986,12 +979,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/Kiteboarding/" );
         $this->clickAndWait( 'link=Harnesses' );
         $this->clickAndWait( 'link=Harness MADTRIXX' );
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2nd basket step
         $this->clickAndWait("//input[@value='Continue']");
@@ -1091,12 +1082,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/Test-category-0-EN-AEssue/Test-product-1-EN-AEssue.html");
 
         // Add product to basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2nd basket step
         $this->clickAndWait("//input[@value='Continue']");
@@ -1142,8 +1131,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     {
         $this->open( shopURL . "en/home/");
         $this->loginInFrontendMobile();
-        $this->click("//a[@id='linkAccountPassword']/span");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//a[@id='linkAccountPassword']/span");
 
         //Check header and footer
         $this->testHeader( false );
@@ -1212,12 +1200,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
 
         // Open Login page
-        $this->click("link=Login");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("link=Login");
 
         // Click on Forgot password link
-        $this->click("//a[@id='forgotPasswordLink']");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//a[@id='forgotPasswordLink']");
 
         // Check does exist title"FORGOT PASSWORD"
         $this->assertTrue($this->isElementPresent("css=h1.page-head"));
@@ -1240,8 +1226,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check element is present for text"When you click on 'Request Password', you'll be sent an e-mail with instructions how to set up a new password. "
         $this->assertTrue($this->isElementPresent("css=div.content > p"));
         $this->type("id=forgotPasswordUserLoginName", "birute_test_@nfq.lt");
-        $this->click("css=input.btn");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=input.btn");
 
         // Check does exist error message "  The e-mail address you have entered is invalid. Please enter a valid e-mail address."
         $this->assertTrue($this->isElementPresent("//div[@id='page']/div/div/p"));
@@ -1252,8 +1237,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=span.js-oxError_email"));
         $this->type("id=forgotPasswordUserLoginName", "info@oxid-esales.com");
         $this->click("css=ul.form.clear");
-        $this->click("css=input.btn");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=input.btn");
     }
 
     /**
@@ -1265,8 +1249,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
 
         // Going to Login page by clicking Login link
-        $this->click("//a[contains(text(),'Login')]");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//a[contains(text(),'Login')]");
 
         // Check does exist Login title in the login page
         $this->assertTrue($this->isElementPresent("css=h1.page-head"));
@@ -1314,8 +1297,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     {
         $this->open( shopURL . "en/home/" );
         $this->loginInFrontendMobile();
-        $this->click("link=My Account");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("link=My Account");
 
         // Check there are page active
         $this->assertTrue($this->isElementPresent("css=li.active > a"));
@@ -1369,8 +1351,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->loginInFrontendMobile();
 
         // Go to My download page
-        $this->click("//a[@id='linkAccountDownloads']/span");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//a[@id='linkAccountDownloads']/span");
 
         //check header and footer.
         $this->testHeader( false );
@@ -1388,38 +1369,29 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->clickAndWait( 'link=Online shops with OXID eShop' );
 
         // Add product related with "download product" to basket
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
 
         // open second product and add to basket
         $this->open( shopURL . "en/Kiteboarding/" );
         $this->clickAndWait( 'link=Harnesses' );
         $this->clickAndWait( 'link=Harness MADTRIXX ' );
-        $this->click("id=toBasket");
-        $this->waitForPageToLoad("30000");
-        $this->click("id=minibasketIcon");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=toBasket");
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2 basket step
-        $this->click("css=input.btn.nextStep");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=input.btn.nextStep");
 
         // Go to 3 basket step
-        $this->click("id=userNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=userNextStepBottom");
 
         // Go to 4 basket step
-        $this->click("id=paymentNextStepBottom");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=paymentNextStepBottom");
         $this->click( "id=checkAgbTop" );
-        $this->click("css=li > button.btn");
-        $this->waitForPageToLoad("30000");
-        $this->click("link=My Account");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=li > button.btn");
+        $this->clickAndWait("link=My Account");
 
         // Open My downloads page
-        $this->click("//a[@id='linkAccountDownloads']/span");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//a[@id='linkAccountDownloads']/span");
 
         // Check does exist My download content
         $this->assertTrue($this->isElementPresent("css=div.content"));
@@ -1443,8 +1415,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->loginInFrontendMobile();
 
         // Going to Newsletter settings page
-        $this->click("id=linkAccountNewsletter");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=linkAccountNewsletter");
 
         //check header and footer.
         $this->testHeader( false );
@@ -1466,16 +1437,14 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->click("link=Yes");
         $this->click("css=div.dropdown-toggle");
         $this->click("link=No");
-        $this->click("id=newsletterSettingsSave");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=newsletterSettingsSave");
 
         // Check success message  "The Newsletter subscription has been canceled successful"
         $this->assertTrue($this->isElementPresent("css=div.alert.alert-success"));
 
         // Checking button "SAVE"
         $this->assertTrue($this->isElementPresent("id=newsletterSettingsSave"));
-        $this->click("id=newsletterSettingsSave");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=newsletterSettingsSave");
 
         $sNewsletterCancelText = $this->getText("//form[@name='newsletter']//ul/li[3]/p");
         $this->assertTrue("It's possible to cancel newsletter at any time." == $sNewsletterCancelText);
@@ -1483,8 +1452,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check does exist message "You have just been sent a confirmation e-mail, with which you can activate your subscription."
         $this->click("css=div.dropdown-toggle");
         $this->click("link=Yes");
-        $this->click("id=newsletterSettingsSave");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("id=newsletterSettingsSave");
     }
 
     /**
@@ -1666,9 +1634,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
 
         // Click on CMS page "About us"
-        $this->click("//a[contains(text(),'About Us')]");
-
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//a[contains(text(),'About Us')]");
 
         //check header and footer
         $this->testHeader( false );
@@ -1684,8 +1650,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=p"));
 
         // Go to second cms page "TERM AND CONDITIONS"
-        $this->click("link=Terms and Conditions");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("link=Terms and Conditions");
 
         // Check does exist header name Term and conditions
         $this->assertTrue($this->isElementPresent("css=h1.page-head"));
@@ -1694,8 +1659,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=div.content"));
 
         // check or works cms page "privacy policy" link
-        $this->click("link=Privacy Policy");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("link=Privacy Policy");
     }
     /**
      * login customer by using login fly out form.
@@ -2061,29 +2025,25 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
        //soring by title
         $this->click("css=i.glyphicon-chevron-down");
-        $this->click("css=i.glyphicon-arrow-down");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=i.glyphicon-arrow-down");
 
         $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 
         $this->click("css=i.glyphicon-chevron-down");
-        $this->click("css=i.glyphicon-arrow-up");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("css=i.glyphicon-arrow-up");
 
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
         $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 
         $this->click("css=i.glyphicon-chevron-down");
-        $this->click("//div[@id='sortItems']/div/ul/li[2]/span[2]/a/i");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//div[@id='sortItems']/div/ul/li[2]/span[2]/a/i");
 
         $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 
         $this->click("css=i.glyphicon-chevron-down");
-        $this->click("//div[@id='sortItems']/div/ul/li[2]/span[2]/a[2]/i");
-        $this->waitForPageToLoad("30000");
+        $this->clickAndWait("//div[@id='sortItems']/div/ul/li[2]/span[2]/a[2]/i");
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
         $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 }
