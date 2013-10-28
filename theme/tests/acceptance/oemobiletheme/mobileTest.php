@@ -24,11 +24,6 @@ require_once realpath( "." ) . '/acceptance/oxidAdditionalSeleniumFunctions.php'
 class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunctions
 {
 
-    protected function setUp( $skipDemoData=false )
-    {
-        parent::setUp( true );
-    }
-
     /**
      * test for activating MobileTheme
      * @group mobile
@@ -43,12 +38,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->selectMenu( "Extensions", "Modules" );
         $this->openTab( "link=OXID eShop theme switch" );
         $this->click( "module_activate" );
-        $oAdditionalFunctions = new oxidAdditionalSeleniumFunctions();
-        // dumping original database
+        // dumping database
         try {
-            $oAdditionalFunctions->dumpDB();
+            $this->dumpDB();
         } catch (Exception $e) {
-            $oAdditionalFunctions->stopTesting("Failed dumping original db");
+            $this->stopTesting("Failed dumping original db");
         }
     }
 
