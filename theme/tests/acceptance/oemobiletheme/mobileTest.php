@@ -147,6 +147,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=a.carousel-control.right"));
         $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
         $this->click("css=a.carousel-control.right");
+        sleep(1);
         $this->assertFalse($this->isVisible("css=img[alt=\"Banner 1\"]"));
         $this->assertTrue($this->isVisible("css=img[alt=\"Banner 2\"]"));
 
