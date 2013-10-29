@@ -1099,7 +1099,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Click button Continue
         $this->click("id=checkAgbTop");
-        $this->click("//button[@type='submit']");
+        $this->clickAndWait("//button[@type='submit']");
 
         //Check header and footer
         $this->testHeader( false, false );
