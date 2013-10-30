@@ -1077,29 +1077,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function test5BasketStep()
     {
-        $this->open( shopURL . "en/home/" );
-        $this->loginInFrontendMobile();
-
-        $this->open( shopURL . "en/Test-category-0-EN-AEssue/Test-product-1-EN-AEssue.html");
-
-        // Add product to basket
-        $this->clickAndWait("id=toBasket");
-
-        // Go to basket
-        $this->clickAndWait("id=minibasketIcon");
-
-        // Go to 2nd basket step
-        $this->clickAndWait("//input[@value='Continue']");
-
-        // Go to 03 basket step
-        $this->clickAndWait("//input[@value='Continue']");
-
-        // Go to 04 basket step
-        $this->clickAndWait("//input[@value='Continue']");
-
-        // Click button Continue
-        $this->click("id=checkAgbTop");
-        $this->clickAndWait("//button[@type='submit']");
+        $this->_makeOrder();
 
         //Check header and footer
         $this->testHeader( false, false );
@@ -1458,7 +1436,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
     /**
      * testing all order history page elements
-     * @todo need to ensure that order exist in database.
+     *
      * @group mobile
      */
     public function testOrderHistory()
@@ -1474,27 +1452,27 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check does exist "ORDER HISTORY " header.
         $this->assertTrue($this->isElementPresent("//div[@id='page']/div/h1"));
         // Check does exist element order date.
-        $this->assertTrue($this->isElementPresent("//span[@id='accOrderDate_2']"));
+        $this->assertTrue($this->isElementPresent("//span[@id='accOrderDate_12']"));
 
         // Check does exist order no.
         $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li/strong"));
         $this->assertTrue($this->isElementPresent("css=ul.order-history-details > li"));
-        $this->assertTrue($this->isElementPresent("id=accOrderNo_2"));
+        $this->assertTrue($this->isElementPresent("id=accOrderNo_12"));
 
         // Check does exist Order status.
         $this->assertTrue($this->isElementPresent("//li[2]/strong"));
-        $this->assertTrue($this->isElementPresent("//span[@id='accOrderStatus_2']/span"));
+        $this->assertTrue($this->isElementPresent("//span[@id='accOrderStatus_12']/span"));
         $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li[2]"));
 
         // Check does shipment to:
         $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li[3]/strong"));
-        $this->assertTrue($this->isElementPresent("//span[@id='accOrderName_2']"));
+        $this->assertTrue($this->isElementPresent("//span[@id='accOrderName_12']"));
         $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li[3]"));
 
         // Check does exist product in ORDER HISTORY list.
         $this->assertTrue($this->isElementPresent("css=ul.order-history-articles"));
         $this->assertTrue($this->isElementPresent("css=ul.order-history-articles > li"));
-        $this->assertTrue($this->isElementPresent("id=accOrderLink_2_1"));
+        $this->assertTrue($this->isElementPresent("id=accOrderLink_12_1"));
 
         // Check does exist (order history details) style.
         $this->assertTrue($this->isElementPresent("css=ul.order-history-details"));
@@ -2087,6 +2065,36 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     {
         $this->click("id=minibasketIcon");
         $this->waitForItemAppear("id=basketGrandTotal");
+    }
+
+    /**
+     * Makes order.
+     */
+    protected function _makeOrder()
+    {
+        $this->open( shopURL . "en/home/" );
+        $this->loginInFrontendMobile();
+
+        $this->open( shopURL . "en/Test-category-0-EN-AEssue/Test-product-1-EN-AEssue.html" );
+
+        // Add product to basket
+        $this->clickAndWait( "id=toBasket" );
+
+        // Go to basket
+        $this->clickAndWait( "id=minibasketIcon" );
+
+        // Go to 2nd basket step
+        $this->clickAndWait( "//input[@value='Continue']" );
+
+        // Go to 03 basket step
+        $this->clickAndWait( "//input[@value='Continue']" );
+
+        // Go to 04 basket step
+        $this->clickAndWait( "//input[@value='Continue']" );
+
+        // Click button Continue
+        $this->click( "id=checkAgbTop" );
+        $this->clickAndWait( "//button[@type='submit']" );
     }
 
 }
