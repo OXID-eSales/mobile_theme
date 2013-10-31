@@ -1576,14 +1576,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         // Check does exist button "PREVIOUS STEP"
         $this->assertTrue($this->isElementPresent("id=paymentBackStepBottom"));
 
-        // Choose payment method Invoice
+        // Choose payment method Cash in advance
         $this->click("id=shippingSelected");
         $this->clickAndWait("link=Standard");
-        $this->click("//div[2]/form/div[2]/div/a/i");
-        $this->click("link=Invoice");
         $this->click("//div[@id='paymentMethods']/div");
-
-        // Choose payment method Cash in advance
         $this->click("link=Cash in advance");
 
         // Check does exist 3 basket steps, as active
@@ -1597,11 +1593,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=div.payment-charge"));
 
         // Check does exist all basket button
-        $this->assertTrue($this->isElementPresent("css=span.step-id"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.passed  > a > span.step-id"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number"));
+        $this->assertTrue($this->isElementPresent("css=li.step2.passed  > a > span.step-number"));
         $this->assertTrue($this->isElementPresent("css=li.step3.active  > a > span.step-name"));
         $this->assertTrue($this->isElementPresent("css=li.step4"));
-        $this->assertTrue($this->isElementPresent("css=span.step-id.last"));
+        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
     }
 
     /**
