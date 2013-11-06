@@ -2083,7 +2083,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->clickAndWait( "//input[@value='Continue']" );
 
         // Go to 03 basket step
-        $this->clickAndWait( "//input[@value='Continue']" );
+        $this->clickAndWait( "id=userNextStepTop" );
 
         // Go to 04 basket step
         $this->clickAndWait( "//input[@value='Continue']" );
