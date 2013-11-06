@@ -263,13 +263,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
     public function testDetailPage()
     {
-        // Go to product detail page
-        //$this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html" );
-        $this->open( shopURL . "en/Gear/" );
-        $this->clickAndWait( 'link=Fashion' );
-        $this->clickAndWait( 'link=For Her' );
-        $this->clickAndWait( 'link=Jeans' );
-        $this->clickAndWait( 'link=Kuyichi Jeans SUGAR' );
+        // Go to product Kuyichi Jeans SUGAR detail page
+        $this->open( shopURL . "index.php?cl=details&anid=6b66d82af984e5ad46b9cb27b1ef8aae" );
         //Check header and footer
         $this->testHeader( false );
         $this->testFooter( false );
@@ -315,12 +310,6 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         // Open full description;
         $this->click("class=product-description-container");
-
-        // Check does detail about product exist
-        $this->assertTrue($this->isElementPresent("css=div.product-description-container"));
-
-        // check does full description close button exist
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-up"));
 
     }
 
