@@ -1936,7 +1936,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         //Select S
         $this->selectMultiMobile("variants", 1, 2);
-        $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertFalse($this->isEditable("toBasket"));
 
         // selects black
