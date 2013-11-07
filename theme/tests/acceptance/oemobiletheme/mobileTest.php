@@ -1935,20 +1935,20 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->selectMultiMobile("variants", 2, 3);
 
         //Select S
-        $this->selectMultiMobile("variants", 1, 2);
+        $this->selectMultiMobile("variants", 1, 1);
         $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
-        $this->assertFalse($this->isEditable("toBasket"));
+        $this->assertTrue($this->isEditable("toBasket"));
 
         // selects black
         $this->selectMultiMobile("variants", 2, 2);
-        $this->assertTrue($this->isEditable("toBasket"));
+        $this->assertFalse($this->isEditable("toBasket"));
 
         // selects material
-        $this->selectMultiMobile("variants", 3, 3);
+        $this->selectMultiMobile("variants", 3, 2);
         $this->assertTrue($this->isEditable("toBasket"));
         $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
 
-        //Selected combination: S, black, leather
+        //Selected combination: S, black, material
         $this->selectMultiMobile("variants", 3, 3);
         $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertTrue($this->isEditable("toBasket"));
@@ -1958,20 +1958,21 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isEditable("toBasket"));
 
         //Selected combination: M, red
-        $this->selectMultiMobile("variants", 2, 4);
+        $this->selectMultiMobile("variants", 2, 3);
+        $this->selectMultiMobile("variants", 1, 2);
         $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertTrue($this->isEditable("toBasket"));
 
         //Selected combination: S, red"
         $this->selectMultiMobile("variants", 1, 2);
-        $this->assertFalse($this->isEditable("toBasket"));
+        $this->assertTrue($this->isEditable("toBasket"));
 
         //Selected combination: S, black
         $this->selectMultiMobile("variants", 2, 2);
-        $this->assertTrue($this->isEditable("toBasket"));
+        $this->assertFalse($this->isEditable("toBasket"));
 
         //Selected combination: S, black, leather"
-        $this->selectMultiMobile("variants", 3, 2);
+        $this->selectMultiMobile("variants", 3, 1);
         $this->assertEquals("25,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertTrue($this->isEditable("toBasket"));
         $this->type("amountToBasket", "2");
