@@ -1407,8 +1407,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("css=div.content"));
 
         // Check label with name "Newsletter subscription:"
-        $sNewsletterHeader = $this->getText("//form[@name='newsletter']//ul/li/label");
-        $this->assertTrue("Newsletter subscription:" == $sNewsletterHeader);
+        $this->assertEquals("Newsletter subscription", $this->getText("//form[@name='newsletter']//ul/li/label"));
 
         // Check does exist dropdown
         $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
