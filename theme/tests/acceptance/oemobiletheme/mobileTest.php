@@ -1923,31 +1923,36 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertEquals("type Choose variant", $this->getText("//ul[@id='variants']/li[3]/div/div"));
         $this->click("//ul[@id='variants']/li[3]/div/div");
         $this->assertEquals("lether material", $this->getText("//ul[@id='variants']/li[3]/div/ul"));
+        // Small
         $this->selectMultiMobile("variants", 1, 1);
         $this->assertElementNotEditable("toBasket");
+        // Black
         $this->selectMultiMobile("variants", 2, 1);
         $this->assertElementNotEditable("toBasket");
+        // Leather
         $this->selectMultiMobile("variants", 3, 1);
-        $this->assertEquals("25,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        $this->assertEquals("25,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"), 'Small black leather should cost 25eur');
         $this->assertElementEditable("toBasket");
-        //Select  white
+        //Select  white, this reset other fields.
         $this->selectMultiMobile("variants", 2, 3);
 
-        //Select S
-        $this->selectMultiMobile("variants", 1, 2);
-        $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
+        //Select S, this allow to buy without variant, as small white has no materials selection.
+        $this->selectMultiMobile("variants", 1, 1);
+        $this->assertNotEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"), 'Small white has no selections');
+        $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"), 'Small white should cost 15eur. It has no selection.');
         $this->assertElementEditable("toBasket");
 
         // selects black
         $this->selectMultiMobile("variants", 2, 2);
+        $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"), 'Small black has variants from 15eur');
         $this->assertElementNotEditable("toBasket");
 
         // selects material
-        $this->selectMultiMobile("variants", 3, 3);
+        $this->selectMultiMobile("variants", 3, 2);
         $this->assertElementEditable("toBasket");
         $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
 
-        //Selected combination: S, black, leather
+        //Selected combination: S, black, material
         $this->selectMultiMobile("variants", 3, 3);
         $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertElementEditable("toBasket");
@@ -1957,7 +1962,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementEditable("toBasket");
 
         //Selected combination: M, red
-        $this->selectMultiMobile("variants", 2, 4);
+        $this->selectMultiMobile("variants", 2, 3);
+        $this->selectMultiMobile("variants", 1, 2);
         $this->assertEquals("15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertElementEditable("toBasket");
 
@@ -1970,7 +1976,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementNotEditable("toBasket");
 
         //Selected combination: S, black, leather"
-        $this->selectMultiMobile("variants", 3, 2);
+        $this->selectMultiMobile("variants", 3, 1);
         $this->assertEquals("25,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertElementEditable("toBasket");
         $this->type("amountToBasket", "2");

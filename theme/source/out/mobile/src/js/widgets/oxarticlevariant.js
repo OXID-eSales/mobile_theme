@@ -98,6 +98,17 @@
                 }
             );
             return false;
+        },
+
+        /**
+         * Resets variant selections
+         */
+        resetVariantSelections : function() {
+            var aVarSelections = $( "form.js-oxProductForm input[name^=varselid], form.js-oxWidgetReload input[name^=varselid]" );
+            for (var i = 0; i < aVarSelections.length; i++) {
+                $( aVarSelections[i] ).attr( "value", "" );
+        }
+        $( "form.js-oxProductForm input[name=anid]" ).attr( "value", $( "form.js-oxProductForm input[name=parentid]" ).attr( "value" ) );
         }
 
     };
