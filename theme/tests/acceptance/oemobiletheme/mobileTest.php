@@ -446,6 +446,19 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxfax]"));
         $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxmobfon]"));
         $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxprivfon]"));
+        $this->assertTrue($this->isElementPresent("id=datePicker"));
+
+        // Change date of birth and submit
+        $this->click("//li[@id='month']/button");
+        $this->click("//li[@id='day']/button");
+        $this->click("//li[@id='year']/button");
+        $this->clickAndWait("id=accUserSaveTop");
+
+        // Check date
+        $this->click("id=userChangeAddress");
+        $this->assertTrue($this->isTextPresent("February"));
+        $this->assertTrue($this->isElementPresent("//input[@value='02']"));
+        $this->assertTrue($this->isElementPresent("//input[@value='1981']"));
     }
 
     /**
