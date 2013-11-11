@@ -1453,12 +1453,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testOrderHistory()
     {
+        $this->_makeOrder();
         $this->open( shopURL . "en/order-history/" );
         //check header and footer.
         $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testFooter( false, true );
 
-        $this->loginInFrontendMobile();
+        //$this->loginInFrontendMobile();
         $this->open( shopURL . "en/order-history/" );
 
         // Check does exist "ORDER HISTORY " header.
