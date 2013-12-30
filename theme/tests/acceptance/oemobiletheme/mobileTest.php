@@ -35,10 +35,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     {
         $this->open( shopURL . "admin" );
         $this->loginAdminForModule( "Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303" );
-        $this->openTab( "link=OXID eShop mobile theme" );
+        $this->openListItem( "link=OXID eShop mobile theme" );
         $this->clickAndWait( "//input[@value='Activate']" );
         $this->selectMenu( "Extensions", "Modules" );
-        $this->openTab( "link=OXID eShop theme switch" );
+        $this->openListItem( "link=OXID eShop theme switch" );
         $this->clickAndWait( "module_activate" );
         // dumping database
         try {
@@ -1759,14 +1759,14 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
         //checking in Admin
         $this->loginAdmin("Administer Orders", "Orders");
-        $this->openTab("link=12", "save");
+        $this->openListItem("link=12", "save");
         $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
         $this->assertEquals("2 *", $this->getText("//table[2]/tbody/tr/td[1]"));
         $this->assertEquals("Test product 0 [EN]", $this->getText("//td[3]"));
         $this->assertEquals("90,00 EUR", $this->getText("//td[5]"));
         $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
         $this->frame("list");
-        $this->openTab("link=Products", "//input[@value='Update']");
+        $this->openTab("Products");
         $this->assertEquals("2", $this->getValue("//tr[@id='art.2']/td[1]/input"));
         $this->assertEquals("Label: test label šÄßüл 1", $this->getText("//tr[@id='art.2']/td[5]"));
         $this->assertEquals("45,00 EUR", $this->getText("//tr[@id='art.2']/td[7]"));
@@ -1826,7 +1826,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->type("where[oxuser][oxlname]", "user1");
         $this->clickAndWait("submitit");
         $this->assertEquals("user1 last name_šÄßüл user1 name_šÄßüл", $this->getText("//tr[@id='row.1']/td[1]"));
-        $this->openTab("link=user1 last name_šÄßüл user1 name_šÄßüл");
+        $this->openListItem("link=user1 last name_šÄßüл user1 name_šÄßüл");
         $this->assertEquals("on", $this->getValue("editval[oxuser__oxactive]"));
         $this->assertEquals("birute01@nfq.lt", $this->getValue("editval[oxuser__oxusername]"));
         $this->assertEquals("user1 name_šÄßüл", $this->getValue("editval[oxuser__oxfname]"));
@@ -1847,7 +1847,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][year]") > 0);
         $this->assertTrue($this->isTextPresent("Yes"));
         $this->frame("list");
-        $this->openTab("link=Extended");
+        $this->openTab("Extended");
         $this->assertEquals("111111111", $this->getValue("editval[oxuser__oxprivfon]"));
         $this->assertEquals("111-111111", $this->getValue("editval[oxuser__oxmobfon]"));
     }
@@ -1869,10 +1869,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->selectAndWaitFrame("changelang", "label=Deutsch", "edit");
         $this->type("where[oxarticles][oxartnum]", "1002");
         $this->clickAndWait("submitit", "link=1002");
-        $this->openTab("link=1002", "editval[oxarticles__oxtitle]");
+        $this->openListItem("link=1002");
         $this->assertEquals("[DE 2] Test product 2 šÄßüл", $this->getValue("editval[oxarticles__oxtitle]"));
         $this->Frame("list");
-        $this->openTab("link=Selection");
+        $this->openTab("Selection");
         $this->click("//input[@value='Assign Selection Lists']");
         $this->usePopUp();
         $this->type("_0", "*test");
@@ -1884,13 +1884,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->selectWindow(null);
         $this->windowMaximize(null);
         $this->frame("list");
-        $this->openTab("link=Main");
+        $this->openTab("Main");
 
         //checking if selection list is assigned to variant also
         $this->selectAndWaitFrame( "art_variants", "label=- var1 [DE]", "list");
         $this->assertEquals("1002-1", $this->getValue("editval[oxarticles__oxartnum]"));
         $this->Frame("list");
-        $this->openTab("link=Selection");
+        $this->openTab("Selection");
         $this->click("//input[@value='Assign Selection Lists']");
         $this->usePopUp();
         $this->assertEquals("test selection list [DE] šÄßüл", $this->getText("//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]"));
