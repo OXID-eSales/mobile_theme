@@ -103,7 +103,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("link=My Account"));
         $this->assertTrue($this->isElementPresent("link=Home"));
         if ( $blUserLogIn ) {
-            $this->assertTrue($this->isElementPresent("link=Logout"));
+            $this->assertTrue($this->isElementPresent("link=Log out"));
         } else {
             $this->assertTrue($this->isElementPresent("link=Log in"));
         }
@@ -1192,7 +1192,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
 
         // Open Login page
-        $this->clickAndWait("link=Login");
+        $this->clickAndWait("link=Log in");
 
         // Click on Forgot password link
         $this->clickAndWait("//a[@id='forgotPasswordLink']");
@@ -1659,11 +1659,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
     public function loginInFrontendMobile($userName = self::TEST_USER_NAME, $userPass = self::TEST_USER_PASSWORD, $waitForLogin = true)
     {
         $this->selectWindow(null);
-        $this->clickAndWait("//a[text()='Login']");
+        $this->clickAndWait("//a[text()='Log in']");
         $this->type("//input[@id='loginUser']", $userName);
         $this->type("//input[@id='loginPwd']", $userPass);
         if ($waitForLogin) {
-            $this->clickAndWait("//form[@name='login']//input[@type='submit']", "//a[text()='Logout']");
+            $this->clickAndWait("//form[@name='login']//input[@type='submit']", "//a[text()='Log out']");
         } else {
             $this->clickAndWait("//form[@name='login']//input[@type='submit']");
         }
