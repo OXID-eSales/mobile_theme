@@ -263,13 +263,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
 
     public function testDetailPage()
     {
-        // Go to product detail page
-        //$this->open( shopURL . "en/Gear/Fashion/For-Her/Jeans/Kuyichi-Jeans-SUGAR.html" );
-        $this->open( shopURL . "en/Gear/" );
-        $this->clickAndWait( 'link=Fashion' );
-        $this->clickAndWait( 'link=For Her' );
-        $this->clickAndWait( 'link=Jeans' );
-        $this->clickAndWait( 'link=Kuyichi Jeans SUGAR' );
+        // Go to Kuyichi Jeans SUGAR
+        $this->open( shopURL . "index.php?cl=details&anid=6b66d82af984e5ad46b9cb27b1ef8aae" );
         //Check header and footer
         $this->testHeader( false );
         $this->testFooter( false );
@@ -467,8 +462,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testSecondStepNotLoginUser()
     {
-        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
-        $this->clickAndWait( 'link=Harness MADTRIXX' );
+        //Open Harness MADTRIXX
+        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
 
         // Add product to the basket
         $this->clickAndWait("id=toBasket");
@@ -510,8 +505,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
         $this->loginInFrontendMobile();
 
-        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
-        $this->clickAndWait( 'link=Harness MADTRIXX' );
+        //Open Harness MADTRIXX
+        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
 
         // Add product to the basket
         $this->clickAndWait("id=toBasket");
@@ -565,8 +560,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testPurchaseWithoutRegistration()
     {
-        $this->open( shopURL . 'en/Kiteboarding/Harnesses/' );
-        $this->clickAndWait( 'link=Harness MADTRIXX' );
+        //Open Harness MADTRIXX
+        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
 
         // Add product to the basket
         $this->clickAndWait("id=toBasket");
@@ -933,9 +928,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
         $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Kiteboarding/" );
-        $this->clickAndWait( 'link=Harnesses' );
-        $this->clickAndWait( 'link=Harness MADTRIXX' );
+        //Open Harness MADTRIXX
+        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
 
         // Click on the button "Start"
         $this->click("css=i.glyphicon-star");
@@ -990,9 +984,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
         $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Kiteboarding/" );
-        $this->clickAndWait( 'link=Harnesses' );
-        $this->clickAndWait( 'link=Harness MADTRIXX' );
+        //Open Harness MADTRIXX
+        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
         $this->clickAndWait("id=toBasket");
 
         // Go to basket
@@ -1364,9 +1357,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->clickAndWait("id=toBasket");
 
         // open second product and add to basket
-        $this->open( shopURL . "en/Kiteboarding/" );
-        $this->clickAndWait( 'link=Harnesses' );
-        $this->clickAndWait( 'link=Harness MADTRIXX ' );
+        //Open Harness MADTRIXX
+        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
         $this->clickAndWait("id=toBasket");
         $this->clickAndWait("id=minibasketIcon");
 
