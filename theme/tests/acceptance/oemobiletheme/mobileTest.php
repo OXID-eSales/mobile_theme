@@ -701,16 +701,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
                $this->click("id=toBasket");
                $this->waitForPageToLoad("30000");
        */
-        // Go to product "1205" detail page
-        $this->open( shopURL . 'en/Special-Offers/' );
-        $this->clickAndWait( 'link=Transport container BARREL' );
+        // Go to product Transport container BARREL details page
+        $this->open( shopURL . 'index.php?cl=details&anid=f4f73033cf5045525644042325355732' );
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
         $this->clickAndWait("id=toBasket");
 
-        // Add 1205 product to cart
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
+        // Add product Transport container BARREL
+        $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
         $this->clickAndWait("id=toBasket");
 
         // Go to basket
@@ -815,8 +814,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
           $this->click("id=toBasket");
           $this->waitForPageToLoad("30000");
   */
-        // Go to product "1205" detail page
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
+        /// Go to product Transport container BARREL details page
+        $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
@@ -1480,7 +1479,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function test3BasketStep()
     {
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
+        /// Go to product Transport container BARREL details page
+        $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
 
         // Add product to basket
         $this->clickAndWait("id=toBasket");
@@ -2064,7 +2064,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->open( shopURL . "en/home/" );
         $this->loginInFrontendMobile();
 
-        $this->open( shopURL . "en/Test-category-0-EN-AEssue/Test-product-1-EN-AEssue.html" );
+        // Open details page of Test product 1
+        $this->open( shopURL . "index.php?cl=details&anid=1001" );
 
         // Add product to basket
         $this->clickAndWait( "id=toBasket" );
