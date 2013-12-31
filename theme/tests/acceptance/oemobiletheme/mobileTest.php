@@ -814,15 +814,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
           $this->click("id=toBasket");
           $this->waitForPageToLoad("30000");
   */
-        /// Go to product Transport container BARREL details page
+        // Go to product Transport container BARREL details page
         $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
         $this->clickAndWait("id=toBasket");
 
-        // Add 1205 product to cart
-        $this->open( shopURL . "en/Special-Offers/Transport-container-BARREL.html" );
+        // Add product Transport container BARREL to cart
+        $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
         $this->clickAndWait("id=toBasket");
 
         // Go to basket
