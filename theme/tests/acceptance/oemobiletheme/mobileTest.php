@@ -133,7 +133,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testStartPage()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
 
         //check header and footer
         $this->testHeader( false );
@@ -175,7 +175,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->testHeader( false );
         $this->testFooter( false );
 
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
 
         // Check does category tree exist;
         $this->assertTrue($this->isElementPresent("id=cat_list"));
@@ -489,7 +489,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testSecondStepLoginUser()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
         $this->loginInFrontendMobile();
 
         //Open Harness MADTRIXX
@@ -641,7 +641,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testSearchListMobile()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
 
         // Open search field
         $this->click("css=i.glyphicon-search");
@@ -795,7 +795,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testFirstStepLoginUser()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
         $this->loginInFrontendMobile();
 
         /*   //Commented because of bug #5227
@@ -911,7 +911,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testWishList()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
         $this->loginInFrontendMobile();
 
         //Open Harness MADTRIXX
@@ -967,7 +967,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function test4BasketStep()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
         $this->loginInFrontendMobile();
 
         //Open Harness MADTRIXX
@@ -1168,7 +1168,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testForgotPassword()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
 
         // Open Login page
         $this->clickAndWait("link=Login");
@@ -1217,7 +1217,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testLoginPage()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
 
         // Going to Login page by clicking Login link
         $this->clickAndWait("//a[contains(text(),'Login')]");
@@ -1266,7 +1266,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testMyAccount()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
         $this->loginInFrontendMobile();
         $this->clickAndWait("link=My Account");
 
@@ -1317,7 +1317,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testMyDownload()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
 
         $this->loginInFrontendMobile();
 
@@ -1381,7 +1381,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testNewsletterSettings()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
         $this->loginInFrontendMobile();
 
         // Going to Newsletter settings page
@@ -1599,7 +1599,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     public function testCmsPage()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
 
         // Click on CMS page "About us"
         $this->clickAndWait("//a[contains(text(),'About Us')]");
@@ -2061,7 +2061,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
      */
     protected function _makeOrder()
     {
-        $this->open( shopURL . "en/home/" );
+        $this->openShop();
         $this->loginInFrontendMobile();
 
         // Open details page of Test product 1
