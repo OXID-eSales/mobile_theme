@@ -83,7 +83,7 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
     /**
      * Return theme manager
      *
-     * @return oeThemeSwitcgetActiveThemeIdherThemeManager
+     * @return oeThemeSwitcherThemeManager
      */
     public function oeThemeSwitcherGetThemeManager()
     {
