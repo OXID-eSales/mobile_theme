@@ -491,7 +491,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->assertTrue($this->isElementPresent("name=lgn_pwd"));
         $this->assertTrue($this->isElementPresent("css=span.js-oxError_notEmpty"));
         $this->assertTrue($this->isElementPresent("//input[@value='Open account']"));
-        $this->assertTrue($this->isElementPresent("//input[@value='Login']"));
+        $this->assertTrue($this->isElementPresent("//input[@value='Log in']"));
         $this->assertTrue($this->isElementPresent("link=exact:Forgot password?"));
         $this->assertTrue($this->isElementPresent("//input[@value='Without registration']"));
     }
@@ -1233,7 +1233,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunction
         $this->openShop();
 
         // Going to Login page by clicking Login link
-        $this->clickAndWait("//a[contains(text(),'Login')]");
+        $this->clickAndWait("//a[contains(text(),'Log in')]");
 
         // Check does exist Login title in the login page
         $this->assertTrue($this->isElementPresent("css=h1.page-head"));
