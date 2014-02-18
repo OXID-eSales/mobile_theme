@@ -62,26 +62,26 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         // Check does logo and alt  message exist in header
 
         // We do not check:that logo has a link to home page
-        $this->assertTrue($this->isElementPresent("//a[@id='logo']/img"));
-        $this->assertTrue($this->isElementPresent("//img[@alt='Shopping cart software by OXID eSales']"));
+        $this->assertElementPresent("//a[@id='logo']/img");
+        $this->assertElementPresent("//img[@alt='Shopping cart software by OXID eSales']");
 
         // Check does header exist;
-        $this->assertTrue($this->isElementPresent("//div[@id='header']"));
-        $this->assertTrue($this->isElementPresent("css=div.headerMenu.clearfix"));
+        $this->assertElementPresent("//div[@id='header']");
+        $this->assertElementPresent("css=div.headerMenu.clearfix");
 
         // Search field  and search button should be visible after clicking on it
         // We do not check: that search field is only visible after clicking on search button
         if ( $blCheckSearch ) {
-            $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
+            $this->assertElementPresent("css=i.glyphicon-search");
             $this->click("css=i.glyphicon-search");
             // Search field and search button
-            $this->assertTrue($this->isElementPresent("id=searchParam"));
-            $this->assertTrue($this->isElementPresent("//div[@id='search']/form/button"));
-            $this->assertTrue($this->isElementPresent("css=i.glyphicon-search"));
+            $this->assertElementPresent("id=searchParam");
+            $this->assertElementPresent("//div[@id='search']/form/button");
+            $this->assertElementPresent("css=i.glyphicon-search");
         }
 
         // Check does minibasket element exist
-        $this->assertTrue($this->isElementPresent("id=minibasketIcon"));
+        $this->assertElementPresent("id=minibasketIcon");
     }
 
     /**
@@ -95,23 +95,23 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         }
 
         // Check does footer exist
-        $this->assertTrue($this->isElementPresent("id=footer"));
-        $this->assertTrue($this->isElementPresent("id=footerServices"));
-        $this->assertTrue($this->isElementPresent("id=footerInformation"));
+        $this->assertElementPresent("id=footer");
+        $this->assertElementPresent("id=footerServices");
+        $this->assertElementPresent("id=footerInformation");
 
         // Check does footer navigation list elements exist
-        $this->assertTrue($this->isElementPresent("link=My Account"));
-        $this->assertTrue($this->isElementPresent("link=Home"));
+        $this->assertElementPresent("link=My Account");
+        $this->assertElementPresent("link=Home");
         if ( $blUserLogIn ) {
-            $this->assertTrue($this->isElementPresent("link=Logout"));
+            $this->assertElementPresent("link=Logout");
         } else {
-            $this->assertTrue($this->isElementPresent("link=Login"));
+            $this->assertElementPresent("link=Login");
         }
-        $this->assertTrue($this->isElementPresent("//button[contains(text(),'Regular display')]"));
-        $this->assertTrue($this->isElementPresent("link=Contact"));
-        $this->assertTrue($this->isElementPresent("link=About Us"));
-        $this->assertTrue($this->isElementPresent("link=Privacy Policy"));
-        $this->assertTrue($this->isElementPresent("link=Terms and Conditions"));
+        $this->assertElementPresent("//button[contains(text(),'Regular display')]");
+        $this->assertElementPresent("link=Contact");
+        $this->assertElementPresent("link=About Us");
+        $this->assertElementPresent("link=Privacy Policy");
+        $this->assertElementPresent("link=Terms and Conditions");
     }
 
     /**
@@ -141,25 +141,25 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // Need add cookie note checking
         // Check does banner element exist;
-        $this->assertTrue($this->isElementPresent("class=carousel slide"));
+        $this->assertElementPresent("class=carousel slide");
         $this->assertTrue($this->isVisible("css=img[alt=\"Banner 1\"]"));
         // Check does baner left button and right button exist;
-        $this->assertTrue($this->isElementPresent("css=a.carousel-control.right"));
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
+        $this->assertElementPresent("css=a.carousel-control.right");
+        $this->assertElementPresent("css=i.glyphicon-chevron-left");
         $this->click("css=a.carousel-control.right");
         sleep(1);
         $this->assertFalse($this->isVisible("css=img[alt=\"Banner 1\"]"));
         $this->assertTrue($this->isVisible("css=img[alt=\"Banner 2\"]"));
 
         // Check category links.
-        $this->assertTrue($this->isElementPresent("link=Kiteboarding"));
-        $this->assertTrue($this->isElementPresent("link=Wakeboarding"));
-        $this->assertTrue($this->isElementPresent("link=Gear"));
-        $this->assertTrue($this->isElementPresent("link=Special Offers"));
-        $this->assertTrue($this->isElementPresent("link=Downloads"));
+        $this->assertElementPresent("link=Kiteboarding");
+        $this->assertElementPresent("link=Wakeboarding");
+        $this->assertElementPresent("link=Gear");
+        $this->assertElementPresent("link=Special Offers");
+        $this->assertElementPresent("link=Downloads");
 
         // Check does category list right button exist;
-        $this->assertTrue($this->isElementPresent("css=li > a > i.glyphicon-chevron-right"));
+        $this->assertElementPresent("css=li > a > i.glyphicon-chevron-right");
     }
 
     /**
@@ -178,82 +178,82 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
 
         // Check does category tree exist;
-        $this->assertTrue($this->isElementPresent("id=cat_list"));
+        $this->assertElementPresent("id=cat_list");
 
         // Go to subcategory;//form[@id='filterList']/label[1]
         $this->clickAndWait("//div[@id='cat_list']/ul/li/a");
 
         // Check does back button exist;
-        $this->assertTrue($this->isElementPresent("class=back"));
+        $this->assertElementPresent("class=back");
 
         // Check does left button near back button exist;
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
+        $this->assertElementPresent("css=i.glyphicon-chevron-left");
 
         // Check does all category in category tree exist;
-        $this->assertTrue($this->isElementPresent("id=moreSubCat_1"));
-        $this->assertTrue($this->isElementPresent("id=moreSubCat_2"));
-        $this->assertTrue($this->isElementPresent("id=moreSubCat_3"));
-        $this->assertTrue($this->isElementPresent("id=moreSubCat_4"));
+        $this->assertElementPresent("id=moreSubCat_1");
+        $this->assertElementPresent("id=moreSubCat_2");
+        $this->assertElementPresent("id=moreSubCat_3");
+        $this->assertElementPresent("id=moreSubCat_4");
 
         // Go to subcategory "kites";
         $this->clickAndWait("//a[@id='moreSubCat_1']");
 
         // Check does back button exist;
-        $this->assertTrue($this->isElementPresent("class=back"));
+        $this->assertElementPresent("class=back");
 
         // Check does left button near back button exist;
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
+        $this->assertElementPresent("css=i.glyphicon-chevron-left");
 
         // Check does subcategory name exist;
-        $this->assertTrue($this->isElementPresent("css=h1"));
+        $this->assertElementPresent("css=h1");
 
         // Check does "sort by exist";
-        $this->assertTrue($this->isElementPresent("css=label.sort-title"));
+        $this->assertElementPresent("css=label.sort-title");
 
         // Check does sorting options field exist;
-        $this->assertTrue($this->isElementPresent("css=#sortItems > div.dropdown > div.dropdown-toggle"));
+        $this->assertElementPresent("css=#sortItems > div.dropdown > div.dropdown-toggle");
 
         // Check does product list exist;
-        $this->assertTrue($this->isElementPresent("css=h4.media-heading"));
+        $this->assertElementPresent("css=h4.media-heading");
 
         // Check does image near product exist;
-        $this->assertTrue($this->isElementPresent("css=img[alt=\"Kite CORE GTS \"]"));
+        $this->assertElementPresent("css=img[alt=\"Kite CORE GTS \"]");
 
         // Check does product price exist;
-        $this->assertTrue($this->isElementPresent("css=#productPrice_productList_1 > span"));
+        $this->assertElementPresent("css=#productPrice_productList_1 > span");
 
         // Check does previous price, which is crossed out exist;
-        $this->assertTrue($this->isElementPresent("//ul[@id='productList']/li/form/div[2]/div[2]/span/del"));
+        $this->assertElementPresent("//ul[@id='productList']/li/form/div[2]/div[2]/span/del");
 
         // Check does pages and button "next" exist;
-        $this->assertTrue($this->isElementPresent("css=div.pagination-container"));
-        $this->assertTrue($this->isElementPresent("link=1"));
-        $this->assertTrue($this->isElementPresent("link=2"));
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-right"));
+        $this->assertElementPresent("css=div.pagination-container");
+        $this->assertElementPresent("link=1");
+        $this->assertElementPresent("link=2");
+        $this->assertElementPresent("css=i.glyphicon-chevron-right");
 
         // Check does  filter and sorting exist;
-        $this->assertTrue($this->isElementPresent("//div[@id='filterBoxClosed']/input"));
+        $this->assertElementPresent("//div[@id='filterBoxClosed']/input");
 
         // Open filter and sorting;
         $this->click("css=input.btn");
 
         // Check does filter and sorting still exist;
-        $this->assertTrue($this->isElementPresent("css=span.filter-open-title"));
+        $this->assertElementPresent("css=span.filter-open-title");
 
         // Check does close "filter and sorting" button exist;
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-remove"));
+        $this->assertElementPresent("css=i.glyphicon-remove");
 
         // Check does title area of application exist;
-        $this->assertTrue($this->isElementPresent("//form[@id='filterList']/label[1]"));
+        $this->assertElementPresent("//form[@id='filterList']/label[1]");
 
         // Check does "area of application" filter exist;
-        $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle > span"));
+        $this->assertElementPresent("css=div.dropdown-toggle > span");
 
         // Check does title"included in delivery" exist;
-        $this->assertTrue($this->isElementPresent("//form[@id='filterList']/label[2]"));
+        $this->assertElementPresent("//form[@id='filterList']/label[2]");
 
         // Check does "included in delivery filter exist;
-        $this->assertTrue($this->isElementPresent("//form[@id='filterList']/div[2]/div/span"));
+        $this->assertElementPresent("//form[@id='filterList']/div[2]/div/span");
     }
 
     /**
@@ -270,52 +270,52 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false );
 
         // Check does previous button near back exist
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-left"));
+        $this->assertElementPresent("css=i.glyphicon-chevron-left");
 
         // Check does back button exist
-        $this->assertTrue($this->isElementPresent("//div[@id='details']/ul/li/a/span"));
+        $this->assertElementPresent("//div[@id='details']/ul/li/a/span");
 
         // Check does add to wish list "star" exist
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-star"));
+        $this->assertElementPresent("css=i.glyphicon-star");
 
         // Check does product image exist
-        $this->assertTrue($this->isElementPresent("css=img[alt=\"Kuyichi Jeans SUGAR \"]"));
+        $this->assertElementPresent("css=img[alt=\"Kuyichi Jeans SUGAR \"]");
 
         // Check does previous button for image exist
-        $this->assertTrue($this->isElementPresent("css=a.carousel-control.left > i.glyphicon-chevron-left"));
+        $this->assertElementPresent("css=a.carousel-control.left > i.glyphicon-chevron-left");
 
         // Check does next button for image exist
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-right"));
+        $this->assertElementPresent("css=i.glyphicon-chevron-right");
 
         // Check does  "incl. VAT, plus shipping" exist
-        $this->assertTrue($this->isElementPresent("css=div.product-delivery-info > a"));
+        $this->assertElementPresent("css=div.product-delivery-info > a");
 
         // Check does size variant selection exist
-        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_0"));
+        $this->assertElementPresent("id=dLabelSelectBox_varselid_0");
 
         // Check does color variant selection exist
-        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_1"));
+        $this->assertElementPresent("id=dLabelSelectBox_varselid_1");
 
         // Check does washing variant selection exist
-        $this->assertTrue($this->isElementPresent("id=dLabelSelectBox_varselid_2"));
+        $this->assertElementPresent("id=dLabelSelectBox_varselid_2");
 
         // Check does "choose variant"message exist
-        $this->assertTrue($this->isElementPresent("css=p.product-variants-message"));
+        $this->assertElementPresent("css=p.product-variants-message");
 
         // Check does "add to cart" button exist
-        $this->assertTrue($this->isElementPresent("css=#tobasketFunction"));
+        $this->assertElementPresent("css=#tobasketFunction");
 
         // Check does "more details" button exist
-        $this->assertTrue($this->isElementPresent("css=div.product-description-container > i.glyphicon-chevron-down"));
+        $this->assertElementPresent("css=div.product-description-container > i.glyphicon-chevron-down");
 
         // Open full description;
         $this->click("class=product-description-container");
 
         // Check does detail about product exist
-        $this->assertTrue($this->isElementPresent("css=div.product-description-container"));
+        $this->assertElementPresent("css=div.product-description-container");
 
         // check does full description close button exist
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-up"));
+        $this->assertElementPresent("css=i.glyphicon-chevron-up");
 
     }
 
@@ -331,41 +331,41 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false );
 
         // Check  does label "you company name exist"
-        $this->assertTrue($this->isElementPresent("//div[@id='page']/div/h1"));
+        $this->assertElementPresent("//div[@id='page']/div/h1");
 
         // Check does company info with all contacts exist
-        $this->assertTrue($this->isElementPresent("//div[@id='contacts']"));
+        $this->assertElementPresent("//div[@id='contacts']");
 
         // Check does label Mr exist
-        $this->assertTrue($this->isElementPresent("//div[@id='contacts']/form/ul/li/label"));
+        $this->assertElementPresent("//div[@id='contacts']/form/ul/li/label");
 
         // Check does label Mrs exist
-        $this->assertTrue($this->isElementPresent("//div[@id='contacts']/form/ul/li/label[2]"));
+        $this->assertElementPresent("//div[@id='contacts']/form/ul/li/label[2]");
 
         // Check does checkbox Mr exist
-        $this->assertTrue($this->isElementPresent("id=mr_editval[oxuser__oxsal]"));
+        $this->assertElementPresent("id=mr_editval[oxuser__oxsal]");
 
         // Check does checkbox Mrs exist
-        $this->assertTrue($this->isElementPresent("id=mrs_editval[oxuser__oxsal]"));
+        $this->assertElementPresent("id=mrs_editval[oxuser__oxsal]");
 
         // Check does all required field exist
-        $this->assertTrue($this->isElementPresent("name=editval[oxuser__oxfname]"));
-        $this->assertTrue($this->isElementPresent("name=editval[oxuser__oxlname]"));
-        $this->assertTrue($this->isElementPresent("id=contactEmail"));
-        $this->assertTrue($this->isElementPresent("name=c_subject"));
-        $this->assertTrue($this->isElementPresent("name=c_subject"));
-        $this->assertTrue($this->isElementPresent("//div[@id='contacts']/form/ul/li[6]/label"));
-        $this->assertTrue($this->isElementPresent("name=c_message"));
+        $this->assertElementPresent("name=editval[oxuser__oxfname]");
+        $this->assertElementPresent("name=editval[oxuser__oxlname]");
+        $this->assertElementPresent("id=contactEmail");
+        $this->assertElementPresent("name=c_subject");
+        $this->assertElementPresent("name=c_subject");
+        $this->assertElementPresent("//div[@id='contacts']/form/ul/li[6]/label");
+        $this->assertElementPresent("name=c_message");
 
         // Check does verification code label exist
-        $this->assertTrue($this->isElementPresent("css=label.req"));
+        $this->assertElementPresent("css=label.req");
 
         // Check does verification code exist
-        $this->assertTrue($this->isElementPresent("css=li.verify > img"));
-        $this->assertTrue($this->isElementPresent("name=c_mac"));
+        $this->assertElementPresent("css=li.verify > img");
+        $this->assertElementPresent("name=c_mac");
 
         // Check does send button exist
-        $this->assertTrue($this->isElementPresent("//input[@value='Send']"));
+        $this->assertElementPresent("//input[@value='Send']");
     }
 
     /**
@@ -388,60 +388,60 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("css=#linkAccountBillship > span");
 
         // Check does  "billing and shipping settings" label exist
-        $this->assertTrue($this->isElementPresent("id=addressSettingsHeader"));
+        $this->assertElementPresent("id=addressSettingsHeader");
 
         // Check does  billing address label exist
-        $this->assertTrue($this->isElementPresent("css=h3.block-head"));
+        $this->assertElementPresent("css=h3.block-head");
 
         // Check does "change" button exist
-        $this->assertTrue($this->isElementPresent("id=userChangeAddress"));
+        $this->assertElementPresent("id=userChangeAddress");
 
         // Check does address  exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='addressText']/li"));
+        $this->assertElementPresent("//ul[@id='addressText']/li");
 
         // Check does " shipping address" label exist
-        $this->assertTrue($this->isElementPresent("id=addShippingAddress"));
+        $this->assertElementPresent("id=addShippingAddress");
 
         // Check does "send to billing address" label exist
-        $this->assertTrue($this->isElementPresent("css=div.collumn > ul > li > label"));
+        $this->assertElementPresent("css=div.collumn > ul > li > label");
 
         // Check does "send billing address" checkbox   exist
-        $this->assertTrue($this->isElementPresent("id=showShipAddress"));
+        $this->assertElementPresent("id=showShipAddress");
 
         // Check does "save" button exist
-        $this->assertTrue($this->isElementPresent("id=accUserSaveTop"));
+        $this->assertElementPresent("id=accUserSaveTop");
 
         // Press "change" button
         $this->click("id=userChangeAddress");
 
         // Check does "billing address" label exist
-        $this->assertTrue($this->isElementPresent("id=addressSettingsHeader"));
+        $this->assertElementPresent("id=addressSettingsHeader");
 
         // Check does "e-mail" address exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='addressForm']/li/label"));
+        $this->assertElementPresent("//ul[@id='addressForm']/li/label");
 
         // Check does all imput field exist
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxusername]"));
-        $this->assertTrue($this->isElementPresent("css=span.js-oxError_email"));
-        $this->assertTrue($this->isElementPresent("//ul[@id='addressForm']/li[3]/label"));
-        $this->assertTrue($this->isElementPresent("//ul[@id='addressForm']/li[3]/label[2]"));
-        $this->assertTrue($this->isElementPresent("id=mr_invadr[oxuser__oxsal]"));
-        $this->assertTrue($this->isElementPresent("id=mrs_invadr[oxuser__oxsal]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxfname]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxlname]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxcompany]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxaddinfo]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxstreet]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxstreetnr]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxzip]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxcity]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxustid]"));
-        $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxfon]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxfax]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxmobfon]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxprivfon]"));
-        $this->assertTrue($this->isElementPresent("id=datePicker"));
+        $this->assertElementPresent("name=invadr[oxuser__oxusername]");
+        $this->assertElementPresent("css=span.js-oxError_email");
+        $this->assertElementPresent("//ul[@id='addressForm']/li[3]/label");
+        $this->assertElementPresent("//ul[@id='addressForm']/li[3]/label[2]");
+        $this->assertElementPresent("id=mr_invadr[oxuser__oxsal]");
+        $this->assertElementPresent("id=mrs_invadr[oxuser__oxsal]");
+        $this->assertElementPresent("name=invadr[oxuser__oxfname]");
+        $this->assertElementPresent("name=invadr[oxuser__oxlname]");
+        $this->assertElementPresent("name=invadr[oxuser__oxcompany]");
+        $this->assertElementPresent("name=invadr[oxuser__oxaddinfo]");
+        $this->assertElementPresent("name=invadr[oxuser__oxstreet]");
+        $this->assertElementPresent("name=invadr[oxuser__oxstreetnr]");
+        $this->assertElementPresent("name=invadr[oxuser__oxzip]");
+        $this->assertElementPresent("name=invadr[oxuser__oxcity]");
+        $this->assertElementPresent("name=invadr[oxuser__oxustid]");
+        $this->assertElementPresent("css=div.dropdown-toggle");
+        $this->assertElementPresent("name=invadr[oxuser__oxfon]");
+        $this->assertElementPresent("name=invadr[oxuser__oxfax]");
+        $this->assertElementPresent("name=invadr[oxuser__oxmobfon]");
+        $this->assertElementPresent("name=invadr[oxuser__oxprivfon]");
+        $this->assertElementPresent("id=datePicker");
 
         // Change date of birth and submit
         $this->click("//li[@id='month']/button");
@@ -452,8 +452,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         // Check date
         $this->click("id=userChangeAddress");
         $this->assertTrue($this->isTextPresent("February"));
-        $this->assertTrue($this->isElementPresent("//input[@value='02']"));
-        $this->assertTrue($this->isElementPresent("//input[@value='1981']"));
+        $this->assertElementPresent("//input[@value='02']");
+        $this->assertElementPresent("//input[@value='1981']");
     }
 
     /**
@@ -479,21 +479,21 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false );
 
         // Check does step line on top of the page exist
-        $this->assertTrue($this->isElementPresent("css=span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+        $this->assertElementPresent("css=span.step-number");
+        $this->assertElementPresent("css=li.step2.active  > a > span.step-number");
+        $this->assertElementPresent("css=li.step2.active  > a > span.step-name");
+        $this->assertElementPresent("css=li.step3 > span.step-number");
+        $this->assertElementPresent("css=li.step4 > span.step-number");
+        $this->assertElementPresent("css=span.step-number.last");
 
         // Check does imput field for login name and password exists
-        $this->assertTrue($this->isElementPresent("name=lgn_usr"));
-        $this->assertTrue($this->isElementPresent("name=lgn_pwd"));
-        $this->assertTrue($this->isElementPresent("css=span.js-oxError_notEmpty"));
-        $this->assertTrue($this->isElementPresent("//input[@value='Open account']"));
-        $this->assertTrue($this->isElementPresent("//input[@value='Log in']"));
-        $this->assertTrue($this->isElementPresent("link=exact:Forgot password?"));
-        $this->assertTrue($this->isElementPresent("//input[@value='Without registration']"));
+        $this->assertElementPresent("name=lgn_usr");
+        $this->assertElementPresent("name=lgn_pwd");
+        $this->assertElementPresent("css=span.js-oxError_notEmpty");
+        $this->assertElementPresent("//input[@value='Open account']");
+        $this->assertElementPresent("//input[@value='Log in']");
+        $this->assertElementPresent("link=exact:Forgot password?");
+        $this->assertElementPresent("//input[@value='Without registration']");
     }
 
     /**
@@ -522,36 +522,36 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false, true );
 
         // Check does  step line with all steps exist
-        $this->assertTrue($this->isElementPresent("css=span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step3"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+        $this->assertElementPresent("css=span.step-number");
+        $this->assertElementPresent("css=li.step2.active  > a > span.step-number");
+        $this->assertElementPresent("css=li.step2.active  > a > span.step-name");
+        $this->assertElementPresent("css=li.step3");
+        $this->assertElementPresent("css=li.step4 > span.step-number");
+        $this->assertElementPresent("css=span.step-number.last");
 
         // Check does billing address label exist
-        $this->assertTrue($this->isElementPresent("css=h3"));
+        $this->assertElementPresent("css=h3");
 
         // Check does "change address" button exist
-        $this->assertTrue($this->isElementPresent("id=userChangeAddress"));
+        $this->assertElementPresent("id=userChangeAddress");
 
         // Check does address exist
-        $this->assertTrue($this->isElementPresent("css=#addressText > li"));
+        $this->assertElementPresent("css=#addressText > li");
 
         // Check does "send to billing address" label exist
-        $this->assertTrue($this->isElementPresent("css=div.form > label"));
+        $this->assertElementPresent("css=div.form > label");
 
         // Check does "send to billing address"  checkbox exist
-        $this->assertTrue($this->isElementPresent("id=showShipAddress"));
+        $this->assertElementPresent("id=showShipAddress");
 
         // Check does  remark field exist
-        $this->assertTrue($this->isElementPresent("id=orderRemark"));
+        $this->assertElementPresent("id=orderRemark");
 
         // Check does "continue" button exist
-        $this->assertTrue($this->isElementPresent("id=userNextStepBottom"));
+        $this->assertElementPresent("id=userNextStepBottom");
 
         // Check does "previous step" button exist
-        $this->assertTrue($this->isElementPresent("css=input.btn.previous"));
+        $this->assertElementPresent("css=input.btn.previous");
     }
 
     /**
@@ -580,71 +580,71 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false );
 
         // Check does step line exist with all steps;
-        $this->assertTrue($this->isElementPresent("css=span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.active  > a > span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step3"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+        $this->assertElementPresent("css=span.step-number");
+        $this->assertElementPresent("css=li.step2.active  > a > span.step-number");
+        $this->assertElementPresent("css=li.step2.active  > a > span.step-name");
+        $this->assertElementPresent("css=li.step3");
+        $this->assertElementPresent("css=li.step4 > span.step-number");
+        $this->assertElementPresent("css=span.step-number.last");
 
 
         // Check does Customer information label exist;
-        $this->assertTrue($this->isElementPresent("css=h3.block-head"));
+        $this->assertElementPresent("css=h3.block-head");
 
         // Check does label and imput field for email address exist;
-        $this->assertTrue($this->isElementPresent("id=userLoginName"));
+        $this->assertElementPresent("id=userLoginName");
 
         // Check  does warning message "Specify a value for this required field" exist;
-        $this->assertTrue($this->isElementPresent("css=span.js-oxError_notEmpty"));
+        $this->assertElementPresent("css=span.js-oxError_notEmpty");
 
         // Check does "Billing Address" label exist;
-        $this->assertTrue($this->isElementPresent("//h3[2]"));
+        $this->assertElementPresent("//h3[2]");
 
         // Check does Mr and  MRs check boxes with labels exist;
-        $this->assertTrue($this->isElementPresent("id=mr_invadr[oxuser__oxsal]"));
-        $this->assertTrue($this->isElementPresent("id=mrs_invadr[oxuser__oxsal]"));
-        $this->assertTrue($this->isElementPresent("//ul[2]/li/label"));
-        $this->assertTrue($this->isElementPresent("//label[2]"));
+        $this->assertElementPresent("id=mr_invadr[oxuser__oxsal]");
+        $this->assertElementPresent("id=mrs_invadr[oxuser__oxsal]");
+        $this->assertElementPresent("//ul[2]/li/label");
+        $this->assertElementPresent("//label[2]");
 
         // Check does all imput elements are in page;
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxfname]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxlname]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxcompany]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxaddinfo]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxstreet]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxzip]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxcity]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxstreetnr]"));
-        $this->assertTrue($this->isElementPresent("//div[@id='invCountry']/div"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxfon]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxfax]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxmobfon]"));
-        $this->assertTrue($this->isElementPresent("name=invadr[oxuser__oxprivfon]"));
+        $this->assertElementPresent("name=invadr[oxuser__oxfname]");
+        $this->assertElementPresent("name=invadr[oxuser__oxlname]");
+        $this->assertElementPresent("name=invadr[oxuser__oxcompany]");
+        $this->assertElementPresent("name=invadr[oxuser__oxaddinfo]");
+        $this->assertElementPresent("name=invadr[oxuser__oxstreet]");
+        $this->assertElementPresent("name=invadr[oxuser__oxzip]");
+        $this->assertElementPresent("name=invadr[oxuser__oxcity]");
+        $this->assertElementPresent("name=invadr[oxuser__oxstreetnr]");
+        $this->assertElementPresent("//div[@id='invCountry']/div");
+        $this->assertElementPresent("name=invadr[oxuser__oxfon]");
+        $this->assertElementPresent("name=invadr[oxuser__oxfax]");
+        $this->assertElementPresent("name=invadr[oxuser__oxmobfon]");
+        $this->assertElementPresent("name=invadr[oxuser__oxprivfon]");
 
         // Check does birthday field exist;
-        $this->assertTrue($this->isElementPresent("css=li.oxDate > label"));
-        $this->assertTrue($this->isElementPresent("css=#month > button.btn"));
-        $this->assertTrue($this->isElementPresent("css=#day > button.btn"));
-        $this->assertTrue($this->isElementPresent("css=#year > button.btn"));
-        $this->assertTrue($this->isElementPresent("xpath=(//button[@type='button'])[2]"));
-        $this->assertTrue($this->isElementPresent("xpath=(//button[@type='button'])[4]"));
-        $this->assertTrue($this->isElementPresent("xpath=(//button[@type='button'])[6]"));
+        $this->assertElementPresent("css=li.oxDate > label");
+        $this->assertElementPresent("css=#month > button.btn");
+        $this->assertElementPresent("css=#day > button.btn");
+        $this->assertElementPresent("css=#year > button.btn");
+        $this->assertElementPresent("xpath=(//button[@type='button'])[2]");
+        $this->assertElementPresent("xpath=(//button[@type='button'])[4]");
+        $this->assertElementPresent("xpath=(//button[@type='button'])[6]");
 
         // Check does warning message exist;
-        $this->assertTrue($this->isElementPresent("css=li.alert.alert-block"));
+        $this->assertElementPresent("css=li.alert.alert-block");
 
         // Check does "Shipping address" label and check box exist;
-        $this->assertTrue($this->isElementPresent("//h3[3]"));
+        $this->assertElementPresent("//h3[3]");
 
         // Check does " what I wanted to say" field with label exist;
-        $this->assertTrue($this->isElementPresent("//li[2]/label"));
-        $this->assertTrue($this->isElementPresent("id=orderRemark"));
+        $this->assertElementPresent("//li[2]/label");
+        $this->assertElementPresent("id=orderRemark");
 
         // Check does "continue" button exist;
-        $this->assertTrue($this->isElementPresent("id=userNextStepBottom"));
+        $this->assertElementPresent("id=userNextStepBottom");
 
         // Check does "previous step" button exist;
-        $this->assertTrue($this->isElementPresent("id=userBackStepBottom"));
+        $this->assertElementPresent("id=userBackStepBottom");
 
     }
 
@@ -671,25 +671,25 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false );
 
         // Check does "24 Hits for "kite" " exist
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
 
         // Check does sort by exist
-        $this->assertTrue($this->isElementPresent("css=label.sort-title"));
+        $this->assertElementPresent("css=label.sort-title");
 
         // Check does  sorting field exist
-        $this->assertTrue($this->isElementPresent("//div[@id='sortItems']/div/div/span"));
+        $this->assertElementPresent("//div[@id='sortItems']/div/div/span");
 
         // Check does 1st product exist
-        $this->assertTrue($this->isElementPresent("css=div.article-list-price"));
+        $this->assertElementPresent("css=div.article-list-price");
 
         // Check does last product in the list exist
-        $this->assertTrue($this->isElementPresent("//ul[@id='searchList']/li[10]/form/div[2]"));
+        $this->assertElementPresent("//ul[@id='searchList']/li[10]/form/div[2]");
 
         // Check does  page number 1 exist
-        $this->assertTrue($this->isElementPresent("link=1"));
+        $this->assertElementPresent("link=1");
 
         // Check does next page  button exist
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-right"));
+        $this->assertElementPresent("css=i.glyphicon-chevron-right");
     }
 
     /**
@@ -733,73 +733,73 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false );
 
         // Check does  step line with all steps exist
-        $this->assertTrue($this->isElementPresent("css=span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step2 > a > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+        $this->assertElementPresent("css=span.step-number");
+        $this->assertElementPresent("css=span.step-name");
+        $this->assertElementPresent("css=li.step2 > a > span.step-number");
+        $this->assertElementPresent("css=li.step3 > span.step-number");
+        $this->assertElementPresent("css=li.step4 > span.step-number");
+        $this->assertElementPresent("css=span.step-number.last");
 
         // Check does exist 01 CART content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
-        $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th"));
+        $this->assertElementPresent("css=div.content");
+        $this->assertElementPresent("//tr[@id='basketGrandTotal']/th");
 
         // Check does exist button CONTINUE
-        $this->assertTrue($this->isElementPresent("css=input.btn.nextStep"));
-        $this->assertTrue($this->isElementPresent("css=#btnNextStepBottom > form.form > input.btn.nextStep"));
+        $this->assertElementPresent("css=input.btn.nextStep");
+        $this->assertElementPresent("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         // Check does exist remove button
-        $this->assertTrue($this->isElementPresent("name=removeBtn"));
+        $this->assertElementPresent("name=removeBtn");
 
         // Check does exist element product title link
-        $this->assertTrue($this->isElementPresent("css=a.media-heading-link"));
+        $this->assertElementPresent("css=a.media-heading-link");
 
         // Check does exist element of variant
-        $this->assertTrue($this->isElementPresent("css=p.attributes"));
+        $this->assertElementPresent("css=p.attributes");
 
         // Check does exist quantity input fields
-        $this->assertTrue($this->isElementPresent("id=am_1"));
-        $this->assertTrue($this->isElementPresent("id=am_2"));
-        $this->assertTrue($this->isElementPresent("//li[@id='cartItem_1']/div/div/input[4]"));
+        $this->assertElementPresent("id=am_1");
+        $this->assertElementPresent("id=am_2");
+        $this->assertElementPresent("//li[@id='cartItem_1']/div/div/input[4]");
 
         // Check does exist element for VAT
-        $this->assertTrue($this->isElementPresent("css=span.vat-percent"));
+        $this->assertElementPresent("css=span.vat-percent");
 
         // Check does exist element for main price
-        $this->assertTrue($this->isElementPresent("css=span.main-price"));
+        $this->assertElementPresent("css=span.main-price");
 
         // Check does exist  input field for persParam
-        $this->assertTrue($this->isElementPresent("//li[@id='cartItem_2']/div/p[2]/input"));
+        $this->assertElementPresent("//li[@id='cartItem_2']/div/p[2]/input");
         /*
          *  //Commented because of bug #5227
                 // Check does exist element of attribute
-                $this->assertTrue($this->isElementPresent("css=#cartItem_3 > div.media-body > p.attributes"));
-                $this->assertTrue($this->isElementPresent("//li[@id='cartItem_3']/div/p"));
-                $this->assertTrue($this->isElementPresent("css=#cartItem_2 > div.media-body"));
+                $this->assertElementPresent("css=#cartItem_3 > div.media-body > p.attributes");
+                $this->assertElementPresent("//li[@id='cartItem_3']/div/p");
+                $this->assertElementPresent("css=#cartItem_2 > div.media-body");
         */
         // Check does exist label Update
-        $this->assertTrue($this->isElementPresent("//div[@id='basketFn']/label"));
+        $this->assertElementPresent("//div[@id='basketFn']/label");
 
         // Check does exist button Basket update
-        $this->assertTrue($this->isElementPresent("id=basketFn"));
-        $this->assertTrue($this->isElementPresent("id=basketUpdate"));
+        $this->assertElementPresent("id=basketFn");
+        $this->assertElementPresent("id=basketUpdate");
 
         // Check does exist label element Total Products (net)
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr/th"));
+        $this->assertElementPresent("//table[@id='basketSummary']/tbody/tr/th");
 
         // Check does exist label plus var 19 Amount
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[2]/th"));
+        $this->assertElementPresent("//table[@id='basketSummary']/tbody/tr[2]/th");
 
         // Check does exist label "Total product (gross)
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[3]/th"));
-        $this->assertTrue($this->isElementPresent("id=basketTotalProductsNetto"));
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[2]/td"));
-        $this->assertTrue($this->isElementPresent("id=basketTotalProductsGross"));
-        $this->assertTrue($this->isElementPresent("css=#basketGrandTotal > td"));
-        $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th/strong"));
+        $this->assertElementPresent("//table[@id='basketSummary']/tbody/tr[3]/th");
+        $this->assertElementPresent("id=basketTotalProductsNetto");
+        $this->assertElementPresent("//table[@id='basketSummary']/tbody/tr[2]/td");
+        $this->assertElementPresent("id=basketTotalProductsGross");
+        $this->assertElementPresent("css=#basketGrandTotal > td");
+        $this->assertElementPresent("//tr[@id='basketGrandTotal']/th/strong");
 
         // Check does exist all checkout steps at the top
-        $this->assertTrue($this->isElementPresent("css=ul.steps"));
+        $this->assertElementPresent("css=ul.steps");
     }
 
     /**
@@ -846,76 +846,76 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false, true );
 
         // Check does  step line with all steps exist
-        $this->assertTrue($this->isElementPresent("css=span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step2 > a > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step3 > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step4 > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+        $this->assertElementPresent("css=span.step-number");
+        $this->assertElementPresent("css=span.step-name");
+        $this->assertElementPresent("css=li.step2 > a > span.step-number");
+        $this->assertElementPresent("css=li.step3 > span.step-number");
+        $this->assertElementPresent("css=li.step4 > span.step-number");
+        $this->assertElementPresent("css=span.step-number.last");
 
         // Check does exist 01 CART content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
-        $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th"));
+        $this->assertElementPresent("css=div.content");
+        $this->assertElementPresent("//tr[@id='basketGrandTotal']/th");
 
         // Check does exist button CONTINUE
-        $this->assertTrue($this->isElementPresent("css=input.btn.nextStep"));
-        $this->assertTrue($this->isElementPresent("css=#btnNextStepBottom > form.form > input.btn.nextStep"));
+        $this->assertElementPresent("css=input.btn.nextStep");
+        $this->assertElementPresent("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         // Check does exist remove button
-        $this->assertTrue($this->isElementPresent("name=removeBtn"));
+        $this->assertElementPresent("name=removeBtn");
 
         // Check does exist element product title link
-        $this->assertTrue($this->isElementPresent("css=a.media-heading-link"));
+        $this->assertElementPresent("css=a.media-heading-link");
 
         // Check does exist element of variant
-        $this->assertTrue($this->isElementPresent("css=p.attributes"));
+        $this->assertElementPresent("css=p.attributes");
 
         // Check does exist quantity input fields
-        $this->assertTrue($this->isElementPresent("id=am_1"));
-        $this->assertTrue($this->isElementPresent("id=am_2"));
-        $this->assertTrue($this->isElementPresent("//li[@id='cartItem_1']/div/div/input[4]"));
+        $this->assertElementPresent("id=am_1");
+        $this->assertElementPresent("id=am_2");
+        $this->assertElementPresent("//li[@id='cartItem_1']/div/div/input[4]");
 
         // Check does exist element for VAT
-        $this->assertTrue($this->isElementPresent("css=span.vat-percent"));
+        $this->assertElementPresent("css=span.vat-percent");
 
         // Check does exist element for main price
-        $this->assertTrue($this->isElementPresent("css=span.main-price"));
+        $this->assertElementPresent("css=span.main-price");
 
         // Check does exist  input field for persParam
-        $this->assertTrue($this->isElementPresent("//li[@id='cartItem_2']/div/p[2]/input"));
+        $this->assertElementPresent("//li[@id='cartItem_2']/div/p[2]/input");
 
         // Check does exist label element
-        $this->assertTrue($this->isElementPresent("css=input.persParam"));
+        $this->assertElementPresent("css=input.persParam");
         /*
          *  //Commented because of bug #5227
                 // Check does exist element of attribute
-                $this->assertTrue($this->isElementPresent("css=#cartItem_3 > div.media-body > p.attributes"));
-                $this->assertTrue($this->isElementPresent("//li[@id='cartItem_3']/div/p"));
-                $this->assertTrue($this->isElementPresent("css=#cartItem_2 > div.media-body"));
+                $this->assertElementPresent("css=#cartItem_3 > div.media-body > p.attributes");
+                $this->assertElementPresent("//li[@id='cartItem_3']/div/p");
+                $this->assertElementPresent("css=#cartItem_2 > div.media-body");
         */
         // Check does exist label Update
-        $this->assertTrue($this->isElementPresent("//div[@id='basketFn']/label"));
+        $this->assertElementPresent("//div[@id='basketFn']/label");
 
         // Check does exist button Basket update
-        $this->assertTrue($this->isElementPresent("id=basketFn"));
-        $this->assertTrue($this->isElementPresent("id=basketUpdate"));
+        $this->assertElementPresent("id=basketFn");
+        $this->assertElementPresent("id=basketUpdate");
 
         // Check does exist label element Total Products (net)
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr/th"));
+        $this->assertElementPresent("//table[@id='basketSummary']/tbody/tr/th");
 
         // Check does exist label plus var 19 Amount
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[2]/th"));
+        $this->assertElementPresent("//table[@id='basketSummary']/tbody/tr[2]/th");
 
         // Check does exist label "Total product (gross)
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[3]/th"));
-        $this->assertTrue($this->isElementPresent("id=basketTotalProductsNetto"));
-        $this->assertTrue($this->isElementPresent("//table[@id='basketSummary']/tbody/tr[2]/td"));
-        $this->assertTrue($this->isElementPresent("id=basketTotalProductsGross"));
-        $this->assertTrue($this->isElementPresent("css=#basketGrandTotal > td"));
-        $this->assertTrue($this->isElementPresent("//tr[@id='basketGrandTotal']/th/strong"));
+        $this->assertElementPresent("//table[@id='basketSummary']/tbody/tr[3]/th");
+        $this->assertElementPresent("id=basketTotalProductsNetto");
+        $this->assertElementPresent("//table[@id='basketSummary']/tbody/tr[2]/td");
+        $this->assertElementPresent("id=basketTotalProductsGross");
+        $this->assertElementPresent("css=#basketGrandTotal > td");
+        $this->assertElementPresent("//tr[@id='basketGrandTotal']/th/strong");
 
         // Check does exist all checkout steps at the top
-        $this->assertTrue($this->isElementPresent("css=ul.steps"));
+        $this->assertElementPresent("css=ul.steps");
     }
 
     /**
@@ -934,14 +934,14 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->click("css=i.glyphicon-star");
 
         // Check does exist present info message "Please login to access Wish List."
-        $this->assertTrue($this->isElementPresent("//div[@id='detailsMain']/div/div/span"));
+        $this->assertElementPresent("//div[@id='detailsMain']/div/div/span");
 
         // Check does exist info message"Please login to access Wish List." border
-        $this->assertTrue($this->isElementPresent("//div[@id='detailsMain']/div/div"));
+        $this->assertElementPresent("//div[@id='detailsMain']/div/div");
         $this->click("css=i.glyphicon-star");
 
         // Check does exist border with text "Success"
-        $this->assertTrue($this->isElementPresent("//div[@id='detailsMain']/div/div/span"));
+        $this->assertElementPresent("//div[@id='detailsMain']/div/div/span");
 
         // Go to My account page
         $this->clickAndWait("link=My Account");
@@ -954,23 +954,23 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false, true );
 
         // Check does exist header "MY WISH LIST"
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
 
         // Check does exist remove button
-        $this->assertTrue($this->isElementPresent("name=wishlist_remove_button"));
+        $this->assertElementPresent("name=wishlist_remove_button");
 
         // Check there are added product in to wish list
-        $this->assertTrue($this->isElementPresent("//ul[@id='noticelistProductList']/li/form/div[2]"));
+        $this->assertElementPresent("//ul[@id='noticelistProductList']/li/form/div[2]");
 
         // Remove product from wish list
         $this->clickAndWait("name=wishlist_remove_button");
         /*
          *  //Commented because of bug #5227
                 // Check does exist error message "Your Wish List is empty. "
-              //  $this->assertTrue($this->isElementPresent("css=div.alert.alert-error"));
+              //  $this->assertElementPresent("css=div.alert.alert-error");
 
                 // Check does exist error message content
-                $this->assertTrue($this->isElementPresent("css=div.content"));
+                $this->assertElementPresent("css=div.content");
         */
     }
 
@@ -1000,76 +1000,76 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//input[@value='Continue']");
 
         // Check there are 4 basket steps marked as active
-        $this->assertTrue($this->isElementPresent("css=li.step4.active  > span.step-name"));
+        $this->assertElementPresent("css=li.step4.active  > span.step-name");
 
         // Check does exist header "Terms and Conditions and Right to Withdrawal"
-        $this->assertTrue($this->isElementPresent("css=div.agb"));
-        $this->assertTrue($this->isElementPresent("css=h3.heading.section-heading > span"));
+        $this->assertElementPresent("css=div.agb");
+        $this->assertElementPresent("css=h3.heading.section-heading > span");
 
         // Check does exist link "right of withdrawal"
-        $this->assertTrue($this->isElementPresent("link=Right of Withdrawal"));
-        $this->assertTrue($this->isElementPresent("css=#test_OrderOpenWithdrawalBottom"));
+        $this->assertElementPresent("link=Right of Withdrawal");
+        $this->assertElementPresent("css=#test_OrderOpenWithdrawalBottom");
 
         // Check does exist link to "terms and conditions" page
-        $this->assertTrue($this->isElementPresent("css=a.fontunderline"));
-        $this->assertTrue($this->isElementPresent("link=Terms and Conditions"));
+        $this->assertElementPresent("css=a.fontunderline");
+        $this->assertElementPresent("link=Terms and Conditions");
 
         // Check does exist heading section
-        $this->assertTrue($this->isElementPresent("css=form.form > h3.heading.section-heading > span"));
-        $this->assertTrue($this->isElementPresent("//div[@id='orderAddress']/form/h3/span"));
+        $this->assertElementPresent("css=form.form > h3.heading.section-heading > span");
+        $this->assertElementPresent("//div[@id='orderAddress']/form/h3/span");
 
         // Check does exist button EDIT billing address
-        $this->assertTrue($this->isElementPresent("//button[@type='submit']"));
+        $this->assertElementPresent("//button[@type='submit']");
 
         // Check does exist  Billing address
-        $this->assertTrue($this->isElementPresent("//div[@id='orderAddress']/dl/dd"));
+        $this->assertElementPresent("//div[@id='orderAddress']/dl/dd");
 
         // Check does exist Billing address title
-        $this->assertTrue($this->isElementPresent("//div[@id='orderAddress']/dl/dt"));
+        $this->assertElementPresent("//div[@id='orderAddress']/dl/dt");
 
         // Check does exist SHIPPING CARRIER title
-        $this->assertTrue($this->isElementPresent("css=#orderShipping > form.form > h3.heading.section-heading"));
+        $this->assertElementPresent("css=#orderShipping > form.form > h3.heading.section-heading");
 
         // Check does exist Shipping method "Standard"
-        $this->assertTrue($this->isElementPresent("//div[@id='orderShipping']"));
+        $this->assertElementPresent("//div[@id='orderShipping']");
 
         // Check does exist payment method information
-        $this->assertTrue($this->isElementPresent("css=#orderPayment > form.form > h3.heading.section-heading"));
-        $this->assertTrue($this->isElementPresent("id=orderPayment"));
+        $this->assertElementPresent("css=#orderPayment > form.form > h3.heading.section-heading");
+        $this->assertElementPresent("id=orderPayment");
 
         // Check does exist payment EDIT button
-        $this->assertTrue($this->isElementPresent("//div[@id='orderPayment']/form/h3/button"));
+        $this->assertElementPresent("//div[@id='orderPayment']/form/h3/button");
 
         // Check does exist button edit shipping method
-        $this->assertTrue($this->isElementPresent("//div[@id='orderEditCart']/form/h3/button"));
+        $this->assertElementPresent("//div[@id='orderEditCart']/form/h3/button");
 
         // Check does exist Cart information
-        $this->assertTrue($this->isElementPresent("//div[@id='orderEditCart']/form/h3/span"));
+        $this->assertElementPresent("//div[@id='orderEditCart']/form/h3/span");
 
         // Check does exist product image
         // Check does exist link to product
-        $this->assertTrue($this->isElementPresent("css=img[alt=\"Harness MADTRIXX\"]"));
-        $this->assertTrue($this->isElementPresent("link=Harness MADTRIXX"));
+        $this->assertElementPresent("css=img[alt=\"Harness MADTRIXX\"]");
+        $this->assertElementPresent("link=Harness MADTRIXX");
 
         // Check does exist all element related with button "ORDER NOW"
-        $this->assertTrue($this->isElementPresent("css=li > button.btn"));
-        $this->assertTrue($this->isElementPresent("//form[@id='orderConfirmAgbBottom']/ul/li/button"));
+        $this->assertElementPresent("css=li > button.btn");
+        $this->assertElementPresent("//form[@id='orderConfirmAgbBottom']/ul/li/button");
 
         // Check does exist all basket summary
-        $this->assertTrue($this->isElementPresent("id=basketGrandTotal"));
-        $this->assertTrue($this->isElementPresent("id=basketTotalProductsNetto"));
-        $this->assertTrue($this->isElementPresent("id=basketSummary"));
-        $this->assertTrue($this->isElementPresent("id=basketTotalProductsGross"));
-        $this->assertTrue($this->isElementPresent("id=basketDeliveryGross"));
-        $this->assertTrue($this->isElementPresent("id=basketPaymentGross"));
+        $this->assertElementPresent("id=basketGrandTotal");
+        $this->assertElementPresent("id=basketTotalProductsNetto");
+        $this->assertElementPresent("id=basketSummary");
+        $this->assertElementPresent("id=basketTotalProductsGross");
+        $this->assertElementPresent("id=basketDeliveryGross");
+        $this->assertElementPresent("id=basketPaymentGross");
 
         // Check does exist all (1,2,3,4, ok) steps exist
-        $this->assertTrue($this->isElementPresent("css=span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.passed  > a > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step3.passed  > a > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step4.active  > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step4.active  > span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+        $this->assertElementPresent("css=span.step-number");
+        $this->assertElementPresent("css=li.step2.passed  > a > span.step-number");
+        $this->assertElementPresent("css=li.step3.passed  > a > span.step-number");
+        $this->assertElementPresent("css=li.step4.active  > span.step-number");
+        $this->assertElementPresent("css=li.step4.active  > span.step-name");
+        $this->assertElementPresent("css=span.step-number.last");
 
         //Check header and footer
         $this->testHeader( false, false);
@@ -1089,21 +1089,21 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false, true );
 
         // Check does link back to Start page exist;
-        $this->assertTrue($this->isElementPresent("id=backToShop"));
+        $this->assertElementPresent("id=backToShop");
 
         // Check does exist link to  order history
-        $this->assertTrue($this->isElementPresent("id=orderHistory"));
+        $this->assertElementPresent("id=orderHistory");
 
         // Check does thank you page content exist in page;
-        $this->assertTrue($this->isElementPresent("//div[@id='thankyouPage']"));
+        $this->assertElementPresent("//div[@id='thankyouPage']");
 
         // Check does all (1,2,3,4,ok) basket step exist
-        $this->assertTrue($this->isElementPresent("css=span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.passed  > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step3.passed  > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step4.passed  > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step5.active > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step5.active > span.step-name"));
+        $this->assertElementPresent("css=span.step-number");
+        $this->assertElementPresent("css=li.step2.passed  > span.step-number");
+        $this->assertElementPresent("css=li.step3.passed  > span.step-number");
+        $this->assertElementPresent("css=li.step4.passed  > span.step-number");
+        $this->assertElementPresent("css=li.step5.active > span.step-number");
+        $this->assertElementPresent("css=li.step5.active > span.step-name");
 
     }
 
@@ -1122,31 +1122,31 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false, true );
 
         // Check does exist the page "CHANGE PASSWORD" header
-        $this->assertTrue($this->isElementPresent("//h1[@id='personalSettingsHeader']"));
+        $this->assertElementPresent("//h1[@id='personalSettingsHeader']");
 
         // Check does exist content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
 
         // Check does exist input fields "Old password"
-        $this->assertTrue($this->isElementPresent("id=passwordOld"));
+        $this->assertElementPresent("id=passwordOld");
 
         // heck does exist input field "New password"
-        $this->assertTrue($this->isElementPresent("id=passwordNew"));
+        $this->assertElementPresent("id=passwordNew");
 
         // Check label"Confirm password"
         $this->click("id=passwordNewConfirm");
 
         // Check input field "password new confirm"
-        $this->assertTrue($this->isElementPresent("id=passwordNewConfirm"));
+        $this->assertElementPresent("id=passwordNewConfirm");
 
         // Check button "SAVE"
-        $this->assertTrue($this->isElementPresent("id=savePass"));
+        $this->assertElementPresent("id=savePass");
 
         // Check all messages "Specify a value for this required field"
-        $this->assertTrue($this->isElementPresent("css=span.js-oxError_notEmpty"));
-        $this->assertTrue($this->isElementPresent("//li[2]/p/span"));
-        $this->assertTrue($this->isElementPresent("//li[3]/p/span"));
-        $this->assertTrue($this->isElementPresent("//div[@id='page']/div/div/form/ul/li[3]/p/span"));
+        $this->assertElementPresent("css=span.js-oxError_notEmpty");
+        $this->assertElementPresent("//li[2]/p/span");
+        $this->assertElementPresent("//li[3]/p/span");
+        $this->assertElementPresent("//div[@id='page']/div/div/form/ul/li[3]/p/span");
     }
 
     /**
@@ -1163,16 +1163,16 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false );
 
         // Check does exist Error header
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
 
         // Check does exist page content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
 
         // Check does exist element bold "as bold is marked text en/Kiteboarding/Harnesses/Harness-MADTRIX.html'"
-        $this->assertTrue($this->isElementPresent("css=strong"));
+        $this->assertElementPresent("css=strong");
 
         // Check does exist Full information related with error 404
-        $this->assertTrue($this->isElementPresent("css=div.alert.alert-error"));
+        $this->assertElementPresent("css=div.alert.alert-error");
     }
 
     /**
@@ -1190,35 +1190,35 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//a[@id='forgotPasswordLink']");
 
         // Check does exist title"FORGOT PASSWORD"
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
 
         // Check does exist forgot password content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
 
         // Check label  "You e-mail Address:" is present
-        $this->assertTrue($this->isElementPresent("css=label"));
+        $this->assertElementPresent("css=label");
 
         // Check does exist input label "E-mail address"
-        $this->assertTrue($this->isElementPresent("id=forgotPasswordUserLoginName"));
+        $this->assertElementPresent("id=forgotPasswordUserLoginName");
 
         // Check does exist button with value Request Password
-        $this->assertTrue($this->isElementPresent("//input[@value='Request Password']"));
+        $this->assertElementPresent("//input[@value='Request Password']");
 
         // Check does exist content ellement
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
 
         // Check element is present for text"When you click on 'Request Password', you'll be sent an e-mail with instructions how to set up a new password. "
-        $this->assertTrue($this->isElementPresent("css=div.content > p"));
+        $this->assertElementPresent("css=div.content > p");
         $this->type("id=forgotPasswordUserLoginName", "birute_test_@nfq.lt");
         $this->clickAndWait("css=input.btn");
 
         // Check does exist error message "  The e-mail address you have entered is invalid. Please enter a valid e-mail address."
-        $this->assertTrue($this->isElementPresent("//div[@id='page']/div/div/p"));
-        $this->assertTrue($this->isElementPresent("css=div.alert.alert-error"));
+        $this->assertElementPresent("//div[@id='page']/div/div/p");
+        $this->assertElementPresent("css=div.alert.alert-error");
         $this->type("id=forgotPasswordUserLoginName", "admin");
 
         // Check does exist error "Please enter a valid e-mail address"
-        $this->assertTrue($this->isElementPresent("css=span.js-oxError_email"));
+        $this->assertElementPresent("css=span.js-oxError_email");
         $this->type("id=forgotPasswordUserLoginName", "info@oxid-esales.com");
         $this->click("css=ul.form.clear");
         $this->clickAndWait("css=input.btn");
@@ -1236,41 +1236,41 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//a[contains(text(),'Log in')]");
 
         // Check does exist Login title in the login page
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
 
         // Checking does exist Login  container
-        $this->assertTrue($this->isElementPresent("id=loginAccount"));
+        $this->assertElementPresent("id=loginAccount");
 
         // Check does exist message "If you are already our customer, please login using your e-mail address and password:"
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/p"));
+        $this->assertElementPresent("//div[@id='loginAccount']/p");
 
         // Check does exist input field Login user
 
-        $this->assertTrue($this->isElementPresent("id=loginUser"));
+        $this->assertElementPresent("id=loginUser");
 
         // Check does exist input field Login Password
-        $this->assertTrue($this->isElementPresent("id=loginPwd"));
+        $this->assertElementPresent("id=loginPwd");
 
         // Check does exist checkbox label name "Keep me logged-in"
-        $this->assertTrue($this->isElementPresent("//div[@id='loginAccount']/form/ul/li[3]/label"));
+        $this->assertElementPresent("//div[@id='loginAccount']/form/ul/li[3]/label");
 
 
         // Check or checkbox element is present
-        $this->assertTrue($this->isElementPresent("css=label.glyphicon-ok"));
+        $this->assertElementPresent("css=label.glyphicon-ok");
 
         // Checking Login button is present
-        $this->assertTrue($this->isElementPresent("id=loginButton"));
+        $this->assertElementPresent("id=loginButton");
 
         // Check does exist Open account  and Forgot password links
-        $this->assertTrue($this->isElementPresent("id=openAccountLink"));
-        $this->assertTrue($this->isElementPresent("id=forgotPasswordLink"));
+        $this->assertElementPresent("id=openAccountLink");
+        $this->assertElementPresent("id=forgotPasswordLink");
 
         // Click on checkbox "Keep me logged-in"
         $this->click("id=loginCookie");
         $this->click("id=loginButton");
 
         // Check does exist message "Specify a value for this required field"
-        $this->assertTrue($this->isElementPresent("css=span.js-oxError_notEmpty"));
+        $this->assertElementPresent("css=span.js-oxError_notEmpty");
     }
 
     /**
@@ -1284,44 +1284,44 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("link=My Account");
 
         // Check there are page active
-        $this->assertTrue($this->isElementPresent("css=li.active > a"));
+        $this->assertElementPresent("css=li.active > a");
 
         // Check does exist link "CHANGE PASSWORD"
-        $this->assertTrue($this->isElementPresent("css=span"));
+        $this->assertElementPresent("css=span");
 
         // Check does exist glyph icon in the right side
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-right"));
+        $this->assertElementPresent("css=i.glyphicon-chevron-right");
 
         // Check does exist link "NEWSLETTER SETTINGS"
-        $this->assertTrue($this->isElementPresent("css=#linkAccountNewsletter > span"));
+        $this->assertElementPresent("css=#linkAccountNewsletter > span");
 
         // Check does exist glyph icon in the right side (linkAccountNewsletter)
-        $this->assertTrue($this->isElementPresent("css=#linkAccountNewsletter > i.glyphicon-chevron-right"));
+        $this->assertElementPresent("css=#linkAccountNewsletter > i.glyphicon-chevron-right");
 
         // Check does exist link "Billing and shipping settings"
-        $this->assertTrue($this->isElementPresent("css=#linkAccountBillship > span"));
+        $this->assertElementPresent("css=#linkAccountBillship > span");
 
         // Check does exist glyph icon in the right side (linkAccountBillship)
-        $this->assertTrue($this->isElementPresent("css=#linkAccountBillship > i.glyphicon-chevron-right"));
+        $this->assertElementPresent("css=#linkAccountBillship > i.glyphicon-chevron-right");
 
         // Check does exist link "Billing and shipping settings"
-        $this->assertTrue($this->isElementPresent("css=#linkAccountOrder > span"));
+        $this->assertElementPresent("css=#linkAccountOrder > span");
 
         // Check does exist glyph icon in the right side (linkAccountOrder)
-        $this->assertTrue($this->isElementPresent("css=#linkAccountOrder > i.glyphicon-chevron-right"));
+        $this->assertElementPresent("css=#linkAccountOrder > i.glyphicon-chevron-right");
 
         // Check does exist link "AccountDownloads"
-        $this->assertTrue($this->isElementPresent("//a[@id='linkAccountDownloads']/span"));
+        $this->assertElementPresent("//a[@id='linkAccountDownloads']/span");
 
         // Check does exist glyph icon in the right side (linkAccountDownloads)
-        $this->assertTrue($this->isElementPresent("//a[@id='linkAccountDownloads']/i"));
+        $this->assertElementPresent("//a[@id='linkAccountDownloads']/i");
 
         // Check does exist link"My Wish List"
-        $this->assertTrue($this->isElementPresent("css=#linkAccountWishlist > span"));
+        $this->assertElementPresent("css=#linkAccountWishlist > span");
 
         // Check does exist glyph icon in the right side
-        $this->assertTrue($this->isElementPresent("//a[@id='linkAccountWishlist']/i"));
-        $this->assertTrue($this->isElementPresent("css=#linkAccountWishlist > i.glyphicon-chevron-right"));
+        $this->assertElementPresent("//a[@id='linkAccountWishlist']/i");
+        $this->assertElementPresent("css=#linkAccountWishlist > i.glyphicon-chevron-right");
     }
 
     /**
@@ -1342,13 +1342,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false, true );
 
         // Check does exist header "My download"
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
 
         // Check does exist info message  "You have not ordered any files yet. "
-        $this->assertTrue($this->isElementPresent("css=div.box.info"));
+        $this->assertElementPresent("css=div.box.info");
 
         // Check does exist My download content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
         $this->open( shopURL . "en/Downloads/" );
         $this->clickAndWait( 'link=Online shops with OXID eShop' );
 
@@ -1377,15 +1377,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//a[@id='linkAccountDownloads']/span");
 
         // Check does exist My download content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
 
         // Check does exist link for download product
-        $this->assertTrue($this->isElementPresent("link=ch03.pdf"));
-        $this->assertTrue($this->isElementPresent("//div[@id='page']/div/div/ul/li/dl/dd"));
-        $this->assertTrue($this->isElementPresent("//div[@id='page']/div/div/ul/li/dl/dt/strong"));
+        $this->assertElementPresent("link=ch03.pdf");
+        $this->assertElementPresent("//div[@id='page']/div/div/ul/li/dl/dd");
+        $this->assertElementPresent("//div[@id='page']/div/div/ul/li/dl/dt/strong");
 
         // Check does exist My download header
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
     }
 
     /**
@@ -1405,16 +1405,16 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false, true );
 
         // Check header "newsletter settings"
-        $this->assertTrue($this->isElementPresent("id=newsletterSettingsHeader"));
+        $this->assertElementPresent("id=newsletterSettingsHeader");
 
         // Check content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
 
         // Check label with name "Newsletter subscription:"
         $this->assertEquals("Newsletter subscription", $this->getText("//form[@name='newsletter']//ul/li/label"));
 
         // Check does exist dropdown
-        $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
+        $this->assertElementPresent("css=div.dropdown-toggle");
         $this->click("css=div.dropdown-toggle");
         $this->click("link=Yes");
         $this->click("css=div.dropdown-toggle");
@@ -1422,10 +1422,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("id=newsletterSettingsSave");
 
         // Check success message  "The Newsletter subscription has been canceled successful"
-        $this->assertTrue($this->isElementPresent("css=div.alert.alert-success"));
+        $this->assertElementPresent("css=div.alert.alert-success");
 
         // Checking button "SAVE"
-        $this->assertTrue($this->isElementPresent("id=newsletterSettingsSave"));
+        $this->assertElementPresent("id=newsletterSettingsSave");
         $this->clickAndWait("id=newsletterSettingsSave");
 
         $sNewsletterCancelText = $this->getText("//form[@name='newsletter']//ul/li[3]/p");
@@ -1454,32 +1454,32 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->open( shopURL . "en/order-history/" );
 
         // Check does exist "ORDER HISTORY " header.
-        $this->assertTrue($this->isElementPresent("//div[@id='page']/div/h1"));
+        $this->assertElementPresent("//div[@id='page']/div/h1");
         // Check does exist element order date.
-        $this->assertTrue($this->isElementPresent("//span[@id='accOrderDate_12']"));
+        $this->assertElementPresent("//span[@id='accOrderDate_12']");
 
         // Check does exist order no.
-        $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li/strong"));
-        $this->assertTrue($this->isElementPresent("css=ul.order-history-details > li"));
-        $this->assertTrue($this->isElementPresent("id=accOrderNo_12"));
+        $this->assertElementPresent("//ul[@id='orderList']/li/ul/li/strong");
+        $this->assertElementPresent("css=ul.order-history-details > li");
+        $this->assertElementPresent("id=accOrderNo_12");
 
         // Check does exist Order status.
-        $this->assertTrue($this->isElementPresent("//li[2]/strong"));
-        $this->assertTrue($this->isElementPresent("//span[@id='accOrderStatus_12']/span"));
-        $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li[2]"));
+        $this->assertElementPresent("//li[2]/strong");
+        $this->assertElementPresent("//span[@id='accOrderStatus_12']/span");
+        $this->assertElementPresent("//ul[@id='orderList']/li/ul/li[2]");
 
         // Check does shipment to:
-        $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li[3]/strong"));
-        $this->assertTrue($this->isElementPresent("//span[@id='accOrderName_12']"));
-        $this->assertTrue($this->isElementPresent("//ul[@id='orderList']/li/ul/li[3]"));
+        $this->assertElementPresent("//ul[@id='orderList']/li/ul/li[3]/strong");
+        $this->assertElementPresent("//span[@id='accOrderName_12']");
+        $this->assertElementPresent("//ul[@id='orderList']/li/ul/li[3]");
 
         // Check does exist product in ORDER HISTORY list.
-        $this->assertTrue($this->isElementPresent("css=ul.order-history-articles"));
-        $this->assertTrue($this->isElementPresent("css=ul.order-history-articles > li"));
-        $this->assertTrue($this->isElementPresent("id=accOrderLink_12_1"));
+        $this->assertElementPresent("css=ul.order-history-articles");
+        $this->assertElementPresent("css=ul.order-history-articles > li");
+        $this->assertElementPresent("id=accOrderLink_12_1");
 
         // Check does exist (order history details) style.
-        $this->assertTrue($this->isElementPresent("css=ul.order-history-details"));
+        $this->assertElementPresent("css=ul.order-history-details");
         // Check if back button exist.
         $this->isElementPresent("a[class=back]");
     }
@@ -1520,66 +1520,66 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false, true );
 
         // Check does exist "Standard" dropdown
-        $this->assertTrue($this->isElementPresent("css=div.dropdown-toggle"));
+        $this->assertElementPresent("css=div.dropdown-toggle");
         $this->click("css=div.dropdown-toggle");
         $this->clickAndWait("link=Example Set1: UPS 48 hours");
 
         // Check does exist Shipping cost
-        $this->assertTrue($this->isElementPresent("//div[@id='shipSetCost']"));
+        $this->assertElementPresent("//div[@id='shipSetCost']");
         $this->click("//div[@id='paymentMethods']/div");
 
         // Select of dropdown payment methot "Credit Card"
         $this->click("//div[@id='paymentMethods']/ul/li/a");
 
         // Check does exist payment method label
-        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li/label"));
+        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li/label");
 
         // Check does exist note "If different from Billing Address."
-        $this->assertTrue($this->isElementPresent("css=div.note"));
+        $this->assertElementPresent("css=div.note");
 
         // Check does exist label"Account Holder:"
-        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[3]/input[@placeholder='Account holder']"));
+        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[3]/input[@placeholder='Account holder']");
 
         // Check does exist "Account Holder"input name
-        $this->assertTrue($this->isElementPresent("css=input[name=\"dynvalue[kkname]\"]"));
+        $this->assertElementPresent("css=input[name=\"dynvalue[kkname]\"]");
 
         // Check does exist "Valid until" label
-        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[4]/label"));
+        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[4]/label");
 
         // Check does exist Valid date month dropdown
-        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-month > div.dropdown > div.dropdown-toggle"));
-        $this->assertTrue($this->isElementPresent("id=cardValidDateMonthSelected"));
+        $this->assertElementPresent("css=div.card-valid-date-field.card-valid-date-month > div.dropdown > div.dropdown-toggle");
+        $this->assertElementPresent("id=cardValidDateMonthSelected");
 
         // Check does exist dropdown icon
-        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-month > div.dropdown > div.dropdown-toggle > #dLabelCardValidDateMonthSelected > i.glyphicon-chevron-down"));
+        $this->assertElementPresent("css=div.card-valid-date-field.card-valid-date-month > div.dropdown > div.dropdown-toggle > #dLabelCardValidDateMonthSelected > i.glyphicon-chevron-down");
 
         // Check does exist valid date for year
-        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-year > div.dropdown > div.dropdown-toggle"));
-        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-year > div.dropdown > div.dropdown-toggle > #dLabelCardValidDateYearSelected > i.glyphicon-chevron-down"));
-        $this->assertTrue($this->isElementPresent("id=cardValidDateYearSelected"));
+        $this->assertElementPresent("css=div.card-valid-date-field.card-valid-date-year > div.dropdown > div.dropdown-toggle");
+        $this->assertElementPresent("css=div.card-valid-date-field.card-valid-date-year > div.dropdown > div.dropdown-toggle > #dLabelCardValidDateYearSelected > i.glyphicon-chevron-down");
+        $this->assertElementPresent("id=cardValidDateYearSelected");
 
         // Check does exist "/ "element
-        $this->assertTrue($this->isElementPresent("css=div.card-valid-date-field.card-valid-date-divider"));
+        $this->assertElementPresent("css=div.card-valid-date-field.card-valid-date-divider");
 
         // Check does exist label element for   " CVV2 or CVC2 security code:"
-        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/input[@placeholder='CVV2 or CVC2 security code']"));
+        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/input[@placeholder='CVV2 or CVC2 security code']");
 
         // Check does exist valid note ""The CVV2/CVC2 three-digit value is printed just above the ..."
-        $this->assertTrue($this->isElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/div"));
+        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/div");
 
         // Check does exist payment desc
-        $this->assertTrue($this->isElementPresent("css=div.payment-desc"));
+        $this->assertElementPresent("css=div.payment-desc");
         $this->click("css=div.dropdown-toggle");
 
         // Choose shipping method "Standart"
         $this->clickAndWait("css=li.dropdown-option.selected > a");
-        $this->assertTrue($this->isElementPresent("css=i.glyphicon-chevron-down"));
+        $this->assertElementPresent("css=i.glyphicon-chevron-down");
 
         // Check does exist button "CONTINUE"
-        $this->assertTrue($this->isElementPresent("id=paymentNextStepBottom"));
+        $this->assertElementPresent("id=paymentNextStepBottom");
 
         // Check does exist button "PREVIOUS STEP"
-        $this->assertTrue($this->isElementPresent("id=paymentBackStepBottom"));
+        $this->assertElementPresent("id=paymentBackStepBottom");
 
         // Choose payment method Cash in advance
         $this->click("id=shippingSelected");
@@ -1588,21 +1588,21 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->click("link=Cash in advance");
 
         // Check does exist 3 basket steps, as active
-        $this->assertTrue($this->isElementPresent("css=li.step3.active  > a > span.step-name"));
+        $this->assertElementPresent("css=li.step3.active  > a > span.step-name");
 
         // Choose payment method COD (Cash on Delivery)
         $this->click("//div[@id='paymentMethods']/div");
         $this->click("link=COD (Cash on Delivery)");
 
         // Check does exist label "7,50 ? COD Charge "
-        $this->assertTrue($this->isElementPresent("css=div.payment-charge"));
+        $this->assertElementPresent("css=div.payment-charge");
 
         // Check does exist all basket button
-        $this->assertTrue($this->isElementPresent("css=span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step2.passed  > a > span.step-number"));
-        $this->assertTrue($this->isElementPresent("css=li.step3.active  > a > span.step-name"));
-        $this->assertTrue($this->isElementPresent("css=li.step4"));
-        $this->assertTrue($this->isElementPresent("css=span.step-number.last"));
+        $this->assertElementPresent("css=span.step-number");
+        $this->assertElementPresent("css=li.step2.passed  > a > span.step-number");
+        $this->assertElementPresent("css=li.step3.active  > a > span.step-name");
+        $this->assertElementPresent("css=li.step4");
+        $this->assertElementPresent("css=span.step-number.last");
     }
 
     /**
@@ -1621,22 +1621,22 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->testFooter( false );
 
         // Check does exist header ABOUT US
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
 
         // Check does exist about us content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
 
         // Check does exist element for text "Add provider identification here."
-        $this->assertTrue($this->isElementPresent("css=p"));
+        $this->assertElementPresent("css=p");
 
         // Go to second cms page "TERM AND CONDITIONS"
         $this->clickAndWait("link=Terms and Conditions");
 
         // Check does exist header name Term and conditions
-        $this->assertTrue($this->isElementPresent("css=h1.page-head"));
+        $this->assertElementPresent("css=h1.page-head");
 
         // Check does exist cms content
-        $this->assertTrue($this->isElementPresent("css=div.content"));
+        $this->assertElementPresent("css=div.content");
 
         // check or works cms page "privacy policy" link
         $this->clickAndWait("link=Privacy Policy");
@@ -1681,38 +1681,38 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
         $this->loginInFrontendMobile();
         $this->searchFor("1001");
-        $this->clickAndWait("link=Test product 1 [EN] šÄßüл");
-        $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßüл");
+        $this->clickAndWait("link=Test product 1 [EN] šÄßü?");
+        $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßü?");
         $this->clickAndWait("toBasket");
-        $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßüл +2%");
+        $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßü? +2%");
         $this->clickAndWait("toBasket");
         $this->searchFor("1000");
         $this->clickAndWait("id=productPrice_searchList_1");
         $this->assertTrue($this->isElementPresent("persparam[details]"),"persparam field should be visible");
         $this->clickAndWait("toBasket");
-        $this->type("persparam[details]", "test label šÄßüл");
+        $this->type("persparam[details]", "test label šÄßü?");
         $this->clickAndWait("toBasket");
 
         // Go to basket:check basket info; update product PersParam info and quantity;
         $this->openBasket();
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
-        $this->assertEquals("selvar2 [EN] šÄßüл", $this->getText("//div[@id='cartItemSelections_1']//span"));
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
-        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("selvar2 [EN] šÄßü?", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
         $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
-        $this->selectVariantMobile("cartItemSelections_1", 3, "selvar3 [EN] šÄßüл -2,00 €");
+        $this->selectVariantMobile("cartItemSelections_1", 3, "selvar3 [EN] šÄßü? -2,00 €");
         $this->type("am_3", "2");
-        $this->type("//li[@id='cartItem_4']/div/p[2]/input", "test label šÄßüл 1");
+        $this->type("//li[@id='cartItem_4']/div/p[2]/input", "test label šÄßü? 1");
         $this->clickAndWait("basketUpdate");
 
         // Check basket info after update
-        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_1']//span"));
-        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("selvar3 [EN] šÄßü? -2,00 €", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
         $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
         $this->assertEquals("2", $this->getValue("am_3"));
-        $this->assertEquals("test label šÄßüл 1", $this->getValue("//li[@id='cartItem_4']/div/p[2]/input"));
+        $this->assertEquals("test label šÄßü? 1", $this->getValue("//li[@id='cartItem_4']/div/p[2]/input"));
         $this->assertEquals("1", $this->getValue("am_4"));
 
         // Checking if modified basket was saved
@@ -1725,11 +1725,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openBasket();
         $this->type("am_2", "2");
         $this->clickAndWait("basketUpdate");
-        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
-        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("selvar3 [EN] šÄßü? -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
         $this->assertEquals("", $this->getValue("//li[@id='cartItem_1']/div/p[2]/input"));
         $this->assertEquals("2", $this->getValue("am_1"));
-        $this->assertEquals("test label šÄßüл 1", $this->getValue("//li[@id='cartItem_2']/div/p[2]/input"));
+        $this->assertEquals("test label šÄßü? 1", $this->getValue("//li[@id='cartItem_2']/div/p[2]/input"));
         $this->assertEquals("1", $this->getValue("am_4"));
         $this->assertFalse($this->isElementPresent("cartItem_5"));
 
@@ -1737,14 +1737,14 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//input[@value='Continue']");
         $this->clickAndWait("//input[@id='userNextStepTop']");
         $this->clickAndWait("//input[@value='Continue']");
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
-        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
-        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("selvar3 [EN] šÄßü? -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
         $this->assertFalse($this->isElementPresent("cartItem_5"));
-        $this->assertEquals("Label test label šÄßüл 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
+        $this->assertEquals("Label test label šÄßü? 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
         $this->assertEquals("Grand total 379,40 €", $this->getText("basketGrandTotal"),"Grand total price changed or did't displayed");
         $this->check("//form[@id='orderConfirmAgbTop']//input[@name='ord_agb' and @value='1']");
         $this->clickAndWait("//form[@id='orderConfirmAgbTop']//button");
@@ -1752,15 +1752,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         //checking in Admin
         $this->loginAdmin("Administer Orders", "Orders");
         $this->openListItem("link=12", "save");
-        $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
+        $this->assertTrue($this->isTextPresent("Label: test label šÄßü? 1"));
         $this->assertEquals("2 *", $this->getText("//table[2]/tbody/tr/td[1]"));
         $this->assertEquals("Test product 0 [EN]", $this->getText("//td[3]"));
         $this->assertEquals("90,00 EUR", $this->getText("//td[5]"));
-        $this->assertTrue($this->isTextPresent("Label: test label šÄßüл 1"));
+        $this->assertTrue($this->isTextPresent("Label: test label šÄßü? 1"));
         $this->frame("list");
         $this->openTab("Products");
         $this->assertEquals("2", $this->getValue("//tr[@id='art.2']/td[1]/input"));
-        $this->assertEquals("Label: test label šÄßüл 1", $this->getText("//tr[@id='art.2']/td[5]"));
+        $this->assertEquals("Label: test label šÄßü? 1", $this->getText("//tr[@id='art.2']/td[5]"));
         $this->assertEquals("45,00 EUR", $this->getText("//tr[@id='art.2']/td[7]"));
         $this->assertEquals("90,00 EUR", $this->getText("//tr[@id='art.2']/td[8]"));
 
@@ -1789,15 +1789,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->type("userLoginName", "birute01@nfq.lt");
         $this->type("userPassword", "user11");
         $this->type("userPasswordConfirm", "user11");
-        $this->type("invadr[oxuser__oxfname]", "user1 name_šÄßüл");
-        $this->type("invadr[oxuser__oxlname]", "user1 last name_šÄßüл");
-        $this->type("invadr[oxuser__oxcompany]", "user1 company_šÄßüл");
-        $this->type("invadr[oxuser__oxstreet]", "user1 street_šÄßüл");
+        $this->type("invadr[oxuser__oxfname]", "user1 name_šÄßü?");
+        $this->type("invadr[oxuser__oxlname]", "user1 last name_šÄßü?");
+        $this->type("invadr[oxuser__oxcompany]", "user1 company_šÄßü?");
+        $this->type("invadr[oxuser__oxstreet]", "user1 street_šÄßü?");
         $this->type("invadr[oxuser__oxstreetnr]", "1");
         $this->type("invadr[oxuser__oxzip]", "11");
-        $this->type("invadr[oxuser__oxcity]", "user1 city_šÄßüл");
+        $this->type("invadr[oxuser__oxcity]", "user1 city_šÄßü?");
         $this->type("invadr[oxuser__oxustid]", "");
-        $this->type("invadr[oxuser__oxaddinfo]", "user1 additional info_šÄßüл");
+        $this->type("invadr[oxuser__oxaddinfo]", "user1 additional info_šÄßü?");
         $this->assertFalse($this->isVisible("id=stateSelected"));
         $this->click("//a[@id='invCountryLabel']/i");
         $this->waitForItemAppear("//a[contains(text(),'Germany')]");
@@ -1817,19 +1817,19 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->loginAdmin("Administer Users", "Users");
         $this->type("where[oxuser][oxlname]", "user1");
         $this->clickAndWait("submitit");
-        $this->assertEquals("user1 last name_šÄßüл user1 name_šÄßüл", $this->getText("//tr[@id='row.1']/td[1]"));
-        $this->openListItem("link=user1 last name_šÄßüл user1 name_šÄßüл");
+        $this->assertEquals("user1 last name_šÄßü? user1 name_šÄßü?", $this->getText("//tr[@id='row.1']/td[1]"));
+        $this->openListItem("link=user1 last name_šÄßü? user1 name_šÄßü?");
         $this->assertEquals("on", $this->getValue("editval[oxuser__oxactive]"));
         $this->assertEquals("birute01@nfq.lt", $this->getValue("editval[oxuser__oxusername]"));
-        $this->assertEquals("user1 name_šÄßüл", $this->getValue("editval[oxuser__oxfname]"));
-        $this->assertEquals("user1 last name_šÄßüл", $this->getValue("editval[oxuser__oxlname]"));
-        $this->assertEquals("user1 company_šÄßüл", $this->getValue("editval[oxuser__oxcompany]"));
-        $this->assertEquals("user1 street_šÄßüл", $this->getValue("editval[oxuser__oxstreet]"));
+        $this->assertEquals("user1 name_šÄßü?", $this->getValue("editval[oxuser__oxfname]"));
+        $this->assertEquals("user1 last name_šÄßü?", $this->getValue("editval[oxuser__oxlname]"));
+        $this->assertEquals("user1 company_šÄßü?", $this->getValue("editval[oxuser__oxcompany]"));
+        $this->assertEquals("user1 street_šÄßü?", $this->getValue("editval[oxuser__oxstreet]"));
         $this->assertEquals("1", $this->getValue("editval[oxuser__oxstreetnr]"));
         $this->assertEquals("11", $this->getValue("editval[oxuser__oxzip]"));
-        $this->assertEquals("user1 city_šÄßüл", $this->getValue("editval[oxuser__oxcity]"));
+        $this->assertEquals("user1 city_šÄßü?", $this->getValue("editval[oxuser__oxcity]"));
         $this->assertEquals("", $this->getValue("editval[oxuser__oxustid]"));
-        $this->assertEquals("user1 additional info_šÄßüл", $this->getValue("editval[oxuser__oxaddinfo]"));
+        $this->assertEquals("user1 additional info_šÄßü?", $this->getValue("editval[oxuser__oxaddinfo]"));
         $this->assertEquals("Germany", $this->getSelectedLabel("editval[oxuser__oxcountryid]"));
         $this->assertEquals("BE", $this->getValue("editval[oxuser__oxstateid]"));
         $this->assertEquals("111-111", $this->getValue("editval[oxuser__oxfon]"));
@@ -1862,16 +1862,16 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->type("where[oxarticles][oxartnum]", "1002");
         $this->clickAndWait("submitit", "link=1002");
         $this->openListItem("link=1002");
-        $this->assertEquals("[DE 2] Test product 2 šÄßüл", $this->getValue("editval[oxarticles__oxtitle]"));
+        $this->assertEquals("[DE 2] Test product 2 šÄßü?", $this->getValue("editval[oxarticles__oxtitle]"));
         $this->Frame("list");
         $this->openTab("Selection");
         $this->click("//input[@value='Assign Selection Lists']");
         $this->usePopUp();
         $this->type("_0", "*test");
         $this->keyUp("_0", "t");
-        $this->waitForAjax("test selection list [DE] šÄßüл", "//div[@id='container1_c']/table/tbody[2]/tr[1]/td[1]");
+        $this->waitForAjax("test selection list [DE] šÄßü?", "//div[@id='container1_c']/table/tbody[2]/tr[1]/td[1]");
         $this->dragAndDrop("//div[@id='container1_c']/table/tbody[2]/tr[1]/td[1]", "container2");
-        $this->waitForAjax("test selection list [DE] šÄßüл", "//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]");
+        $this->waitForAjax("test selection list [DE] šÄßü?", "//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]");
         $this->close();
         $this->selectWindow(null);
         $this->windowMaximize(null);
@@ -1885,15 +1885,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openTab("Selection");
         $this->click("//input[@value='Assign Selection Lists']");
         $this->usePopUp();
-        $this->assertEquals("test selection list [DE] šÄßüл", $this->getText("//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]"));
+        $this->assertEquals("test selection list [DE] šÄßü?", $this->getText("//div[@id='container2_c']/table/tbody[2]/tr[1]/td[1]"));
         $this->close();
 
         //checking if in frontend it is displayed correctly
         $this->openShop();
         $this->searchFor("1002");
         $this->clickAndWait("id=productPrice_searchList_1");
-        $this->assertEquals("selvar1 [EN] šÄßüл +1,00 € selvar2 [EN] šÄßüл selvar3 [EN] šÄßüл -2,00 € selvar4 [EN] šÄßüл +2%", $this->clearString($this->getText("//div[@id='productSelections']//ul")));
-        $this->assertEquals("Test product 2 [EN] šÄßüл", $this->getText("//div[@id='detailsMain']/div/div[2]/div"));
+        $this->assertEquals("selvar1 [EN] šÄßü? +1,00 € selvar2 [EN] šÄßü? selvar3 [EN] šÄßü? -2,00 € selvar4 [EN] šÄßü? +2%", $this->clearString($this->getText("//div[@id='productSelections']//ul")));
+        $this->assertEquals("Test product 2 [EN] šÄßü?", $this->getText("//div[@id='detailsMain']/div/div[2]/div"));
 
         $this->selectMultiMobile("variants", 1, 1);
         $this->selectMultiMobile("variants", 1, 3);
@@ -1902,7 +1902,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         $this->clickAndWait("toBasket");
         $this->openBasket();
-        $this->assertEquals("Test product 2 [EN] šÄßüл, var2 [EN] šÄßüл", $this->clearString($this->getText("//li[@id='cartItem_1']/div/h4/a")));
+        $this->assertEquals("Test product 2 [EN] šÄßü?, var2 [EN] šÄßü?", $this->clearString($this->getText("//li[@id='cartItem_1']/div/h4/a")));
 
     }
     /**
@@ -1919,8 +1919,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
         $this->searchFor("10014");
 
-        $this->clickAndWait("link=14 EN product šÄßüл");
-        $this->assertEquals("13 EN description šÄßüл", $this->getText("//div[@id='detailsMain']/div/div[2]/div[2]"));
+        $this->clickAndWait("link=14 EN product šÄßü?");
+        $this->assertEquals("13 EN description šÄßü?", $this->getText("//div[@id='detailsMain']/div/div[2]/div[2]"));
         $this->assertEquals("from 15,00 € *", $this->getText("//div[@id='detailsMain']/div[3]/div/div/div/strong"));
         $this->assertFalse($this->isEditable("toBasket"));
 
@@ -1986,7 +1986,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         //Go to basket
         $this->openBasket();
-        $this->assertEquals("14 EN product šÄßüл, S | black | lether", $this->clearString($this->getText("//li[@id='cartItem_1']/div/h4/a")));
+        $this->assertEquals("14 EN product šÄßü?, S | black | lether", $this->clearString($this->getText("//li[@id='cartItem_1']/div/h4/a")));
         $this->assertEquals("2", $this->getValue("am_1"));
         $this->assertFalse($this->isElementPresent("cartItem_2"));
         $this->assertEquals("50,00 €", $this->getText("//tr[@id='basketGrandTotal']/td/strong"));
@@ -2002,31 +2002,31 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
 
         $this->searchFor("100");
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
-        $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 3 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
        //soring by title
         $this->click("css=i.glyphicon-chevron-down");
         $this->clickAndWait("css=i.glyphicon-arrow-down");
 
-        $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 3 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 
         $this->click("css=i.glyphicon-chevron-down");
         $this->clickAndWait("css=i.glyphicon-arrow-up");
 
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
-        $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 3 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 
         $this->click("css=i.glyphicon-chevron-down");
         $this->clickAndWait("//div[@id='sortItems']/div/ul/li[2]/span[2]/a/i");
 
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 
         $this->click("css=i.glyphicon-chevron-down");
         $this->clickAndWait("//div[@id='sortItems']/div/ul/li[2]/span[2]/a[2]/i");
-        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
-        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 }
     /**
      * selects specified value from dropdown (for multidimensional variants).
