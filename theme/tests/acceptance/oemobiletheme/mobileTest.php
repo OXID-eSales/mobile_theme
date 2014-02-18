@@ -21,7 +21,7 @@
 
 require_once realpath( "." ) . '/acceptance/library/oxTestCase.php';
 
-class Acceptance_oeMobileTheme_mobileTest extends oxidAdditionalSeleniumFunctions
+class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 {
 
     const TEST_USER_NAME = 'birute_test@nfq.lt';
