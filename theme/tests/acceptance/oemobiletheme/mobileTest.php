@@ -100,7 +100,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("id=footerInformation");
 
         // Check does footer navigation list elements exist
-        $this->assertElementPresent("link=My Account");
+        $this->assertElementPresent("link=My account");
         $this->assertElementPresent("link=Home");
         if ( $blUserLogIn ) {
             $this->assertElementPresent("link=Logout");
@@ -382,7 +382,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // Go to my account page and login to it
         $this->loginInFrontendMobile();
-        $this->click("link=My Account");
+        $this->click("link=My account");
 
         // Go to billing and shipping settings
         $this->clickAndWait("css=#linkAccountBillship > span");
@@ -944,7 +944,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("//div[@id='detailsMain']/div/div/span");
 
         // Go to My account page
-        $this->clickAndWait("link=My Account");
+        $this->clickAndWait("link=My account");
 
         // Go to " My wish list" page
         $this->clickAndWait("//div[@id='cat_list']/ul/li[6]/a/span");
@@ -1281,7 +1281,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
     {
         $this->openShop();
         $this->loginInFrontendMobile();
-        $this->clickAndWait("link=My Account");
+        $this->clickAndWait("link=My account");
 
         // Check there are page active
         $this->assertElementPresent("css=li.active > a");
@@ -1371,7 +1371,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("id=paymentNextStepBottom");
         $this->click( "id=checkAgbTop" );
         $this->clickAndWait("css=li > button.btn");
-        $this->clickAndWait("link=My Account");
+        $this->clickAndWait("link=My account");
 
         // Open My downloads page
         $this->clickAndWait("//a[@id='linkAccountDownloads']/span");
@@ -1783,7 +1783,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
     {
         //creating user
         $this->openShop();
-        $this->clickAndWait("link=My Account");
+        $this->clickAndWait("link=My account");
         $this->clickAndWait("id=openAccountLink");
         $this->assertEquals("Open account", $this->getText("id=openAccHeader"));
         $this->type("userLoginName", "birute01@nfq.lt");
