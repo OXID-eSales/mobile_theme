@@ -1891,6 +1891,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         //checking if in frontend it is displayed correctly
         $this->openShop();
+        $this->clearCache();
         $this->searchFor("1002");
         $this->clickAndWait("id=productPrice_searchList_1");
         $this->assertEquals("selvar1 [EN] šÄßüл +1,00 € selvar2 [EN] šÄßüл selvar3 [EN] šÄßüл -2,00 € selvar4 [EN] šÄßüл +2%", $this->clearString($this->getText("//div[@id='productSelections']//ul")));
@@ -1930,7 +1931,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertEquals("color Choose variant", $this->getText("//ul[@id='variants']/li[2]/div/div"));
         $this->assertEquals("black white red", $this->getText("//ul[@id='variants']/li[2]/div/ul"));
         $this->assertEquals("type Choose variant", $this->getText("//ul[@id='variants']/li[3]/div/div"));
-        $this->assertEquals("lether material", $this->getText("//ul[@id='variants']/li[3]/div/ul/"));
+        $this->click("//ul[@id='variants']/li[3]/div/div");
+        $this->assertEquals("lether material", $this->getText("//ul[@id='variants']/li[3]/div/ul"));
         $this->selectMultiMobile("variants", 1, 1);
         $this->assertElementNotEditable("toBasket");
         $this->selectMultiMobile("variants", 2, 1);
