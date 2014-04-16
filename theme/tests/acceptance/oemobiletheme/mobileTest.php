@@ -141,7 +141,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // Need add cookie note checking
         // Check does banner element exist;
-        $this->assertElementPresent("class=carousel slide");
+        $this->assertElementPresent("css=.carousel.slide");
         $this->assertElementVisible("css=img[alt=\"Banner 1\"]");
         // Check does baner left button and right button exist;
         $this->assertElementPresent("css=a.carousel-control.right");
@@ -184,7 +184,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//div[@id='cat_list']/ul/li/a");
 
         // Check does back button exist;
-        $this->assertElementPresent("class=back");
+        $this->assertElementPresent("css=.back");
 
         // Check does left button near back button exist;
         $this->assertElementPresent("css=i.glyphicon-chevron-left");
@@ -199,7 +199,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//a[@id='moreSubCat_1']");
 
         // Check does back button exist;
-        $this->assertElementPresent("class=back");
+        $this->assertElementPresent("css=.back");
 
         // Check does left button near back button exist;
         $this->assertElementPresent("css=i.glyphicon-chevron-left");
@@ -309,7 +309,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("css=div.product-description-container > i.glyphicon-chevron-down");
 
         // Open full description;
-        $this->click("class=product-description-container");
+        $this->click("css=.product-description-container");
 
         // Check does detail about product exist
         $this->assertElementPresent("css=div.product-description-container");
@@ -492,7 +492,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("css=span.js-oxError_notEmpty");
         $this->assertElementPresent("//input[@value='Open account']");
         $this->assertElementPresent("//input[@value='Log in']");
-        $this->assertElementPresent("link=exact:Forgot password?");
+        $this->assertElementPresent("link=Forgot password?");
         $this->assertElementPresent("//input[@value='Without registration']");
     }
 
@@ -626,9 +626,9 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("css=#month > button.btn");
         $this->assertElementPresent("css=#day > button.btn");
         $this->assertElementPresent("css=#year > button.btn");
-        $this->assertElementPresent("xpath=(//button[@type='button'])[2]");
-        $this->assertElementPresent("xpath=(//button[@type='button'])[4]");
-        $this->assertElementPresent("xpath=(//button[@type='button'])[6]");
+        $this->assertElementPresent("//li[@id='month']/button");
+        $this->assertElementPresent("//li[@id='day']/button");
+        $this->assertElementPresent("//li[@id='year']/button");
 
         // Check does warning message exist;
         $this->assertElementPresent("css=li.alert.alert-block");
@@ -1481,7 +1481,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         // Check does exist (order history details) style.
         $this->assertElementPresent("css=ul.order-history-details");
         // Check if back button exist.
-        $this->isElementPresent("a[class=back]");
+        $this->isElementPresent("a[css=.back]");
     }
 
 
@@ -1655,7 +1655,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->type("//input[@id='loginUser']", $userName);
         $this->type("//input[@id='loginPwd']", $userPass);
         if ($waitForLogin) {
-            $this->clickAndWait("//form[@name='login']//input[@type='submit']", "//a[text()='Log out']");
+            $this->clickAndWait("//form[@name='login']//input[@type='submit']", 1);
         } else {
             $this->clickAndWait("//form[@name='login']//input[@type='submit']");
         }
