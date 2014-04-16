@@ -1411,7 +1411,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("css=div.content");
 
         // Check label with name "Newsletter subscription:"
-        $this->assertEquals("Newsletter subscription", $this->getText("//form[@name='newsletter']//ul/li/label"));
+        $this->assertEquals("Subscribe to the newsletter", $this->getText("//form[@name='newsletter']//ul/li/label"));
 
         // Check does exist dropdown
         $this->assertElementPresent("css=div.dropdown-toggle");
@@ -1429,7 +1429,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("id=newsletterSettingsSave");
 
         $sNewsletterCancelText = $this->getText("//form[@name='newsletter']//ul/li[3]/p");
-        $this->assertTrue("It's possible to cancel newsletter at any time." == $sNewsletterCancelText);
+        $this->assertTrue("It's possible to cancel the newsletter at any time." == $sNewsletterCancelText);
 
         // Check does exist message "You have just been sent a confirmation e-mail, with which you can activate your subscription."
         $this->click("css=div.dropdown-toggle");
@@ -1681,42 +1681,43 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
         $this->loginInFrontendMobile();
         $this->searchFor("1001");
-        $this->clickAndWait("link=Test product 1 [EN] šÄßü?");
-        $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßü?");
+        $this->clickAndWait("link=Test product 1 [EN] šÄßüл");
+        $this->selectVariantMobile("productSelections", 2, "selvar2 [EN] šÄßüл");
         $this->clickAndWait("toBasket");
-        $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßü? +2%");
+        $this->selectVariantMobile("productSelections", 4, "selvar4 [EN] šÄßüл +2%");
         $this->clickAndWait("toBasket");
         $this->searchFor("1000");
         $this->clickAndWait("id=productPrice_searchList_1");
         $this->assertTrue($this->isElementPresent("persparam[details]"),"persparam field should be visible");
         $this->clickAndWait("toBasket");
-        $this->type("persparam[details]", "test label šÄßü?");
+        $this->type("persparam[details]", "test label šÄßüл");
         $this->clickAndWait("toBasket");
 
         // Go to basket:check basket info; update product PersParam info and quantity;
         $this->openBasket();
-        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
-        $this->assertEquals("selvar2 [EN] šÄßü?", $this->getText("//div[@id='cartItemSelections_1']//span"));
-        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
-        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
-        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
-        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("selvar2 [EN] šÄßüл", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
         $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
-        $this->selectVariantMobile("cartItemSelections_1", 3, "selvar3 [EN] šÄßü? -2,00 €");
+        $this->selectVariantMobile("cartItemSelections_1", 3, "selvar3 [EN] šÄßüл -2,00 €");
         $this->type("am_3", "2");
-        $this->type("//li[@id='cartItem_4']/div/p[2]/input", "test label šÄßü? 1");
+        $this->type("//li[@id='cartItem_4']/div/p[2]/input", "test label šÄßüл 1");
         $this->clickAndWait("basketUpdate");
 
         // Check basket info after update
-        $this->assertEquals("selvar3 [EN] šÄßü? -2,00 €", $this->getText("//div[@id='cartItemSelections_1']//span"));
-        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_1']//span"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_2']//span"));
         $this->assertEquals("", $this->getValue("//li[@id='cartItem_3']/div/p[2]/input"));
         $this->assertEquals("2", $this->getValue("am_3"));
-        $this->assertEquals("test label šÄßü? 1", $this->getValue("//li[@id='cartItem_4']/div/p[2]/input"));
+        $this->assertEquals("test label šÄßüл 1", $this->getValue("//li[@id='cartItem_4']/div/p[2]/input"));
         $this->assertEquals("1", $this->getValue("am_4"));
 
         // Checking if modified basket was saved
         $this->openShop();
+        $this->clearCache();
         $this->assertElementNotPresent("//div[@id='miniBasket']/span");
         $this->loginInFrontendMobile();
         $this->assertEquals("5 Basket", $this->getText("id=miniBasket"));
@@ -1725,11 +1726,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openBasket();
         $this->type("am_2", "2");
         $this->clickAndWait("basketUpdate");
-        $this->assertEquals("selvar3 [EN] šÄßü? -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
-        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
         $this->assertEquals("", $this->getValue("//li[@id='cartItem_1']/div/p[2]/input"));
         $this->assertEquals("2", $this->getValue("am_1"));
-        $this->assertEquals("test label šÄßü? 1", $this->getValue("//li[@id='cartItem_2']/div/p[2]/input"));
+        $this->assertEquals("test label šÄßüл 1", $this->getValue("//li[@id='cartItem_2']/div/p[2]/input"));
         $this->assertEquals("1", $this->getValue("am_4"));
         $this->assertElementNotPresent("cartItem_5");
 
@@ -1737,14 +1738,14 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//input[@value='Continue']");
         $this->clickAndWait("//input[@id='userNextStepTop']");
         $this->clickAndWait("//input[@value='Continue']");
-        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
-        $this->assertEquals("selvar3 [EN] šÄßü? -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
-        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
-        $this->assertEquals("selvar4 [EN] šÄßü? +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
-        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
-        $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_3']/div/h4/a"));
+        $this->assertEquals("selvar3 [EN] šÄßüл -2,00 €", $this->getText("//div[@id='cartItemSelections_3']//span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//li[@id='cartItem_4']/div/h4/a"));
+        $this->assertEquals("selvar4 [EN] šÄßüл +2%", $this->getText("//div[@id='cartItemSelections_4']//span"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
+        $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
         $this->assertElementNotPresent("cartItem_5");
-        $this->assertEquals("Label test label šÄßü? 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
+        $this->assertEquals("Label test label šÄßüл 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
         $this->assertEquals("Grand total 379,40 €", $this->getText("basketGrandTotal"),"Grand total price changed or did't displayed");
         $this->check("//form[@id='orderConfirmAgbTop']//input[@name='ord_agb' and @value='1']");
         $this->clickAndWait("//form[@id='orderConfirmAgbTop']//button");
@@ -1752,15 +1753,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         //checking in Admin
         $this->loginAdmin("Administer Orders", "Orders");
         $this->openListItem("link=12", "save");
-        $this->assertTextPresent("Label: test label šÄßü? 1");
+        $this->assertTextPresent("Label: test label šÄßüл 1");
         $this->assertEquals("2 *", $this->getText("//table[2]/tbody/tr/td[1]"));
         $this->assertEquals("Test product 0 [EN]", $this->getText("//td[3]"));
         $this->assertEquals("90,00 EUR", $this->getText("//td[5]"));
-        $this->assertTextPresent("Label: test label šÄßü? 1");
+        $this->assertTextPresent("Label: test label šÄßüл 1");
         $this->frame("list");
         $this->openTab("Products");
         $this->assertEquals("2", $this->getValue("//tr[@id='art.2']/td[1]/input"));
-        $this->assertEquals("Label: test label šÄßü? 1", $this->getText("//tr[@id='art.2']/td[5]"));
+        $this->assertEquals("Label: test label šÄßüл 1", $this->getText("//tr[@id='art.2']/td[5]"));
         $this->assertEquals("45,00 EUR", $this->getText("//tr[@id='art.2']/td[7]"));
         $this->assertEquals("90,00 EUR", $this->getText("//tr[@id='art.2']/td[8]"));
 
@@ -1892,7 +1893,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
         $this->searchFor("1002");
         $this->clickAndWait("id=productPrice_searchList_1");
-        $this->assertEquals("selvar1 [EN] šÄßü? +1,00 € selvar2 [EN] šÄßü? selvar3 [EN] šÄßü? -2,00 € selvar4 [EN] šÄßü? +2%", $this->clearString($this->getText("//div[@id='productSelections']//ul")));
+        $this->assertEquals("selvar1 [EN] šÄßü? +1,00 € selvar2 [EN] šÄßüл selvar3 [EN] šÄßü? -2,00 € selvar4 [EN] šÄßü? +2%", $this->clearString($this->getText("//div[@id='productSelections']//ul")));
         $this->assertEquals("Test product 2 [EN] šÄßü?", $this->getText("//div[@id='detailsMain']/div/div[2]/div"));
 
         $this->selectMultiMobile("variants", 1, 1);
@@ -2020,13 +2021,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->click("css=i.glyphicon-chevron-down");
         $this->clickAndWait("//div[@id='sortItems']/div/ul/li[2]/span[2]/a/i");
 
-        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
         $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 
         $this->click("css=i.glyphicon-chevron-down");
         $this->clickAndWait("//div[@id='sortItems']/div/ul/li[2]/span[2]/a[2]/i");
         $this->assertEquals("Test product 0 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
-        $this->assertEquals("Test product 1 [EN] šÄßü?", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
+        $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
 }
     /**
      * selects specified value from dropdown (for multidimensional variants).
