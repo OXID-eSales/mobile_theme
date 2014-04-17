@@ -1716,8 +1716,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertEquals("1", $this->getValue("am_4"));
 
         // Checking if modified basket was saved
-        $this->openShop();
         $this->clearCache();
+        $this->openShop();
         $this->assertElementNotPresent("//div[@id='miniBasket']/span");
         $this->loginInFrontendMobile();
         $this->assertEquals("5 Basket", $this->getText("id=miniBasket"));
@@ -1890,8 +1890,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->close();
 
         //checking if in frontend it is displayed correctly
-        $this->openShop();
         $this->clearCache();
+        $this->openShop();
         $this->searchFor("1002");
         $this->clickAndWait("id=productPrice_searchList_1");
         $this->assertEquals("selvar1 [EN] šÄßüл +1,00 € selvar2 [EN] šÄßüл selvar3 [EN] šÄßüл -2,00 € selvar4 [EN] šÄßüл +2%", $this->clearString($this->getText("//div[@id='productSelections']//ul")));
