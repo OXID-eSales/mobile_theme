@@ -1675,7 +1675,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->callShopSC("oxArticle", "save", "1000", $aArticleParams, 1);
 
         // Active config option (Don't save Shopping Carts of registered Users)
-        $this->callShopSC("oxConfig", "saveShopConfVar", null, array("blPerfNoBasketSaving" => array("type" => "bool", "value" => '')));
+        $this->callShopSC("oxConfig", null, null, array("blPerfNoBasketSaving" => array("type" => "bool", "value" => '')));
 
         // By default system use last payment.
         // We put Cache on delivery as last as system works with it without adding additional information/
