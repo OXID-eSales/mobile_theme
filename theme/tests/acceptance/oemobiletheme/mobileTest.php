@@ -103,9 +103,9 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("link=My account");
         $this->assertElementPresent("link=Home");
         if ( $blUserLogIn ) {
-            $this->assertElementPresent("link=Logout");
+            $this->assertElementPresent("link=Log out");
         } else {
-            $this->assertElementPresent("link=Login");
+            $this->assertElementPresent("link=Log in");
         }
         $this->assertElementPresent("//button[contains(text(),'Regular display')]");
         $this->assertElementPresent("link=Contact");
@@ -1184,7 +1184,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
 
         // Open Login page
-        $this->clickAndWait("link=Login");
+        $this->clickAndWait("link=Log in");
 
         // Click on Forgot password link
         $this->clickAndWait("//a[@id='forgotPasswordLink']");
@@ -1651,7 +1651,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
     public function loginInFrontendMobile($userName = self::TEST_USER_NAME, $userPass = self::TEST_USER_PASSWORD, $waitForLogin = true)
     {
         $this->selectWindow(null);
-        $this->clickAndWait("//a[text()='Login']");
+        $this->clickAndWait("//a[text()='Log in']");
         $this->type("//input[@id='loginUser']", $userName);
         $this->type("//input[@id='loginPwd']", $userPass);
         if ($waitForLogin) {
