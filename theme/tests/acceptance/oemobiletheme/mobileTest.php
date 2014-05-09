@@ -1824,7 +1824,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->loginAdmin("Administer Users", "Users");
         $this->type("where[oxuser][oxlname]", "user1");
         $this->clickAndWait("submitit");
-        $this->assertEquals("user1 last name_šÄßüл user1 name_šÄßüл", $this->getText("//tr[@id='row.1']/td[1]"));
+        $this->assertEquals("user1 last name_šÄßüл user1 name_šÄßüл", $this->getText("//tr[@id='row.1']/td[2]"));
         $this->openListItem("link=user1 last name_šÄßüл user1 name_šÄßüл");
         $this->assertEquals("on", $this->getValue("editval[oxuser__oxactive]"));
         $this->assertEquals("birute01@nfq.lt", $this->getValue("editval[oxuser__oxusername]"));
