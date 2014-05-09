@@ -1201,8 +1201,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         // Check does exist input label "E-mail address"
         $this->assertElementPresent("id=forgotPasswordUserLoginName");
 
-        // Check does exist button with value Request Password
-        $this->assertElementPresent("//input[@value='Request Password']");
+        // Check if submit button exists.
+        $this->assertElementPresent("//input[@value='Reset password']");
 
         // Check does exist content ellement
         $this->assertElementPresent("css=div.content");
