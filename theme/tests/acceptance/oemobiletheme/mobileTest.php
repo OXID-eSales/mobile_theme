@@ -103,9 +103,9 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("link=My Account");
         $this->assertElementPresent("link=Home");
         if ( $blUserLogIn ) {
-            $this->assertElementPresent("link=Log out");
+            $this->assertElementPresent("link=Logout");
         } else {
-            $this->assertElementPresent("link=Log in");
+            $this->assertElementPresent("link=Login");
         }
         $this->assertElementPresent("//button[contains(text(),'Regular display')]");
         $this->assertElementPresent("link=Contact");
