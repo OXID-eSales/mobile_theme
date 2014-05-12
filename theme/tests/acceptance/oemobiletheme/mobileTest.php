@@ -1729,8 +1729,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_1']/div/h4/a"));
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
         $this->assertElementNotPresent("cartItem_5");
-        $this->assertEquals("Label test label šÄßüл 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
-        $this->assertEquals("Grand total 379,40 €", $this->getText("basketGrandTotal"),"Grand total price changed or did't displayed");
+        $this->assertEquals("Label: test label šÄßüл 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
+        $this->assertEquals("Grand total: 379,40 €", $this->getText("basketGrandTotal"),"Grand total price changed or did't displayed");
         $this->check("//form[@id='orderConfirmAgbTop']//input[@name='ord_agb' and @value='1']");
         $this->clickAndWait("//form[@id='orderConfirmAgbTop']//button");
 
