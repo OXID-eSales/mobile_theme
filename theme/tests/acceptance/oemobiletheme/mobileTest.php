@@ -1636,17 +1636,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
      * @param string $userPass user password.
      * @param boolean $waitForLogin if needed to wait until user get logged in.
      */
-    public function loginInFrontendMobile($userName = self::TEST_USER_NAME, $userPass = self::TEST_USER_PASSWORD, $waitForLogin = true)
+    public function loginInFrontendMobile($userName = self::TEST_USER_NAME, $userPass = self::TEST_USER_PASSWORD)
     {
         $this->selectWindow(null);
         $this->clickAndWait("//a[text()='Login']");
         $this->type("//input[@id='loginUser']", $userName);
         $this->type("//input[@id='loginPwd']", $userPass);
-        if ($waitForLogin) {
-            $this->clickAndWait("//form[@name='login']//input[@type='submit']", "//a[text()='Logout']");
-        } else {
-            $this->clickAndWait("//form[@name='login']//input[@type='submit']");
-        }
+        $this->clickAndWait("//form[@name='login']//input[@type='submit']");
     }
     /**
      * PersParam functionality in frontend
