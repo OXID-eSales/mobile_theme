@@ -1526,7 +1526,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("css=div.note");
 
         // Check does exist label"Account Holder:"
-        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[3]/input[@placeholder='Account holder']");
+        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[3]/input[@placeholder='Account Holder:']");
 
         // Check does exist "Account Holder"input name
         $this->assertElementPresent("css=input[name=\"dynvalue[kkname]\"]");
@@ -1550,7 +1550,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("css=div.card-valid-date-field.card-valid-date-divider");
 
         // Check does exist label element for   " CVV2 or CVC2 security code:"
-        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/input[@placeholder='CVV2 or CVC2 security code']");
+        $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/input[@placeholder='CVV2 or CVC2 security code:']");
 
         // Check does exist valid note ""The CVV2/CVC2 three-digit value is printed just above the ..."
         $this->assertElementPresent("//div[@id='paymentOption_oxidcreditcard']/ul/li[5]/div");
