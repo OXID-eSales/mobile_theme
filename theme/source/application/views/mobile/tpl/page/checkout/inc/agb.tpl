@@ -29,7 +29,10 @@
                     <h3 class="heading section-heading">
                         <span>[{$oContent->oxcontents__oxtitle->value}]</span>
                     </h3>
-                    [{$oContent->oxcontents__oxcontent->value}]
+                    <p class="checkout-agb-label">
+                        [{$oContent->oxcontents__oxcontent->value}]
+                    </p>
+                    <div class="clearfix"></div>
                 [{/oxifcontent}]
             [{/if}]
         [{/if}]
