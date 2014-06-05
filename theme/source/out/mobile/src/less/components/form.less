@@ -118,8 +118,11 @@ input.placeholder {
   .padding(0);
   .margin(@radiocheckbox-margin);
   cursor: @radiocheckbox-cursor;
-  &:first-of-type {
-    .margin(@radiocheckbox-first-margin);
+  &.inline {
+    .margin(@radiocheckbox-inline-margin);
+    &:first-of-type {
+      .margin(@radiocheckbox-inline-first-margin);
+    }
   }
   input {
     position: absolute;

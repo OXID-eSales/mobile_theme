@@ -4606,11 +4606,15 @@ input.placeholder {
   display: inline-block;
   position: relative;
   padding: 0;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 0;
   cursor: pointer;
 }
-.checkbox:first-of-type,
-.radio:first-of-type {
+.checkbox.inline,
+.radio.inline {
+  margin: 0 0 0 10px;
+}
+.checkbox.inline:first-of-type,
+.radio.inline:first-of-type {
   margin: 0;
 }
 .checkbox input,
@@ -5827,36 +5831,36 @@ a:focus {
   color: #232323;
 }
 #footer .footer-nav > li:focus > a,
-#footer .footer-nav > li:hover > a,
 #footer .footer-nav > li:focus button,
+#footer .footer-nav > li:hover > a,
 #footer .footer-nav > li:hover button {
-    background-color: #50a9be;
-    color: #232323;
+  background-color: #50a9be;
+  color: #232323;
 }
 #footer .footer-nav > li:focus > a:active,
-#footer .footer-nav > li:hover > a:active,
 #footer .footer-nav > li:focus button:active,
+#footer .footer-nav > li:hover > a:active,
 #footer .footer-nav > li:hover button:active {
-    background-color: #eb6005;
-    color: #ffffff;
+  background-color: #eb6005;
+  color: #ffffff;
 }
 #footer .footer-nav > li > a,
 #footer .footer-nav > li button {
-    border-radius: 0;
-    border: none;
-    background-color: transparent;
-    color: #50a9be;
-    font-size: 0.778em;
-    padding: 20px 0;
-    text-align: center;
-    text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  color: #50a9be;
+  font-size: 0.778em;
+  padding: 20px 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 #footer .footer-nav > li > a:focus,
 #footer .footer-nav > li > a:hover,
 #footer .footer-nav > li button:focus,
 #footer .footer-nav > li button:hover {
-    background-color: #50a9be;
-    color: #232323;
+  background-color: #50a9be;
+  color: #232323;
 }
 .payment-images {
   list-style: none;
