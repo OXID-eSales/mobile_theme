@@ -17,12 +17,16 @@
                 <li>
                     <label for="orderConfirmAgbBottom">[{ oxmultilang ident="TERMS_AND_CONDITIONS" }]</label>
                     <input type="hidden" name="ord_agb" value="0">
-                    <input id="orderConfirmAgbBottom" type="checkbox" class="checkbox" name="ord_agb" value="1">
-                    <span class="inputNote agb">
-                        [{oxifcontent ident="oxrighttocancellegend" object="oContent"}]
-                        [{ $oContent->oxcontents__oxcontent->value }]
-                        [{/oxifcontent}]
-                    </span>
+                    <div class="checkbox">
+                        <input id="checkAgbTop" type="checkbox" class="checkbox" name="ord_agb" value="1">
+                        <label class="glyphicon-ok" for="checkAgbTop"></label>
+                    </div>
+                    [{oxifcontent ident="oxrighttocancellegend" object="oContent"}]
+                        <label for="checkAgbTop" class="checkout-agb-label">
+                            [{ $oContent->oxcontents__oxcontent->value }]
+                        </label>
+                    [{/oxifcontent}]
+                    <div class="clearfix"></div>
                 </li>
             [{/if}]
         </ul>
