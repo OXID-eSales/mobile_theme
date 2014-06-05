@@ -4606,7 +4606,7 @@ input.placeholder {
   display: inline-block;
   position: relative;
   padding: 0;
-  margin: 0 0 0 0;
+  margin: 0;
   cursor: pointer;
 }
 .checkbox.inline,
@@ -4615,7 +4615,7 @@ input.placeholder {
 }
 .checkbox.inline:first-of-type,
 .radio.inline:first-of-type {
-  margin: 0;
+  margin: 0px;
 }
 .checkbox input,
 .radio input {
@@ -5466,6 +5466,7 @@ a:focus {
 }
 .media-list.article-list .quantity {
   text-align: center;
+  float: left;
   padding: 0;
   width: 40px;
   height: 40px;
@@ -5690,6 +5691,9 @@ a:focus {
 .basket-articles {
   border-top: 1px solid #cccccc;
   margin-bottom: 10px;
+}
+.basket-articles .dropdown-menu {
+  position: relative;
 }
 .basket-functions {
   margin-bottom: 15px;
