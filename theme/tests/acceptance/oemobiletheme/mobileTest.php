@@ -1369,6 +1369,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // Go to 4 basket step
         $this->clickAndWait("id=paymentNextStepBottom");
+        $this->click( "//*[@id='oxdownloadableproductsagreement']" );
         $this->click( "id=checkAgbTop" );
         $this->clickAndWait("css=li > button.btn");
         $this->clickAndWait("link=My account");
