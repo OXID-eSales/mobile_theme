@@ -11,6 +11,7 @@
     <ul id="basket" class="media-list article-list [{if $oViewConf->getActiveClassName() != 'order'}] basket-articles[{/if}]">
         [{* basket items *}]
         [{assign var="basketitemlist" value=$oView->getBasketArticles()}]
+        [{assign var="oMarkGenerator" value=$oView->getBasketContentMarkGenerator() }]
         [{foreach key=basketindex from=$oxcmp_basket->getContents() item=basketitem name=basketContents}]
             [{block name="checkout_basketcontents_basketitem"}]
                 [{assign var="basketproduct" value=$basketitemlist.$basketindex}]
@@ -42,8 +43,10 @@
                                 <a class="media-heading-link" rel="nofollow" href="[{$basketitem->getLink()}]">
                                     [{$basketitem->getTitle()}]
                                 </a>
-                                [{if $basketitem->isSkipDiscount()}]
-                                    <sup><a rel="nofollow" href="#SkipDiscounts_link" >**</a></sup>
+                                [{if $basketitem->isSkipDiscount() }] <sup>[{$oMarkGenerator->getMark('skippedDiscount')}]</sup>[{/if}]
+                                [{if $oViewConf->getActiveClassName() == 'order' && $oViewConf->isFunctionalityEnabled('blEnableIntangibleProdAgreement')}]
+                                    [{if $oArticle->hasDownloadableAgreement() }] <sup>[{$oMarkGenerator->getMark('downloadable')}]</sup>[{/if}]
+                                    [{if $oArticle->hasIntangibleAgreement() }] <sup>[{$oMarkGenerator->getMark('intangible')}]</sup>[{/if}]
                                 [{/if}]
                             </h4>
                             <p class="attributes">
@@ -352,7 +355,7 @@
 
             [{if $oxcmp_basket->hasSkipedDiscount()}]
                 <tr>
-                    <td class="note">**</span> [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNTS_NOT_APPLIED_FOR_ARTICLES" }]</td>
+                    <td class="note" colspan="2">**</span> [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNTS_NOT_APPLIED_FOR_ARTICLES" }]</td>
                 </tr>
             [{/if}]
         </table>
