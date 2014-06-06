@@ -27,6 +27,6 @@ $aTheme = array(
     'title'        => 'OXID eShop mobile theme',
     'description'  => 'Your OXID eShop on mobile devices',
     'thumbnail'    => 'theme.jpg',
-    'version'      => '1.2.0',
+    'version'      => '1.2.1',
     'author'       => 'OXID'
 );
