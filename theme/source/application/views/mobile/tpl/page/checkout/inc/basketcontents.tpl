@@ -355,7 +355,7 @@
 
             [{if $oxcmp_basket->hasSkipedDiscount()}]
                 <tr>
-                    <td class="note" colspan="2">**</span> [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNTS_NOT_APPLIED_FOR_ARTICLES" }]</td>
+                    <td class="note" colspan="2">** [{ oxmultilang ident="PAGE_CHECKOUT_BASKETCONTENTS_DISCOUNTS_NOT_APPLIED_FOR_ARTICLES" }]</td>
                 </tr>
             [{/if}]
         </table>
