@@ -26,7 +26,7 @@
     [{assign var="iBirthdayYear" value=0}]
 [{/if}]
     <li>
-        [{include file="form/fieldset/salutation.tpl" name="invadr[oxuser__oxsal]" value=$oxcmp_user->oxuser__oxsal->value }]
+        [{include file="form/fieldset/salutation.tpl" name="invadr[oxuser__oxsal]" value=$oxcmp_user->oxuser__oxsal->value value2=$invadr.oxuser__oxsal }]
     </li>
     <li [{if $aErrors.oxuser__oxfname}]class="invalid-field"[{/if}]>
         <input [{if $oView->isFieldRequired(oxuser__oxfname) }]class="js-oxValidate js-oxValidate_notEmpty" [{/if}]placeholder="[{ oxmultilang ident="FIRST_NAME" }][{if $oView->isFieldRequired(oxuser__oxfname) }]*[{/if}]" type="text" size="37"  maxlength="255" name="invadr[oxuser__oxfname]" value="[{if isset( $invadr.oxuser__oxfname ) }][{ $invadr.oxuser__oxfname }][{else }][{ $oxcmp_user->oxuser__oxfname->value }][{/if}]">
