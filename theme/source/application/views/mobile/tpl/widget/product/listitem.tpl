@@ -131,9 +131,9 @@
                             [{/if}]
                         </span>
                         [{* weight and price/unit *}]
-                        [{if $product->getPricePerUnit()}]
+                        [{if $product->getFUnitPrice()}]
                             <span id="productPricePerUnit_[{$iIndex}]" class="price-per-unit">
-                                [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{$product->getPricePerUnit()}] [{$currency->sign}]/[{$product->getUnitName()}]
+                                [{$product->oxarticles__oxunitquantity->value}] [{$product->getUnitName()}] | [{$product->getFUnitPrice()}] [{$currency->sign}]/[{$product->getUnitName()}]
                             </span>
                         [{/if}]
                     [{/block}]

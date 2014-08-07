@@ -101,8 +101,8 @@
             [{* Additional info *}]
             <div class="product-additional-info">
                 [{block name="details_productmain_priceperunit"}]
-                    [{if $oDetailsProduct->getPricePerUnit()}]
-                        <span class="product-price-per-unit">[{$oDetailsProduct->getPricePerUnit()}] [{$currency->sign}]/[{$oDetailsProduct->getUnitName()}]</span>
+                    [{if $oDetailsProduct->getFUnitPrice()}]
+                        <span class="product-price-per-unit">[{$oDetailsProduct->getFUnitPrice()}] [{$currency->sign}]/[{$oDetailsProduct->getUnitName()}]</span>
                     [{/if}]
                 [{/block}]
                 [{* Stock status *}]
