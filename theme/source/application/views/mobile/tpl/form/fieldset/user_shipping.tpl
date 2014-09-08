@@ -10,6 +10,7 @@
     <input type="hidden" name="changeClass" value="[{$onChangeClass|default:'account_user'}]">
     [{oxscript include="js/widgets/oxusershipingaddressselect.js" priority=10 }]
     [{oxscript add="$( '#addressId' ).oxUserShipingAddressSelect();"}]
+    [{block name="form_user_shipping_address_select"}]
     <div id="addressSelect" class="dropdown">
         <input id="addressId" type="hidden" name="oxaddressid" value="-1" />
         <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
@@ -34,6 +35,7 @@
             [{/if}]
         </ul>
     </div>
+    [{/block}]
 </li>
 [{if $delivadr}]
     <li class="form" id="shippingAddressText">

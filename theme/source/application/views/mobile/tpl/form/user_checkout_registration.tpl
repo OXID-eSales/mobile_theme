@@ -48,14 +48,16 @@
         </div>
 
         [{oxscript add="$('#showShipAddress').change( function() { $('#shippingAddress').toggle($(this).is(':not(:checked)'));});"}]
-        <ul class="form">
-            <li>
-                <input id="userNextStepBottom" class="btn submitButton largeButton nextStep" name="userform" type="submit" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]"/>
-            </li>
-            <li>
-                <input class="btn previous" type="button" id="userBackStepBottom" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getBasketLink() }]', '_self');" />
-            </li>
-        </ul>
+        [{block name="user_checkout_registration_next_step_bottom"}]
+            <ul class="form">
+                <li>
+                    <input id="userNextStepBottom" class="btn submitButton largeButton nextStep" name="userform" type="submit" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]"/>
+                </li>
+                <li>
+                    <input class="btn previous" type="button" id="userBackStepBottom" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getBasketLink() }]', '_self');" />
+                </li>
+            </ul>
+        [{/block}]
     [{/block}]
     </form>
 [{/block}]

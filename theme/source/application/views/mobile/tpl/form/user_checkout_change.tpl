@@ -20,9 +20,11 @@
                     [{block name="user_checkout_billing"}]
                         [{block name="user_checkout_billing_head"}]
                             <ul class="form">
-                                <li>
-                                    <input type="button" id="userNextStepTop" name="userform" class="btn" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" />
-                                </li>
+                                [{block name="user_checkout_change_next_step_top"}]
+                                    <li>
+                                        <input type="button" id="userNextStepTop" name="userform" class="btn" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" />
+                                    </li>
+                                [{/block}]
                                 <li>
                                     <h3>[{oxmultilang ident="BILLING_ADDRESS" }]</h3>
                                     <input class="btn" type="button" id="userChangeAddress" name="changeBillAddress" value="[{oxmultilang ident="CHANGE" }]" />
@@ -85,10 +87,12 @@
                     [{/block}]
                 </div>
             </div>
-            <ul class="form">
-                <li><input type="submit" id="userNextStepBottom" class="btn" name="userform" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" /></li>
-                <li><input type="button" class="btn previous" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getBasketLink() }]', '_self');" /></li>
-            </ul>
+            [{block name="user_checkout_change_next_step_bottom"}]
+                <ul class="form">
+                    <li><input type="submit" id="userNextStepBottom" class="btn" name="userform" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" /></li>
+                    <li><input type="button" class="btn previous" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getBasketLink() }]', '_self');" /></li>
+                </ul>
+            [{/block}]
         [{/block}]
     </form>
 [{/block}]

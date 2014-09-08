@@ -1,9 +1,9 @@
 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10 }]
 [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
-<form class="js-oxValidate form" action="[{ $oViewConf->getSelfActionLink() }]" name="order" method="post">
-    [{assign var="aErrors" value=$oView->getFieldValidationErrors()}]
-    <div class="addressCollumns">
-        <div class="collumn">
+[{block name="user"}]
+    <form class="js-oxValidate form" action="[{ $oViewConf->getSelfActionLink() }]" name="order" method="post">
+        [{block name="user_form"}]
+            [{assign var="aErrors" value=$oView->getFieldValidationErrors()}]
             <div>
                 [{ $oViewConf->getHiddenSid() }]
                 [{ $oViewConf->getNavFormParams() }]

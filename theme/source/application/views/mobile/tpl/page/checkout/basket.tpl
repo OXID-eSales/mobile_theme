@@ -12,17 +12,19 @@
                 [{/block}]
             [{else }]
                 [{* basket btn next *}]
-                [{if !$oView->isLowOrderPrice() }]
-                    <div id="btnNextStepTop">
-                    [{block name="mb_basket_btn_next_top"}]
-                        <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
-                            [{ $oViewConf->getHiddenSid() }]
-                            <input type="hidden" name="cl" value="user">
-                            <input type="submit" class="btn nextStep" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" />
-                        </form>
-                    [{/block}]
-                    </div>
-                [{/if}]
+                [{block name="checkout_basket_next_step_top"}]
+                    [{if !$oView->isLowOrderPrice() }]
+                        <div id="btnNextStepTop">
+                        [{block name="mb_basket_btn_next_top"}]
+                            <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+                                [{ $oViewConf->getHiddenSid() }]
+                                <input type="hidden" name="cl" value="user">
+                                <input type="submit" class="btn nextStep" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" />
+                            </form>
+                        [{/block}]
+                        </div>
+                    [{/if}]
+                [{/block}]
 
                 [{include file="page/checkout/inc/basketcontents.tpl" editable=true}]
 
@@ -32,35 +34,37 @@
                 [{/if}]
 
 
-                [{if $oView->showBackToShop()}]
-                    [{block name="checkout_basket_backtoshop_bottom"}]
-                        <form action="[{ $oViewConf->getSslSelfLink() }]" method="post">
-                            <div class="backtoshop">
-                                [{ $oViewConf->getHiddenSid() }]
-                                <input type="hidden" name="cl" value="basket">
-                                <input type="hidden" name="fnc" value="backtoshop">
-                                <button type="submit" class="btn">[{ oxmultilang ident="CONTINUE_SHOPPING" }]</button>
-                            </div>
-                        </form>
-                    [{/block}]
-                [{/if}]
+                [{block name="checkout_basket_next_step_bottom"}]
+                    [{if $oView->showBackToShop()}]
+                        [{block name="checkout_basket_backtoshop_bottom"}]
+                            <form action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+                                <div class="backtoshop">
+                                    [{ $oViewConf->getHiddenSid() }]
+                                    <input type="hidden" name="cl" value="basket">
+                                    <input type="hidden" name="fnc" value="backtoshop">
+                                    <button type="submit" class="btn">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_CONTINUESHOPPING" }]</button>
+                                </div>
+                            </form>
+                        [{/block}]
+                    [{/if}]
 
-                [{* basket btn next *}]
-                [{if $oView->isLowOrderPrice() }]
-                    [{block name="checkout_basket_loworderprice_bottom"}]
-                        <div class="alert alert-error">[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
-                    [{/block}]
-                [{else}]
-                    <div id="btnNextStepBottom">
-                    [{block name="mb_basket_btn_next_bottom"}]
-                        <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
-                            [{ $oViewConf->getHiddenSid() }]
-                            <input type="hidden" name="cl" value="user">
-                            <input type="submit" class="btn nextStep" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" />
-                        </form>
-                    [{/block}]
-                    </div>
-                [{/if}]
+                    [{* basket btn next *}]
+                    [{if $oView->isLowOrderPrice() }]
+                        [{block name="checkout_basket_loworderprice_bottom"}]
+                            <div class="alert alert-error">[{ oxmultilang ident="PAGE_CHECKOUT_BASKET_MINORDERPRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
+                        [{/block}]
+                    [{else}]
+                        <div id="btnNextStepBottom">
+                        [{block name="mb_basket_btn_next_bottom"}]
+                            <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+                                [{ $oViewConf->getHiddenSid() }]
+                                <input type="hidden" name="cl" value="user">
+                                <input type="submit" class="btn nextStep" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" />
+                            </form>
+                        [{/block}]
+                        </div>
+                    [{/if}]
+                [{/block}]
             [{/if}]
         [{/block}]
         [{insert name="oxid_tracker" title=$template_title }]

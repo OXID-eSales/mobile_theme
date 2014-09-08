@@ -2,7 +2,7 @@
     <div class="content order">
         [{block name="checkout_order_errors"}]
             [{ if $oView->isConfirmAGBActive() && $oView->isConfirmAGBError() == 1 }]
-            [{include file="message/error.tpl" statusMessage="READ_AND_CONFIRM_TERMS"|oxmultilangassign }]
+            [{include file="message/error.tpl" statusMessage="PAGE_CHECKOUT_ORDER_READANDCONFIRMTERMS"|oxmultilangassign }]
             [{/if}]
             [{assign var="iError" value=$oView->getAddressError() }]
             [{ if $iError == 1}]
@@ -29,15 +29,44 @@
                         [{/block}]
                     [{else}]
 
-                        [{if $oView->showOrderButtonOnTop()}]
-                            <div id="orderAgbTop">
-                                <form action="[{ $oViewConf->getSslSelfLink() }]" method="post" id="orderConfirmAgbTop">
-                                    [{ $oViewConf->getHiddenSid() }]
-                                    [{ $oViewConf->getNavFormParams() }]
-                                    <input type="hidden" name="cl" value="order">
-                                    <input type="hidden" name="fnc" value="[{$oView->getExecuteFnc()}]">
-                                    <input type="hidden" name="challenge" value="[{$challenge}]">
-                                    <input type="hidden" name="sDeliveryAddressMD5" value="[{$oView->getDeliveryAddressMD5()}]">
+                        <div id="orderAgbTop">
+                            <form action="[{ $oViewConf->getSslSelfLink() }]" method="post" id="orderConfirmAgbTop">
+                                [{ $oViewConf->getHiddenSid() }]
+                                [{ $oViewConf->getNavFormParams() }]
+                                <input type="hidden" name="cl" value="order">
+                                <input type="hidden" name="fnc" value="[{$oView->getExecuteFnc()}]">
+                                <input type="hidden" name="challenge" value="[{$challenge}]">
+                                <input type="hidden" name="sDeliveryAddressMD5" value="[{$oView->getDeliveryAddressMD5()}]">
+                                <div class="agb">
+                                    [{if $oView->isActive('PsLogin') }]
+                                        <input type="hidden" name="ord_agb" value="1">
+                                    [{else}]
+                                        [{if $oView->isConfirmAGBActive()}]
+                                            [{oxifcontent ident="oxrighttocancellegend" object="oContent"}]
+                                                <h3 class="heading section-heading">
+                                                    <span>[{ $oContent->oxcontents__oxtitle->value }]</span>
+                                                </h3>
+                                                <input type="hidden" name="ord_agb" value="0">
+                                                <div class="checkbox">
+                                                    <input id="checkAgbTop" type="checkbox" name="ord_agb" value="1">
+                                                    <label class="glyphicon-ok" for="checkAgbTop"></label>
+                                                </div>
+                                                <label for="checkAgbTop" class="checkout-agb-label">
+                                                    [{ $oContent->oxcontents__oxcontent->value }]
+                                                </label>
+                                                <div class="clearfix"></div>
+                                            [{/oxifcontent}]
+                                        [{else}]
+                                            [{oxifcontent ident="oxrighttocancellegend2" object="oContent"}]
+                                                <h3 class="heading section-heading">
+                                                    <span>[{ $oContent->oxcontents__oxtitle->value }]</span>
+                                                </h3>
+                                                <input type="hidden" name="ord_agb" value="1">
+                                                [{ $oContent->oxcontents__oxcontent->value }]
+                                            [{/oxifcontent}]
+                                        [{/if}]
+                                    [{/if}]
+                                </div>
 
                                     [{include file="page/checkout/inc/agb.tpl"}]
 
@@ -155,34 +184,36 @@
                         </div>
                     [{/block}]
 
-                    [{if $oView->isLowOrderPrice() }]
-                        [{block name="checkout_order_loworderprice_bottom"}]
-                            <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
-                        [{/block}]
-                    [{else}]
-                        [{block name="checkout_order_btn_confirm_bottom"}]
-                            <form action="[{ $oViewConf->getSslSelfLink() }]" method="post" id="orderConfirmAgbBottom">
-                                [{ $oViewConf->getHiddenSid() }]
-                                [{ $oViewConf->getNavFormParams() }]
-                                <input type="hidden" name="cl" value="order">
-                                <input type="hidden" name="fnc" value="[{$oView->getExecuteFnc()}]">
-                                <input type="hidden" name="challenge" value="[{$challenge}]">
-                                <input type="hidden" name="sDeliveryAddressMD5" value="[{$oView->getDeliveryAddressMD5()}]">
+                    [{block name="checkout_order_next_step_bottom"}]
+                        [{if $oView->isLowOrderPrice() }]
+                            [{block name="checkout_order_loworderprice_bottom"}]
+                                <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
+                            [{/block}]
+                        [{else}]
+                            [{block name="checkout_order_btn_confirm_bottom"}]
+                                <form action="[{ $oViewConf->getSslSelfLink() }]" method="post" id="orderConfirmAgbBottom">
+                                    [{ $oViewConf->getHiddenSid() }]
+                                    [{ $oViewConf->getNavFormParams() }]
+                                    <input type="hidden" name="cl" value="order">
+                                    <input type="hidden" name="fnc" value="[{$oView->getExecuteFnc()}]">
+                                    <input type="hidden" name="challenge" value="[{$challenge}]">
+                                    <input type="hidden" name="sDeliveryAddressMD5" value="[{$oView->getDeliveryAddressMD5()}]">
 
-                                [{if !$oView->showOrderButtonOnTop()}]
-                                    [{include file="page/checkout/inc/agb.tpl"}]
-                                    <hr/>
-                                [{else}]
-                                    [{include file="page/checkout/inc/agb.tpl" hideButtons=true}]
-                                [{/if}]
+                                    [{if !$oView->showOrderButtonOnTop()}]
+                                        [{include file="page/checkout/inc/agb.tpl"}]
+                                        <hr/>
+                                    [{else}]
+                                        [{include file="page/checkout/inc/agb.tpl" hideButtons=true}]
+                                    [{/if}]
 
-                                <ul class="form">
-                                    <li><button type="submit" class="btn">[{ oxmultilang ident="SUBMIT_ORDER" }]</button></li>
-                                    <li><input type="button" class="btn previous" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getPaymentLink() }]', '_self');" /></li>
-                                </ul>
-                            </form>
-                        [{/block}]
-                    [{/if}]
+                                    <ul class="form">
+                                        <li><button type="submit" class="btn">[{ oxmultilang ident="SUBMIT_ORDER" }]</button></li>
+                                        <li><input type="button" class="btn previous" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getPaymentLink() }]', '_self');" /></li>
+                                    </ul>
+                                </form>
+                            [{/block}]
+                        [{/if}]
+                    [{/block}]
                 [{/if}]
             [{/block}]
         [{/block}]

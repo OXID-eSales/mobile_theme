@@ -76,6 +76,8 @@
                     [{/oxhasrights}]
                 [{/block}]
 
+                [{block name="details_productmain_watchlist"}][{/block}]
+
                 [{block name="details_productmain_price"}]
                     [{if $oDetailsProduct->getFPrice()}]
                         <div class="product-price price pull-right">
@@ -101,8 +103,8 @@
             [{* Additional info *}]
             <div class="product-additional-info">
                 [{block name="details_productmain_priceperunit"}]
-                    [{if $oDetailsProduct->getFUnitPrice()}]
-                        <span class="product-price-per-unit">[{$oDetailsProduct->getFUnitPrice()}] [{$currency->sign}]/[{$oDetailsProduct->getUnitName()}]</span>
+                    [{if $oDetailsProduct->getUnitPrice()}]
+                        <span class="product-price-per-unit">[{$oDetailsProduct->getUnitQuantity()}] [{$oDetailsProduct->getUnitName()}] | [{oxprice price=$oDetailsProduct->getUnitPrice() }] [{$currency->sign}]/[{$oDetailsProduct->getUnitName()}]</span>
                     [{/if}]
                 [{/block}]
                 [{* Stock status *}]
