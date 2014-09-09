@@ -11,30 +11,30 @@
     [{oxscript include="js/widgets/oxusershipingaddressselect.js" priority=10 }]
     [{oxscript add="$( '#addressId' ).oxUserShipingAddressSelect();"}]
     [{block name="form_user_shipping_address_select"}]
-    <div id="addressSelect" class="dropdown">
-        <input id="addressId" type="hidden" name="oxaddressid" value="-1" />
-        <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-            <a role="button" href="#">
-                <span>[{ oxmultilang ident="NEW_ADDRESS" }]</span>
-                <i class="glyphicon-chevron-down"></i>
-            </a>
+        <div id="addressSelect" class="dropdown">
+            <input id="addressId" type="hidden" name="oxaddressid" value="-1" />
+            <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+                <a role="button" href="#">
+                    <span>[{ oxmultilang ident="NEW_ADDRESS" }]</span>
+                    <i class="glyphicon-chevron-down"></i>
+                </a>
+            </div>
+            <ul class="dropdown-menu">
+                <li class="dropdown-option">
+                    <a tabindex="-1" data-selection-id="-1">[{ oxmultilang ident="NEW_ADDRESS" }]</a>
+                </li>
+                [{if $oxcmp_user }]
+                    [{foreach from=$oxcmp_user->getUserAddresses() item=address }]
+                        [{if $address->isSelected()}]
+                            [{oxscript add="$('#addressId').val('`$address->oxaddress__oxid->value`');"}]
+                        [{/if}]
+                        <li class="dropdown-option">
+                            <a tabindex="-1" data-selection-id="[{$address->oxaddress__oxid->value}]">[{$address}]</a>
+                        </li>
+                    [{/foreach}]
+                [{/if}]
+            </ul>
         </div>
-        <ul class="dropdown-menu">
-            <li class="dropdown-option">
-                <a tabindex="-1" data-selection-id="-1">[{ oxmultilang ident="NEW_ADDRESS" }]</a>
-            </li>
-            [{if $oxcmp_user }]
-                [{foreach from=$oxcmp_user->getUserAddresses() item=address }]
-                    [{if $address->isSelected()}]
-                        [{oxscript add="$('#addressId').val('`$address->oxaddress__oxid->value`');"}]
-                    [{/if}]
-                    <li class="dropdown-option">
-                        <a tabindex="-1" data-selection-id="[{$address->oxaddress__oxid->value}]">[{$address}]</a>
-                    </li>
-                [{/foreach}]
-            [{/if}]
-        </ul>
-    </div>
     [{/block}]
 </li>
 [{if $delivadr}]
