@@ -38,10 +38,10 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
      *
      * @return oeThemeSwitcherUserAgent
      */
-    public function oeThemeSwitcherGetUserAgent( )
+    public function oeThemeSwitcherGetUserAgent()
     {
-        if ( is_null( $this->_oUserAgent ) ){
-            $this->_oUserAgent = oxNew( 'oeThemeSwitcherUserAgent' );
+        if (is_null($this->_oUserAgent)) {
+            $this->_oUserAgent = oxNew('oeThemeSwitcherUserAgent');
         }
 
         return $this->_oUserAgent;
@@ -56,5 +56,4 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
     {
         return $this->getConfig()->getEdition();
     }
-
 }

@@ -28,18 +28,18 @@ $sMetadataVersion = '1.1';
  * Module information
  */
 $aModule = array(
-    'id'           => 'oethemeswitcher',
-    'title'        => 'OXID eShop theme switch',
-    'description'  => array(
+    'id'          => 'oethemeswitcher',
+    'title'       => 'OXID eShop theme switch',
+    'description' => array(
         'de' => 'Modul zum Wechsel der Anzeige zwischen normaler Ansicht und der Ansicht für mobile Endgeräte. Beim Aufruf des OXID eShop durch ein mobiles Endgerät wird ein installiertes Mobile Theme - standardmäßig OXID eShop Mobile Theme - zur Darstellung verwendet. Erfordert ein installiertes Mobile Theme.',
         'en' => 'Module for switching the display between a regular view and a view for mobile devices. If OXID eShop is accessed by a mobile device, an installed mobile theme (OXID eShop mobile theme by default) will be used. An installed mobile theme is required.',
     ),
-    'thumbnail'    => 'picture.png',
-    'version'      => '1.2.0',
-    'author'       => 'OXID eSales AG',
-    'url'          => 'http://www.oxid-esales.com',
-    'email'        => 'info@oxid-esales.com',
-    'extend'       => array(
+    'thumbnail'   => 'picture.png',
+    'version'     => '1.2.0',
+    'author'      => 'OXID eSales AG',
+    'url'         => 'http://www.oxid-esales.com',
+    'email'       => 'info@oxid-esales.com',
+    'extend'      => array(
         'oxconfig'              => 'oe/oethemeswitcher/core/oethemeswitcherconfig',
         'oxtheme'               => 'oe/oethemeswitcher/core/oethemeswitchertheme',
         'oxviewconfig'          => 'oe/oethemeswitcher/core/oethemeswitcherviewconfig',
@@ -55,22 +55,22 @@ $aModule = array(
         'oxlang'                => 'oe/oethemeswitcher/core/oethemeswitcherlang',
         'oxreverseproxybackend' => 'oe/oethemeswitcher/core/cache/oethemeswitcherreverseproxybackend',
     ),
-    'files' => array(
-        'oethemeswitcheruseragent'      => 'oe/oethemeswitcher/core/oethemeswitcheruseragent.php',
-        'oethemeswitcherthememanager'   => 'oe/oethemeswitcher/core/oethemeswitcherthememanager.php',
-        'oethemeswitcherevents'         => 'oe/oethemeswitcher/core/oethemeswitcherevents.php',
-        'oethemeswitcherwpaymentlist'   => 'oe/oethemeswitcher/components/widgets/oethemeswitcherwpaymentlist.php'
+    'files'       => array(
+        'oethemeswitcheruseragent'    => 'oe/oethemeswitcher/core/oethemeswitcheruseragent.php',
+        'oethemeswitcherthememanager' => 'oe/oethemeswitcher/core/oethemeswitcherthememanager.php',
+        'oethemeswitcherevents'       => 'oe/oethemeswitcher/core/oethemeswitcherevents.php',
+        'oethemeswitcherwpaymentlist' => 'oe/oethemeswitcher/components/widgets/oethemeswitcherwpaymentlist.php'
     ),
 
-    'blocks' => array(
-        array('template' => 'layout/page.tpl',             'block'=>'layout_page_vatinclude',               'file'=>'views/azure/blocks/theme_switch_link.tpl'),
+    'blocks'      => array(
+        array('template' => 'layout/page.tpl', 'block' => 'layout_page_vatinclude', 'file' => 'views/azure/blocks/theme_switch_link.tpl'),
     ),
 
-    'settings' => array(
-        array('group' => 'main', 'name' => 'sOEThemeSwitcherMobileTheme', 'type' => 'str',  'value' => 'mobile'),
+    'settings'    => array(
+        array('group' => 'main', 'name' => 'sOEThemeSwitcherMobileTheme', 'type' => 'str', 'value' => 'mobile'),
     ),
 
-    'events'       => array(
+    'events'      => array(
         'onActivate'   => 'oeThemeSwitcherEvents::onActivate',
         'onDeactivate' => 'oeThemeSwitcherEvents::onDeactivate'
     ),

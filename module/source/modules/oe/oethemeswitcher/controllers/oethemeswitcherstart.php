@@ -25,7 +25,6 @@
  */
 class oeThemeSwitcherStart extends oeThemeSwitcherStart_parent
 {
-
     /**
      * Returns view ID (for template engine caching).
      *
@@ -33,11 +32,10 @@ class oeThemeSwitcherStart extends oeThemeSwitcherStart_parent
      */
     public function getViewId()
     {
-        $oUBase = oxNew( 'oxUBase' );
+        $oUBase = oxNew('oxUBase');
         $sViewId = $oUBase->getViewId();
         $sViewId .= $this->getConfig()->oeThemeSwitcherGetActiveThemeId();
 
         return $sViewId;
     }
-
 }

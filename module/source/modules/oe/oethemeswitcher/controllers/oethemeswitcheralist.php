@@ -41,12 +41,13 @@ class oeThemeSwitcherAList extends oeThemeSwitcherAList_parent
      */
     public function getShowFilter()
     {
-        if ( $this->_blShowFilter == null ) {
+        if ($this->_blShowFilter == null) {
             $this->_blShowFilter = false;
-            if ( $this->getConfig()->getRequestParameter( 'showFilter' ) == 'true' ) {
+            if ($this->getConfig()->getRequestParameter('showFilter') == 'true') {
                 $this->_blShowFilter = true;
             }
         }
+
         return $this->_blShowFilter;
     }
 
@@ -62,5 +63,4 @@ class oeThemeSwitcherAList extends oeThemeSwitcherAList_parent
 
         return $sViewId;
     }
-
 }

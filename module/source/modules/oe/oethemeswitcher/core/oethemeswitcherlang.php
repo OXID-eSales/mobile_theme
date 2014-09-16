@@ -31,77 +31,77 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
      *
      * @return array
      */
-    protected function _getLangFilesPathArray( $iLang )
+    protected function _getLangFilesPathArray($iLang)
     {
         $oConfig = $this->getConfig();
         $aLangFiles = array();
 
-        $sAppDir        = $oConfig->getAppDir();
-        $sLang          = oxRegistry::getLang()->getLanguageAbbr( $iLang );
-        $sTheme         = $oConfig->getConfigParam( "sTheme" );
-        $sCustomTheme   = $oConfig->getConfigParam( "sCustomTheme" );
-        $sActiveTheme   = $oConfig->oeThemeSwitcherGetActiveThemeId();
-        $sShopId        = $oConfig->getShopId();
-        $aModuleInfo    = $this->_getActiveModuleInfo();
+        $sAppDir = $oConfig->getAppDir();
+        $sLang = oxRegistry::getLang()->getLanguageAbbr($iLang);
+        $sTheme = $oConfig->getConfigParam("sTheme");
+        $sCustomTheme = $oConfig->getConfigParam("sCustomTheme");
+        $sActiveTheme = $oConfig->oeThemeSwitcherGetActiveThemeId();
+        $sShopId = $oConfig->getShopId();
+        $aModuleInfo = $this->_getActiveModuleInfo();
 
         // Get generic lang files
         $sGenericPath = $sAppDir . 'translations/' . $sLang;
-        if ( $sGenericPath ) {
+        if ($sGenericPath) {
             $aLangFiles[] = $sGenericPath . "/lang.php";
-            $aLangFiles = $this->_appendLangFile( $aLangFiles, $sGenericPath );
+            $aLangFiles = $this->_appendLangFile($aLangFiles, $sGenericPath);
         }
 
         // Get theme lang files
-        if ( $sTheme ) {
-            $sThemePath = $sAppDir . 'views/' . $sTheme .'/' . $sLang;
+        if ($sTheme) {
+            $sThemePath = $sAppDir . 'views/' . $sTheme . '/' . $sLang;
             $aLangFiles[] = $sThemePath . "/lang.php";
-            $aLangFiles = $this->_appendLangFile( $aLangFiles, $sThemePath );
+            $aLangFiles = $this->_appendLangFile($aLangFiles, $sThemePath);
         }
 
         // Get custom theme lang files
-        if ( $sCustomTheme && $sCustomTheme == $sActiveTheme ) {
-            $sCustPath = $sAppDir . 'views/' . $sCustomTheme .'/' . $sLang;
+        if ($sCustomTheme && $sCustomTheme == $sActiveTheme) {
+            $sCustPath = $sAppDir . 'views/' . $sCustomTheme . '/' . $sLang;
             $aLangFiles[] = $sCustPath . "/lang.php";
-            $aLangFiles = $this->_appendLangFile( $aLangFiles, $sCustPath );
+            $aLangFiles = $this->_appendLangFile($aLangFiles, $sCustPath);
         }
 
         // Custom theme shop languages
-        if ( $this->getConfig()->getEdition() == 'EE' ) {
-            if ( $sCustomTheme && $sCustomTheme == $sActiveTheme) {
-                    $sShopPath = $sAppDir . 'views/'. $sCustomTheme .'/' . $sShopId . '/' . $sLang;
-                    $aLangFiles[] = $sShopPath . "/lang.php";
-                    $aLangFiles = $this->_appendLangFile( $aLangFiles, $sShopPath );
+        if ($this->getConfig()->getEdition() == 'EE') {
+            if ($sCustomTheme && $sCustomTheme == $sActiveTheme) {
+                $sShopPath = $sAppDir . 'views/' . $sCustomTheme . '/' . $sShopId . '/' . $sLang;
+                $aLangFiles[] = $sShopPath . "/lang.php";
+                $aLangFiles = $this->_appendLangFile($aLangFiles, $sShopPath);
             } else {
                 // theme shop languages
-                if ( $sTheme ) {
-                    $sShopPath = $sAppDir . 'views/'. $sTheme .'/' . $sShopId . '/' . $sLang;
+                if ($sTheme) {
+                    $sShopPath = $sAppDir . 'views/' . $sTheme . '/' . $sShopId . '/' . $sLang;
                     $aLangFiles[] = $sShopPath . "/lang.php";
-                    $aLangFiles = $this->_appendLangFile( $aLangFiles, $sShopPath );
+                    $aLangFiles = $this->_appendLangFile($aLangFiles, $sShopPath);
                 }
             }
         }
 
         // Modules language files
-        if ( is_array( $aModuleInfo ) ) {
-            foreach ( $aModuleInfo as $sPath ) {
+        if (is_array($aModuleInfo)) {
+            foreach ($aModuleInfo as $sPath) {
                 $sFullPath = $oConfig->getModulesDir() . $sPath . '/translations/' . $sLang;
                 // for < 4.6 modules, since 4.7/5.0 translation files should be in modules/modulepath/translations/ dir
-                if ( !is_dir($sFullPath) ) {
+                if (!is_dir($sFullPath)) {
                     $sFullPath = $oConfig->getModulesDir() . $sPath . '/out/lang/' . $sLang;
                 }
-                $aLangFiles = $this->_appendLangFile( $aLangFiles, $sFullPath );
+                $aLangFiles = $this->_appendLangFile($aLangFiles, $sFullPath);
             }
         }
 
         // custom language files
-        if ( $sTheme ) {
+        if ($sTheme) {
             $aLangFiles[] = $sAppDir . 'views/' . $sTheme . '/' . $sLang . '/cust_lang.php';
         }
-        if ( $sCustomTheme ) {
+        if ($sCustomTheme) {
             $aLangFiles[] = $sAppDir . 'views/' . $sCustomTheme . '/' . $sLang . '/cust_lang.php';
         }
 
-        return count( $aLangFiles ) ? $aLangFiles : false;
+        return count($aLangFiles) ? $aLangFiles : false;
     }
 
 
@@ -114,14 +114,15 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
      *
      * @return string
      */
-    protected function _getLangFileCacheName( $blAdmin, $iLang, $aLangFiles = null )
+    protected function _getLangFileCacheName($blAdmin, $iLang, $aLangFiles = null)
     {
         $myConfig = $this->getConfig();
         $sLangFilesIdent = '_default';
-        if ( is_array( $aLangFiles ) && $aLangFiles ) {
-            $sLangFilesIdent = '_'.md5(implode('+', $aLangFiles));
+        if (is_array($aLangFiles) && $aLangFiles) {
+            $sLangFilesIdent = '_' . md5(implode('+', $aLangFiles));
         }
-        return "langcache_" . ( (int) $blAdmin ) . "_{$iLang}_" . $myConfig->getShopId() . "_" . $myConfig->oeThemeSwitcherGetActiveThemeId() . $sLangFilesIdent;
+
+        return "langcache_" . ((int) $blAdmin) . "_{$iLang}_" . $myConfig->getShopId() . "_" . $myConfig->oeThemeSwitcherGetActiveThemeId() . $sLangFilesIdent;
     }
 
     /**
@@ -132,25 +133,25 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
      *
      * @return array
      */
-    protected function _getLanguageMap( $iLang, $blAdmin = null )
+    protected function _getLanguageMap($iLang, $blAdmin = null)
     {
-        $blAdmin = isset( $blAdmin ) ? $blAdmin : $this->isAdmin();
-        $sKey = $iLang . ( (int) $blAdmin );
-        if ( !isset( $this->_aLangMap[$sKey] ) ) {
+        $blAdmin = isset($blAdmin) ? $blAdmin : $this->isAdmin();
+        $sKey = $iLang . ((int) $blAdmin);
+        if (!isset($this->_aLangMap[$sKey])) {
             $this->_aLangMap[$sKey] = array();
             $myConfig = $this->getConfig();
 
             $sMapFile = '';
-            $sParentMapFile = $myConfig->getAppDir() . '/views/' .  ( $blAdmin ? 'admin' : $myConfig->getConfigParam( "sTheme" ) ) .'/' . oxRegistry::getLang()->getLanguageAbbr( $iLang ) . '/map.php';
-            $sActiveThemeMapFile = $myConfig->getAppDir() . '/views/' .  ( $blAdmin ? 'admin' : $myConfig->oeThemeSwitcherGetActiveThemeId() ) .'/' . oxRegistry::getLang()->getLanguageAbbr( $iLang ) . '/map.php';
+            $sParentMapFile = $myConfig->getAppDir() . '/views/' . ($blAdmin ? 'admin' : $myConfig->getConfigParam("sTheme")) . '/' . oxRegistry::getLang()->getLanguageAbbr($iLang) . '/map.php';
+            $sActiveThemeMapFile = $myConfig->getAppDir() . '/views/' . ($blAdmin ? 'admin' : $myConfig->oeThemeSwitcherGetActiveThemeId()) . '/' . oxRegistry::getLang()->getLanguageAbbr($iLang) . '/map.php';
 
-            if ( file_exists( $sActiveThemeMapFile ) && is_readable( $sActiveThemeMapFile ) ) {
+            if (file_exists($sActiveThemeMapFile) && is_readable($sActiveThemeMapFile)) {
                 $sMapFile = $sActiveThemeMapFile;
-            } elseif ( file_exists( $sParentMapFile ) && is_readable( $sParentMapFile ) ) {
+            } elseif (file_exists($sParentMapFile) && is_readable($sParentMapFile)) {
                 $sMapFile = $sParentMapFile;
             }
 
-            if ( $sMapFile ) {
+            if ($sMapFile) {
                 include $sMapFile;
                 $this->_aLangMap[$sKey] = $aMap;
             }
@@ -158,5 +159,4 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
 
         return $this->_aLangMap[$sKey];
     }
-
 }

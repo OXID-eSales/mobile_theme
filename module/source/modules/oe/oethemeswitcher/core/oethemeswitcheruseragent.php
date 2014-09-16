@@ -57,8 +57,8 @@ class oeThemeSwitcherUserAgent
      */
     public function getDeviceType()
     {
-        if ( $this->_sDeviceType === null ) {
-            $this->setDeviceType( $this->_detectDeviceType() );
+        if ($this->_sDeviceType === null) {
+            $this->setDeviceType($this->_detectDeviceType());
         }
 
         return $this->_sDeviceType;
@@ -66,16 +66,20 @@ class oeThemeSwitcherUserAgent
 
     /**
      * Set device type
+     *
+     * @param string $sDeviceType device type
      */
-    public function setDeviceType( $sDeviceType )
+    public function setDeviceType($sDeviceType)
     {
         $this->_sDeviceType = $sDeviceType;
     }
 
     /**
      * Set mobile device types
+     *
+     * @param string $sMobileDeviceTypes mobile device type
      */
-    public function setMobileDeviceTypes( $sMobileDeviceTypes )
+    public function setMobileDeviceTypes($sMobileDeviceTypes)
     {
         $this->_sMobileDevicesTypes = $sMobileDeviceTypes;
     }
@@ -88,9 +92,10 @@ class oeThemeSwitcherUserAgent
     protected function _detectDeviceType()
     {
         $sDeviceType = 'desktop';
-        if ( preg_match( '/('. $this->getMobileDeviceTypes() .')/is', $_SERVER['HTTP_USER_AGENT'] ) ){
+        if (preg_match('/(' . $this->getMobileDeviceTypes() . ')/is', $_SERVER['HTTP_USER_AGENT'])) {
             $sDeviceType = 'mobile';
         }
+
         return $sDeviceType;
     }
 }

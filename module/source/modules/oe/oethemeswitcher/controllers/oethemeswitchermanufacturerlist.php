@@ -27,7 +27,6 @@
  */
 class oeThemeSwitcherManufacturerList extends oeThemeSwitcherManufacturerList_parent
 {
-
     /**
      * Returns view ID (for template engine caching).
      *
@@ -35,11 +34,10 @@ class oeThemeSwitcherManufacturerList extends oeThemeSwitcherManufacturerList_pa
      */
     public function getViewId()
     {
-        $oUBase = oxNew( 'aList' );
+        $oUBase = oxNew('aList');
         $sViewId = $oUBase->getViewId();
         $sViewId .= $this->getConfig()->oeThemeSwitcherGetActiveThemeId();
 
         return $sViewId;
     }
-
 }

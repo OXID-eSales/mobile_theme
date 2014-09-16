@@ -25,7 +25,6 @@
  */
 class oeThemeSwitcherWPaymentList extends oxWidget
 {
-
     /**
      * Current class template name.
      *
@@ -61,13 +60,13 @@ class oeThemeSwitcherWPaymentList extends oxWidget
      *
      * @return array
      */
-    public function getPaymentList( $iLang = null )
+    public function getPaymentList($iLang = null)
     {
-        if ( $iLang === null ) {
+        if ($iLang === null) {
             $iLang = oxRegistry::getLang()->getBaseLanguage();
         }
         if ($this->_aPaymentList[$iLang] === null) {
-            $this->_aPaymentList[$iLang] = $this->_loadPaymentList( $iLang );
+            $this->_aPaymentList[$iLang] = $this->_loadPaymentList($iLang);
         }
 
         return $this->_aPaymentList[$iLang];
@@ -80,22 +79,23 @@ class oeThemeSwitcherWPaymentList extends oxWidget
      *
      * @return array
      */
-    protected function _loadPaymentList( $iLang )
+    protected function _loadPaymentList($iLang)
     {
-        $oDb = oxDb::getDb( oxDb::FETCH_MODE_ASSOC );
+        $oDb = oxDb::getDb(oxDb::FETCH_MODE_ASSOC);
 
-        $sTable = getViewName( 'oxpayments', $iLang );
-        $aPayments = $oDb->getAll( "SELECT $sTable.* FROM $sTable WHERE $sTable.OXACTIVE = 1" );
+        $sTable = getViewName('oxpayments', $iLang);
+        $aPayments = $oDb->getAll("SELECT $sTable.* FROM $sTable WHERE $sTable.OXACTIVE = 1");
 
         $aPaymentList = array();
 
         if (is_array($aPayments) && !empty($aPayments)) {
             foreach ($aPayments as $aPayment) {
                 $sPaymentId = $aPayment["OXID"];
-                $aPayment["OXPAYMENTIMAGE"] = $this->_getImageUrl( $sPaymentId, $iLang );
+                $aPayment["OXPAYMENTIMAGE"] = $this->_getImageUrl($sPaymentId, $iLang);
                 $aPaymentList[$sPaymentId] = $aPayment;
             }
         }
+
         return $aPaymentList;
     }
 
@@ -103,16 +103,16 @@ class oeThemeSwitcherWPaymentList extends oxWidget
      * Returns image path based on given payment id
      *
      * @param string $sPaymentId payment abbr
-     * @param int $iLang language id
+     * @param int    $iLang      language id
      *
      * @return string
      */
     protected function _getImageUrl($sPaymentId, $iLang)
     {
-        $sLangAbbr = oxRegistry::getLang()->getLanguageAbbr( $iLang );
+        $sLangAbbr = oxRegistry::getLang()->getLanguageAbbr($iLang);
 
-        $sImagePath = $this->_imageDir.'/'.$sLangAbbr.'/'.$sPaymentId.'.'.$this->_imageType;
-        return $this->getConfig()->getImageUrl( false, null, null, $sImagePath );
+        $sImagePath = $this->_imageDir . '/' . $sLangAbbr . '/' . $sPaymentId . '.' . $this->_imageType;
+
+        return $this->getConfig()->getImageUrl(false, null, null, $sImagePath);
     }
-
 }

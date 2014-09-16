@@ -32,11 +32,11 @@ class oeThemeSwitcherReverseProxyBackend extends oeThemeSwitcherReverseProxyBack
      */
     protected function _getEnvironmentKey()
     {
-        $oManager = oxNew( 'oeThemeSwitcherThemeManager' );
+        $oManager = oxNew('oeThemeSwitcherThemeManager');
         $oUserAgent = $oManager->getUserAgent();
 
-        $this->_addParamToEnvironmentKey( $oManager->getThemeType(), "#oethemeswitcher_1#" );
-        $this->_addParamToEnvironmentKey( $oUserAgent->getDeviceType(), "#oethemeswitcher_2#" );
+        $this->_addParamToEnvironmentKey($oManager->getThemeType(), "#oethemeswitcher_1#");
+        $this->_addParamToEnvironmentKey($oUserAgent->getDeviceType(), "#oethemeswitcher_2#");
 
         return parent::_getEnvironmentKey();
     }

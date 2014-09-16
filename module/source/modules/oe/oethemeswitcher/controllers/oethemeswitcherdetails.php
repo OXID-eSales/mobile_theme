@@ -24,11 +24,11 @@
  * Collects detailed article information, possible variants, such information
  * as crosselling, similarlist, picture gallery list, etc.
  * OXID eShop -> (Any chosen product).
+ *
  * @package main
  */
 class oeThemeSwitcherDetails extends oeThemeSwitcherDetails_parent
 {
-
     /**
      * Returns view ID (for template engine caching).
      *
@@ -41,5 +41,4 @@ class oeThemeSwitcherDetails extends oeThemeSwitcherDetails_parent
 
         return $sViewId;
     }
-
 }

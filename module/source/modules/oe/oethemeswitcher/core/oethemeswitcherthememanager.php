@@ -44,7 +44,7 @@ class oeThemeSwitcherThemeManager
     /**
      * User Agent setter
      */
-    public function setUserAgent( $oUserAgent )
+    public function setUserAgent($oUserAgent)
     {
         $this->_oUserAgent = $oUserAgent;
     }
@@ -55,10 +55,10 @@ class oeThemeSwitcherThemeManager
      *
      * @return oeThemeSwitcherUserAgent
      */
-    public function getUserAgent( )
+    public function getUserAgent()
     {
-        if ( is_null( $this->_oUserAgent ) ){
-            $this->_oUserAgent = oxNew( 'oeThemeSwitcherUserAgent' );
+        if (is_null($this->_oUserAgent)) {
+            $this->_oUserAgent = oxNew('oeThemeSwitcherUserAgent');
         }
 
         return $this->_oUserAgent;
@@ -82,9 +82,9 @@ class oeThemeSwitcherThemeManager
      */
     protected function _getThemeTypeFromRequest()
     {
-        $sRequestedThemeType = $this->getConfig()->getRequestParameter( 'themeType' );
-        if( $sRequestedThemeType ) {
-            oxRegistry::get('oxUtilsServer')->setOxCookie( 'sThemeType', $sRequestedThemeType );
+        $sRequestedThemeType = $this->getConfig()->getRequestParameter('themeType');
+        if ($sRequestedThemeType) {
+            oxRegistry::get('oxUtilsServer')->setOxCookie('sThemeType', $sRequestedThemeType);
         }
 
         return $sRequestedThemeType;
@@ -97,7 +97,7 @@ class oeThemeSwitcherThemeManager
      */
     protected function _getThemeTypeFromCookie()
     {
-        return oxRegistry::get( 'oxUtilsServer' )->getOxCookie( 'sThemeType' );
+        return oxRegistry::get('oxUtilsServer')->getOxCookie('sThemeType');
     }
 
 
@@ -109,7 +109,7 @@ class oeThemeSwitcherThemeManager
     public function getRequestedThemeType()
     {
         $sRequestedThemeType = $this->_getThemeTypeFromRequest();
-        if ( empty( $sRequestedThemeType ) ) {
+        if (empty($sRequestedThemeType)) {
             $sRequestedThemeType = $this->_getThemeTypeFromCookie();
         }
 
@@ -123,7 +123,7 @@ class oeThemeSwitcherThemeManager
      */
     public function isMobileThemeRequested()
     {
-        return ( $this->getThemeType() == 'mobile' );
+        return ($this->getThemeType() == 'mobile');
     }
 
 
@@ -134,13 +134,14 @@ class oeThemeSwitcherThemeManager
      */
     public function getThemeType()
     {
-        if ( is_null( $this->_sThemeType ) ) {
+        if (is_null($this->_sThemeType)) {
             $sRequestedThemeType = $this->getRequestedThemeType();
-            if ( empty( $sRequestedThemeType ) ) {
+            if (empty($sRequestedThemeType)) {
                 $sRequestedThemeType = $this->getUserAgent()->getDeviceType();
             }
             $this->_sThemeType = $sRequestedThemeType;
         }
+
         return $this->_sThemeType;
     }
 }

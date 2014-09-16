@@ -18,6 +18,7 @@
  * @link      http://www.oxid-esales.com
  * @copyright (C) OXID eSales AG 2003-2013
  */
+
 /**
  * Class handling shop themes
  *
@@ -31,16 +32,15 @@ class oeThemeSwitcherTheme extends oeThemeSwitcherTheme_parent
      *
      * @return mixed
      */
-    public function getInfo( $sName )
+    public function getInfo($sName)
     {
-        $sValue = parent::getInfo( $sName );
+        $sValue = parent::getInfo($sName);
 
-        if ( $sName == 'active' && $this->getId() == $this->getConfig()->getConfigParam( 'sOEThemeSwitcherMobileTheme' ) ) {
+        if ($sName == 'active' && $this->getId() == $this->getConfig()->getConfigParam('sOEThemeSwitcherMobileTheme')) {
             return true;
         }
 
         return $sValue;
     }
-
 }
 

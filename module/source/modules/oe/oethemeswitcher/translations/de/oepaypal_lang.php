@@ -20,7 +20,6 @@
  */
 
 
-
 /* -----------------------
 --  ADAPTING THIS FILE  --
 --------------------------
@@ -29,12 +28,12 @@ Further information is available in the manual at
 http://www.oxid-esales.com/en/resources/help-faq/eshop-manual/editing-language-files
 */
 
-$sLangName  = "Deutsch";
+$sLangName = "Deutsch";
 
 // -------------------------------
 // RESOURCE IDENTIFIER = STRING
 // -------------------------------
 $aLang = array(
-    'charset'                                    => "ISO-8859-15",
-    'OEPAYPAL_PAYMENT_HELP_LINK'                 => "https://www.paypal.com/de/webapps/mpp/paypal-popup",
+    'charset'                    => "ISO-8859-15",
+    'OEPAYPAL_PAYMENT_HELP_LINK' => "https://www.paypal.com/de/webapps/mpp/paypal-popup",
 );

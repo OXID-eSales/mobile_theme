@@ -25,7 +25,6 @@
  */
 class oeThemeSwitcherReview extends oeThemeSwitcherReview_parent
 {
-
     /**
      * Returns view ID (for template engine caching).
      *
@@ -38,5 +37,4 @@ class oeThemeSwitcherReview extends oeThemeSwitcherReview_parent
 
         return $sViewId;
     }
-
 }

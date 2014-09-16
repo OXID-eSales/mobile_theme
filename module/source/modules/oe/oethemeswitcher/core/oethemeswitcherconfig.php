@@ -47,22 +47,23 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      *
      * @return mixed
      */
-    public function getConfigParam( $sName )
+    public function getConfigParam($sName)
     {
-        $sReturn = parent::getConfigParam( $sName );
+        $sReturn = parent::getConfigParam($sName);
 
-        if ( $sName == "sCustomTheme" ) {
+        if ($sName == "sCustomTheme") {
             //load module configs
-            if ( !$this->_blIsModuleConfigLoaded ) {
-                $this->_loadVarsFromDb( $this->getShopId(), null, oxConfig::OXMODULE_MODULE_PREFIX );
+            if (!$this->_blIsModuleConfigLoaded) {
+                $this->_loadVarsFromDb($this->getShopId(), null, oxConfig::OXMODULE_MODULE_PREFIX);
                 $this->_blIsModuleConfigLoaded = true;
             }
 
             // check for mobile devices
-            if ( $this->oeThemeSwitcherGetThemeManager()->isMobileThemeRequested() &&  !$this->isAdmin() ) {
+            if ($this->oeThemeSwitcherGetThemeManager()->isMobileThemeRequested() && !$this->isAdmin()) {
                 return $this->_aConfigParams['sOEThemeSwitcherMobileTheme'];
             }
         }
+
         return $sReturn;
     }
 
@@ -73,11 +74,12 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      */
     public function oeThemeSwitcherGetActiveThemeId()
     {
-        $sCustomTheme = $this->getConfigParam( 'sCustomTheme' );
-        if ( $sCustomTheme ) {
+        $sCustomTheme = $this->getConfigParam('sCustomTheme');
+        if ($sCustomTheme) {
             return $sCustomTheme;
         }
-        return $this->getConfigParam( 'sTheme' );
+
+        return $this->getConfigParam('sTheme');
     }
 
     /**
@@ -87,10 +89,10 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      */
     public function oeThemeSwitcherGetThemeManager()
     {
-        if ( $this->_oThemeManager == null ) {
-            $this->_oThemeManager = oxNew( 'oeThemeSwitcherThemeManager' );
+        if ($this->_oThemeManager == null) {
+            $this->_oThemeManager = oxNew('oeThemeSwitcherThemeManager');
         }
+
         return $this->_oThemeManager;
     }
-
 }

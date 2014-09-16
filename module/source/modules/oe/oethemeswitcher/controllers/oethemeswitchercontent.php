@@ -37,5 +37,4 @@ class oeThemeSwitcherContent extends oeThemeSwitcherContent_parent
 
         return $sViewId;
     }
-
 }
