@@ -42,6 +42,8 @@ class oeThemeSwitcherThemeManager
 
     /**
      * User Agent setter
+     *
+     * @param oeThemeSwitcherUserAgent $oUserAgent user agent
      */
     public function setUserAgent($oUserAgent)
     {
@@ -72,7 +74,6 @@ class oeThemeSwitcherThemeManager
     {
         return oxRegistry::getConfig();
     }
-
 
     /**
      * Return theme type from request

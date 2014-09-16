@@ -41,6 +41,15 @@ class oeThemeSwitcherEvents
 
     /**
      * Adds theme config value
+     *
+     * @param string $sShopId        shop id
+     * @param string $sThemeName     theme name
+     * @param string $sVarName       name
+     * @param string $sVarType       type
+     * @param string $sVarValue      value
+     * @param string $sVarGroup      group
+     * @param string $sVarConstrains constrains
+     * @param string $iVarPos        position
      */
     protected static function _addThemeConfig($sShopId, $sThemeName, $sVarName, $sVarType, $sVarValue, $sVarGroup, $sVarConstrains, $iVarPos)
     {
