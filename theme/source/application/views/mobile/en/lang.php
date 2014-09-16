@@ -150,4 +150,5 @@ $aLang = array(
     'ORDER_HISTORY'                                               => "My orders",
     'PURCHASE_WITHOUT_REGISTRATION'                               => 'Without registration',
     'PURCHASE_WITHOUT_REGISTRATION_EXPLANED'                      => 'I would like to purchase without creating a customer account',
+    'AMOUNT'                                               => '% Amount',
 );

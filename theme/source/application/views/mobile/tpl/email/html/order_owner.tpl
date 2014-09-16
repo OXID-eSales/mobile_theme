@@ -201,7 +201,7 @@
                                         <tr valign="top">
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;">
                                                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]
+                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $key }][{ oxmultilang ident="AMOUNT" }]
                                                 </p>
                                             </td>
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;" align="right">
@@ -312,7 +312,7 @@
                                         <tr valign="top">
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;">
                                                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $key }][{ oxmultilang ident="SHIPPING_VAT2" }]
+                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $key }][{ oxmultilang ident="AMOUNT" }]
                                                 </p>
                                             </td>
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;" align="right">
@@ -388,7 +388,7 @@
                                         [{else}]
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;">
                                                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $basket->getDelCostVatPercent() }][{ oxmultilang ident="SHIPPING_VAT2" }]
+                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $basket->getDelCostVatPercent() }][{ oxmultilang ident="AMOUNT" }]
                                                 </p>
                                             </td>
                                         [{/if}]
@@ -442,7 +442,7 @@
                                     [{else}]
                                         <td style="padding: 5px; border-bottom: 2px solid #ccc;">
                                             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                                [{ oxmultilang ident="PLUS_VAT" }] [{ $basket->getPayCostVatPercent() }][{ oxmultilang ident="SHIPPING_VAT2" }]
+                                                [{ oxmultilang ident="PLUS_VAT" }] [{ $basket->getPayCostVatPercent() }][{ oxmultilang ident="AMOUNT" }]
                                             </p>
                                         </td>
                                     [{/if}]
@@ -495,7 +495,7 @@
                                         [{else}]
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;">
                                                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $basket->getTsProtectionVatPercent() }][{ oxmultilang ident="SHIPPING_VAT2" }]
+                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $basket->getTsProtectionVatPercent() }][{ oxmultilang ident="AMOUNT" }]
                                                 </p>
                                             </td>
                                         [{/if}]
@@ -581,7 +581,7 @@
                                         [{else}]
                                             <td style="padding: 5px; border-bottom: 2px solid #ccc;">
                                                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $basket->getGiftCardCostVatPercent() }][{ oxmultilang ident="SHIPPING_VAT2" }]
+                                                    [{ oxmultilang ident="PLUS_VAT" }] [{ $basket->getGiftCardCostVatPercent() }][{ oxmultilang ident="AMOUNT" }]
                                                 </p>
                                             </td>
                                         [{/if}]
