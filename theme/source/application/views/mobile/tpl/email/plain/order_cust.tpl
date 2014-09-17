@@ -54,7 +54,7 @@
 
 [{assign var=dRegUnitPrice value=$basketitem->getRegularUnitPrice()}]
 [{assign var=dUnitPrice value=$basketitem->getUnitPrice()}]
-[{ oxmultilang ident="UNIT_PRICE" }] [{ $basketitem->getFUnitPrice() }] [{ $currency->name}] [{if !$basketitem->isBundle() }][{if $dRegUnitPrice->getPrice() > $dUnitPrice->getPrice() }] ([{ $basketitem->getFRegularUnitPrice() }] [{ $currency->sign}]) [{/if}][{/if}]
+[{ oxmultilang ident="UNIT_PRICE" }] [{oxprice price=$basketitem->getUnitPrice() currency=$currency}] [{if !$basketitem->isBundle() }][{if $dRegUnitPrice->getPrice() > $dUnitPrice->getPrice() }] ([{ $basketitem->getFRegularUnitPrice() }] [{ $currency->sign}]) [{/if}][{/if}]
 
 [{ oxmultilang ident="QUANTITY" }] [{$basketitem->getAmount()}]
 [{ oxmultilang ident="VAT" }] [{$basketitem->getVatPercent() }]%
@@ -75,7 +75,7 @@
 [{/block}]
 [{block name="email_plain_order_cust_nodiscounttotalgross"}]
 [{* brutto price *}]
-[{ oxmultilang ident="TOTAL_GROSS" }] [{ $basket->getFProductsPrice() }] [{ $currency->name}]
+[{ oxmultilang ident="TOTAL_GROSS" }] [{oxprice price=$basket->getProductsPrice() currency=$currency}]
 [{/block}]
 [{/if}]
 [{* applied discounts *}]
@@ -88,7 +88,7 @@
 [{else}]
 [{block name="email_plain_order_discountownertotalgross"}]
 [{* brutto price *}]
-[{ oxmultilang ident="TOTAL_GROSS" }] [{ $basket->getFProductsPrice() }] [{ $currency->name}]
+[{ oxmultilang ident="TOTAL_GROSS" }] [{oxprice price=$basket->getProductsPrice() currency=$currency}]
 [{/block}]
 [{/if}]
 [{block name="email_plain_order_cust_discounts"}]
@@ -112,7 +112,7 @@
 [{if $order->isNettoMode()}]
 [{block name="email_plain_order_ownertotalgross"}]
 [{* brutto price *}]
-[{ oxmultilang ident="TOTAL_GROSS" }] [{ $basket->getFProductsPrice() }] [{ $currency->name}]
+[{ oxmultilang ident="TOTAL_GROSS" }] [{oxprice price=$basket->getProductsPrice() currency=$currency}]
 [{/block}]
 [{/if}]
 [{block name="email_plain_order_cust_voucherdiscount"}]
@@ -184,7 +184,7 @@
 
 [{block name="email_plain_order_cust_grandtotal"}]
 [{* grand total price *}]
-[{ oxmultilang ident="GRAND_TOTAL" }] [{ $basket->getFPrice() }] [{ $currency->name}]
+[{ oxmultilang ident="GRAND_TOTAL" }] [{oxprice price=$basket->getPrice() currency=$currency}]
 
 [{if $basket->getCard() }]
     [{ oxmultilang ident="YOUR_GREETING_CARD" }]

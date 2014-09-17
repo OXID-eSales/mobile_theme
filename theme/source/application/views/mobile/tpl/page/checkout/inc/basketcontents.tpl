@@ -227,7 +227,7 @@
                 [{block name="checkout_basketcontents_nodiscounttotalgross"}]
                     <tr>
                             <th>[{ oxmultilang ident="TOTAL_GROSS"}]</th>
-                        <td id="basketTotalProductsGross">[{ $oxcmp_basket->getFProductsPrice()}]&nbsp;[{ $currency->sign}]</td>
+                        <td id="basketTotalProductsGross">[{oxprice price=$oxcmp_basket->getProductsPrice() currency=$currency}]</td>
                     </tr>
                 [{/block}]
             [{else}]
@@ -242,7 +242,7 @@
                      [{block name="checkout_basketcontents_discounttotalgross"}]
                         <tr>
                                 <th>[{ oxmultilang ident="TOTAL_GROSS"}]</th>
-                            <td id="basketTotalProductsGross">[{ $oxcmp_basket->getFProductsPrice()}]&nbsp;[{ $currency->sign}]</td>
+                            <td id="basketTotalProductsGross">[{oxprice price=$oxcmp_basket->getProductsPrice() currency=$currency}]</td>
                         </tr>
                     [{/block}]
                 [{/if}]
@@ -283,7 +283,7 @@
                     [{block name="checkout_basketcontents_totalgross"}]
                         <tr>
                                 <th>[{ oxmultilang ident="TOTAL_GROSS"}]</th>
-                            <td id="basketTotalGross">[{ $oxcmp_basket->getFProductsPrice()}]&nbsp;[{ $currency->sign}]</td>
+                            <td id="basketTotalGross">[{oxprice price=$oxcmp_basket->getProductsPrice() currency=$currency}]</td>
                         </tr>
                     [{/block}]
                 [{/if}]
@@ -348,14 +348,14 @@
 
             [{block name="checkout_basketcontents_grandtotal"}]
                 <tr id="basketGrandTotal" class="basket-total-price">
-                        <th><strong>[{ oxmultilang ident="GRAND_TOTAL" }]</strong></th>
-                    <td><strong>[{ $oxcmp_basket->getFPrice() }]&nbsp;[{ $currency->sign }]</strong></td>
+                        <th><strong>[{oxmultilang ident="GRAND_TOTAL" }]</strong></th>
+                    <td><strong>[{oxprice price=$oxcmp_basket->getPrice() currency=$currency}]</strong></td>
                 </tr>
             [{/block}]
 
             [{if $oxcmp_basket->hasSkipedDiscount()}]
                 <tr>
-                    <td class="note" colspan="2">** [{ oxmultilang ident="MESSAGE_COUPON_NOT_APPLIED_FOR_ARTICLES" }]</td>
+                    <td class="note" colspan="2">** [{oxmultilang ident="MESSAGE_COUPON_NOT_APPLIED_FOR_ARTICLES" }]</td>
                 </tr>
             [{/if}]
         </table>

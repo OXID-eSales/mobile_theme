@@ -10,32 +10,32 @@
 [{/capture}]
 [{capture name="bargainPrice"}]
     [{block name="widget_product_bargainitem_price"}]
-        <div class="price [{if $_product->getFUnitPrice()}]tight[{/if}]" id="priceBargain_[{$iIteration}]">
+        <div class="price [{if $_product->getUnitPrice()}]tight[{/if}]" id="priceBargain_[{$iIteration}]">
             <div>
                 [{oxhasrights ident="SHOWARTICLEPRICE"}]
                     [{if $_product->getTPrice()}]
                         <span class="priceOld">
-                            [{ oxmultilang ident="REDUCED_FROM_2" }] <del>[{ $_product->getFTPrice()}] [{ $oView->getActCurrencySign()}]</del>
+                            [{ oxmultilang ident="REDUCED_FROM_2" }] <del>[{oxprice price=$_product->getTPrice() currency=$oView->getActCurrency()}]</del>
                         </span>
                     [{/if}]
-                    [{if $_product->getFPrice()}]
+                    [{if $_product->getPrice()}]
                         [{assign var="sFrom" value=""}]
-                        [{assign var="fPrice" value=$_product->getFPrice()}]
+                        [{assign var="oPrice" value=$_product->getPrice()}]
                         [{if $_product->isParentNotBuyable() }]
-                            [{assign var="fPrice" value=$_product->getFVarMinPrice()}]
+                            [{assign var="oPrice" value=$_product->getVarMinPrice()}]
                             [{if $_product->isRangePrice() }]
                                 [{assign var="sFrom" value="PRICE_FROM"|oxmultilangassign}]
                             [{/if}]
                         [{/if}]
-                        <span class="priceValue">[{$sFrom}] [{$fPrice}] [{$oView->getActCurrencySign()}]
+                        <span class="priceValue">[{$sFrom}] [{oxprice price=$oPrice currency=$oView->getActCurrency()}]
                         [{if $oView->isVatIncluded() }]
                             [{if !( $_product->hasMdVariants() || ($oViewConf->showSelectListsInList()&&$_product->getSelections(1)) || $_product->getVariants() )}]*[{/if}]
                         [{/if}]
                         </span>
                     [{/if}]
-                    [{if $_product->getFUnitPrice()}]
+                    [{if $_product->getUnitPrice()}]
                         <span class="pricePerUnit">
-                            [{$_product->oxarticles__oxunitquantity->value}] [{$_product->getUnitName()}] | [{$_product->getFUnitPrice()}] [{ $oView->getActCurrencySign()}]/[{$_product->getUnitName()}]
+                             [{$_product->getUnitQuantity()}] [{$_product->getUnitName()}] | [{oxprice price=$_product->getUnitPrice() currency=$oView->getActCurrency()}]/[{$_product->getUnitName()}]
                         </span>
                     [{/if}]
                     [{block name="widget_product_bargainitem_tobasket"}]

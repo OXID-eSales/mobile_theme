@@ -105,27 +105,27 @@
                     [{assign var=price  value=$product->getPrice()}]
                     [{if $tprice && $tprice->getBruttoPrice() > $price->getBruttoPrice()}]
                         <span class="old-price">
-                            <del>[{$product->getFTPrice()}] [{$currency->sign}]</del>
+                            <del>[{oxprice price=$product->getTPrice() currency=$currency}]</del>
                         </span>
                     [{/if}]
                     [{block name="widget_product_listitem_line_price_value"}]
                         <span id="productPrice_[{$iIndex}]" class="main-price">
                             <span>
-                                [{if $product->isRangePrice()}]
-                                    [{oxmultilang ident="PRICE_FROM"}]
-                                    [{if !$product->isParentNotBuyable()}]
-                                        [{$product->getFMinPrice()}]
+                                [{if $_oBoxProduct->isRangePrice()}]
+                                    [{ oxmultilang ident="PRICE_FROM" }]
+                                    [{if !$_oBoxProduct->isParentNotBuyable() }]
+                                        [{assign var="oPrice" value=$_oBoxProduct->getMinPrice() }]
                                     [{else}]
-                                        [{$product->getFVarMinPrice()}]
+                                        [{assign var="oPrice" value=$_oBoxProduct->getVarMinPrice() }]
                                     [{/if}]
                                 [{else}]
-                                    [{if !$product->isParentNotBuyable()}]
-                                        [{$product->getFPrice()}]
+                                    [{if !$_oBoxProduct->isParentNotBuyable() }]
+                                        [{assign var="oPrice" value=$_oBoxProduct->getPrice() }]
                                     [{else}]
-                                        [{$product->getFVarMinPrice()}]
+                                        [{assign var="oPrice" value=$_oBoxProduct->getVarMinPrice() }]
                                     [{/if}]
                                 [{/if}]
-                            </span> [{$currency->sign}]
+                            </span> [{oxprice price=$oPrice currency=$currency}]
                             [{if $oView->isVatIncluded()}]
                                 [{if !($product->hasMdVariants() || ($oViewConf->showSelectListsInList() && $product->getSelections(1)) || $product->getVariants())}]*[{/if}]
                             [{/if}]

@@ -17,14 +17,14 @@
     <ul class="form">
         <li>
             <label>[{ oxmultilang ident="YOUR_PRICE" }] ([{ $currency->sign}]):</label>
-            <input class="js-oxValidate js-oxValidate_notEmpty" type="number" name="pa[price]" value="[{oxhasrights ident="SHOWARTICLEPRICE"}][{ if $product }][{ $product->getFPrice() }][{/if}][{/oxhasrights}]" size="20" maxlength="32">
+            <input class="js-oxValidate js-oxValidate_notEmpty" type="number" name="pa[price]" value="[{oxhasrights ident="SHOWARTICLEPRICE"}][{if $product }][{ $product->getPrice() }][{/if}][{/oxhasrights}]" size="20" maxlength="32">
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
             </p>
         </li>
         <li>
             <label>[{ oxmultilang ident="EMAIL" }]:</label>
-            <input class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email" type="email" name="pa[email]" value="[{ if $oxcmp_user }][{ $oxcmp_user->oxuser__oxusername->value }][{/if}]" size="20" maxlength="128">
+            <input class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_email" type="email" name="pa[email]" value="[{if $oxcmp_user }][{ $oxcmp_user->oxuser__oxusername->value }][{/if}]" size="20" maxlength="128">
             <p class="validation-error">
                 <span class="js-oxError_notEmpty">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOTALLFIELDS" }]</span>
                 <span class="js-oxError_email">[{ oxmultilang ident="ERROR_MESSAGE_INPUT_NOVALIDEMAIL" }]</span>

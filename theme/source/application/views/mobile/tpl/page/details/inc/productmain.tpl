@@ -70,7 +70,7 @@
                         [{assign var=price  value=$oDetailsProduct->getPrice()}]
                         [{if $tprice && $tprice->getBruttoPrice() > $price->getBruttoPrice()}]
                             <div class="product-price-old pull-left">
-                                <strong><del>[{$oDetailsProduct->getFTPrice()}] [{$currency->sign}]</del></strong>
+                                <strong><del>[{oxprice price=tprice currency=$currency}]</del></strong>
                             </div>
                         [{/if}]
                     [{/oxhasrights}]
@@ -79,18 +79,18 @@
                 [{block name="details_productmain_watchlist"}][{/block}]
 
                 [{block name="details_productmain_price"}]
-                    [{if $oDetailsProduct->getFPrice()}]
+                    [{if $oDetailsProduct->getPrice()}]
                         <div class="product-price price pull-right">
                             [{assign var="sFrom" value=""}]
-                            [{assign var="fPrice" value=$oDetailsProduct->getFPrice()}]
+                            [{assign var="oPrice" value=$oDetailsProduct->getPrice()}]
                             [{if $oDetailsProduct->isParentNotBuyable() }]
-                                [{assign var="fPrice" value=$oDetailsProduct->getFVarMinPrice()}]
+                                [{assign var="oPrice" value=$oDetailsProduct->getVarMinPrice()}]
                                 [{if $oDetailsProduct->isRangePrice() }]
                                     [{assign var="sFrom" value="PRICE_FROM"|oxmultilangassign}]
                                 [{/if}]
                             [{/if}]
                             <strong>
-                                <span>[{$sFrom}] [{$fPrice}]</span>
+                                <span>[{$sFrom}] [{oxprice price=$oPrice currency=$currency}]</span>
                                 <span>[{ $currency->sign}]</span>
                                 [{if $oView->isVatIncluded() }]
                                     <span>*</span>

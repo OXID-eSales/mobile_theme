@@ -17,16 +17,16 @@
                 <img src="[{ $sBannerPictureUrl }]" alt="[{$oBanner->oxactions__oxtitle->value}]">
                 [{if $oArticle }]
                     [{assign var="sFrom" value=""}]
-                    [{assign var="fPrice" value=$oArticle->getFPrice()}]
+                    [{assign var="oPrice" value=$oArticle->getPrice()}]
                     [{if $oArticle->isParentNotBuyable() }]
-                        [{assign var="fPrice" value=$oArticle->getFVarMinPrice()}]
+                        [{assign var="oPrice" value=$oArticle->getVarMinPrice()}]
                         [{if $oArticle->isRangePrice() }]
                             [{assign var="sFrom" value="PRICE_FROM"|oxmultilangassign}]
                         [{/if}]
                     [{/if}]
                     <div class="carousel-caption">
-                        <strong>[{$sFrom}] [{$fPrice}] [{ $currency->sign}]</strong>
-                        <strong>[{ $oArticle->oxarticles__oxtitle->value }]</strong>
+                        <strong>[{$sFrom}] [{oxprice price=$oPrice  currency=$currency}]</strong>
+                        <strong>[{$oArticle->oxarticles__oxtitle->value}]</strong>
                     </div>
                 [{/if}]
                 [{/if}]
