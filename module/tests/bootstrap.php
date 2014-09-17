@@ -69,12 +69,3 @@ if (getenv('oxPATH')) {
 if (!defined('OXID_VERSION_SUFIX')) {
     define('OXID_VERSION_SUFIX', '');
 }
-
-if (file_exists("unit/DbRestore.php")) {
-    include_once "unit/DbRestore.php";
-} else {
-    include_once "DbRestore.php";
-}
-
-$oDbRestore = new DbRestore();
-$oDbRestore->dumpDB();
