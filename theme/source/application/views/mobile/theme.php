@@ -23,10 +23,10 @@
  * Theme Information
  */
 $aTheme = array(
-    'id'           => 'mobile',
-    'title'        => 'OXID eShop mobile theme',
-    'description'  => 'Your OXID eShop on mobile devices',
-    'thumbnail'    => 'theme.jpg',
-    'version'      => '1.2.0',
-    'author'       => 'OXID'
+    'id'          => 'mobile',
+    'title'       => 'OXID eShop mobile theme',
+    'description' => 'Your OXID eShop on mobile devices',
+    'thumbnail'   => 'theme.jpg',
+    'version'     => '1.3.0',
+    'author'      => 'OXID'
 );
