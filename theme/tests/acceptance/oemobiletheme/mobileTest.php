@@ -16,11 +16,15 @@
  * along with OXID eSales theme switcher module.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @link      http://www.oxid-esales.com
- * @copyright (C) OXID eSales AG 2003-2013
+ * @copyright (C) OXID eSales AG 2003-2014
  */
 
 require_once realpath( "." ) . '/acceptance/library/oxTestCase.php';
 
+
+/**
+ * Acceptance test cases
+ */
 class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 {
 
@@ -29,17 +33,18 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * test for activating MobileTheme
+     *
      * @group mobile
      */
     public function testActivateExtension()
     {
-        $this->open( shopURL . "admin" );
-        $this->loginAdminForModule( "Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303" );
-        $this->openListItem( "link=OXID eShop mobile theme" );
-        $this->clickAndWait( "//input[@value='Activate']" );
-        $this->selectMenu( "Extensions", "Modules" );
-        $this->openListItem( "link=OXID eShop theme switch" );
-        $this->clickAndWait( "module_activate" );
+        $this->open(shopURL . "admin");
+        $this->loginAdminForModule("Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303");
+        $this->openListItem("link=OXID eShop mobile theme");
+        $this->clickAndWait("//input[@value='Activate']");
+        $this->selectMenu("Extensions", "Modules");
+        $this->openListItem("link=OXID eShop theme switch");
+        $this->clickAndWait("module_activate");
         // dumping database
         try {
             $this->dumpDB();
@@ -52,11 +57,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all header elements;
+     *
+     * @param bool $blOpenPage    open page or not
+     * @param bool $blCheckSearch check search or not
+     *
      * @group mobile
      */
-    public function testHeader( $blOpenPage = true, $blCheckSearch = true )
+    public function testHeader($blOpenPage = true, $blCheckSearch = true)
     {
-        if ( $blOpenPage ) {
+        if ($blOpenPage) {
             $this->openShop();
         }
         // Check does logo and alt  message exist in header
@@ -71,7 +80,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // Search field  and search button should be visible after clicking on it
         // We do not check: that search field is only visible after clicking on search button
-        if ( $blCheckSearch ) {
+        if ($blCheckSearch) {
             $this->assertElementPresent("css=i.glyphicon-search");
             $this->click("css=i.glyphicon-search");
             // Search field and search button
@@ -80,17 +89,21 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
             $this->assertElementPresent("css=i.glyphicon-search");
         }
 
-        // Check does minibasket element exist
+        // Check does miniBasket element exist
         $this->assertElementPresent("id=minibasketIcon");
     }
 
     /**
      * testing all footer elements;
+     *
+     * @param bool $blOpenPage  open page or not
+     * @param bool $blUserLogIn user login or not
+     *
      * @group mobile
      */
-    public function testFooter( $blOpenPage = true, $blUserLogIn = false )
+    public function testFooter($blOpenPage = true, $blUserLogIn = false)
     {
-        if ( $blOpenPage ) {
+        if ($blOpenPage) {
             $this->openShop();
         }
 
@@ -102,7 +115,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         // Check does footer navigation list elements exist
         $this->assertElementPresent("link=My account");
         $this->assertElementPresent("link=Home");
-        if ( $blUserLogIn ) {
+        if ($blUserLogIn) {
             $this->assertElementPresent("link=Log out");
         } else {
             $this->assertElementPresent("link=Log in");
@@ -116,19 +129,21 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * Test if footer looks ok when user is logged in.
+     *
      * @param string $sURL shop url to test on.
      */
-    public function testLoginUserFooter( $sURL = null )
+    public function testLoginUserFooter($sURL = null)
     {
-        if ( !$sURL ) {
+        if (!$sURL) {
             $this->openShop();
         }
         $this->loginInFrontendMobile();
-        $this->testFooter( $sURL, true );
+        $this->testFooter($sURL, true);
     }
 
     /**
      * testing all start page elements;
+     *
      * @group mobile
      */
     public function testStartPage()
@@ -136,8 +151,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
 
         //check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testHeader(false);
+        $this->testFooter(false);
 
         // Need add cookie note checking
         // Check does banner element exist;
@@ -164,16 +179,17 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all category list page elements;
+     *
      * @group mobile
      */
 
     public function testCategoryList()
     {
-        $this->open( shopURL . "en/Kiteboarding/" );
+        $this->open(shopURL . "en/Kiteboarding/");
 
         //check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testHeader(false);
+        $this->testFooter(false);
 
         $this->openShop();
 
@@ -258,16 +274,17 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all start page elements
+     *
      * @group mobile
      */
 
     public function testDetailPage()
     {
         // Go to Kuyichi Jeans SUGAR
-        $this->open( shopURL . "index.php?cl=details&anid=6b66d82af984e5ad46b9cb27b1ef8aae" );
+        $this->open(shopURL . "index.php?cl=details&anid=6b66d82af984e5ad46b9cb27b1ef8aae");
         //Check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testHeader(false);
+        $this->testFooter(false);
 
         // Check does previous button near back exist
         $this->assertElementPresent("css=i.glyphicon-chevron-left");
@@ -316,19 +333,19 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // check does full description close button exist
         $this->assertElementPresent("css=i.glyphicon-chevron-up");
-
     }
 
     /**
      * testing all start page elements
+     *
      * @group mobile
      */
     public function testContactPage()
     {
-        $this->open( shopURL . "en/contact/" );
+        $this->open(shopURL . "en/contact/");
         //Check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testHeader(false);
+        $this->testFooter(false);
 
         // Check  does label "you company name exist"
         $this->assertElementPresent("//div[@id='page']/div/h1");
@@ -370,15 +387,16 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all billing and shipping settings page elements
+     *
      * @group mobile
      */
     public function testBillingAndShippingSettings()
     {
-        $this->open( shopURL . "en/my-account" );
+        $this->open(shopURL . "en/my-account");
 
         //Check header and footer
-        $this->testHeader( false, false );
-        $this->testFooter( false );
+        $this->testHeader(false, false);
+        $this->testFooter(false);
 
         // Go to my account page and login to it
         $this->loginInFrontendMobile();
@@ -458,12 +476,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing user 2nd step when user is not logged in  page elements
+     *
      * @group mobile
      */
     public function testSecondStepNotLoginUser()
     {
         //Open Harness MADTRIXX
-        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
+        $this->open(shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63');
 
         // Add product to the basket
         $this->clickAndWait("id=toBasket");
@@ -475,8 +494,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         //Check header and footer
-        $this->testHeader( false, false );
-        $this->testFooter( false );
+        $this->testHeader(false, false);
+        $this->testFooter(false);
 
         // Check does step line on top of the page exist
         $this->assertElementPresent("css=span.step-number");
@@ -498,6 +517,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all start page elements
+     *
      * @group mobile
      */
     public function testSecondStepLoginUser()
@@ -506,7 +526,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->loginInFrontendMobile();
 
         //Open Harness MADTRIXX
-        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
+        $this->open(shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63');
 
         // Add product to the basket
         $this->clickAndWait("id=toBasket");
@@ -518,8 +538,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("css=#btnNextStepBottom > form.form > input.btn.nextStep");
 
         //Check header and footer
-        $this->testHeader( false, false );
-        $this->testFooter( false, true );
+        $this->testHeader(false, false);
+        $this->testFooter(false, true);
 
         // Check does  step line with all steps exist
         $this->assertElementPresent("css=span.step-number");
@@ -556,12 +576,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing purchase without registration page all elements
+     *
      * @group mobile
      */
     public function testPurchaseWithoutRegistration()
     {
         //Open Harness MADTRIXX
-        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
+        $this->open(shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63');
 
         // Add product to the basket
         $this->clickAndWait("id=toBasket");
@@ -576,8 +597,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("css=#optionNoRegistration > form.form > input.btn");
 
         //Check header and footer
-        $this->testHeader( false, false );
-        $this->testFooter( false );
+        $this->testHeader(false, false);
+        $this->testFooter(false);
 
         // Check does step line exist with all steps;
         $this->assertElementPresent("css=span.step-number");
@@ -645,11 +666,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // Check does "previous step" button exist;
         $this->assertElementPresent("id=userBackStepBottom");
-
     }
 
     /**
      * testing all start page elements
+     *
      * @group mobile
      */
     public function testSearchListMobile()
@@ -667,8 +688,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->click("css=i.glyphicon-search");
 
         //Check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testHeader(false);
+        $this->testFooter(false);
 
         // Check does "24 Hits for "kite" " exist
         $this->assertElementPresent("css=h1.page-head");
@@ -694,6 +715,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing user first step when user is not logged in  page elements
+     *
      * @group mobile
      */
     public function testFirstStepNotLogInUser()
@@ -715,22 +737,22 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
                $this->waitForPageToLoad("30000");
        */
         // Go to product Transport container BARREL details page
-        $this->open( shopURL . 'index.php?cl=details&anid=f4f73033cf5045525644042325355732' );
+        $this->open(shopURL . 'index.php?cl=details&anid=f4f73033cf5045525644042325355732');
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
         $this->clickAndWait("id=toBasket");
 
         // Add product Transport container BARREL
-        $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
+        $this->open(shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732");
         $this->clickAndWait("id=toBasket");
 
         // Go to basket
         $this->clickAndWait("id=minibasketIcon");
 
         //Check header and footer
-        $this->testHeader( false, false );
-        $this->testFooter( false );
+        $this->testHeader(false, false);
+        $this->testFooter(false);
 
         // Check does  step line with all steps exist
         $this->assertElementPresent("css=span.step-number");
@@ -804,6 +826,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing user first step when user is logged in  page elements
+     *
      * @group mobile
      */
     public function testFirstStepLoginUser()
@@ -828,22 +851,22 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
           $this->waitForPageToLoad("30000");
   */
         // Go to product Transport container BARREL details page
-        $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
+        $this->open(shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732");
         $this->type("id=persistentParam", "TEST");
 
         // Add product to cart
         $this->clickAndWait("id=toBasket");
 
         // Add product Transport container BARREL to cart
-        $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
+        $this->open(shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732");
         $this->clickAndWait("id=toBasket");
 
         // Go to basket
         $this->clickAndWait("id=minibasketIcon");
 
         //Check header and footer
-        $this->testHeader( false, false );
-        $this->testFooter( false, true );
+        $this->testHeader(false, false);
+        $this->testFooter(false, true);
 
         // Check does  step line with all steps exist
         $this->assertElementPresent("css=span.step-number");
@@ -920,6 +943,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all wish list page elements
+     *
      * @group mobile
      */
     public function testWishList()
@@ -928,7 +952,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->loginInFrontendMobile();
 
         //Open Harness MADTRIXX
-        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
+        $this->open(shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63');
 
         // Click on the button "Start"
         $this->click("css=i.glyphicon-star");
@@ -950,8 +974,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//div[@id='cat_list']/ul/li[6]/a/span");
 
         //Check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false, true );
+        $this->testHeader(false);
+        $this->testFooter(false, true);
 
         // Check does exist header "MY WISH LIST"
         $this->assertElementPresent("css=h1.page-head");
@@ -976,6 +1000,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing user 4 basket step when user is logged in page elements
+     *
      * @group mobile
      */
     public function test4BasketStep()
@@ -984,7 +1009,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->loginInFrontendMobile();
 
         //Open Harness MADTRIXX
-        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
+        $this->open(shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63');
         $this->clickAndWait("id=toBasket");
 
         // Go to basket
@@ -1072,12 +1097,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("css=span.step-number.last");
 
         //Check header and footer
-        $this->testHeader( false, false);
-        $this->testFooter( false, true );
+        $this->testHeader(false, false);
+        $this->testFooter(false, true);
     }
 
     /**
      * testing 5th basket step page  all elements
+     *
      * @group mobile
      */
     public function test5BasketStep()
@@ -1085,8 +1111,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->_makeOrder();
 
         //Check header and footer
-        $this->testHeader( false, false );
-        $this->testFooter( false, true );
+        $this->testHeader(false, false);
+        $this->testFooter(false, true);
 
         // Check does link back to Start page exist;
         $this->assertElementPresent("id=backToShop");
@@ -1104,22 +1130,22 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementPresent("css=li.step4.passed  > span.step-number");
         $this->assertElementPresent("css=li.step5.active > span.step-number");
         $this->assertElementPresent("css=li.step5.active > span.step-name");
-
     }
 
     /**
      * testing all "change password" page elements
+     *
      * @group mobile
      */
     public function testChangePassword()
     {
-        $this->open( shopURL . "en/home/");
+        $this->open(shopURL . "en/home/");
         $this->loginInFrontendMobile();
         $this->clickAndWait("//a[@id='linkAccountPassword']/span");
 
         //Check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false, true );
+        $this->testHeader(false);
+        $this->testFooter(false, true);
 
         // Check does exist the page "CHANGE PASSWORD" header
         $this->assertElementPresent("//h1[@id='personalSettingsHeader']");
@@ -1151,16 +1177,17 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all Error404 page elements
+     *
      * @group mobile
      */
     public function testError404()
     {
         // Open product with incorrect link
-        $this->open( shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIX.html" );
+        $this->open(shopURL . "en/Kiteboarding/Harnesses/Harness-MADTRIX.html");
 
         //Check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testHeader(false);
+        $this->testFooter(false);
 
         // Check does exist Error header
         $this->assertElementPresent("css=h1.page-head");
@@ -1177,6 +1204,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all forgot password page elements
+     *
      * @group mobile
      */
     public function testForgotPassword()
@@ -1226,6 +1254,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all Login page elements
+     *
      * @group mobile
      */
     public function testLoginPage()
@@ -1275,6 +1304,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all my account page elements
+     *
      * @group mobile
      */
     public function testMyAccount()
@@ -1326,6 +1356,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all My Download page elements
+     *
      * @group mobile
      */
     public function testMyDownload()
@@ -1338,8 +1369,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//a[@id='linkAccountDownloads']/span");
 
         //check header and footer.
-        $this->testHeader( false );
-        $this->testFooter( false, true );
+        $this->testHeader(false);
+        $this->testFooter(false, true);
 
         // Check does exist header "My download"
         $this->assertElementPresent("css=h1.page-head");
@@ -1349,15 +1380,15 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // Check does exist My download content
         $this->assertElementPresent("css=div.content");
-        $this->open( shopURL . "en/Downloads/" );
-        $this->clickAndWait( 'link=Online shops with OXID eShop' );
+        $this->open(shopURL . "en/Downloads/");
+        $this->clickAndWait('link=Online shops with OXID eShop');
 
         // Add product related with "download product" to basket
         $this->clickAndWait("id=toBasket");
 
         // open second product and add to basket
         //Open Harness MADTRIXX
-        $this->open( shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63' );
+        $this->open(shopURL . 'index.php?cl=details&anid=05848170643ab0deb9914566391c0c63');
         $this->clickAndWait("id=toBasket");
         $this->clickAndWait("id=minibasketIcon");
 
@@ -1369,8 +1400,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
         // Go to 4 basket step
         $this->clickAndWait("id=paymentNextStepBottom");
-        $this->click( "//*[@id='oxdownloadableproductsagreement']" );
-        $this->click( "id=checkAgbTop" );
+        $this->click("//*[@id='oxdownloadableproductsagreement']");
+        $this->click("id=checkAgbTop");
         $this->clickAndWait("css=li > button.btn");
         $this->clickAndWait("link=My account");
 
@@ -1391,6 +1422,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all Newsletter Settings page elements
+     *
      * @group mobile
      */
     public function testNewsletterSettings()
@@ -1402,8 +1434,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("id=linkAccountNewsletter");
 
         //check header and footer.
-        $this->testHeader( false );
-        $this->testFooter( false, true );
+        $this->testHeader(false);
+        $this->testFooter(false, true);
 
         // Check header "newsletter settings"
         $this->assertElementPresent("id=newsletterSettingsHeader");
@@ -1446,13 +1478,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
     public function testOrderHistory()
     {
         $this->_makeOrder();
-        $this->open( shopURL . "en/order-history/" );
+        $this->open(shopURL . "en/order-history/");
         //check header and footer.
-        $this->testHeader( false );
-        $this->testFooter( false, true );
+        $this->testHeader(false);
+        $this->testFooter(false, true);
 
         //$this->loginInFrontendMobile();
-        $this->open( shopURL . "en/order-history/" );
+        $this->open(shopURL . "en/order-history/");
 
         // Check does exist "ORDER HISTORY " header.
         $this->assertElementPresent("//div[@id='page']/div/h1");
@@ -1488,12 +1520,13 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all 3 basket step page elements
+     *
      * @group mobile
      */
     public function test3BasketStep()
     {
         /// Go to product Transport container BARREL details page
-        $this->open( shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732" );
+        $this->open(shopURL . "index.php?cl=details&anid=f4f73033cf5045525644042325355732");
 
         // Add product to basket
         $this->clickAndWait("id=toBasket");
@@ -1517,8 +1550,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("id=userNextStepBottom");
 
         //check header and footer
-        $this->testHeader( false, false );
-        $this->testFooter( false, true );
+        $this->testHeader(false, false);
+        $this->testFooter(false, true);
 
         // Check does exist "Standard" dropdown
         $this->assertElementPresent("css=div.dropdown-toggle");
@@ -1608,6 +1641,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
 
     /**
      * testing all CMS page elements
+     *
      * @group mobile
      */
     public function testCmsPage()
@@ -1618,8 +1652,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//a[contains(text(),'About Us')]");
 
         //check header and footer
-        $this->testHeader( false );
-        $this->testFooter( false );
+        $this->testHeader(false);
+        $this->testFooter(false);
 
         // Check does exist header ABOUT US
         $this->assertElementPresent("css=h1.page-head");
@@ -1642,11 +1676,12 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         // check or works cms page "privacy policy" link
         $this->clickAndWait("link=Privacy Policy");
     }
+
     /**
      * login customer by using login fly out form.
      *
-     * @param string $userName user name (email).
-     * @param string $userPass user password.
+     * @param string  $userName     user name (email).
+     * @param string  $userPass     user password.
      * @param boolean $waitForLogin if needed to wait until user get logged in.
      */
     public function loginInFrontendMobile($userName = self::TEST_USER_NAME, $userPass = self::TEST_USER_PASSWORD, $waitForLogin = true)
@@ -1661,10 +1696,12 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
             $this->clickAndWait("//form[@name='login']//input[@type='submit']");
         }
     }
+
     /**
      * PersParam functionality in frontend
      * PersParam functionality in admin
      * testing option 'Product can be customized' from Administer products -> Extend tab
+     *
      * @group navigation
      * @group order
      * @group basketfrontend
@@ -1695,7 +1732,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("toBasket");
         $this->searchFor("1000");
         $this->clickAndWait("id=productPrice_searchList_1");
-        $this->assertTrue($this->isElementPresent("persparam[details]"),"persparam field should be visible");
+        $this->assertTrue($this->isElementPresent("persparam[details]"), "persparam field should be visible");
         $this->clickAndWait("toBasket");
         $this->type("persparam[details]", "test label šÄßüл");
         $this->clickAndWait("toBasket");
@@ -1753,7 +1790,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//li[@id='cartItem_2']/div/h4/a"));
         $this->assertElementNotPresent("cartItem_5");
         $this->assertEquals("Label test label šÄßüл 1", $this->clearString($this->getText("//li[@id='cartItem_2']/div/p[2]")));
-        $this->assertEquals("Grand total 379,40 €", $this->getText("basketGrandTotal"),"Grand total price changed or did't displayed");
+        $this->assertEquals("Grand total 379,40 €", $this->getText("basketGrandTotal"), "Grand total price changed or did't displayed");
         $this->check("//form[@id='orderConfirmAgbTop']//input[@name='ord_agb' and @value='1']");
         $this->clickAndWait("//form[@id='orderConfirmAgbTop']//button");
 
@@ -1780,10 +1817,12 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openShop();
         $this->searchFor("1000");
         $this->clickAndWait("//ul[@id='searchList']/li//a");
-        $this->assertFalse($this->isElementPresent("persparam[details]"),"persparam field should not be visible");
+        $this->assertFalse($this->isElementPresent("persparam[details]"), "persparam field should not be visible");
     }
+
     /**
      * simple user account opening
+     *
      * @group user
      * @group registration
      */
@@ -1842,17 +1881,19 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertEquals("BE", $this->getValue("editval[oxuser__oxstateid]"));
         $this->assertEquals("111-111", $this->getValue("editval[oxuser__oxfon]"));
         $this->assertEquals("111-111-111", $this->getValue("editval[oxuser__oxfax]"));
-        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][day]")> 0);
-        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][month]")> 0);
-        $this->assertTrue((int)$this->getValue("editval[oxuser__oxbirthdate][year]") > 0);
+        $this->assertTrue((int) $this->getValue("editval[oxuser__oxbirthdate][day]") > 0);
+        $this->assertTrue((int) $this->getValue("editval[oxuser__oxbirthdate][month]") > 0);
+        $this->assertTrue((int) $this->getValue("editval[oxuser__oxbirthdate][year]") > 0);
         $this->assertTextPresent("Yes");
         $this->frame("list");
         $this->openTab("Extended");
         $this->assertEquals("111111111", $this->getValue("editval[oxuser__oxprivfon]"));
         $this->assertEquals("111-111111", $this->getValue("editval[oxuser__oxmobfon]"));
     }
+
     /**
      * Administer Products -> Products (variants should inherit parents selection lists)
+     *
      * @group admin
      * @group adminFunctionality
      */
@@ -1860,8 +1901,8 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
     {
         /* if ( OXID_VERSION_EE ) : */
         if (isSUBSHOP) {
-            $this->executeSql( "UPDATE `oxarticles` SET `OXSHOPID` = ".oxSHOPID.", `OXSHOPINCL` = ".oxSHOPID." WHERE 1" );
-            $this->executeSql( "UPDATE `oxselectlist` SET `OXSHOPID` = ".oxSHOPID.", `OXSHOPINCL` = ".oxSHOPID."  WHERE 1" );
+            $this->executeSql("UPDATE `oxarticles` SET `OXSHOPID` = " . oxSHOPID . ", `OXSHOPINCL` = " . oxSHOPID . " WHERE 1");
+            $this->executeSql("UPDATE `oxselectlist` SET `OXSHOPID` = " . oxSHOPID . ", `OXSHOPINCL` = " . oxSHOPID . "  WHERE 1");
         }
         /* endif; */
         //assigning selection list to parent product
@@ -1887,7 +1928,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->openTab("Main");
 
         //checking if selection list is assigned to variant also
-        $this->selectAndWaitFrame( "art_variants", "label=- var1 [DE]", "list");
+        $this->selectAndWaitFrame("art_variants", "label=- var1 [DE]", "list");
         $this->assertEquals("1002-1", $this->getValue("editval[oxarticles__oxartnum]"));
         $this->Frame("list");
         $this->openTab("Selection");
@@ -1912,10 +1953,11 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("toBasket");
         $this->openBasket();
         $this->assertEquals("Test product 2 [EN] šÄßüл, var2 [EN] šÄßüл", $this->clearString($this->getText("//li[@id='cartItem_1']/div/h4/a")));
-
     }
+
     /**
      * Checking Multidimensional variants functionality
+     *
      * @group navigation
      * @group product
      */
@@ -2001,8 +2043,10 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->assertElementNotPresent("cartItem_2");
         $this->assertEquals("50,00 €", $this->getText("//tr[@id='basketGrandTotal']/td/strong"));
     }
+
     /**
      * Checking search and sorting in frontend
+     *
      * @group navigation
      * @group product
      */
@@ -2014,7 +2058,7 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->searchFor("100");
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
         $this->assertEquals("Test product 3 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
-       //soring by title
+        //soring by title
         $this->click("css=i.glyphicon-chevron-down");
         $this->clickAndWait("css=i.glyphicon-arrow-down");
 
@@ -2037,43 +2081,47 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->clickAndWait("//div[@id='sortItems']/div/ul/li[2]/span[2]/a[2]/i");
         $this->assertEquals("Test product 0 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li/form/div[2]/h4/a/span"));
         $this->assertEquals("Test product 1 [EN] šÄßüл", $this->getText("//ul[@id='searchList']/li[4]/form/div[2]/h4/a/span"));
-}
+    }
+
     /**
      * selects specified value from dropdown (for multidimensional variants).
      *
-     * @param string $elementId  container id.
-     * @param int    $elementNr  select list number (e.g. 1, 2).
+     * @param string $elementId container id.
+     * @param int    $elementNr select list number (e.g. 1, 2).
      */
     public function selectVariantMobile($elementId, $elementNr)
     {
         $this->assertTrue($this->isElementPresent($elementId));
-        $this->assertElementNotVisible("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
-        $this->click("//div[@id='".$elementId."']/div/div");
-        $this->waitForItemAppear("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
-        $this->click("//div[@id='".$elementId."']/div//ul/li[".$elementNr."]");
+        $this->assertElementNotVisible("//div[@id='" . $elementId . "']/div//ul/li[" . $elementNr . "]");
+        $this->click("//div[@id='" . $elementId . "']/div/div");
+        $this->waitForItemAppear("//div[@id='" . $elementId . "']/div//ul/li[" . $elementNr . "]");
+        $this->click("//div[@id='" . $elementId . "']/div//ul/li[" . $elementNr . "]");
     }
 
 
     /**
-     * selects specified value from dropdown (for multidimensional variants).
+     * selects specified value from drop-down (for multidimensional variants).
      *
      * @param string $elementId  container id.
-     * @param int    $elementRow  select list number (e.g. 1, 2).
-     * * @param int    $elementNr  select list number (e.g. 1, 2).
+     * @param int    $elementRow select list number (e.g. 1, 2).
+     * @param int    $elementNr  select list number (e.g. 1, 2).
      */
     public function selectMultiMobile($elementId, $elementRow, $elementNr)
     {
         $this->assertTrue($this->isElementPresent($elementId));
-        $this->assertElementNotVisible("//ul[@id='".$elementId."']/li[".$elementRow."]/div/ul/li[".$elementNr."]");
-        $this->click("//ul[@id='".$elementId."']/li[".$elementRow."]/div/div");
-        $this->waitForItemAppear("//ul[@id='".$elementId."']/li[".$elementRow."]/div//ul/li[".$elementNr."]");
-        $this->click("//ul[@id='".$elementId."']/li[".$elementRow."]/div/ul/li[".$elementNr."]/a");
-        $this->waitForItemDisappear("//ul[@id='".$elementId."']/li[".$elementRow."]/div//ul/li[".$elementNr."]");
+        $this->assertElementNotVisible("//ul[@id='" . $elementId . "']/li[" . $elementRow . "]/div/ul/li[" . $elementNr . "]");
+        $this->click("//ul[@id='" . $elementId . "']/li[" . $elementRow . "]/div/div");
+        $this->waitForItemAppear("//ul[@id='" . $elementId . "']/li[" . $elementRow . "]/div//ul/li[" . $elementNr . "]");
+        $this->click("//ul[@id='" . $elementId . "']/li[" . $elementRow . "]/div/ul/li[" . $elementNr . "]/a");
+        $this->waitForItemDisappear("//ul[@id='" . $elementId . "']/li[" . $elementRow . "]/div//ul/li[" . $elementNr . "]");
     }
+
     /**
-     * opens basket.
+     * Opens basket.
+     *
+     * @param string $language language
      */
-    public function openBasket( $language = "English" )
+    public function openBasket($language = "English")
     {
         $this->click("id=minibasketIcon");
         $this->waitForItemAppear("id=basketGrandTotal");
@@ -2088,26 +2136,25 @@ class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
         $this->loginInFrontendMobile();
 
         // Open details page of Test product 1
-        $this->open( shopURL . "index.php?cl=details&anid=1001" );
+        $this->open(shopURL . "index.php?cl=details&anid=1001");
 
         // Add product to basket
-        $this->clickAndWait( "id=toBasket" );
+        $this->clickAndWait("id=toBasket");
 
         // Go to basket
-        $this->clickAndWait( "id=minibasketIcon" );
+        $this->clickAndWait("id=minibasketIcon");
 
         // Go to 2nd basket step
-        $this->clickAndWait( "//input[@value='Continue']" );
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Go to 03 basket step
-        $this->clickAndWait( "id=userNextStepTop" );
+        $this->clickAndWait("id=userNextStepTop");
 
         // Go to 04 basket step
-        $this->clickAndWait( "//input[@value='Continue']" );
+        $this->clickAndWait("//input[@value='Continue']");
 
         // Click button Continue
-        $this->click( "id=checkAgbTop" );
-        $this->clickAndWait( "//button[@type='submit']" );
+        $this->click("id=checkAgbTop");
+        $this->clickAndWait("//button[@type='submit']");
     }
-
 }
