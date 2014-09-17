@@ -1,4 +1,4 @@
-[{if 'CE' == $oViewConf->oeThemeSwitcherGetEdition()}]
+[{if 'CE' == $oViewConf->getEdition()}]
 
 [{capture append="oxidBlock_pageBody"}]
 

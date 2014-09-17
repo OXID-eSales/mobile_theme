@@ -1,4 +1,4 @@
-[{if 'EE' == $oViewConf->oeThemeSwitcherGetEdition()}]
+[{if 'EE' == $oViewConf->getEdition()}]
 
 [{capture append="oxidBlock_pageBody"}]
     <h4 class="page-head">[{ oxmultilang ident="ERROR_MESSAGE_OXID_SHOP_ERROR" }]</h4>

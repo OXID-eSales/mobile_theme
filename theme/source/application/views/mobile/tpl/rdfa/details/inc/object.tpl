@@ -65,7 +65,7 @@
             [{/if}]
             </div>
         </div>
-        [{if 'PE' == $oViewConf->oeThemeSwitcherGetEdition() || 'CE' == $oViewConf->oeThemeSwitcherGetEdition()}]
+        [{if 'PE' == $oViewConf->getEdition() || 'CE' == $oViewConf->getEdition()}]
         [{if $oView->getBundleArticle()}]
             [{assign var="oBundleProduct" value=$oView->getBundleArticle()}]
             <div rel="gr:includes" resource="[{$oBundleProduct->getLink()}]#productdata"></div>

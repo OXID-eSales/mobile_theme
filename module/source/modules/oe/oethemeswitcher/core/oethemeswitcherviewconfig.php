@@ -46,14 +46,4 @@ class oeThemeSwitcherViewConfig extends oeThemeSwitcherViewConfig_parent
 
         return $this->_oUserAgent;
     }
-
-    /**
-     * Return shop edition (EE|CE|PE)
-     *
-     * @return string
-     */
-    public function oeThemeSwitcherGetEdition()
-    {
-        return $this->getConfig()->getEdition();
-    }
 }
