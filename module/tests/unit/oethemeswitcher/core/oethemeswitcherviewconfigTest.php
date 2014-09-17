@@ -22,37 +22,17 @@
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
+/**
+ * Tests for oeThemeSwitcherViewConfig class
+ */
 class Unit_oeThemeSwitcher_Core_oeThemeSwitcherViewConfigTest extends OxidTestCase
 {
-    /**
-     * oxViewConfig::oeThemeSwitcherGetEdition()
-     */
-    public function testGetEdition()
-    {
-        $oViewConfig = new oeThemeSwitcherViewConfig();
-        $this->assertEquals( $this->getConfig()->getEdition(), $oViewConfig->oeThemeSwitcherGetEdition() );
-    }
-
     /**
      * Checks if returns user agent instance
      */
     public function testGetUserAgent()
     {
         $oViewConfig = new oeThemeSwitcherViewConfig();
-        $this->assertInstanceOf( 'oeThemeSwitcherUserAgent', $oViewConfig->oeThemeSwitcherGetUserAgent() );
+        $this->assertInstanceOf('oeThemeSwitcherUserAgent', $oViewConfig->oeThemeSwitcherGetUserAgent());
     }
-
-    /**
-     * Module data provider.
-     */
-    public function _dpIsModuleActive()
-    {
-        return array(
-            array( array( 'order' => 'oe/oepaypal/controllers/oepaypalorder' ), array(),                  'oepaypal', true ),
-            array( array( 'order' => 'oe/oepaypal/controllers/oepaypalorder' ), array( 0 => 'oepaypal' ), 'oepaypal', false ),
-            array( array(),                                                     array(),                  'oepaypal', false ),
-            array( array(),                                                     array( 0 => 'oepaypal' ), 'oepaypal', false ),
-        );
-    }
-
 }

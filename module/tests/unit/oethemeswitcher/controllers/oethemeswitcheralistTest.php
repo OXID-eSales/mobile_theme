@@ -19,7 +19,6 @@
  * @copyright (C) OXID eSales AG 2003-2013
  */
 
-
 require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
@@ -34,29 +33,36 @@ class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherAListTest extends OxidTest
      */
     public function setUp()
     {
-        oxRegistry::set("oxConfig", new oeThemeSwitcherConfig() );
-        modConfig::setParameter( "showFilter", null );
+        oxRegistry::set("oxConfig", new oeThemeSwitcherConfig());
+        modConfig::setParameter("showFilter", null);
     }
 
+    /**
+     * Data provider for testGetShowFilter test
+     *
+     * @return array
+     */
     public function providerGetShowFilter()
     {
         return array(
-            array( true ),
-            array( false )
+            array(true),
+            array(false)
         );
     }
 
     /**
      * Test get showFilter parameter
      *
+     * @param bool $blFilterValue - show or not filter
+     *
      * @dataProvider providerGetShowFilter
      */
-    public function testGetShowFilter( $blFilterValue )
+    public function testGetShowFilter($blFilterValue)
     {
-        modConfig::setParameter( "showFilter", $blFilterValue );
+        modConfig::setParameter("showFilter", $blFilterValue);
         $oAList = new oeThemeSwitcherAList();
 
-        $this->assertEquals( $blFilterValue, $oAList->getShowFilter() );
+        $this->assertEquals($blFilterValue, $oAList->getShowFilter());
     }
 
     /**
@@ -67,6 +73,6 @@ class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherAListTest extends OxidTest
         $oAList = new oeThemeSwitcherAList();
         $sViewId = $oAList->getViewId();
 
-        $this->assertContains( "azure", $sViewId );
+        $this->assertContains("azure", $sViewId);
     }
 }

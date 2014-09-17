@@ -23,17 +23,16 @@ require_once realpath( "." ).'/unit/OxidTestCase.php';
 require_once realpath( "." ).'/unit/test_config.inc.php';
 
 /**
- * Tests for  class
+ * Tests for oeThemeSwitcherVendorList class
  */
 class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherVendorListTest extends OxidTestCase
 {
-
     /**
      * Overloads oxConfig
      */
     public function setUp()
     {
-        oxRegistry::set("oxConfig", new oeThemeSwitcherconfig() );
+        oxRegistry::set("oxConfig", new oeThemeSwitcherconfig());
     }
 
     /**
@@ -44,7 +43,6 @@ class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherVendorListTest extends Oxi
         $oVendorList = new oeThemeSwitcherVendorList();
         $sViewId = $oVendorList->getViewId();
 
-        $this->assertContains( 'azure', $sViewId );
+        $this->assertContains('azure', $sViewId);
     }
-
 }

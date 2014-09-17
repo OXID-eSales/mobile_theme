@@ -28,7 +28,6 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
  */
 class Unit_oeThemeSwitcher_Components_Widgets_oeThemeSwitcherWPaymentListTest extends OxidTestCase
 {
-
     /**
      * Check if getPaymentImages returns images when they do exist
      */
@@ -36,13 +35,13 @@ class Unit_oeThemeSwitcher_Components_Widgets_oeThemeSwitcherWPaymentListTest ex
     {
         $sPaymentImageUrl = "baseUrl/products/de/testPayment.png";
 
-        $oConfig = $this->getMock( "oxConfig", array( "getImageUrl" ) );
-        $oConfig->expects( $this->any() )
-            ->method( 'getImageUrl')
-            ->will( $this->returnValue( $sPaymentImageUrl ) );
+        $oConfig = $this->getMock("oxConfig", array("getImageUrl"));
+        $oConfig->expects($this->any())
+            ->method('getImageUrl')
+            ->will($this->returnValue($sPaymentImageUrl));
 
-        $oThemeSwitcherWPaymentList = $this->getMock( "oeThemeSwitcherWPaymentList", array( "getConfig" ) );
-        $oThemeSwitcherWPaymentList->expects( $this->any() )->method( 'getConfig')->will( $this->returnValue( $oConfig ) );
+        $oThemeSwitcherWPaymentList = $this->getMock("oeThemeSwitcherWPaymentList", array("getConfig"));
+        $oThemeSwitcherWPaymentList->expects($this->any())->method('getConfig')->will($this->returnValue($oConfig));
 
         $aPayments = $oThemeSwitcherWPaymentList->getPaymentList(0);
 

@@ -28,13 +28,12 @@ require_once realpath( "." ).'/unit/test_config.inc.php';
  */
 class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherDetailsTest extends OxidTestCase
 {
-
     /**
      * Overloads oxConfig
      */
     public function setUp()
     {
-        oxRegistry::set("oxConfig", new oeThemeSwitcherConfig() );
+        oxRegistry::set("oxConfig", new oeThemeSwitcherConfig());
     }
 
     /**
@@ -45,7 +44,6 @@ class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherDetailsTest extends OxidTe
         $oDetails = new oeThemeSwitcherDetails();
         $sViewId = $oDetails->getViewId();
 
-        $this->assertContains( 'azure', $sViewId );
+        $this->assertContains('azure', $sViewId);
     }
-
 }

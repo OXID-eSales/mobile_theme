@@ -22,6 +22,9 @@
 require_once realpath( '.' ).'/unit/OxidTestCase.php';
 require_once realpath( '.' ).'/unit/test_config.inc.php';
 
+/**
+ * Tests for oeThemeSwitcherConfig class
+ */
 class Unit_oeThemeSwitcher_Core_oeThemeSwitcherConfigTest extends OxidTestCase
 {
 
@@ -32,10 +35,10 @@ class Unit_oeThemeSwitcher_Core_oeThemeSwitcherConfigTest extends OxidTestCase
     {
         $sActiveThemeId = 'test';
         $oConfig = new oeThemeSwitcherConfig();
-        $oConfig->setConfigParam( 'sCustomTheme', $sActiveThemeId );
+        $oConfig->setConfigParam('sCustomTheme', $sActiveThemeId);
         $sGotActiveThemeId = $oConfig->oeThemeSwitcherGetActiveThemeId();
 
-        $this->assertEquals( $sActiveThemeId, $sGotActiveThemeId );
+        $this->assertEquals($sActiveThemeId, $sGotActiveThemeId);
     }
 
     /**
@@ -44,7 +47,6 @@ class Unit_oeThemeSwitcher_Core_oeThemeSwitcherConfigTest extends OxidTestCase
     public function testGetThemeManager()
     {
         $oConfig = new oeThemeSwitcherConfig();
-        $this->assertInstanceOf( 'oeThemeSwitcherThemeManager', $oConfig->oeThemeSwitcherGetThemeManager() );
+        $this->assertInstanceOf('oeThemeSwitcherThemeManager', $oConfig->oeThemeSwitcherGetThemeManager());
     }
-
 }

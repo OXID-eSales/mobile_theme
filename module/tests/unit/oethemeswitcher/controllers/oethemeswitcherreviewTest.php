@@ -34,7 +34,7 @@ class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherreviewTest extends OxidTes
      */
     public function setUp()
     {
-        oxRegistry::set("oxConfig", new oeThemeSwitcherConfig() );
+        oxRegistry::set("oxConfig", new oeThemeSwitcherConfig());
     }
 
     /**
@@ -45,7 +45,6 @@ class Unit_oeThemeSwitcher_Controllers_oeThemeSwitcherreviewTest extends OxidTes
         $oMlist = new oeThemeSwitcherReview();
         $sViewId = $oMlist->getViewId();
 
-        $this->assertContains( 'azure', $sViewId );
+        $this->assertContains('azure', $sViewId);
     }
-
 }
