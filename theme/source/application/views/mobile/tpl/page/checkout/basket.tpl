@@ -13,7 +13,7 @@
             [{else }]
                 [{* basket btn next *}]
                 [{block name="checkout_basket_next_step_top"}]
-                    [{if !$oView->isLowOrderPrice() }]
+                    [{if !$oxcmp_basket->isBelowMinOrderPrice() }]
                         <div id="btnNextStepTop">
                         [{block name="mb_basket_btn_next_top"}]
                             <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
@@ -49,9 +49,9 @@
                     [{/if}]
 
                     [{* basket btn next *}]
-                    [{if $oView->isLowOrderPrice() }]
+                    [{if $oxcmp_basket->isBelowMinOrderPrice() }]
                         [{block name="checkout_basket_loworderprice_bottom"}]
-                        <div class="alert alert-error">[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
+                        <div class="alert alert-error">[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{oxprice price=$oxcmp_basket->getMinOrderPrice() currency=$currency}]</div>
                         [{/block}]
                     [{else}]
                         <div id="btnNextStepBottom">

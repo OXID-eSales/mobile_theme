@@ -10,7 +10,7 @@
         [{assign var="currency" value=$oView->getActCurrency()}]
 
         [{block name="checkout_payment_nextstep_top"}]
-            [{if $oView->getPaymentList() && !$oView->isLowOrderPrice()}]
+            [{if $oView->getPaymentList() && !$oxcmp_basket->isBelowMinOrderPrice()}]
                 <div class="payment-row">
                     <ul class="form">
                         <li><input type="button" id="paymentNextStepTop" name="userform" class="btn" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" /></li>
@@ -167,8 +167,8 @@
 
                         [{block name="checkout_payment_nextstep"}]
                             <ul class="form">
-                                [{if $oView->isLowOrderPrice()}]
-                                    <li><b>[{oxmultilang ident="MIN_ORDER_PRICE"}] [{$oView->getMinOrderPrice()}] [{$currency->sign}]</b></li>
+                                [{if $oxcmp_basket->isBelowMinOrderPrice()}]
+                                    <li><b>[{oxmultilang ident="MIN_ORDER_PRICE"}] [{oxprice price=$oxcmp_basket->getMinOrderPrice() currency=$currency}]</b></li>
                                 [{else}]
                                     <li><input type="submit" id="paymentNextStepBottom" name="userform" class="btn" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" /></li>
                                     <li><input type="button" id="paymentBackStepBottom" class="btn previous" value="[{oxmultilang ident="PREVIOUS_STEP"}]" onclick="window.open('[{oxgetseourl ident=$oViewConf->getOrderLink()}]', '_self');" /></li>

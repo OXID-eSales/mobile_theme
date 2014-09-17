@@ -23,9 +23,9 @@
                 [{else}]
                     [{assign var="currency" value=$oView->getActCurrency() }]
                     [{block name="checkout_order_next_step_top"}]
-                        [{if $oView->isLowOrderPrice()}]
+                        [{if $oxcmp_basket->isBelowMinOrderPrice()}]
                             [{block name="checkout_order_loworderprice_top"}]
-                                <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
+                                <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{oxprice price=$oxcmp_basket->getMinOrderPrice() currency=$currency}]</div>
                             [{/block}]
                         [{else}]
 
@@ -157,9 +157,9 @@
                     [{/block}]
 
                     [{block name="checkout_order_next_step_bottom"}]
-                        [{if $oView->isLowOrderPrice() }]
+                        [{if $oxcmp_basket->isBelowMinOrderPrice() }]
                             [{block name="checkout_order_loworderprice_bottom"}]
-                                <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{ $oView->getMinOrderPrice() }] [{ $currency->sign }]</div>
+                                <div>[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{oxprice price=$oxcmp_basket->getMinOrderPrice() currency=$currency}]</div>
                             [{/block}]
                         [{else}]
                             [{block name="checkout_order_btn_confirm_bottom"}]

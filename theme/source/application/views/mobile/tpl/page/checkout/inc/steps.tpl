@@ -5,7 +5,7 @@
         [{/if}]
 
         [{block name="checkout_steps_basket"}]
-            <li class="step1[{ if $active == 1}] active [{elseif $active > 1}] passed [{/if}]">
+            <li class="step1[{if $active == 1}] active [{elseif $active > 1}] passed [{/if}]">
                 [{if $showStepLinks}]<a rel="nofollow" href="[{ oxgetseourl ident=$oViewConf->getBasketLink() }]">[{/if}]
                     <span class="step-number">01</span>
                     <span class="step-name">
@@ -16,7 +16,7 @@
         [{/block}]
 
         [{assign var=showStepLinks value=false}]
-        [{if !$oView->isLowOrderPrice() && $oxcmp_basket->getProductsCount() }]
+        [{if !$oxcmp_basket->isBelowMinOrderPrice() && $oxcmp_basket->getProductsCount() }]
             [{assign var=showStepLinks value=true}]
         [{/if}]
 
@@ -32,12 +32,12 @@
         [{/block}]
 
         [{assign var=showStepLinks value=false}]
-        [{if $active != 1 && $oxcmp_user && !$oView->isLowOrderPrice() && $oxcmp_basket->getProductsCount() }]
+        [{if $active != 1 && $oxcmp_user && !$oxcmp_basket->isBelowMinOrderPrice() && $oxcmp_basket->getProductsCount() }]
             [{assign var=showStepLinks value=true}]
         [{/if}]
 
         [{block name="checkout_steps_pay"}]
-            <li class="step3[{ if $active == 3}] active [{elseif $active > 3}] passed [{/if}]">
+            <li class="step3[{if $active == 3}] active [{elseif $active > 3}] passed [{/if}]">
                 [{if $showStepLinks}]<a rel="nofollow" [{if $oViewConf->getActiveClassName() == "user"}]id="paymentStep"[{/if}] href="[{ oxgetseourl ident=$oViewConf->getPaymentLink() }]">[{/if}]
                     <span class="step-number">03</span>
                     <span class="step-name">
@@ -49,7 +49,7 @@
         [{/block}]
 
         [{assign var=showStepLinks value=false}]
-        [{if $active != 1 && $oxcmp_user && $oxcmp_basket->getProductsCount() && $oView->getPaymentList() && !$oView->isLowOrderPrice()}]
+        [{if $active != 1 && $oxcmp_user && $oxcmp_basket->getProductsCount() && $oView->getPaymentList() && !$oxcmp_basket->isBelowMinOrderPrice()}]
             [{assign var=showStepLinks value=true}]
         [{/if}]
 
