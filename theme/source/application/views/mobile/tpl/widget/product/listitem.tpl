@@ -111,7 +111,7 @@
                     [{block name="widget_product_listitem_line_price_value"}]
                         <span id="productPrice_[{$iIndex}]" class="main-price">
                             <span>
-                                [{if $_oBoxProduct->isRangePrice()}]
+                                [{if $product->isRangePrice()}]
                                     [{oxmultilang ident="PRICE_FROM"}]
                                     [{if !$product->isParentNotBuyable() }]
                                         [{assign var="oPrice" value=$product->getMinPrice() }]
