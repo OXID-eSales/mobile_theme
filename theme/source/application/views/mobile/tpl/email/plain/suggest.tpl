@@ -4,17 +4,17 @@
 
 [{oxmultilang ident="PRODUCT_POST_CARD_FROM"}] [{$shop->oxshops__oxname->getRawValue()}]
 
-[{oxmultilang ident="FROM"}] [{$userinfo->send_name}]
-[{oxmultilang ident="EMAIL"}] [{$userinfo->send_email}]
+[{oxmultilang ident="FROM" suffix="COLON"}] [{$userinfo->send_name}]
+[{oxmultilang ident="EMAIL" suffix="COLON"}] [{$userinfo->send_email}]
 
-[{oxmultilang ident="TO"}] [{$userinfo->rec_name}]
-[{oxmultilang ident="EMAIL"}] [{$userinfo->rec_email}]
+[{oxmultilang ident="TO" suffix="COLON"}] [{$userinfo->rec_name}]
+[{oxmultilang ident="EMAIL" suffix="COLON"}] [{$userinfo->rec_email}]
 
 [{$userinfo->send_message}]
 
 [{oxmultilang ident="MANY_GREETINGS"}] [{$userinfo->send_name}]
 
-[{oxmultilang ident="RECOMMENDED_PRODUCTS"}]
+[{oxmultilang ident="RECOMMENDED_PRODUCTS" suffix="COLON"}]
 
 [{$product->oxarticles__oxtitle->getRawValue()|strip_tags}]
 [{$product->oxarticles__oxshortdesc->getRawValue()}]

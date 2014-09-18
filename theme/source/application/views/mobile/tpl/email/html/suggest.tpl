@@ -12,7 +12,7 @@
         <tr>
             <td width="10%" style="padding: 5px; border-bottom: 1px solid #ddd;">
                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                    <b>[{oxmultilang ident="FROM"}]</b>
+                    <b>[{oxmultilang ident="FROM" suffix="COLON"}]</b>
                 </p>
             </td>
             <td>
@@ -24,7 +24,7 @@
         <tr>
             <td width="10%" style="padding: 5px; border-bottom: 1px solid #ddd;">
                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                    <b>[{oxmultilang ident="EMAIL"}]</b>
+                    <b>[{oxmultilang ident="EMAIL" suffix="COLON"}]</b>
                 </p>
             </td>
             <td>
@@ -36,7 +36,7 @@
         <tr>
             <td width="10%" style="padding: 5px; border-bottom: 1px solid #ddd;">
                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                    <b>[{oxmultilang ident="TO"}]</b>
+                    <b>[{oxmultilang ident="TO" suffix="COLON"}]</b>
                 </p>
             </td>
             <td>
@@ -48,7 +48,7 @@
         <tr>
             <td width="10%" style="padding: 5px; border-bottom: 1px solid #ddd;">
                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0;">
-                    <b>[{oxmultilang ident="EMAIL"}]</b>
+                    <b>[{oxmultilang ident="EMAIL" suffix="COLON"}]</b>
                 </p>
             </td>
             <td>

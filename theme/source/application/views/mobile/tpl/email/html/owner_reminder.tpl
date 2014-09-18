@@ -34,7 +34,7 @@
                     [{/foreach}]
                 [{/if}]
                 <br>
-                [{oxmultilang ident="PRODUCT_NO"}] [{$oProduct->oxarticles__oxartnum->value}]
+                [{oxmultilang ident="PRODUCT_NO" suffix="COLON"}] [{$oProduct->oxarticles__oxartnum->value}]
             </p>
         </td>
         <td style="padding: 5px; border-bottom: 1px solid #ddd;">

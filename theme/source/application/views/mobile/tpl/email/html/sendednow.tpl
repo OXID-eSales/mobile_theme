@@ -98,7 +98,7 @@
     [{/block}]
 
     [{block name="email_html_sendednow_ts"}]
-        [{if $oViewConf->showTs("ORDERCONFEMAIL") && $oViewConf->getTsId() }]
+        [{if $oViewConf->showTs("ORDERCONFEMAIL") && $oViewConf->getTsId()}]
             [{assign var="sTSRatingImg" value="https://www.trustedshops.com/bewertung/widget/img/bewerten_"|cat:$oViewConf->getActLanguageAbbr()|cat:".gif"}]
             <h3 style="font-weight: bold; margin: 20px 0 7px; padding: 0; line-height: 35px; font-size: 12px;font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; border-bottom: 4px solid #ddd;">
                 [{oxmultilang ident="EMAIL_SENDEDNOW_HTML_TS_RATINGS_RATEUS"}]

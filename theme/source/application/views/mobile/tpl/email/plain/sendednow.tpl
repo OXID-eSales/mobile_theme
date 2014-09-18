@@ -44,7 +44,7 @@
 [{/block}]
 
 [{block name="email_plain_sendednow_ts"}]
-[{if $oViewConf->showTs("ORDERCONFEMAIL") && $oViewConf->getTsId() }]
+[{if $oViewConf->showTs("ORDERCONFEMAIL") && $oViewConf->getTsId()}]
 [{oxmultilang ident="EMAIL_SENDEDNOW_HTML_TS_RATINGS_RATEUS"}]
 [{$oViewConf->getTsRatingUrl()}]
 [{/if}]
