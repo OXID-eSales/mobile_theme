@@ -91,7 +91,6 @@
                             [{/if}]
                             <strong>
                                 <span>[{$sFrom}] [{oxprice price=$oPrice currency=$currency}]</span>
-                                <span>[{$currency->sign}]</span>
                                 [{if $oView->isVatIncluded() }]
                                     <span>*</span>
                                 [{/if}]
