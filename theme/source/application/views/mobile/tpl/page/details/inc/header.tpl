@@ -5,7 +5,7 @@
 
 
 [{* Title/Brand/ShortDesc *}]
-[{ assign var="oManufacturer" value=$oView->getManufacturer()}]
+[{assign var="oManufacturer" value=$oView->getManufacturer()}]
 <div class="product-header">
 
     [{* Alert placeholder *}]
@@ -20,12 +20,12 @@
     </div>
     [{* Add to wishlist *}]
     [{if $oxcmp_user }]
-        <a class="btn wishlist-btn pull-right" data-action="add" data-anid="[{"`$oDetailsProduct->oxarticles__oxnid->value`"}]" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl="|cat:$oViewConf->getTopActiveClassName() params="aid=`$oDetailsProduct->oxarticles__oxnid->value`&amp;anid=`$oDetailsProduct->oxarticles__oxnid->value`&amp;fnc=tonoticelist&amp;am=1"|cat:$oViewConf->getNavUrlParams()|cat:"&amp;stoken="|cat:$oViewConf->getSessionChallengeToken() }]" rel="nofollow">
-            <i class="glyphicon-star" data-title="[{ oxmultilang ident='ADD_TO_WISH_LIST' }]"></i>
+        <a class="btn wishlist-btn pull-right" data-action="add" data-anid="[{"`$oDetailsProduct->oxarticles__oxnid->value`"}]" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl="|cat:$oViewConf->getTopActiveClassName() params="aid=`$oDetailsProduct->oxarticles__oxnid->value`&amp;anid=`$oDetailsProduct->oxarticles__oxnid->value`&amp;fnc=tonoticelist&amp;am=1"|cat:$oViewConf->getNavUrlParams()|cat:"&amp;stoken="|cat:$oViewConf->getSessionChallengeToken()}]" rel="nofollow">
+            <i class="glyphicon-star" data-title="[{oxmultilang ident='ADD_TO_WISH_LIST'}]"></i>
         </a>
     [{else}]
-        <a class="btn wishlist-btn pull-right" data-action="login" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" params="anid=`$oDetailsProduct->oxarticles__oxnid->value`"|cat:"&amp;sourcecl="|cat:$oViewConf->getTopActiveClassName()|cat:$oViewConf->getNavUrlParams() }]" rel="nofollow">
-            <i class="glyphicon-star" data-title="[{ oxmultilang ident='LOGIN_TO_ACCESS_WISH_LIST' }]"></i>
+        <a class="btn wishlist-btn pull-right" data-action="login" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" params="anid=`$oDetailsProduct->oxarticles__oxnid->value`"|cat:"&amp;sourcecl="|cat:$oViewConf->getTopActiveClassName()|cat:$oViewConf->getNavUrlParams()}]" rel="nofollow">
+            <i class="glyphicon-star" data-title="[{oxmultilang ident='LOGIN_TO_ACCESS_WISH_LIST'}]"></i>
         </a>
     [{/if}]
     <div class="product-header-info">
@@ -34,7 +34,7 @@
         [{/block}]
         [{block name="details_productmain_manufacturersicon"}]
             [{if $oManufacturer->oxmanufacturers__oxtitle->value}]
-                <div class="product-manufacturer-title">[{ $oManufacturer->oxmanufacturers__oxtitle->value}]</div>
+                <div class="product-manufacturer-title">[{$oManufacturer->oxmanufacturers__oxtitle->value}]</div>
             [{/if}]
         [{/block}]
         [{block name="details_productmain_shortdesc"}]

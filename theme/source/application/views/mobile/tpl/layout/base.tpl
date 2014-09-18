@@ -10,7 +10,7 @@
         [{assign var="_sMetaTitle" value=$template_title }]
     [{/if}]
 
-    <title>[{ $_sMetaTitlePrefix }][{if $_sMetaTitlePrefix && $_sMetaTitle }] | [{/if}][{$_sMetaTitle|strip_tags}][{if $_sMetaTitleSuffix && ($_sMetaTitlePrefix || $_sMetaTitle) }] | [{/if}][{$_sMetaTitleSuffix}] [{if $_sMetaTitlePageSuffix }] | [{ $_sMetaTitlePageSuffix }] [{/if}]</title>
+    <title>[{$_sMetaTitlePrefix}][{if $_sMetaTitlePrefix && $_sMetaTitle }] | [{/if}][{$_sMetaTitle|strip_tags}][{if $_sMetaTitleSuffix && ($_sMetaTitlePrefix || $_sMetaTitle) }] | [{/if}][{$_sMetaTitleSuffix}] [{if $_sMetaTitlePageSuffix }] | [{$_sMetaTitlePageSuffix}] [{/if}]</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -32,9 +32,9 @@
 
     [{assign var="canonical_url" value=$oView->getCanonicalUrl()}]
     [{if $canonical_url }]
-        <link rel="canonical" href="[{ $canonical_url }]">
+        <link rel="canonical" href="[{$canonical_url}]">
     [{/if}]
-    <link rel="shortcut icon" href="[{ $oViewConf->getImageUrl('favicon.ico') }]">
+    <link rel="shortcut icon" href="[{$oViewConf->getImageUrl('favicon.ico')}]">
 
     [{block name="base_style"}]
         [{oxstyle include="http://fonts.googleapis.com/css?family=Montserrat:400,700"}]
@@ -79,11 +79,11 @@
     [{/block}]
 
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="[{ $oViewConf->getResourceUrl('js/libs/respond.min.js') }]"></script>
+    <script type="text/javascript" src="[{$oViewConf->getResourceUrl('js/libs/respond.min.js')}]"></script>
     <![endif]-->
 
-    [{ oxscript }]
-    [{ oxid_include_dynamic file="widget/dynscript.tpl" }]
+    [{oxscript}]
+    [{oxid_include_dynamic file="widget/dynscript.tpl"}]
 
     [{foreach from=$oxidBlock_pageScript item="_block"}]
         [{$_block}]

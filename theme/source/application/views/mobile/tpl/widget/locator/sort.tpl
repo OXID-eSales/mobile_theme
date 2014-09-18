@@ -23,12 +23,12 @@
             <ul class="dropdown-menu sort-menu">
                 [{foreach from=$oView->getSortColumns() item=sColumnName}]
                     <li class="dropdown-option no-submit">
-                        <span class="sort-name">[{ oxmultilang ident=$sColumnName|upper }]</span>
+                        <span class="sort-name">[{oxmultilang ident=$sColumnName|upper}]</span>
                         <span class="sort-order">
-                            <a data-title="[{ oxmultilang ident=$sColumnName|upper }] <i class='glyphicon-arrow-down'></i>" data-selection-id="[{oxmultilang ident=$sColumnName|upper}]desc" href="[{ $oView->getLink()|oxaddparams:"ldtype=$_listType&amp;_artperpage=$_artPerPage&amp;$_sortColumnVarName=$sColumnName&amp;$_sortDirectionVarName=desc&amp;pgNr=0&amp;$_additionalParams"}]" [{if $oView->getListOrderDirection() == 'desc' && $sColumnName == $oView->getListOrderBy()}] class="selected"[{/if}]>
+                            <a data-title="[{oxmultilang ident=$sColumnName|upper}] <i class='glyphicon-arrow-down'></i>" data-selection-id="[{oxmultilang ident=$sColumnName|upper}]desc" href="[{$oView->getLink()|oxaddparams:"ldtype=$_listType&amp;_artperpage=$_artPerPage&amp;$_sortColumnVarName=$sColumnName&amp;$_sortDirectionVarName=desc&amp;pgNr=0&amp;$_additionalParams"}]" [{if $oView->getListOrderDirection() == 'desc' && $sColumnName == $oView->getListOrderBy()}] class="selected"[{/if}]>
                                 <i class="glyphicon-arrow-down"></i>
                             </a>
-                            <a data-title="[{ oxmultilang ident=$sColumnName|upper }] <i class='glyphicon-arrow-up'></i>" data-selection-id="[{oxmultilang ident=$sColumnName|upper}]asc" href="[{ $oView->getLink()|oxaddparams:"ldtype=$_listType&amp;_artperpage=$_artPerPage&amp;$_sortColumnVarName=$sColumnName&amp;$_sortDirectionVarName=asc&amp;pgNr=0&amp;$_additionalParams"}]" [{if $oView->getListOrderDirection() == 'asc' && $sColumnName == $oView->getListOrderBy()}] class="selected"[{/if}]>
+                            <a data-title="[{oxmultilang ident=$sColumnName|upper}] <i class='glyphicon-arrow-up'></i>" data-selection-id="[{oxmultilang ident=$sColumnName|upper}]asc" href="[{$oView->getLink()|oxaddparams:"ldtype=$_listType&amp;_artperpage=$_artPerPage&amp;$_sortColumnVarName=$sColumnName&amp;$_sortDirectionVarName=asc&amp;pgNr=0&amp;$_additionalParams"}]" [{if $oView->getListOrderDirection() == 'asc' && $sColumnName == $oView->getListOrderBy()}] class="selected"[{/if}]>
                                 <i class="glyphicon-arrow-up"></i>
                             </a>
                         </span>

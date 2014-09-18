@@ -17,29 +17,29 @@
 
     <div class="content">
         [{if $oView->isExpiredLink() }]
-            <div class="alert alert-error">[{ oxmultilang ident="ERROR_MESSAGE_PASSWORD_LINK_EXPIRED" }]</div>
+            <div class="alert alert-error">[{oxmultilang ident="ERROR_MESSAGE_PASSWORD_LINK_EXPIRED"}]</div>
         [{elseif $oView->showUpdateScreen() }]
             [{include file="form/forgotpwd_change_pwd.tpl"}]
         [{elseif $oView->updateSuccess() }]
 
-            <div class="alert alert-success">[{ oxmultilang ident="PASSWORD_CHANGED" }]</div>
+            <div class="alert alert-success">[{oxmultilang ident="PASSWORD_CHANGED"}]</div>
 
             <div class="bar">
-                <form action="[{ $oViewConf->getSelfActionLink() }]" name="forgotpwd" method="post">
+                <form action="[{$oViewConf->getSelfActionLink()}]" name="forgotpwd" method="post">
                     <div>
-                        [{ $oViewConf->getHiddenSid() }]
+                        [{$oViewConf->getHiddenSid()}]
                         <input type="hidden" name="cl" value="start">
-                        <button id="backToShop" class="btn" type="submit">[{ oxmultilang ident="BACK_TO_SHOP" }]</button>
+                        <button id="backToShop" class="btn" type="submit">[{oxmultilang ident="BACK_TO_SHOP"}]</button>
                     </div>
                 </form>
             </div>
         [{else}]
             [{if $oView->getForgotEmail()}]
-                <div class="alert alert-success">[{ oxmultilang ident="PASSWORD_WAS_SEND_TO" }] [{$oView->getForgotEmail()}]</div>
-                <form action="[{ $oViewConf->getSelfActionLink() }]" name="forgotpwd" method="post">
-                    [{ $oViewConf->getHiddenSid() }]
+                <div class="alert alert-success">[{oxmultilang ident="PASSWORD_WAS_SEND_TO"}] [{$oView->getForgotEmail()}]</div>
+                <form action="[{$oViewConf->getSelfActionLink()}]" name="forgotpwd" method="post">
+                    [{$oViewConf->getHiddenSid()}]
                     <input type="hidden" name="cl" value="start">
-                    <button id="backToShop" class="btn" type="submit">[{ oxmultilang ident="BACK_TO_SHOP" }]</button>
+                    <button id="backToShop" class="btn" type="submit">[{oxmultilang ident="BACK_TO_SHOP"}]</button>
                  </form>
             [{else}]
                 [{include file="form/forgotpwd_email.tpl"}]

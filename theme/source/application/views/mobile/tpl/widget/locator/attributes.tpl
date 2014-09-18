@@ -10,10 +10,10 @@
                 <span class="filter-open-title">[{oxmultilang ident="FILTER_LIST"}]</span>
             </div>
             <div class="filterData">
-                <form method="post" action="[{ $oViewConf->getSelfActionLink() }]" name="_filterlist" id="filterList">
-                    [{ $oViewConf->getHiddenSid() }]
-                    [{ $oViewConf->getNavFormParams() }]
-                    <input type="hidden" name="cl" value="[{ $oViewConf->getActiveClassName() }]">
+                <form method="post" action="[{$oViewConf->getSelfActionLink()}]" name="_filterlist" id="filterList">
+                    [{$oViewConf->getHiddenSid()}]
+                    [{$oViewConf->getNavFormParams()}]
+                    <input type="hidden" name="cl" value="[{$oViewConf->getActiveClassName()}]">
                     <input type="hidden" name="tpl" value="[{$oViewConf->getActTplName()}]">
                     <input type="hidden" name="oxloadid" value="[{$oViewConf->getActContentLoadId()}]">
                     <input type="hidden" name="fnc" value="executefilter">

@@ -8,7 +8,7 @@
             [{assign var="currency" value=$oView->getActCurrency() }]
             [{if !$oxcmp_basket->getProductsCount()  }]
                 [{block name="checkout_basket_emptyshippingcart"}]
-                    <div class="alert alert-error">[{ oxmultilang ident="BASKET_EMPTY" }]</div>
+                    <div class="alert alert-error">[{oxmultilang ident="BASKET_EMPTY"}]</div>
                 [{/block}]
             [{else }]
                 [{* basket btn next *}]
@@ -16,10 +16,10 @@
                     [{if !$oxcmp_basket->isBelowMinOrderPrice() }]
                         <div id="btnNextStepTop">
                         [{block name="mb_basket_btn_next_top"}]
-                            <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
-                                [{ $oViewConf->getHiddenSid() }]
+                            <form class="form" action="[{$oViewConf->getSslSelfLink()}]" method="post">
+                                [{$oViewConf->getHiddenSid()}]
                                 <input type="hidden" name="cl" value="user">
-                                <input type="submit" class="btn nextStep" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" />
+                                <input type="submit" class="btn nextStep" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" />
                             </form>
                         [{/block}]
                         </div>
@@ -37,12 +37,12 @@
                 [{block name="checkout_basket_next_step_bottom"}]
                     [{if $oView->showBackToShop()}]
                         [{block name="checkout_basket_backtoshop_bottom"}]
-                            <form action="[{ $oViewConf->getSslSelfLink() }]" method="post">
+                            <form action="[{$oViewConf->getSslSelfLink()}]" method="post">
                                 <div class="backtoshop">
-                                    [{ $oViewConf->getHiddenSid() }]
+                                    [{$oViewConf->getHiddenSid()}]
                                     <input type="hidden" name="cl" value="basket">
                                     <input type="hidden" name="fnc" value="backtoshop">
-                                    <button type="submit" class="btn">[{ oxmultilang ident="CONTINUE_SHOPPING" }]</button>
+                                    <button type="submit" class="btn">[{oxmultilang ident="CONTINUE_SHOPPING"}]</button>
                                 </div>
                             </form>
                         [{/block}]
@@ -51,15 +51,15 @@
                     [{* basket btn next *}]
                     [{if $oxcmp_basket->isBelowMinOrderPrice() }]
                         [{block name="checkout_basket_loworderprice_bottom"}]
-                        <div class="alert alert-error">[{ oxmultilang ident="MIN_ORDER_PRICE" }] [{oxprice price=$oxcmp_basket->getMinOrderPrice() currency=$currency}]</div>
+                        <div class="alert alert-error">[{oxmultilang ident="MIN_ORDER_PRICE"}] [{oxprice price=$oxcmp_basket->getMinOrderPrice() currency=$currency}]</div>
                         [{/block}]
                     [{else}]
                         <div id="btnNextStepBottom">
                         [{block name="mb_basket_btn_next_bottom"}]
-                            <form class="form" action="[{ $oViewConf->getSslSelfLink() }]" method="post">
-                                [{ $oViewConf->getHiddenSid() }]
+                            <form class="form" action="[{$oViewConf->getSslSelfLink()}]" method="post">
+                                [{$oViewConf->getHiddenSid()}]
                                 <input type="hidden" name="cl" value="user">
-                                <input type="submit" class="btn nextStep" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" />
+                                <input type="submit" class="btn nextStep" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" />
                             </form>
                         [{/block}]
                         </div>

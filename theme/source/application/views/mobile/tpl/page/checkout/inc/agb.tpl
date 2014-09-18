@@ -20,7 +20,7 @@
                         <label class="glyphicon-ok" for="checkAgbTop"></label>
                     </div>
                     <label for="checkAgbTop" class="checkout-agb-label">
-                        [{ $oContent->oxcontents__oxcontent->value }]
+                        [{$oContent->oxcontents__oxcontent->value}]
                     </label>
                     <div class="clearfix"></div>
                 [{/oxifcontent}]
@@ -46,7 +46,7 @@
                         <label class="glyphicon-ok" for="oxdownloadableproductsagreement"></label>
                     </div>
                     <label for="oxdownloadableproductsagreement" class="checkout-agb-label">
-                        [{$oExplanationMarks->getMark('downloadable')}] [{ $oContent->oxcontents__oxcontent->value }]
+                        [{$oExplanationMarks->getMark('downloadable')}] [{$oContent->oxcontents__oxcontent->value}]
                     </label>
                     <div class="clearfix"></div>
                 [{/oxifcontent}]
@@ -58,7 +58,7 @@
                         <label class="glyphicon-ok" for="oxserviceproductsagreement"></label>
                     </div>
                     <label for="oxserviceproductsagreement" class="checkout-agb-label">
-                        [{$oExplanationMarks->getMark('intangible')}] [{ $oContent->oxcontents__oxcontent->value }]
+                        [{$oExplanationMarks->getMark('intangible')}] [{$oContent->oxcontents__oxcontent->value}]
                     </label>
                     <div class="clearfix"></div>
                 [{/oxifcontent}]

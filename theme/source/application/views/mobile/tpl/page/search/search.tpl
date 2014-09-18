@@ -19,7 +19,7 @@
     </div>
   [{else}]
     <div class="content">
-        <p>[{ oxmultilang ident="NO_ITEMS_FOUND" }]</div>
+        <p>[{oxmultilang ident="NO_ITEMS_FOUND"}]</div>
   [{/if}]
   [{if $oView->getArticleList() }]
     [{foreach from=$oView->getArticleList() name=search item=product}]
@@ -30,7 +30,7 @@
     [{include file="widget/locator/listlocator.tpl" locator=$oView->generatePageNavigation(5) place="bottom"}]
   [{/if}]
   [{/block}]
-[{ insert name="oxid_tracker" title=$template_title }]
+[{insert name="oxid_tracker" title=$template_title}]
 [{/capture}]
 [{assign var="template_title" value="SEARCH"|oxmultilangassign}]
 

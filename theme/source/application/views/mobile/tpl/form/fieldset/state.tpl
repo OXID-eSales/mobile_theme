@@ -5,12 +5,12 @@
 [{assign var=stateDropDown value=oxSelect_$countryDropDown}]
 [{assign var=stateSelected value=oxStateSelected_$countryDropDown}]
 
-[{if $currCountry }]
+[{if $currCountry}]
   [{assign var=showDiv value='true'}]
 [{else}]
   [{assign var=showDiv value='false'}]
 [{/if}]
-[{oxscript include="js/widgets/oxcountrystateselect.js" priority=10 }]
+[{oxscript include="js/widgets/oxcountrystateselect.js" priority=10}]
 [{oxscript add="$( '#`$stateDropDown`' ).oxCountryStateSelect({selectedStateId:'`$selectedStateId`', stateSelectedEl:'`$stateSelected`',countryDropDownEl:'`$countryDropDown`',countrySelectedEl:'`$countrySelected`'});"}]
 
 <script type="text/javascript"><!--
@@ -18,13 +18,13 @@
     var allStateIds = new Array();
     var allCountryIds = new Object();
     var cCount = 0;
-    [{foreach from=$oViewConf->getCountryList() item=country key=country_id }]
+    [{foreach from=$oViewConf->getCountryList() item=country key=country_id}]
 
         var states = new Array();
         var ids = new Array();
         var i = 0;
 
-        [{assign var=countryStates value=$country->getStates()}]
+        [{assign var=countryStates value=$country->getStates() }]
         [{foreach from=$countryStates item=state key=state_id}]
             states[i] = '[{$state->oxstates__oxtitle->value}]';
             ids[i] = '[{$state->oxstates__oxid->value}]';

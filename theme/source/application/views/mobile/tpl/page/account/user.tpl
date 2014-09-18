@@ -8,12 +8,12 @@
         </a>
     </li>
 </ul>
-<h1 id="addressSettingsHeader" class="page-head">[{ $template_title }]</h1>
+<h1 id="addressSettingsHeader" class="page-head">[{$template_title}]</h1>
 <div class="content">
     [{block name="account_user_form"}]
         [{include file="form/user.tpl"}]
     [{/block}]
-    [{ insert name="oxid_tracker" title=$template_title }]
+    [{insert name="oxid_tracker" title=$template_title}]
 </div>
 [{/capture}]
 [{capture append="oxidBlock_sidebar"}]

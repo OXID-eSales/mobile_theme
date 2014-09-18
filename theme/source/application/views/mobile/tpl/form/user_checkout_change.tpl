@@ -1,13 +1,13 @@
 [{oxscript include="js/widgets/oxinputvalidator.js" priority=10 }]
 [{oxscript add="$('form.js-oxValidate').oxInputValidator();"}]
 [{block name="user_checkout_change"}]
-    <form class="js-oxValidate" action="[{ $oViewConf->getSslSelfLink() }]" name="order" method="post">
+    <form class="js-oxValidate" action="[{$oViewConf->getSslSelfLink()}]" name="order" method="post">
         [{block name="user_checkout_change_form"}]
             [{assign var="aErrors" value=$oView->getFieldValidationErrors()}]
 
             <div>
-                [{ $oViewConf->getHiddenSid() }]
-                [{ $oViewConf->getNavFormParams() }]
+                [{$oViewConf->getHiddenSid()}]
+                [{$oViewConf->getNavFormParams()}]
                 <input type="hidden" name="cl" value="user" />
                 <input type="hidden" name="option" value="[{$oView->getLoginOption()}]" />
                 <input type="hidden" name="fnc" value="changeuser" />
@@ -55,7 +55,7 @@
                         [{block name="user_checkout_shipping_head"}]
                             <ul class="form">
                                 <li>
-                                    <h3>[{ oxmultilang ident="SHIPPING_ADDRESS" }]</h3>
+                                    <h3>[{oxmultilang ident="SHIPPING_ADDRESS"}]</h3>
                                 </li>
                             </ul>
                         [{/block}]
@@ -64,13 +64,13 @@
                                 <input id="showShipAddress" type="checkbox" name="blshowshipaddress" [{if !$oView->showShipAddress()}]checked[{/if}] value="0">
                                 <label for="showShipAddress" class="glyphicon-ok"></label>
                             </div>
-                            <label for="showShipAddress">[{ oxmultilang ident="USE_BILLINGADDRESS_FOR_SHIPPINGADDRESS" }]</label>
+                            <label for="showShipAddress">[{oxmultilang ident="USE_BILLINGADDRESS_FOR_SHIPPINGADDRESS"}]</label>
                             [{oxscript add="$('#showShipAddress').change( function() { $('#shippingAddress').toggle($(this).is(':not(:checked)'));});"}]
                         [{/block}]
                         [{block name="user_checkout_shipping_form"}]
                             <ul id="shippingAddress" class="form" [{if !$oView->showShipAddress()}]style="display: none;"[{/if}]>
                                 <li>
-                                    <input class="btn checkout-change-shipping-address" type="button" id="userChangeShippingAddress" name="changeShippingAddress" value="[{ oxmultilang ident="CHANGE" }]" />
+                                    <input class="btn checkout-change-shipping-address" type="button" id="userChangeShippingAddress" name="changeShippingAddress" value="[{oxmultilang ident="CHANGE"}]" />
                                 </li>
                                 [{include file="form/fieldset/user_shipping.tpl" noFormSubmit=true onChangeClass='user'}]
                             </ul>
@@ -89,8 +89,8 @@
             </div>
             [{block name="user_checkout_change_next_step_bottom"}]
                 <ul class="form">
-                    <li><input type="submit" id="userNextStepBottom" class="btn" name="userform" value="[{ oxmultilang ident="CONTINUE_TO_NEXT_STEP" }]" /></li>
-                    <li><input type="button" class="btn previous" value="[{ oxmultilang ident="PREVIOUS_STEP" }]" onclick="window.open('[{ oxgetseourl ident=$oViewConf->getBasketLink() }]', '_self');" /></li>
+                    <li><input type="submit" id="userNextStepBottom" class="btn" name="userform" value="[{oxmultilang ident="CONTINUE_TO_NEXT_STEP"}]" /></li>
+                    <li><input type="button" class="btn previous" value="[{oxmultilang ident="PREVIOUS_STEP"}]" onclick="window.open('[{oxgetseourl ident=$oViewConf->getBasketLink()}]', '_self');" /></li>
                 </ul>
             [{/block}]
         [{/block}]

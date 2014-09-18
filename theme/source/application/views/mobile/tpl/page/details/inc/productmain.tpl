@@ -91,7 +91,7 @@
                             [{/if}]
                             <strong>
                                 <span>[{$sFrom}] [{oxprice price=$oPrice currency=$currency}]</span>
-                                <span>[{ $currency->sign}]</span>
+                                <span>[{$currency->sign}]</span>
                                 [{if $oView->isVatIncluded() }]
                                     <span>*</span>
                                 [{/if}]
@@ -149,9 +149,9 @@
                 [{block name="details_productmain_deliveryinfo"}]
                     [{oxifcontent ident="oxdeliveryinfo" object="oCont"}]
                     [{if $oView->isVatIncluded()}]
-                        <a href="[{ $oCont->getLink() }]" rel="nofollow">* [{ oxmultilang ident="PLUS_SHIPPING" }] [{ oxmultilang ident="PLUS_SHIPPING2" }]</a>
+                        <a href="[{$oCont->getLink()}]" rel="nofollow">* [{oxmultilang ident="PLUS_SHIPPING"}] [{oxmultilang ident="PLUS_SHIPPING2"}]</a>
                     [{else}]
-                        <a href="[{ $oCont->getLink() }]" rel="nofollow">* [{ oxmultilang ident="PLUS" }] [{ oxmultilang ident="PLUS_SHIPPING2" }]</a>
+                        <a href="[{$oCont->getLink()}]" rel="nofollow">* [{oxmultilang ident="PLUS"}] [{oxmultilang ident="PLUS_SHIPPING2"}]</a>
                     [{/if}]
                     [{/oxifcontent}]
                 [{/block}]
@@ -205,7 +205,7 @@
         [{block name="details_productmain_persparams"}]
         [{if $oView->isPersParam()}]
             <li id="persparamBox">
-                <input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35" placeholder="[{ oxmultilang ident="LABEL" }]" />
+                <input type="text" id="persistentParam" name="persparam[details]" value="[{$oDetailsProduct->aPersistParam.text }]" size="35" placeholder="[{oxmultilang ident="LABEL"}]" />
             </li>
         [{/if}]
         [{/block}]

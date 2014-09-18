@@ -1,5 +1,5 @@
 [{block name="widget_minibasket"}]
-    <a id="miniBasket" class="btn header-btn mini-basket" href="[{ oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=basket" }]">
+    <a id="miniBasket" class="btn header-btn mini-basket" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=basket"}]">
         [{if $oxcmp_basket->getItemsCount() > 0}]
         [{oxscript include="js/widgets/oxminibasket.js" priority=10 }]
         [{oxscript add="$( '#miniBasket' ).oxMiniBasket();"}]

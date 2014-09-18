@@ -112,7 +112,7 @@
                         <span id="productPrice_[{$iIndex}]" class="main-price">
                             <span>
                                 [{if $_oBoxProduct->isRangePrice()}]
-                                    [{ oxmultilang ident="PRICE_FROM" }]
+                                    [{oxmultilang ident="PRICE_FROM"}]
                                     [{if !$product->isParentNotBuyable() }]
                                         [{assign var="oPrice" value=$product->getMinPrice() }]
                                     [{else}]

@@ -1,3 +1,3 @@
 <div class="alert alert-success">
-    <p>[{ $statusMessage }]</p>
+    <p>[{$statusMessage}]</p>
 </div>

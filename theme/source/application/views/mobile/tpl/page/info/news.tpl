@@ -2,7 +2,7 @@
     [{assign var="template_title" value="LATEST_NEWS_AND_UPDATES_AT"|oxmultilangassign}]
     <div>
     [{assign var="oNews" value=$oView->getNews() }]
-    <h1 class="page-head">[{ oxmultilang ident="LATEST_NEWS_AND_UPDATES_AT" }] [{ $oxcmp_shop->oxshops__oxname->value }]</h1>
+    <h1 class="page-head">[{oxmultilang ident="LATEST_NEWS_AND_UPDATES_AT"}] [{$oxcmp_shop->oxshops__oxname->value}]</h1>
     <div class="listRefine clear bottomRound">
     </div>
         [{if !empty($oNews)}]
@@ -17,10 +17,10 @@
             [{/if}]
         [{/foreach}]
         [{else}]
-            [{ oxmultilang ident="LATEST_NEWS_NOACTIVENEWS" }]
+            [{oxmultilang ident="LATEST_NEWS_NOACTIVENEWS"}]
         [{/if}]
     </div>
     [{include file="widget/locator/listlocator.tpl" locator=$oView->getPageNavigation() place="bottom"}]
-    [{ insert name="oxid_tracker" title=$template_title }]
+    [{insert name="oxid_tracker" title=$template_title}]
 [{/capture}]
 [{include file="layout/page.tpl" sidebar="Left"}]

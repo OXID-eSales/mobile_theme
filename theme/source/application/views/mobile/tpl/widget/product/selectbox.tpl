@@ -10,9 +10,9 @@
                 [{elseif !$blHideDefault}]
                     <span [{if $blInDetails}]class="selectMessage"[{/if}]>[{$oSelectionList->getLabel()}]
                     [{if $sFieldName == "sel" }]
-                        [{ oxmultilang ident="PLEASE_CHOOSE" }]
+                        [{oxmultilang ident="PLEASE_CHOOSE"}]
                     [{else}]
-                        [{ oxmultilang ident="CHOOSE_VARIANT" }]
+                        [{oxmultilang ident="CHOOSE_VARIANT"}]
                     [{/if}]
                     </span>
                 [{/if}]

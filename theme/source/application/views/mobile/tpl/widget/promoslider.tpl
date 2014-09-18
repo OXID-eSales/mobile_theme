@@ -10,11 +10,11 @@
             <div class="item[{if $smarty.foreach.banner.first}] active[{/if}]">
                 [{assign var=sBannerLink value=$oBanner->getBannerLink() }]
                 [{if $sBannerLink }]
-                <a href="[{ $sBannerLink }]">
+                <a href="[{$sBannerLink}]">
                 [{/if}]
                 [{assign var=sBannerPictureUrl value=$oBanner->getBannerPictureUrl() }]
                 [{if $sBannerPictureUrl }]
-                <img src="[{ $sBannerPictureUrl }]" alt="[{$oBanner->oxactions__oxtitle->value}]">
+                <img src="[{$sBannerPictureUrl}]" alt="[{$oBanner->oxactions__oxtitle->value}]">
                 [{if $oArticle }]
                     [{assign var="sFrom" value=""}]
                     [{assign var="oPrice" value=$oArticle->getPrice()}]

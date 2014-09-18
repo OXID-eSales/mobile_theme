@@ -7,6 +7,6 @@
     <div class="content">
         [{$oView->getParsedContent()}]
     </div>
-    [{ insert name="oxid_tracker" title=$template_title }]
+    [{insert name="oxid_tracker" title=$template_title}]
 [{/capture}]
 [{include file="layout/popup.tpl"}]
