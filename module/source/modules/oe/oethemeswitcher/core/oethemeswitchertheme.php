@@ -43,4 +43,3 @@ class oeThemeSwitcherTheme extends oeThemeSwitcherTheme_parent
         return $sValue;
     }
 }
-
