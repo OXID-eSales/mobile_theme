@@ -152,6 +152,7 @@ class oeThemeSwitcherLang extends oeThemeSwitcherLang_parent
             }
 
             if ($sMapFile) {
+                $aMap = null;
                 include $sMapFile;
                 $this->_aLangMap[$sKey] = $aMap;
             }
