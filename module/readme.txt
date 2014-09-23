@@ -8,7 +8,7 @@ OXID eSales AG
 oe
 
 ==Version==
-1.0.0
+1.3.0
 
 ==Link==
 http://www.oxid-esales.com
@@ -42,6 +42,8 @@ OXID eShop theme switch is a module which switches between two eShop themes, dep
 *Start
 *Tag
 *VendorList
+*oxReverseProxyBackend
+--_getEnvironmentKey
 
 ==Installation==
 1. Copy the module source files to your shop directory.
