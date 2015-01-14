@@ -24,7 +24,7 @@ require_once __DIR__ . '/../oxTestCase.php';
 /**
  * Acceptance test cases
  */
-class Acceptance_oeMobileTheme_mobileTest extends oxTestCase
+class oeMobileTheme_MobileTest extends oxTestCase
 {
 
     const TEST_USER_NAME = 'birute_test@nfq.lt';
