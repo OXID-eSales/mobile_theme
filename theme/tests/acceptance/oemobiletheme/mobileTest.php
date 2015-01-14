@@ -27,7 +27,7 @@ require_once __DIR__ . '/../oxTestCase.php';
 class oeMobileTheme_MobileTest extends oxTestCase
 {
 
-    const TEST_USER_NAME = 'birute_test@nfq.lt';
+    const TEST_USER_NAME = 'testuser@oxid.de';
     const TEST_USER_PASSWORD = 'useruser';
 
     /**
