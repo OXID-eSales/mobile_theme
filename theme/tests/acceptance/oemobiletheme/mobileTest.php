@@ -46,7 +46,7 @@ class oeMobileTheme_MobileTest extends oxTestCase
         $this->clickAndWait("module_activate");
         // dumping database
         try {
-            $this->dumpDB();
+            $this->dumpDB('reset_test_db_dump');
         } catch (Exception $e) {
             $this->stopTesting("Failed dumping original db");
         }
