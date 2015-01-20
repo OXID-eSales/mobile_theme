@@ -9,7 +9,9 @@
     <div id="sortItems" class="sort-items">
         <label class="sort-title">[{oxmultilang ident="SORT_BY"}]</label>
         <div class="dropdown">
-            <input type="hidden" name="sortValue" value="[{oxmultilang ident=$oView->getListOrderBy()|upper}][{$oView->getListOrderDirection()}]">
+            [{if $oView->getListOrderBy() }]
+                <input type="hidden" name="sortValue" value="[{oxmultilang ident=$oView->getListOrderBy()|upper}][{$oView->getListOrderDirection()}]">
+            [{/if}]
             <div class="dropdown-toggle" data-toggle="dropdown" data-target="#">
                 <span>
                     [{if $oView->getListOrderBy() }]
