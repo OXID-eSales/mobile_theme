@@ -19,37 +19,33 @@
  * @copyright (C) OXID eSales AG 2003-2014
  */
 
-require_once __DIR__ . '/../oxTestCase.php';
-
 /**
  * Acceptance test cases
  */
 class oeMobileTheme_MobileTest extends oxTestCase
 {
-
     const TEST_USER_NAME = 'testuser@oxid.de';
     const TEST_USER_PASSWORD = 'useruser';
 
     /**
-     * test for activating MobileTheme
+     * Activates PayPal and adds configuration
      *
-     * @group mobile
+     * @param string $sTestSuitePath
+     *
+     * @throws Exception
      */
-    public function testActivateExtension()
+    public function addTestData($sTestSuitePath)
     {
+        parent::addTestData($sTestSuitePath);
+
         $this->open(shopURL . "admin");
+
         $this->loginAdminForModule("Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303");
         $this->openListItem("link=OXID eShop mobile theme");
         $this->clickAndWait("//input[@value='Activate']");
         $this->selectMenu("Extensions", "Modules");
         $this->openListItem("link=OXID eShop theme switch");
         $this->clickAndWait("module_activate");
-        // dumping database
-        try {
-            $this->dumpDB('reset_test_db_dump');
-        } catch (Exception $e) {
-            $this->stopTesting("Failed dumping original db");
-        }
     }
 
     // ------------------------ Mobile  functionality ----------------------------------
