@@ -1,5 +1,8 @@
 [{assign var="actCategory" value=$oView->getActiveCategory()}]
-[{assign var="parentCategory" value=$actCategory->getParentCategory()}]
+[{assign var="listType" value=$oView->getListType()}]
+[{if $listType != 'manufacturer'}]
+    [{assign var="parentCategory" value=$actCategory->getParentCategory()}]
+[{/if}]
 
 [{capture append="oxidBlock_content"}]
 
