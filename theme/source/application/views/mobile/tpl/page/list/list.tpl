@@ -1,5 +1,8 @@
 [{assign var="actCategory" value=$oView->getActiveCategory()}]
-[{assign var="parentCategory" value=$actCategory->getParentCategory()}]
+[{assign var="parentCategory" value=''}]
+[{if $actCategory && ('oxcategory' == $actCategory->getClassName()) }]
+    [{assign var="parentCategory" value=$actCategory->getParentCategory()}]
+[{/if}]
 
 [{capture append="oxidBlock_content"}]
 

@@ -2079,6 +2079,52 @@ class oeMobileTheme_MobileTest extends oxTestCase
     }
 
     /**
+     * Testing tag cloud links, see ESDEV-2869/#6051, verify tag links work in mobile theme.
+     *
+     * @group mobile
+     */
+    public function testTagCloud()
+    {
+        $this->open(shopURL . "admin");
+
+        // need azure theme active as well
+        $this->loginAdminForModule("Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303");
+        $this->openListItem("link=Azure");
+        $this->clickAndWait("//input[@value='Activate']");
+
+        $this->openShop();
+        $this->open( shopURL . "en/tags/?themeType=mobile" );
+        $this->assertElementPresent("link=wetsuit");
+
+        $this->clickAndWait("link=wetsuit");
+        $this->assertTextPresent("Wetsuit NPX VAMP");
+        $this->assertTextPresent("Wetsuit NPX ASSASSIN");
+    }
+
+    /**
+     * Testing tag cloud links,
+     * related issue to ESDEV-2869/#6051, verify tag links work in mobile theme.
+     *
+     * @group mobile
+     */
+    public function testManufacturerPage()
+    {
+        $this->open(shopURL . "admin");
+
+        // need azure theme active as well
+        $this->loginAdminForModule("Extensions", "Themes", null, null, null, "admin@myoxideshop.com", "admin0303");
+        $this->openListItem("link=Azure");
+        $this->clickAndWait("//input[@value='Activate']");
+
+        $this->openShop();
+        $this->open( shopURL . "en/By-Manufacturer/?themeType=mobile" );
+        $this->assertElementPresent("link=Kuyichi");
+
+        $this->clickAndWait("link=Kuyichi");
+        $this->assertTextPresent("Kuyichi Jeans ANNA");
+    }
+
+    /**
      * selects specified value from dropdown (for multidimensional variants).
      *
      * @param string $elementId container id.
