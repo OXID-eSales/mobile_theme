@@ -24,7 +24,7 @@
  */
 class oeMobileTheme_MobileTest extends oxTestCase
 {
-    const TEST_USER_NAME = 'testuser@oxid.de';
+    const TEST_USER_NAME = 'testuser@oxid-esales.dev';
     const TEST_USER_PASSWORD = 'useruser';
 
     /**

@@ -303,7 +303,7 @@ REPLACE INTO `oxwrapping2shop` (`OXSHOPID`, `OXMAPOBJECTID`) VALUES
 
 #User demodata
 REPLACE INTO `oxuser` (`OXID`,     `OXACTIVE`, `OXRIGHTS`, `OXSHOPID`, `OXUSERNAME`,         `OXPASSWORD`,                       `OXPASSSALT`,        `OXCUSTNR`, `OXCOMPANY`,          `OXFNAME`,        `OXLNAME`,           `OXSTREET`,        `OXSTREETNR`, `OXADDINFO`,                   `OXCITY`,            `OXCOUNTRYID`,                `OXZIP`,  `OXFON`,       `OXFAX`,       `OXSAL`, `OXBONI`, `OXCREATE`,            `OXREGISTER`,          `OXPRIVFON`,   `OXMOBFON`,    `OXBIRTHDATE`) VALUES
-                     ('testuser',  1,         'user',      1,         'testuser@oxid.de', 'c9dadd994241c9e5fa6469547009328a', '7573657275736572',   8,         'UserCompany šÄßüл',  'UserNamešÄßüл',  'UserSurnamešÄßüл',  'Musterstr.šÄßüл', '1',          'User additional info šÄßüл',  'Musterstadt šÄßüл', 'a7c40f631fc920687.20179984', '79098',  '0800 111111', '0800 111112', 'Mr',     500,     '2008-02-05 14:42:42', '2008-02-05 14:42:42', '0800 111113', '0800 111114', '1980-01-01');
+                     ('testuser',  1,         'user',      1,         'testuser@oxid-esales.dev', 'c9dadd994241c9e5fa6469547009328a', '7573657275736572',   8,         'UserCompany šÄßüл',  'UserNamešÄßüл',  'UserSurnamešÄßüл',  'Musterstr.šÄßüл', '1',          'User additional info šÄßüл',  'Musterstadt šÄßüл', 'a7c40f631fc920687.20179984', '79098',  '0800 111111', '0800 111112', 'Mr',     500,     '2008-02-05 14:42:42', '2008-02-05 14:42:42', '0800 111113', '0800 111114', '1980-01-01');
 #News demodata
 REPLACE INTO `oxnews` (`OXID`,      `OXMAPID`, `OXSHOPID`, `OXACTIVE`, `OXDATE`,     `OXSHORTDESC`,                 `OXLONGDESC`,                  `OXACTIVE_1`, `OXSHORTDESC_1`,               `OXLONGDESC_1`) VALUES
                      ('testnews1',  101,       1,            1,         '2008-01-01', 'Test news 1 [DE] šÄßüл',      '<p>Test news text 1 [DE]</p>', 1,           'Test news 1 [EN] šÄßüл',      '<p>Test news text 1 [EN] šÄßüл</p>'),
@@ -323,7 +323,7 @@ REPLACE INTO `oxnews2shop` (`OXSHOPID`, `OXMAPOBJECTID`) VALUES
 
 #Newssubscibers demodata
 REPLACE INTO `oxnewssubscribed` (`OXID`,                       `OXSHOPID`, `OXUSERID`,  `OXSAL`, `OXFNAME`,   `OXLNAME`,      `OXEMAIL`,            `OXSUBSCRIBED`) VALUES
-                               ('15947a85ab4658ce7.97826445',  1,         'testuser',  'Mr',    'UserName',  'UserSurname',  'testuser@oxid.de', '2008-02-05 14:46:44');
+                               ('15947a85ab4658ce7.97826445',  1,         'testuser',  'Mr',    'UserName',  'UserSurname',  'testuser@oxid-esales.dev', '2008-02-05 14:46:44');
 #Discount demodata
 REPLACE INTO `oxdiscount` (`OXID`,           `OXMAPID`, `OXSHOPID`, `OXACTIVE`, `OXTITLE`,                          `OXTITLE_1`,                       `OXAMOUNT`, `OXAMOUNTTO`, `OXPRICETO`, `OXPRICE`, `OXADDSUMTYPE`, `OXADDSUM`, `OXITMARTID`, `OXITMAMOUNT`, `OXITMMULTIPLE`) VALUES
                          ('testcatdiscount', 101,       1,            1,         'discount for category [DE] šÄßüл', 'discount for category [EN] šÄßüл', 1,          999999,       0,           0,        'abs',           5,         '',            0,             0),
@@ -563,7 +563,7 @@ REPLACE INTO `oxreviews` (`OXID`,           `OXACTIVE`, `OXOBJECTID`, `OXTYPE`, 
                         ('testrecomreview', 0,         'testrecomm', 'oxrecommlist', 'recommendation for this list', 'testuser', '2009-11-10 12:18:29', 1,        3);
 
 #updating smtp and emails data
-UPDATE `oxshops` SET `OXPRODUCTIVE` = 1, `OXINFOEMAIL` = 'testuser@oxid.de', `OXORDEREMAIL` = 'testuser@oxid.de', `OXOWNEREMAIL` = 'testuser@oxid.de', `OXSMTP` = '172.18.1.67', `OXDEFCAT` = '' WHERE `OXID` = '1';
+UPDATE `oxshops` SET `OXPRODUCTIVE` = 1, `OXINFOEMAIL` = 'testuser@oxid-esales.dev', `OXORDEREMAIL` = 'testuser@oxid-esales.dev', `OXOWNEREMAIL` = 'testuser@oxid-esales.dev', `OXSMTP` = '172.18.1.67', `OXDEFCAT` = '' WHERE `OXID` = '1';
 
 #updating Countries for not billing VAT
 UPDATE `oxcountry` SET `OXVATSTATUS` = 0 WHERE `OXTITLE_1` = 'Austria';
