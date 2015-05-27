@@ -563,7 +563,7 @@ REPLACE INTO `oxreviews` (`OXID`,           `OXACTIVE`, `OXOBJECTID`, `OXTYPE`, 
                         ('testrecomreview', 0,         'testrecomm', 'oxrecommlist', 'recommendation for this list', 'testuser', '2009-11-10 12:18:29', 1,        3);
 
 #updating smtp and emails data
-UPDATE `oxshops` SET `OXPRODUCTIVE` = 1, `OXINFOEMAIL` = 'testuser@oxid-esales.dev', `OXORDEREMAIL` = 'testuser@oxid-esales.dev', `OXOWNEREMAIL` = 'testuser@oxid-esales.dev', `OXSMTP` = '172.18.1.67', `OXDEFCAT` = '' WHERE `OXID` = '1';
+UPDATE `oxshops` SET `OXPRODUCTIVE` = 1, `OXINFOEMAIL` = 'testuser@oxid-esales.dev', `OXORDEREMAIL` = 'testuser@oxid-esales.dev', `OXOWNEREMAIL` = 'testuser@oxid-esales.dev', `OXSMTP` = 'localhost', `OXDEFCAT` = '' WHERE `OXID` = '1';
 
 #updating Countries for not billing VAT
 UPDATE `oxcountry` SET `OXVATSTATUS` = 0 WHERE `OXTITLE_1` = 'Austria';
