@@ -168,11 +168,11 @@ REPLACE INTO `oxnews` (`OXID`,       `OXSHOPID`,  `OXACTIVE`, `OXDATE`,     `OXS
                      ('testnews11', 'oxbaseshop', 0,         '2008-02-12', '[last] [DE] Test news šÄßüл', '<p>Test news text</p>',        0,           '7 [EN] Test news šÄßüл',      '<p>Test news text</p>');
 #News subscribbed demodata
 REPLACE INTO `oxnewssubscribed` (`OXID`,                       `OXSHOPID`,   `OXUSERID`,  `OXSAL`, `OXFNAME`,   `OXLNAME`,      `OXEMAIL`,           `OXDBOPTIN`, `OXSUBSCRIBED`) VALUES
-                               ('aad47a859fa2fd5d2.73169490', 'oxbaseshop', 'testuser',  'Mr',    'UserName',  'UserSurname',  'testuser@oxid.de', 0,          '2008-02-05 14:43:38');
+                               ('aad47a859fa2fd5d2.73169490', 'oxbaseshop', 'testuser',  'Mr',    'UserName',  'UserSurname',  'testuser@oxid-esales.dev', 0,          '2008-02-05 14:43:38');
 
 #Users demodata
 REPLACE INTO `oxuser` (`OXID`,     `OXACTIVE`, `OXRIGHTS`, `OXSHOPID`,   `OXUSERNAME`,         `OXPASSWORD`,                       `OXPASSSALT`,        `OXCUSTNR`, `OXUSTID`, `OXCOMPANY`,          `OXFNAME`,        `OXLNAME`,           `OXSTREET`,        `OXSTREETNR`, `OXADDINFO`,                   `OXCITY`,            `OXCOUNTRYID`,                `OXZIP`, `OXFON`,        `OXFAX`,       `OXSAL`, `OXBONI`, `OXCREATE`,            `OXREGISTER`,          `OXPRIVFON`,   `OXMOBFON`,    `OXBIRTHDATE`) VALUES
-                     ('testuser',  1,         'user',     'oxbaseshop', 'testuser@oxid.de', 'c9dadd994241c9e5fa6469547009328a', '7573657275736572',   8,         '',        'UserCompany šÄßüл',  'UserNamešÄßüл',  'UserSurnamešÄßüл',  'Musterstr.šÄßüл', '1',          'User additional info šÄßüл',  'Musterstadt šÄßüл', 'a7c40f631fc920687.20179984', '79098',  '0800 111111', '0800 111112', 'Mr',     500,     '2008-02-05 14:42:42', '2008-02-05 14:42:42', '0800 111113', '0800 111114', '1980-01-01');
+                     ('testuser',  1,         'user',     'oxbaseshop', 'testuser@oxid-esales.dev', 'c9dadd994241c9e5fa6469547009328a', '7573657275736572',   8,         '',        'UserCompany šÄßüл',  'UserNamešÄßüл',  'UserSurnamešÄßüл',  'Musterstr.šÄßüл', '1',          'User additional info šÄßüл',  'Musterstadt šÄßüл', 'a7c40f631fc920687.20179984', '79098',  '0800 111111', '0800 111112', 'Mr',     500,     '2008-02-05 14:42:42', '2008-02-05 14:42:42', '0800 111113', '0800 111114', '1980-01-01');
 #Select list demodata
 REPLACE INTO `oxselectlist` (`OXID`,          `OXSHOPID`,   `OXTITLE`,                        `OXIDENT`,              `OXVALDESC`,                                                                      `OXTITLE_1`,                      `OXVALDESC_1`) VALUES
                            ('testsellist',   'oxbaseshop', 'test selection list [DE] šÄßüл', 'test sellist šÄßüл',   'selvar1 [DE]!P!1__@@selvar2 [DE]__@@selvar3 [DE]!P!-2__@@selvar4 [DE]!P!2%__@@', 'test selection list [EN] šÄßüл', 'selvar1 [EN] šÄßüл!P!1__@@selvar2 [EN] šÄßüл__@@selvar3 [EN] šÄßüл!P!-2__@@selvar4 [EN] šÄßüл!P!2%__@@'),
@@ -472,7 +472,7 @@ REPLACE INTO `oxreviews` (`OXID`,           `OXACTIVE`, `OXOBJECTID`, `OXTYPE`, 
                         ('testrecomreview', 0,         'testrecomm', 'oxrecommlist', 'recommendation for this list', 'testuser', '2009-11-10 12:18:29', 1,        3);
 
 #updating smtp and email information
-UPDATE `oxshops` SET `OXPRODUCTIVE` = 1, `OXINFOEMAIL` = 'testuser@oxid.de', `OXORDEREMAIL` = 'testuser@oxid.de', `OXOWNEREMAIL` = 'testuser@oxid.de', `OXSMTP` = '172.18.1.67', `OXDEFCAT` = '' WHERE `OXID` = 'oxbaseshop';
+UPDATE `oxshops` SET `OXPRODUCTIVE` = 1, `OXINFOEMAIL` = 'testuser@oxid-esales.dev', `OXORDEREMAIL` = 'testuser@oxid-esales.dev', `OXOWNEREMAIL` = 'testuser@oxid-esales.dev', `OXSMTP` = '172.18.1.67', `OXDEFCAT` = '' WHERE `OXID` = 'oxbaseshop';
 UPDATE `oxcountry` SET `OXVATSTATUS` = 0 WHERE `OXTITLE_1` = 'Austria';
 UPDATE `oxcountry` SET `OXACTIVE` = 1 WHERE `OXTITLE_1` = 'Germany';
 UPDATE `oxcountry` SET `OXACTIVE` = 1 WHERE `OXTITLE_1` = 'Austria';
