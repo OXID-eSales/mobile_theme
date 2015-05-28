@@ -74,12 +74,18 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      */
     public function oeThemeSwitcherGetActiveThemeId()
     {
-        $sCustomTheme = $this->getConfigParam('sCustomTheme');
-        if ($sCustomTheme) {
+        $sCustomTheme = $this->getConfigParam( 'sCustomTheme' );
+        if ( $sCustomTheme ) {
+            $oTheme = oxNew( 'oxTheme' );
+            $oTheme->load( $sCustomTheme );
+
+            if ( $sParentTheme = $oTheme->getInfo( 'parentTheme' ) ) {
+                $this->_aConfigParams[ 'sTheme' ] = $sParentTheme;
+            }
+
             return $sCustomTheme;
         }
-
-        return $this->getConfigParam('sTheme');
+        return $this->getConfigParam( 'sTheme' );
     }
 
     /**
