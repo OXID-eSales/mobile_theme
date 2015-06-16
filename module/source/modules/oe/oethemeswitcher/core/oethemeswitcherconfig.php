@@ -41,15 +41,22 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
     protected $_oThemeManager = null;
 
     /**
+     * Instance cache for theme parents.
+     *
+     * @var array
+     */
+    protected $themeParents = array();
+
+    /**
      * Returns config parameter value if such parameter exists
      *
      * @param string $sName config parameter name
      *
      * @return mixed
      */
-    public function getConfigParam($sName)
+    public function getConfigParam($sName, $sDefault = null)
     {
-        $sReturn = parent::getConfigParam($sName);
+        $sReturn = parent::getConfigParam($sName, $sDefault);
 
         if ($sName == "sCustomTheme") {
             //load module configs
@@ -74,18 +81,18 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
      */
     public function oeThemeSwitcherGetActiveThemeId()
     {
-        $sCustomTheme = $this->getConfigParam( 'sCustomTheme' );
-        if ( $sCustomTheme ) {
-            $oTheme = oxNew( 'oxTheme' );
-            $oTheme->load( $sCustomTheme );
+        $customTheme = $this->getConfigParam('sCustomTheme');
 
-            if ( $sParentTheme = $oTheme->getInfo( 'parentTheme' ) ) {
-                $this->_aConfigParams[ 'sTheme' ] = $sParentTheme;
+        if ($customTheme) {
+            $parentTheme = $this->getParentThemeId($customTheme);
+
+            if (!is_null($parentTheme)) {
+                $this->_aConfigParams['sTheme'] = $parentTheme;
             }
-
-            return $sCustomTheme;
+            return $customTheme;
         }
-        return $this->getConfigParam( 'sTheme' );
+
+        return $this->getConfigParam('sTheme');
     }
 
     /**
@@ -100,5 +107,35 @@ class oeThemeSwitcherConfig extends oeThemeSwitcherConfig_parent
         }
 
         return $this->_oThemeManager;
+    }
+
+    /**
+     * Get parent theme id for given theme id.
+     *
+     * @param string|null  $themeId
+     */
+    protected function getParentThemeId($themeId)
+    {
+        if (!array_key_exists($themeId, $this->themeParents)) {
+            $theme = $this->loadTheme($themeId);
+            $parentTheme = $theme->getInfo('parentTheme');
+            $this->themeParents[$themeId] = empty($parentTheme) ? null : $parentTheme;
+        }
+
+        return $this->themeParents[$themeId];
+    }
+
+    /**
+     * Load theme by id.
+     *
+     * @param string $themeId
+     *
+     * @return oxTheme
+     */
+    protected function loadTheme($themeId)
+    {
+        $theme = oxNew('oxTheme');
+        $theme->load($themeId);
+        return $theme;
     }
 }

@@ -26,16 +26,19 @@ class Unit_oeThemeSwitcher_Core_oeThemeSwitcherConfigTest extends OxidTestCase
 {
 
     /**
-     * Checks if method oeThemeSwitcherConfig::oeThemeSwitcherGetActiveThemeId returns correct active theme id
+     * Checks if method oeThemeSwitcherConfig::oeThemeSwitcherGetActiveThemeId returns correct active theme id.
+     * Case that the mobile theme has no parent theme.
      */
     public function testGetActiveThemeId()
     {
-        $sActiveThemeId = 'test';
-        $oConfig = new oeThemeSwitcherConfig();
-        $oConfig->setConfigParam('sCustomTheme', $sActiveThemeId);
-        $sGotActiveThemeId = $oConfig->oeThemeSwitcherGetActiveThemeId();
+        $activeThemeId = 'test';
+        $config = new oeThemeSwitcherConfig();
+        $config->setConfigParam('sCustomTheme', $activeThemeId);
+        $gotActiveThemeId = $config->oeThemeSwitcherGetActiveThemeId();
 
-        $this->assertEquals($sActiveThemeId, $sGotActiveThemeId);
+        $this->assertEquals($activeThemeId, $gotActiveThemeId);
+        $this->assertEquals('azure', $config->getConfigParam('sTheme'));
+        $this->assertEquals('test', $config->getConfigParam('sCustomTheme'));
     }
 
     /**
@@ -43,7 +46,100 @@ class Unit_oeThemeSwitcher_Core_oeThemeSwitcherConfigTest extends OxidTestCase
      */
     public function testGetThemeManager()
     {
-        $oConfig = new oeThemeSwitcherConfig();
-        $this->assertInstanceOf('oeThemeSwitcherThemeManager', $oConfig->oeThemeSwitcherGetThemeManager());
+        $config = new oeThemeSwitcherConfig();
+        $this->assertInstanceOf('oeThemeSwitcherThemeManager', $config->oeThemeSwitcherGetThemeManager());
     }
+
+    /**
+     * Checks if method oeThemeSwitcherConfig::oeThemeSwitcherGetActiveThemeId returns correct active theme id.
+     * Case that the mobile theme has a parent theme.
+     */
+    public function testGetActiveThemeAndParentIdForChildTheme()
+    {
+        $activeThemeId       = 'mobilechild';
+        $activeThemeParentId = 'mobileparent';
+
+        $themeMock = $this->getMock('oxTheme', array('getInfo'));
+        $themeMock->expects($this->once())->method('getInfo')->with($this->equalTo('parentTheme'))->will($this->returnValue($activeThemeParentId));
+
+        $config = $this->getMock('oeThemeSwitcherConfig', array('loadTheme'));
+        $config->expects($this->once())->method('loadTheme')->with($this->equalTo($activeThemeId))->will($this->returnValue($themeMock));
+        $config->setConfigParam('sCustomTheme', $activeThemeId);
+
+        $this->assertEquals($activeThemeId, $config->oeThemeSwitcherGetActiveThemeId());
+        $this->assertEquals($activeThemeParentId, $config->getConfigParam('sTheme'));
+    }
+
+
+    public function testMobileThemeRequested()
+    {
+        $mobileThemeId       = 'mobile';
+        $mobileThemeParentId = 'mobileparent';
+        $desktopThemeId      = 'azure';
+
+        $mobileThemeMock = $this->getMock('oxTheme', array('getInfo'));
+        $mobileThemeMock->expects($this->once())->method('getInfo')->with($this->equalTo('parentTheme'))->will($this->returnValue($mobileThemeParentId));
+
+        $themeswitcherManager = $this->getMock('oeThemeSwitcherThemeManager', array('isMobileThemeRequested'));
+        $themeswitcherManager->expects($this->any())->method('isMobileThemeRequested')->will($this->returnValue(true));
+
+        $config = $this->getMock('oeThemeSwitcherConfig', array('loadTheme', 'oeThemeSwitcherGetThemeManager'));
+        $config->expects($this->any())->method('oeThemeSwitcherGetThemeManager')->will($this->returnValue($themeswitcherManager));
+        $config->expects($this->once())->method('loadTheme')->with($this->equalTo($mobileThemeId))->will($this->returnValue($mobileThemeMock));
+
+        //call to $config->oeThemeSwitcherGetActiveThemeId() changes config Parameter sTheme
+        $this->assertEquals($desktopThemeId, $config->getConfigParam('sTheme'));
+        $this->assertEquals($mobileThemeId, $config->oeThemeSwitcherGetActiveThemeId());
+        $this->assertEquals($mobileThemeParentId, $config->getConfigParam('sTheme'));
+    }
+
+    /**
+     * Case desktop theme is requested and has no parent theme.
+     */
+    public function testDesktopThemeRequested()
+    {
+        $desktopThemeId      = 'azure';
+
+        $themeswitcherManager = $this->getMock('oeThemeSwitcherThemeManager', array('isMobileThemeRequested'));
+        $themeswitcherManager->expects($this->any())->method('isMobileThemeRequested')->will($this->returnValue(false));
+
+        $config = $this->getMock('oeThemeSwitcherConfig', array('loadTheme', 'oeThemeSwitcherGetThemeManager'));
+        $config->expects($this->any())->method('oeThemeSwitcherGetThemeManager')->will($this->returnValue($themeswitcherManager));
+        $config->expects($this->never())->method('loadTheme');
+
+        //call to $config->oeThemeSwitcherGetActiveThemeId() changes config Parameter sTheme
+        $this->assertEquals($desktopThemeId, $config->getConfigParam('sTheme'));
+        $this->assertEquals($desktopThemeId, $config->oeThemeSwitcherGetActiveThemeId());
+        $this->assertEquals($desktopThemeId, $config->getConfigParam('sTheme'));
+        $this->assertNull($config->getConfigParam('sCustomTheme'));
+    }
+
+    /**
+     * Case desktop theme is requested and has a parent theme.
+     */
+    public function testDesktopThemeRequestedAndHasParent()
+    {
+        $desktopThemeId = 'azurechild';
+        $desktopThemeParentId = 'azure';
+
+        $desktopThemeMock = $this->getMock('oxTheme', array('getInfo'));
+        $desktopThemeMock->expects($this->once())->method('getInfo')->with($this->equalTo('parentTheme'))->will($this->returnValue($desktopThemeParentId));
+
+        $themeswitcherManager = $this->getMock('oeThemeSwitcherThemeManager', array('isMobileThemeRequested'));
+        $themeswitcherManager->expects($this->any())->method('isMobileThemeRequested')->will($this->returnValue(false));
+
+        $config = $this->getMock('oeThemeSwitcherConfig', array('loadTheme', 'oeThemeSwitcherGetThemeManager'));
+        $config->expects($this->any())->method('oeThemeSwitcherGetThemeManager')->will($this->returnValue($themeswitcherManager));
+        $config->expects($this->once())->method('loadTheme')->with($this->equalTo($desktopThemeId))->will($this->returnValue($desktopThemeMock));
+        $config->setConfigParam('sCustomTheme', $desktopThemeId);
+        $config->setConfigParam('sTheme', $desktopThemeParentId);
+
+        //call to $config->oeThemeSwitcherGetActiveThemeId() changes config Parameter sTheme
+        $this->assertEquals($desktopThemeParentId, $config->getConfigParam('sTheme'));
+        $this->assertEquals($desktopThemeId, $config->oeThemeSwitcherGetActiveThemeId());
+        $this->assertEquals($desktopThemeParentId, $config->getConfigParam('sTheme'));
+        $this->assertEquals($desktopThemeId, $config->oeThemeSwitcherGetActiveThemeId());
+
+    }
+
 }
