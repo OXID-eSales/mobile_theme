@@ -66,8 +66,6 @@ if (!is_dir(oxCCTempDir)) {
     mkdir(oxCCTempDir, 0777, 1);
 }
 
-require_once 'PHPUnit/Framework/TestSuite.php';
-
 echo "=========\nrunning php version ".phpversion()."\n\n============\n";
 
 /**
