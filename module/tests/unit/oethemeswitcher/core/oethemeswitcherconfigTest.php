@@ -32,6 +32,7 @@ class Unit_oeThemeSwitcher_Core_oeThemeSwitcherConfigTest extends OxidTestCase
     {
         $sActiveThemeId = 'test';
         $oConfig = new oeThemeSwitcherConfig();
+        $oConfig->init();
         $oConfig->setConfigParam('sCustomTheme', $sActiveThemeId);
         $sGotActiveThemeId = $oConfig->oeThemeSwitcherGetActiveThemeId();
 
