@@ -31,8 +31,7 @@ class oeThemeSwitcherVendorList extends oeThemeSwitcherVendorList_parent
      */
     public function getViewId()
     {
-        $oUBase = oxNew('aList');
-        $sViewId = $oUBase->getViewId();
+        $sViewId = parent::getViewId();
         $sViewId .= $this->getConfig()->oeThemeSwitcherGetActiveThemeId();
 
         return $sViewId;
