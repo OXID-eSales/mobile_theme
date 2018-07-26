@@ -5,7 +5,7 @@ The extension OXID eShop Mobile Theme consists of a mobile theme and a module th
 
 ![OXID eShop mobile theme](mobile.png)
 
-###Features
+### Features
 
 * Checkout
 * Products filter
@@ -19,7 +19,7 @@ The extension OXID eShop Mobile Theme consists of a mobile theme and a module th
 * Supporting OXID eShop Community Edition & Enterprise Edition
 * Full legal compliance
 
-###Setup
+### Setup
 
 As this extension consists of two components, the "theme switch" module and the theme itself, two installation steps have to be done.
 
@@ -35,7 +35,11 @@ As this extension consists of two components, the "theme switch" module and the 
 3. The "theme switch" module allows you to switch to any theme you want. To use a different theme then the default, enter the name of the theme that should be used with mobile devices in the module settings. This theme must be installed before configured in the theme switcher settings.<br>
 4. If you are using the varnish cache (EE only), please merge the file "device.vcl" with your existing varnish configuration file. If you're not running an EE you can ditch this file.<br>
 
-###License
+### Bugs and Issues
+
+If you experience any bugs or issues, please report them in the section **Module Mobile theme** of https://bugs.oxid-esales.com.
+
+### License
 
 OXID eSales Mobile Theme extension is free software: you can redistribute and/or modify it under the terms of the GNU General Public License as published by Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
