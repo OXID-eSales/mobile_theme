@@ -34,11 +34,3 @@ As this extension consists of two components, the "theme switch" module and the 
 2. Activate the module.<br>
 3. The "theme switch" module allows you to switch to any theme you want. To use a different theme then the default, enter the name of the theme that should be used with mobile devices in the module settings. This theme must be installed before configured in the theme switcher settings.<br>
 4. If you are using the varnish cache (EE only), please merge the file "device.vcl" with your existing varnish configuration file. If you're not running an EE you can ditch this file.<br>
-
-###License
-
-OXID eSales Mobile Theme extension is free software: you can redistribute and/or modify it under the terms of the GNU General Public License as published by Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-OXID eSales Mobile Theme extension is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with OXID eSales Mobile Theme extension.  If not, see <http://www.gnu.org/licenses/>.
